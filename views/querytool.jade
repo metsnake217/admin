@@ -44,7 +44,7 @@ block content
                        - for(var prop in searchResults)
                             p!=JSON.stringify(searchResults[prop])
                      - if (error == "error")
-                         p(style="text-align:center")!="Your query cannot be processed: " + JSON.stringify(searchResults).replace(/&quot;/g, '"')
+                         p(style="text-align:center")!=JSON.stringify(searchResults).replace(/&quot;/g, '"')
         if(searchResults != undefined && searchResults.length == 0 && searchformText)
             div.searchResults(id="results")
                 div(id="ctl00_Div2" class="row rank")
