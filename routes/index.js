@@ -55,14 +55,14 @@ module.exports = function(router) {
 	var competitionStarts = dates.competitionStarts;
 	var competitionEnds = dates.competitionEnds;
 
-    router.post('/share', isLoggedIn, function(req, res) {
+    router.post('/departments', isLoggedIn, function(req, res) {
         var exceltojson;
         upload(req,res,function(err){
         	var cont = 1;
             if(err){
                  //res.json({error_code:1,err_desc:err});
-                 res.render('share', {
-                   nosuccess: "generic", myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, loggedIn : true, isLoggedInAdmin: req.session.admin, title: 'Share', labyoker : req.session.user
+                 res.render('departments', {
+                   nosuccess: "generic", myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, loggedIn : true, isLoggedInAdmin: req.session.admin, title: 'Departments', labyoker : req.session.user
                  });
                  cont = 0;
                  console.log("generic error: "+cont);
@@ -72,8 +72,8 @@ module.exports = function(router) {
             if(!req.file){
                 //res.json({error_code:1,err_desc:"No file passed"});
                 
-                res.render('share', {
-                   nosuccess: "nofile", myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, loggedIn : true, isLoggedInAdmin: req.session.admin, title: 'Share', labyoker : req.session.user
+                res.render('departments', {
+                   nosuccess: "nofile", myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, loggedIn : true, isLoggedInAdmin: req.session.admin, title: 'Departments', labyoker : req.session.user
                 });
                 cont = 0;
                 console.log("no file error: " + cont);
@@ -97,8 +97,8 @@ module.exports = function(router) {
                     if(err) {
                         //return res.json({error_code:1,err_desc:err, data: null});
 
-                        res.render('share', {
-                    	nosuccess: "nodata", myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, loggedIn : true, isLoggedInAdmin: req.session.admin, title: 'Share', spreadname: req.file.originalname, labyoker : req.session.user
+                        res.render('departments', {
+                    	nosuccess: "nodata", myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, loggedIn : true, isLoggedInAdmin: req.session.admin, title: 'Departments', spreadname: req.file.originalname, labyoker : req.session.user
                     	});
                     	cont = 0;
                     	console.log("no data error : " + cont);
@@ -119,12 +119,12 @@ module.exports = function(router) {
                     if(done == "successfulUpload"){
                     	console.log("inside successful upload");
                     	console.log("mysharesrequest " + req.session.mysharesrequest);
-                    	res.render('share', {
-                    	myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, json: result, loggedIn : true, isLoggedInAdmin: req.session.admin, title: 'Share', spreadname: req.file.originalname, labyoker : req.session.user
+                    	res.render('departments', {
+                    	myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, json: result, loggedIn : true, isLoggedInAdmin: req.session.admin, title: 'Departments', spreadname: req.file.originalname, labyoker : req.session.user
                     });
                 	} else {
                 		console.log("inside not successful upload");
-                		res.render('share', {nosuccess: "databaserror", report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Share'});
+                		res.render('departments', {nosuccess: "databaserror", report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 						req.session.messages = null;
                 	}
                 });
@@ -143,11 +143,11 @@ module.exports = function(router) {
 
 
 	router.get('/', function(req, res) {
-		res.redirect('/search');
+		res.redirect('/querytool');
 	});
 
 	router.get('/admin', function(req, res) {
-		res.redirect('/share');
+		res.redirect('/querytool');
 	});
 
 	router.get('/help', function(req, res) {
@@ -196,7 +196,7 @@ module.exports = function(router) {
 			return next();
 		console.log('requested url: '+req.originalUrl);
 		req.session.to = req.originalUrl;
-		res.redirect('/search');
+		res.redirect('/querytool');
 	}
 
 	function isLoggedInAndNotActive(req, res, next) {
@@ -214,7 +214,7 @@ module.exports = function(router) {
 
 	router.get('/login', function(req, res) {
 		if (req.session.user) {
-			res.redirect('/search');
+			res.redirect('/querytool');
 		} else {
 			var labyokerLabs = new LabyokerLabs('','');
 			labyokerLabs.getlabs(function(error, labs) {
@@ -227,14 +227,14 @@ module.exports = function(router) {
 		}
 	});
 
-	router.get('/search', isLoggedIn, function(req, res) {
+	router.get('/querytool', isLoggedIn, function(req, res) {
 		if (req.session.user) {
 			var labYokeSearch = new LabYokeSearch("",req.session.email);
 			labYokeSearch.findagents(function(error, results) {			
 				if (results != null && results.length > 0){
-					res.render('search', {mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, agentsResults : results, loggedIn : true, title: 'Search'});
+					res.render('querytool', {mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, agentsResults : results, loggedIn : true, title: 'Query Tool'});
 				} else {
-					res.render('search', {mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Search'});
+					res.render('querytool', {mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Query Tool'});
 				}
 				req.session.messages = null;
 			});
@@ -245,7 +245,7 @@ module.exports = function(router) {
 
 
 
-	router.get('/orders', isLoggedIn, function(req, res) {
+	router.get('/users', isLoggedIn, function(req, res) {
 		if (req.session.user) {
 			var labyokerLab = new LabyokerLab(req.session.lab);
 		labyokerLab.getLabsInDept(function(error, categories) {
@@ -321,9 +321,9 @@ totalshares = t[0].counting;
 					console.log("orders - b length radomized: " + booster.length);
 					req.session.savingsText = booster[b];
 					req.session.savingsColor = boostercolor[b];
-					//console.log("lab orders results1: " + results2[1]);				
-					//res.render('orders', {test: results[3], laborders: results2[0],lab1orders: results2[1], ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Orders', loggedIn : true, orderresults: results[0], report_sharesbycategory: results[1]});
-					res.render('orders', {booster:req.session.savingsText, boostercolor:req.session.savingsColor,currentlabname:req.session.lab, categories: req.session.categories, test: results[3], laborders: results2, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Orders', loggedIn : true, orderresults: results[0], report_sharesbycategory: results[1], report_ordersbycategory: results[4]});
+					//console.log("lab users results1: " + results2[1]);				
+					//res.render('users', {test: results[3], laborders: results2[0],lab1orders: results2[1], ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Users', loggedIn : true, orderresults: results[0], report_sharesbycategory: results[1]});
+					res.render('users', {booster:req.session.savingsText, boostercolor:req.session.savingsColor,currentlabname:req.session.lab, categories: req.session.categories, test: results[3], laborders: results2, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Users', loggedIn : true, orderresults: results[0], report_sharesbycategory: results[1], report_ordersbycategory: results[4]});
 				}
 			});
 				});
@@ -333,7 +333,7 @@ totalshares = t[0].counting;
 		}
 	});
 
-	router.post('/orders', isLoggedIn, function(req, res) {
+	router.post('/users', isLoggedIn, function(req, res) {
 		if (req.session.user) {
 			var agent = req.body.agentform;
 			var lab = req.body.labform;
@@ -352,7 +352,7 @@ totalshares = t[0].counting;
 					console.log("ordering reqcategory: " + reqcategory);
 					console.log("booster",req.session.savingsText);
 				
-					res.render('orders', {booster:req.session.savingsText, boostercolor:req.session.savingsColor, currentlabname:req.session.lab, categories: req.session.categories, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Orders',loggedIn : true, location: location, agent: agent, vendor: vendor, catalog: catalognumber, email: email});
+					res.render('users', {booster:req.session.savingsText, boostercolor:req.session.savingsColor, currentlabname:req.session.lab, categories: req.session.categories, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Users',loggedIn : true, location: location, agent: agent, vendor: vendor, catalog: catalognumber, email: email});
 					req.session.messages = null;
 				}
 			});
@@ -392,7 +392,7 @@ totalshares = t[0].counting;
 			labYokechange.cancelShare(function(error, results) {
 				if(results != null && results.length > 0){
 					res.redirect('/share');			
-					//res.render('share', {ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Shares',loggedIn : true});
+					//res.render('departments', {ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Shares',loggedIn : true});
 					req.session.messages = null;
 				}
 			});
@@ -565,7 +565,7 @@ totalshares = t[0].counting;
 			req.session.report_venn = results[5];
 			req.session.shares = 0;
 			console.log("test ? " + results[3]);
-			res.render('share', {report_venn: results[5], test: results[4], currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, myshares: results[0], mysharesrequest: results[3], report_sharesbycategory: results[1], loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Share'});
+			res.render('departments', {report_venn: results[5], test: results[4], currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, myshares: results[0], mysharesrequest: results[3], report_sharesbycategory: results[1], loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 	});
@@ -684,7 +684,7 @@ totalshares = t[0].counting;
 	});
 
 	router.get('/searchCatalog', function(req, res) {
-		res.redirect('/search');
+		res.redirect('/querytool');
 	});
 
 	router.post('/register', function(req, res) {
@@ -869,7 +869,7 @@ totalshares = t[0].counting;
 			}
 	});
 
-	router.post('/search', function(req, res) {
+	router.post('/querytool', function(req, res) {
 		if (req.session.user) {
 			var searchText = req.body.searchText;
 			var labYokeSearch = new LabYokeSearch(searchText, req.session.email);
@@ -880,9 +880,9 @@ totalshares = t[0].counting;
 					if(results[0].length == 0){
 						messageStr = "Sorry we could not find any results with your reagent search request: <b>" + searchText + "</b>. Please try again.";
 					}
-					res.render('search', {mylab: req.session.lab, message: messageStr, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Search', fullname: req.session.fullname, sendemail: req.session.email, searchResults : results[0], agentsResults : results[1], searchformText: searchText, loggedIn : true});
+					res.render('querytool', {mylab: req.session.lab, message: messageStr, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', fullname: req.session.fullname, sendemail: req.session.email, searchResults : results[0], agentsResults : results[1], searchformText: searchText, loggedIn : true});
 				} else {
-					res.render('search', {message:'You entered an invalid reagent keyword. Please try again.',mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Search', loggedIn : true, agentsResults : results[1]});
+					res.render('querytool', {message:'You entered an invalid reagent keyword. Please try again.',mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', loggedIn : true, agentsResults : results[1]});
 				}
 				req.session.messages = null;
 			});
@@ -902,9 +902,9 @@ totalshares = t[0].counting;
 					if(results[0].length == 0){
 						messageStr = "Sorry we could not find any results with your catalog search request: <b>" + searchText + "</b>. Please try again.";
 					}
-					res.render('search', {mylab: req.session.lab, messageCatalog: messageStr, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Search', fullname: req.session.fullname, sendemail: req.session.email, searchResults : results[0], agentsResults : results[1], searchformTextCatalog: searchText, loggedIn : true});
+					res.render('querytool', {mylab: req.session.lab, messageCatalog: messageStr, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', fullname: req.session.fullname, sendemail: req.session.email, searchResults : results[0], agentsResults : results[1], searchformTextCatalog: searchText, loggedIn : true});
 				} else {
-					res.render('search', {messageCatalog:'You entered an invalid catalog keyword. Please try again.',mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Search', loggedIn : true, agentsResults : results[1]});
+					res.render('querytool', {messageCatalog:'You entered an invalid catalog keyword. Please try again.',mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', loggedIn : true, agentsResults : results[1]});
 				}
 				req.session.messages = null;
 			});
@@ -1086,7 +1086,7 @@ totalshares = t[0].counting;
 														res.redirect(req.session.to);
 														req.session.to = null;
 													} else {
-														res.redirect('/search');
+														res.redirect('/querytool');
 													}
 													});
 												});
@@ -1136,7 +1136,7 @@ totalshares = t[0].counting;
 						hashid: id,
 						isLoggedInAdmin: req.session.admin,
 						labyoker : req.session.user,
-						messageSuccess : "Congratulations you have successfully registered. You can now start searching to the <a href='/search'>search</a> page.",
+						messageSuccess : "Congratulations you have successfully registered. You can now start searching to the <a href='/querytool'>search</a> page.",
 						scripts : [ '/javascripts/utils.js' ]
 					});
 			} else if(results != null && results.length > 0 && results == 'errorFound') {
