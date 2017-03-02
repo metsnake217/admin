@@ -876,14 +876,19 @@ totalshares = t[0].counting;
 			var labYokeSearch = new LabYokeSearch(queryText, req.session.email);
 			var messageStr = "";
 			labYokeSearch.query(function(error, results) {
-				console.log("results " + results[0].length);	
+				console.log("results " + results.length);
+				var err = "";
+				if(results != null && results.length > 1){
+					console.log("error " + results[1]);
+					err = results[1];
+				}
 				if (queryText != null && queryText.length > 0){
 					if(results[0].length == 0){
 						messageStr = "Sorry we could not find any results with your reagent search request: <b>" + searchText + "</b>. Please try again.";
 					}
-					res.render('querytool', {mylab: req.session.lab, message: messageStr, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', fullname: req.session.fullname, sendemail: req.session.email, searchResults : results[0], agentsResults : results[1], searchformText: queryText, loggedIn : true});
+					res.render('querytool', {error: err, mylab: req.session.lab, message: messageStr, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', fullname: req.session.fullname, sendemail: req.session.email, searchResults : results[0], agentsResults : results[1], searchformText: queryText, loggedIn : true});
 				} else {
-					res.render('querytool', {message:'You entered an invalid reagent keyword. Please try again.',mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', loggedIn : true, agentsResults : results[1]});
+					res.render('querytool', {error: err, message:'You entered an invalid reagent keyword. Please try again.',mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', loggedIn : true, agentsResults : results[1]});
 				}
 				req.session.messages = null;
 			});
