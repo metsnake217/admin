@@ -40,8 +40,11 @@ block content
                    - i = 1
                    - className = ""
                    div(class="table-responsive")
-                      - for(var prop in searchResults)
+                     - if(error != "error")  
+                       - for(var prop in searchResults)
                             p!=JSON.stringify(searchResults[prop])
+                     - if (error == "error")
+                         p!=JSON.stringify(searchResults)
         if(searchResults != undefined && searchResults.length == 0 && searchformText)
             div.searchResults(id="results")
                 div(id="ctl00_Div2" class="row rank")

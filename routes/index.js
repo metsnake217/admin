@@ -898,14 +898,18 @@ totalshares = t[0].counting;
 			var labYokeSearch = new LabYokeSearch(searchText, req.session.email);
 			var messageStr = "";
 			labYokeSearch.query(function(error, results) {
-				console.log("results " + results[0].length);	
+				console.log("results " + results[0].length);
+				var err = "";
+				if(results != null && results.length > 1){
+					err = results[1];
+				}	
 				if (searchText != null && searchText.length > 0){
 					if(results[0].length == 0){
 						messageStr = "Sorry we could not find any results with your catalog search request: <b>" + searchText + "</b>. Please try again.";
 					}
-					res.render('querytool', {mylab: req.session.lab, messageCatalog: messageStr, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', fullname: req.session.fullname, sendemail: req.session.email, searchResults : results[0], agentsResults : results[1], searchformTextCatalog: searchText, loggedIn : true});
+					res.render('querytool', {error: err, mylab: req.session.lab, messageCatalog: messageStr, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', fullname: req.session.fullname, sendemail: req.session.email, searchResults : results[0], agentsResults : results[1], searchformTextCatalog: searchText, loggedIn : true});
 				} else {
-					res.render('querytool', {messageCatalog:'You entered an invalid catalog keyword. Please try again.',mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', loggedIn : true, agentsResults : results[1]});
+					res.render('querytool', {error: err, messageCatalog:'You entered an invalid catalog keyword. Please try again.',mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', loggedIn : true, agentsResults : results[1]});
 				}
 				req.session.messages = null;
 			});

@@ -1441,6 +1441,7 @@ LabYokeSearch.prototype.query = function(callback) {
 	});
 	query.on('error', function(err) {
 		results.push("Your query cannot be processed: " + err);
+		results.push("error");
   		console.log('Query error: ' + err);
   		callback(null, results);
 	});
