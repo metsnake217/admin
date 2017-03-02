@@ -871,12 +871,12 @@ totalshares = t[0].counting;
 
 	router.post('/querytool', function(req, res) {
 		if (req.session.user) {
-			var searchText = req.body.searchText;
-			var labYokeSearch = new LabYokeSearch(searchText, req.session.email);
+			var queryText = req.body.query;
+			var labYokeSearch = new LabYokeSearch(queryText, req.session.email);
 			var messageStr = "";
-			labYokeSearch.search(function(error, results) {
+			labYokeSearch.query(function(error, results) {
 				console.log("results " + results[0].length);	
-				if (searchText != null && searchText.length > 0){
+				if (queryText != null && queryText.length > 0){
 					if(results[0].length == 0){
 						messageStr = "Sorry we could not find any results with your reagent search request: <b>" + searchText + "</b>. Please try again.";
 					}
@@ -896,7 +896,7 @@ totalshares = t[0].counting;
 			var searchText = req.body.searchTextCatalog;
 			var labYokeSearch = new LabYokeSearch(searchText, req.session.email);
 			var messageStr = "";
-			labYokeSearch.search(function(error, results) {
+			labYokeSearch.query(function(error, results) {
 				console.log("results " + results[0].length);	
 				if (searchText != null && searchText.length > 0){
 					if(results[0].length == 0){

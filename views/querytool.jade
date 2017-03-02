@@ -21,7 +21,7 @@ block content
                     if message
                         div(class="alert alert-danger")!= message
                     form(action="/search" method="post")
-                        textarea(placeholder="Select * from ...",cols="30", rows="5",style="outline: none;overflow:auto;width: 100%;")
+                        textarea(id="query",placeholder="Select * from ...",cols="30", rows="5",style="outline: none;overflow:auto;width: 100%;")
                         div(class="buttons")
                             //input(type="submit" class="button" value="Get in")
                             button(class="btn " + classButton + " btn-lg btn-block" type='submit') Submit
@@ -32,66 +32,23 @@ block content
             div.searchResults()
               div
                   span(style="text-align: center")
-                    h3="These Researchers and Labs can share your"
+                    h3="Your query: "
                         if searchformText
                             span(style="color: #3d9dcb;")=" " + searchText
-                        if searchformTextCatalog
-                            span(style="color: #3d9dcb;")=" " + searchformTextCatalog
-                    h4="Order now!"
               #labyokers.container.results(style="width:100%;")
                 div(id="ctl00_Div2" class="row rank").match
                    - i = 1
                    - className = ""
                    div(class="table-responsive")                    
-                      table(id="rankTblSearch" class="table rankTbl")
-                        thead
-                         tr(class="you info-best" style="font-weight: bold")
-                          td(class="desktabonly")= 'id '
-                          td(class="wrapped")!= 'Reagent'
-                          td(class="desktabonly")= 'Catalog#'
-                          td(class="desktabonly")= 'Vendor'
-                          td= 'Location'
-                          td= 'Order'
-                        tbody
-                         -var ob = searchResults
-                         - var j = 1
-                         -for(var prop in ob)
-                            - var i = prop % 2
-                            - var classname = "";
-                            - if(i==0)
-                                - classname = "active"
-                            - var agent = ob[prop].agent
-                            - var vendor = ob[prop].vendor
-                            - var catalognumber = ob[prop].catalognumber
-                            - var fullname = fullname
-                            - var sendemail = sendemail
-                            - var reqemail = ob[prop].email
-                            - var location = ob[prop].location  
-                            - var category = ob[prop].category  
-                            - var qty = ob[prop].quantity
-                            - var lab = ob[prop].lab                    
-                            tr(class=classname)
-                                td(class="desktabonly")= j
-                                td(class="wrapped") #{ob[prop].agent}
-                                td(class="desktabonly") #{ob[prop].catalognumber}
-                                td(class="desktabonly") #{ob[prop].vendor}
-                                td #{ob[prop].location}
-                                td
-                                  span(onclick="iosLight('#{agent}','#{vendor}','#{catalognumber}','#{reqemail}','#{location}','#{category}','#{qty}','#{lab}')", style="cursor:pointer")
-                                        img(src="images/ship2.png", alt="Order now", title="Order now", style="border-width:0px; width: 24px; margin-top: 0px;")
-                            - j = j + 1
-                      script.
-                        $(document).ready(function() {
-                           $('#rankTblSearch').DataTable();
-                        });
+                      p!=searchResults
         if(searchResults != undefined && searchResults.length == 0 && searchformText)
             div.searchResults(id="results")
                 div(id="ctl00_Div2" class="row rank")
                    div(class="table-responsive")
                       span(style="text-align: center")
-                        h3="Sorry we could not find any location for your"
+                        h3="Sorry we could not process your query: "
                             span(style="color: #3d9dcb;")=" " + searchText
-                        h4="Try another chemical reagent!" 
+                        h4="Try another one!!" 
                          
             script="$(window).scrollTop($('#results').offset().top).scrollLeft($('#results').offset().left);"
 

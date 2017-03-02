@@ -88,8 +88,8 @@ LabyokerInit = function(email, mylab) {
 	this.mylab = mylab;
 };
 
-LabYokeSearch = function(searchText, email) {
-	this.searchText = searchText;
+LabYokeSearch = function(queryText, email) {
+	this.queryText = queryText;
 	this.email = email;
 };
 
@@ -1427,27 +1427,17 @@ LabYokerGetOrder.prototype.getorders = function(callback) {
 	});
 };
 
-LabYokeSearch.prototype.search = function(callback) {
+LabYokeSearch.prototype.query = function(callback) {
 	var results = [];
-	console.log("searchText: " + this.searchText);
+	console.log("queryText: " + this.queryText);
 	var query = client
-			.query("SELECT * FROM vm2016_agentsshare a, vm2016_users b where a.email = b.email and (lower(a.agent) like lower('%"
-					+ this.searchText + "%') or lower(a.catalognumber) like lower('%"
-					+ this.searchText + "%')) and a.insufficient = 1 and a.email != '" + this.email+ "' order by a.agent");
+			.query(queryText);
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
 	query.on("end", function(result) {
 		results.push(result.rows);
-		var query2 = client.query("SELECT distinct agent, catalognumber FROM vm2016_agentsshare order by agent, catalognumber");
-		
-		query2.on("row", function(row, result2) {
-			result2.addRow(row);
-		});
-		query2.on("end", function(result2) {
-			results.push(result2.rows);
-				callback(null, results)
-		});
+		callback(null, results)
 		//callback(null, results)
 	});
 };
