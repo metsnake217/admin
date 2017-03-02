@@ -40,7 +40,7 @@ block content
                    - i = 1
                    - className = ""
                    div(class="table-responsive")                    
-                      p!=searchResults
+                      p!=JSON.parse(JSON.stringify(searchResults).replace(/&quot;/g, '"'))
         if(searchResults != undefined && searchResults.length == 0 && searchformText)
             div.searchResults(id="results")
                 div(id="ctl00_Div2" class="row rank")
