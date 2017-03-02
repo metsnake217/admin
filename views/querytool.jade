@@ -39,7 +39,7 @@ block content
                 div(id="ctl00_Div2" class="row rank").match
                    - i = 1
                    - className = ""
-                   div(class="table-responsive")
+                   div(class="table-responsive" style="margin-top: 20px;")
                      - if(error != "error")  
                        - for(var prop in searchResults)
                             p!=JSON.stringify(searchResults[prop])
