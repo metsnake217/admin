@@ -113,16 +113,10 @@ html(lang='en')
                                 a(href="/departments",class="nav-menu",id="menushare")
                                     span(class="fa fa-exchange colmenu")
                                     span=" Departments"
-                                   - if(sharesnumber>0) 
-                                    span(class="fa fa-comment")
-                                    span(class=sharesnumclass)!=sharesnumber
                             li(class=activateOrders)
                                 a(href="/users",class="nav-menu",id="menushare")
                                     span(class="fa fa-ship colmenu")
                                     span=" Users"
-                                  - if(ordersnumber>0) 
-                                    span(class="fa fa-comment")
-                                    span(class=ordersnumclass)!=ordersnumber
                         ul.nav.navbar-nav(id=menuaccount, class="addMargin menu-border")
                             li(class=activateAccount)
                                 a(href="/account",class="nav-menu myaccount", id="menumyaccounta")
