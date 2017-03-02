@@ -898,9 +898,11 @@ totalshares = t[0].counting;
 			var labYokeSearch = new LabYokeSearch(searchText, req.session.email);
 			var messageStr = "";
 			labYokeSearch.query(function(error, results) {
-				console.log("results " + results[0].length);
+				console.log("results " + results.length);
+				
 				var err = "";
 				if(results != null && results.length > 1){
+					console.log("error " + results[1]);
 					err = results[1];
 				}	
 				if (searchText != null && searchText.length > 0){
