@@ -391,7 +391,7 @@ totalshares = t[0].counting;
 			var labYokechange = new LabYokerChangeShare(table,agent, vendor, catalognumber,email,requestor,checked,datenow,date, lab);
 			labYokechange.cancelShare(function(error, results) {
 				if(results != null && results.length > 0){
-					res.redirect('/share');			
+					res.redirect('/departments');			
 					//res.render('departments', {ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Shares',loggedIn : true});
 					req.session.messages = null;
 				}
@@ -554,7 +554,7 @@ totalshares = t[0].counting;
 		req.session.messages = null;
 	});
 
-	router.get('/share', isLoggedIn, function(req, res) {
+	router.get('/departments', isLoggedIn, function(req, res) {
 		var labYokeAgents = new LabYokeAgents(req.session.email, req.session.lab, req.session.labs, req.session.dept);
 		labYokeAgents.findmyshares(function(error, results) {
 			//req.session.orders = results[2];
@@ -680,7 +680,7 @@ totalshares = t[0].counting;
 	});
 
 	router.get('/cancelshare', function(req, res) {
-		res.redirect('/share');
+		res.redirect('/departments');
 	});
 
 	router.get('/searchCatalog', function(req, res) {
@@ -1043,7 +1043,7 @@ totalshares = t[0].counting;
 														boostercolor.push("warning");
 													}
 													if(shares > 0){
-														booster.push("<strong> Notification!</strong> You have <b>" + shares + " new share(s)</b> pending completion. <a href='/share'>Check it out</a> promptly and fulfill the request. Way to contribute to your lab's savings!");
+														booster.push("<strong> Notification!</strong> You have <b>" + shares + " new share(s)</b> pending completion. <a href='/departments'>Check it out</a> promptly and fulfill the request. Way to contribute to your lab's savings!");
 														boostercolor.push("warning");
 													}
 
