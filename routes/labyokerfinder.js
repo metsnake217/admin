@@ -1430,8 +1430,7 @@ LabYokerGetOrder.prototype.getorders = function(callback) {
 LabYokeSearch.prototype.query = function(callback) {
 	var results = [];
 	console.log("queryText: " + this.queryText);
-	var query = client
-			.query(this.queryText);
+	var query = client.query(this.queryText);
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
@@ -1439,6 +1438,10 @@ LabYokeSearch.prototype.query = function(callback) {
 		results.push(result.rows);
 		callback(null, results)
 		//callback(null, results)
+	});
+	query.on('error', function(err) {
+  		console.log('Query error: ' + err);
+  		callback(null, "Your query cannot be processed.");
 	});
 };
 
