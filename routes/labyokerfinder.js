@@ -1431,7 +1431,7 @@ LabYokeSearch.prototype.query = function(callback) {
 	var results = [];
 	console.log("queryText: " + this.queryText);
 	var query = client
-			.query(queryText);
+			.query(this.queryText);
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
