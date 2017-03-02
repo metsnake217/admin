@@ -1440,8 +1440,9 @@ LabYokeSearch.prototype.query = function(callback) {
 		//callback(null, results)
 	});
 	query.on('error', function(err) {
+		results.push("Your query cannot be processed: " + err);
   		console.log('Query error: ' + err);
-  		callback(null, "Your query cannot be processed.");
+  		callback(null, results);
 	});
 };
 
