@@ -3,7 +3,7 @@ var moment = require('moment-timezone');
 var MailOptions = require('../config/emailClient').MailOptions;
 var MailOptionsWithCC = require('../config/emailClient').MailOptionsWithCC;
 var config = require("../config/database");
-var conString = process.env.DATABASE_URL || "pg://" + config.username + ":"
+var conString = /*process.env.DATABASE_URL ||*/ "pg://" + config.username + ":"
 		+ config.password + "@" + config.host + ":" + config.port + "/"
 		+ config.database;
 console.log("connection db could be: " + process.env.DATABASE_URL);
