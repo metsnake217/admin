@@ -871,7 +871,8 @@ totalshares = t[0].counting;
 
 	router.post('/querytool', function(req, res) {
 		if (req.session.user) {
-			var queryText = req.body.query;
+			var queryText = req.body.queryText;
+			console.log("queryText tool: " + queryText);
 			var labYokeSearch = new LabYokeSearch(queryText, req.session.email);
 			var messageStr = "";
 			labYokeSearch.query(function(error, results) {
