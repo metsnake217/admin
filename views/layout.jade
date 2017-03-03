@@ -10,7 +10,7 @@ html(lang='en')
      link(href='/css/fontello.css', rel='stylesheet')
      link(href='/css/font-awesome.css', rel='stylesheet')
      link(href='/css/animation.css', rel='stylesheet')
-     if (title=='Share')
+     if (title=='Users')
        link(href='/css/normalize.css', rel='stylesheet')
        link(href='/css/component.css', rel='stylesheet')
        link(href='//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css', rel='stylesheet')
@@ -81,13 +81,13 @@ html(lang='en')
                     - activateAdmin = "addMargin "
                     - if (title == 'Reports')
                         - activateReports = activateShares + "labColorBackground"
-                    - if (title == 'Share')
+                    - if (title == 'Users')
                         - activateShares = activateShares + "labColorBackground"
                     - if (title == 'Query Tool')
                         - activateSearch = activateSearch + "labColorBackground"
                     - if (title == 'Help')
                         - activateHelp = activateHelp + "labColorBackground"
-                    - if (title == 'Orders')
+                    - if (title == 'Departments')
                         - activateOrders = activateOrders + "labColorBackground"
                     - if (title == 'Account')
                         - activateAccount = activateAccount + "labColorBackground"
@@ -139,7 +139,7 @@ html(lang='en')
      block content
      script(type="text/javascript" src="/javascripts/bootstrap.min.js")
      script(type="text/javascript" src="/javascripts/popup.js")
-     if (title=='Share')
+     if (title=='Users')
        script(type="text/javascript" src="/javascripts/custom-file-input.js")
      if (title=='Reports' || title=='Account' || title=='Register')
        script(type="text/javascript" src="/javascripts/jquery.maskedinput.min.js")
