@@ -1,7 +1,46 @@
 extends layout
 
 block content
+  div(id="ios-light")
+    center
+      h1="Disable?"
+      p(id="disableText")
+      div
+        div(id="actionorder" class="exit" style="width: 50%; float: left; background-color: rgba(138, 109, 59, 0.55);")="OK"
+        div(class="exit" id="actioncancel")="Cancel"
   div(class="container login marginbottom")
     div(style="float: left;" class="share-container")
       h1= 'Users.'
       p!="Coming soon."
+      if users
+        div(id="results")
+          div(id="ctl00_Div2" class="row rank")
+            div(class="table-responsive")                
+              table(id="rankTblload" class="table rankTbl")
+                thead
+                  tr(class="you info-best" style="font-weight: bold")
+                    td(class="desktabonly")= 'id '
+                    td(class="wrapped")!= 'Name'
+                    td= 'Surname'
+                    td= 'Lab'
+                    td= 'Email'
+                    td= 'Disable'
+                tbody
+                  -var ob = users
+                  -for(var prop in ob)
+                    tr(class="")
+                      td(class="desktabonly") #{ob[prop].id}
+                      td(class="wrapped") #{ob[prop].name}
+                      td #{ob[prop].surname}
+                      td #{ob[prop].lab}
+                      td #{ob[prop].email}
+                      td
+                        form(action="/disable" method="post")
+                          input(type="checkbox" name="cancel" value="cancel" class="cancel" checked=(checkedstr===true ? "checked" : undefined))
+                          input(type="hidden" name="id" value=ob[prop].id)
+              script.
+                $(document).ready(function() {
+                  $('#rankTblload').DataTable();
+                });
+      if !users
+        div(class="alert alert-danger")!= "No Users have registered"

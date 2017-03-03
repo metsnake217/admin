@@ -141,6 +141,8 @@ LabyokerPasswordChange = function(hash, password) {
 
 };
 
+LabYokeGlobal = function() {};
+
 LabYokeUploader.prototype.upload = function(callback) {
 	var results = this.jsonResults;
 	var jsonnum = results;
@@ -927,6 +929,19 @@ LabYokeAgents.prototype.getLabyoker = function(callback) {
 	query.on("end", function(result) {
 		results = result.rows;
 		console.log("get user details " + results);
+		callback(null, results);
+	});
+};
+
+LabYokeGlobal.prototype.getUsers = function(callback) {
+	var results;
+	var query = client.query("SELECT * FROM vm2016_users");
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = result.rows;
+		console.log("get all users: " + results);
 		callback(null, results);
 	});
 };
@@ -2207,4 +2222,5 @@ exports.LabyokerLabs = LabyokerLabs;
 exports.LabYokeReporterSavings = LabYokeReporterSavings;
 exports.LabYokeReporterShares = LabYokeReporterShares;
 exports.LabyokerTeam = LabyokerTeam;
+exports.LabYokeGlobal = LabYokeGlobal;
 exports.LabyokerLab = LabyokerLab;

@@ -3,6 +3,7 @@ var accounting = require('./accounting');
 var dates = require('../config/staticvariables');
 
 
+var LabYokeGlobal = labyokeFinderClass.LabYokeGlobal;
 var LabYokerOrder = labyokeFinderClass.LabYokerOrder;
 var LabYokeReporterOrders = labyokeFinderClass.LabYokeReporterOrders;
 var LabYokeReporterShares = labyokeFinderClass.LabYokeReporterShares;
@@ -247,87 +248,15 @@ module.exports = function(router) {
 
 	router.get('/users', isLoggedIn, function(req, res) {
 		if (req.session.user) {
-			var labyokerLab = new LabyokerLab(req.session.lab);
-		labyokerLab.getLabsInDept(function(error, categories) {
-			console.log("load categories in reports : " + categories);
-			req.session.categories = categories;
-			var labYokerGetOrder = new LabYokerGetOrder(req.session.email, req.session.lab,req.session.labs);
-			labYokerGetOrder.getorders(function(error, results) {
-				labYokerGetOrder.getLabOrders_2(function(error, results2) {
-				if(results != null){
-					//req.session.shares = results[2];
-					//req.session.orders = 0;
-					console.log("orders results: " + results[0]);
-					console.log("lab orders results0: " + results2);
-					console.log("booster",req.session.savingsText);
-
-					var booster = [];
-					var boostercolor = [];
-					booster.push(req.session.savingsTextInitial);
-					boostercolor.push(req.session.savingsColorInitial);
-					var totalorders = 0;
-					var totalshares = 0;
-					if(results != null && results.length > 0){
-						totalorders = results[0].length;
-					}
-					if(results != null && results.length > 1){
-						
-						/*totalshares = results[5].filter(function checkOrder(op) {
-	console.log("op agent is: " + op.agent);
-	console.log("op email is: " + op.email);
-	console.log("myemail: " + req.session.email);
-    return op.email == req.session.email;
-});*/
-var t = results[5];
-totalshares = t[0].counting;
-
-						console.log("totalshares in booster: " + totalshares);
-						//totalshares = totalshares.length;
-						console.log("totalshares in booster length: " + totalshares);
-					}
-
-					var labs = req.session.labs;
-					var labadmin;
-					var nonadmin = " Email your <a href='mailto:"+labadmin+"'>administrator</a> if needed.";
-					console.log("booster labs "+ labs);
-					for(var i in labs){
-						//var labrow = util.inspect(labs[i], false, null);
-						console.log("booster labi "+ labs[i]);
-						console.log("booster curent lab is: "+ req.session.lab);
-						console.log("booster labiname "+ labs[i].labname);
-			       		//var lab = labs[i].lab
-			       		if(labs[i].labname == req.session.lab){
-			       		labadmin = labs[i].admin;
-			       		}
-			       		//console.log("lab is: "+ lab);
-			       	}
-			       	if(req.session.admin == 1){
-			       	nonadmin = " You can do so with the <a href='/share#upload'>upload tool</a> to add more reagents under your name."
-			       	}
-					booster.push("<strong> Self Kudos!</strong> You have ordered a total of <b>" + totalorders + " order(s)</b> and received a total of <b>" + totalshares + " requested share(s)</b>. Keep it up!");
-					boostercolor.push("success");
-					if(totalorders > totalshares){
-						booster.push("<strong> Caution.</strong> You are ordering <b>more</b> than you are sharing. Did you replenish your inventory?" + nonadmin);
-						boostercolor.push("warning");
-					} else if(totalshares > totalorders){
-						booster.push("<strong> Major Achievement!</strong>  You are sharing <b>more</b> than you are ordering. Way to contribute to your lab's savings!");
-						boostercolor.push("success");
-					} else if(totalshares == totalorders){
-						booster.push("<strong> Strong and Steady!</strong> You are perfectly <b>balanced</b>! You are sharing as many reagents as you are ordering. Way to go!");
-						boostercolor.push("success");
-					}
-					var b = Math.floor((Math.random() * booster.length-1) + 1);
-					console.log("orders - b radomized: " + b);
-					console.log("orders - b length radomized: " + booster.length);
-					req.session.savingsText = booster[b];
-					req.session.savingsColor = boostercolor[b];
-					//console.log("lab users results1: " + results2[1]);				
-					//res.render('users', {test: results[3], laborders: results2[0],lab1orders: results2[1], ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Users', loggedIn : true, orderresults: results[0], report_sharesbycategory: results[1]});
-					res.render('users', {booster:req.session.savingsText, boostercolor:req.session.savingsColor,currentlabname:req.session.lab, categories: req.session.categories, test: results[3], laborders: results2, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Users', loggedIn : true, orderresults: results[0], report_sharesbycategory: results[1], report_ordersbycategory: results[4]});
+			var labyokeGlobal = new LabYokeGlobal();
+			labyokeGlobal.getUsers(function(error, results) {			
+				if (results != null && results.length > 0){
+					res.render('users', {mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
+				} else {
+					res.render('users', {mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
 				}
+				req.session.messages = null;
 			});
-				});
-				});
 		} else {
 			res.redirect('/login');
 		}
