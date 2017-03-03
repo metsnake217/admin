@@ -637,8 +637,8 @@ module.exports = function(router) {
 		res.redirect('/account');
 	});
 
-	router.get('/cancelshare', function(req, res) {
-		res.redirect('/departments');
+	router.get('/disable', function(req, res) {
+		res.redirect('/users');
 	});
 
 	router.get('/searchCatalog', function(req, res) {
