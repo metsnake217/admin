@@ -2068,7 +2068,7 @@ LabyokerUserDetails.prototype.changeDetails = function(callback) {
 	});
 };
 
-LabYokerUsers.prototype.disableUser = function(callback) {
+LabYokeUsers.prototype.disableUser = function(callback) {
 	var id = this.id;
 	var name = this.name;
 	var surname = this.surname;
