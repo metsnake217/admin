@@ -72,23 +72,23 @@ html(lang='en')
                         span.icon-bar
 
                     - activateReports = "addMargin "
-                    - activateShares = "addMargin "
+                    - activateDepartments = "addMargin "
                     - activateSearch = "addMargin "
                     - activateHelp = "addMargin "
                     - activateAbout = "addMargin "
-                    - activateOrders = "addMargin "
+                    - activateUsers = "addMargin "
                     - activateAccount = "account-border addMargin "
                     - activateAdmin = "addMargin "
                     - if (title == 'Reports')
-                        - activateReports = activateShares + "labColorBackground"
+                        - activateReports = activateDepartments + "labColorBackground"
                     - if (title == 'Users')
-                        - activateShares = activateShares + "labColorBackground"
+                        - activateDepartments = activateDepartments + "labColorBackground"
                     - if (title == 'Query Tool')
                         - activateSearch = activateSearch + "labColorBackground"
                     - if (title == 'Help')
                         - activateHelp = activateHelp + "labColorBackground"
                     - if (title == 'Departments')
-                        - activateOrders = activateOrders + "labColorBackground"
+                        - activateUsers = activateUsers + "labColorBackground"
                     - if (title == 'Account')
                         - activateAccount = activateAccount + "labColorBackground"
                     - if (title == 'About Us')
@@ -109,11 +109,11 @@ html(lang='en')
                             
                     div(class="paddingMobile")
                         ul.nav.navbar-nav(id="menumyshares", class="addMargin", style="border-left-color: white;border-left-style: solid;border-width: thick;")
-                            li(class=activateShares)
+                            li(class=activateDepartments)
                                 a(href="/departments",class="nav-menu",id="menushare")
                                     span(class="fa fa-exchange colmenu")
                                     span=" Departments"
-                            li(class=activateOrders)
+                            li(class=activateUsers)
                                 a(href="/users",class="nav-menu",id="menushare")
                                     span(class="fa fa-ship colmenu")
                                     span=" Users"
