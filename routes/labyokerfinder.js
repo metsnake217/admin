@@ -2094,13 +2094,13 @@ LabYokeUsers.prototype.disableUser = function(callback) {
 			var subject = "LabYoke Account - Disabled ";
 			var body = "<div style='text-align:center'><img style='width: 141px; margin: 0 20px;' src='https:\/\/team-labyoke.herokuapp.com\/images\/yoke4.png', alt='The Yoke',  title='Yoke', class='yokelogo'/></div><div style=\"font-family:'calibri'; font-size:11pt;padding: 20px;float:left\">Hello " + name + " " + surname + ",<br/><br/>";
 
-		if(checked == 1){
+		if(checked == 0){
 			body += "Unfortunately your user has been disabled by an admin per request. Please contact your Lab Administrator for further details.<br>";
 			body += "<p>Best regards,";
 			body += "</p><b><i>The LabYoke Team.</i></b></div>";
 			console.log("disable body: " + body);
 		}
-		if(checked == 0){
+		if(checked == 1){
 			subject = "LabYoke Account - Re-Activated ";
 			body += "Success your user has been reactivated by an admin per request. Please contact your Lab Administrator for further details.<br>";
 			body += "<p>Best regards,";

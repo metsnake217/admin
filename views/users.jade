@@ -30,6 +30,11 @@ block content
                 tbody
                   -var ob = users
                   -for(var prop in ob)
+                    - var checkedstr = false
+                    - var disabled = parseInt(ob[prop].disable)
+                    - if(disabled == 0)
+                      - isdisabled = "yokeBackColor"
+                      - checkedstr = true
                     tr(class="")
                       td(class="desktabonly") #{ob[prop].id}
                       td(class="wrapped") #{ob[prop].name}
