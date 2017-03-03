@@ -296,7 +296,8 @@ position: absolute;
 }
 
 .yokeColorBold{
-    color: #8a6d3b;
+    /*color: #8a6d3b;*/
+    color: #3d9dcb;
     font-weight: bold;
 }
 
@@ -470,7 +471,8 @@ padding-top: 5px;
     margin-top: 20px;
 }
 .labColor{
-    color: #3d9dcb;
+    color: #8a6d3b;
+    /*color: #3d9dcb;*/
 }
 
 .newlabColor{
@@ -608,10 +610,12 @@ table.dataTable thead .sorting {
     padding-bottom: 0px !important;
 }
 .labColorBackground{
-    background-color: #3d9dcb !important;
+    /*background-color: #3d9dcb !important;*/
+    background-color: #8a6d3b !important;
 }
 .yokeColor{
-    color: #8a6d3b;
+    /*color: #8a6d3b;*/
+    color: #3d9dcb;
 }
 
 input{
@@ -911,32 +915,32 @@ margin-right: 15px !important;
 }
 
 .score{
-  	height: 40px !important;
-	width: 50px;
-	text-align: center;
+    height: 40px !important;
+    width: 50px;
+    text-align: center;
 }
   
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
+    -webkit-appearance: none;
 }
 .row {
-	margin-left: 0px !important;
-	margin-right: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
 }
 .icon-thumbs-up, .icon-thumbs-up-1, .icon-check {
-	color: #460077;
-	font-size: 25px;
+    color: #460077;
+    font-size: 25px;
 }
 
 .you {
-	/*color: #460077;*/
+    /*color: #460077;*/
     color: white;
-	background-color: #3d9dcb !important; /*rgba(70, 0, 119, 0.4);*/
+    background-color: #3d9dcb !important; /*rgba(70, 0, 119, 0.4);*/
 }
 
 .wrapped {
-	white-space: normal !important;
+    white-space: normal !important;
 }
 
 .helplogin{
@@ -1359,14 +1363,14 @@ span.num.greatherthanninetynine {
 }
 
 .pastdate {
-	color:#460077;
+    color:#460077;
 }
 
 .pastdate:hover{
-   	cursor:pointer;
-   	color:#428bca;
+    cursor:pointer;
+    color:#428bca;
 }
 
 .yammer{
-	font-size: 16px;
+    font-size: 16px;
 }
