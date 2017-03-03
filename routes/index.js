@@ -884,7 +884,7 @@ totalshares = t[0].counting;
 				}
 				if (queryText != null && queryText.length > 0){
 					if(results[0].length == 0){
-						messageStr = "Sorry we could not find any results with your reagent search request: <b>" + searchText + "</b>. Please try again.";
+						messageStr = "Sorry we could not find any results with your query request: <b>" + queryText + "</b>. Please try again.";
 					}
 					res.render('querytool', {error: err, mylab: req.session.lab, message: messageStr, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', fullname: req.session.fullname, sendemail: req.session.email, searchResults : results[0], agentsResults : results[1], searchformText: queryText, loggedIn : true});
 				} else {
