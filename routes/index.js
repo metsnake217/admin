@@ -2,7 +2,7 @@ var labyokeFinderClass = require('./labyokerfinder');
 var accounting = require('./accounting');
 var dates = require('../config/staticvariables');
 
-
+var LabYokeUsers = labyokeFinderClass.LabYokeUsers;
 var LabYokeGlobal = labyokeFinderClass.LabYokeGlobal;
 var LabYokerOrder = labyokeFinderClass.LabYokerOrder;
 var LabYokeReporterOrders = labyokeFinderClass.LabYokeReporterOrders;
@@ -256,6 +256,35 @@ module.exports = function(router) {
 					res.render('users', {mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
 				}
 				req.session.messages = null;
+			});
+		} else {
+			res.redirect('/login');
+		}
+	});
+
+	router.post('/disable', isLoggedIn, function(req, res) {
+		if (req.session.user) {
+			var id = req.body.id;
+			var name = req.body.name;
+			var surname = req.body.surname;
+			var checked = req.body.cancel;
+			var email = req.body.email;
+			if(checked != null)
+				checked = 0;
+			if(checked == undefined)
+				checked = 1;
+			console.log("id: " + id);
+			console.log("name: " + name);
+			console.log("surname: " + surname);
+			console.log("checked: " + checked);
+			console.log("email: " + email);
+			var labYokeusers = new LabYokeUsers(id,name, surname, email,checked);
+			labYokeusers.disableUser(function(error, results) {
+				if(results != null && results.length > 0){
+					res.redirect('/users');			
+					//res.render('departments', {ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Shares',loggedIn : true});
+					req.session.messages = null;
+				}
 			});
 		} else {
 			res.redirect('/login');

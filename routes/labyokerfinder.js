@@ -143,6 +143,14 @@ LabyokerPasswordChange = function(hash, password) {
 
 LabYokeGlobal = function() {};
 
+LabYokeUsers = function(id,name,surname,email,checked) {
+	this.id = id;
+	this.name = name;
+	this.surname = surname;
+	this.email = email;
+	this.checked = checked;
+};
+
 LabYokeUploader.prototype.upload = function(callback) {
 	var results = this.jsonResults;
 	var jsonnum = results;
@@ -2060,6 +2068,54 @@ LabyokerUserDetails.prototype.changeDetails = function(callback) {
 	});
 };
 
+LabYokerUsers.prototype.disableUser = function(callback) {
+	var id = this.id;
+	var name = this.name;
+	var surname = this.surname;
+	var checked = this.checked;
+	var email = this.email;
+
+	console.log("id: " + id);
+	console.log("surname: " + surname);
+	console.log("name: " + name);
+	var results;
+	var orderonly = "";
+
+
+	var str = "UPDATE vm2016_users SET disable=" + checked
+			+ " where id='" + id + "'";
+	console.log("str: " + str);
+	var query = client.query(str);
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = "success";
+			var subject = "LabYoke Account - Disabled ";
+			var body = "<div style='text-align:center'><img style='width: 141px; margin: 0 20px;' src='https:\/\/team-labyoke.herokuapp.com\/images\/yoke4.png', alt='The Yoke',  title='Yoke', class='yokelogo'/></div><div style=\"font-family:'calibri'; font-size:11pt;padding: 20px;float:left\">Hello " + name + " " + surname + ",<br/><br/>";
+
+		if(checked == 1){
+			body += "Unfortunately your user has been disabled by an admin per request. Please contact your Lab Administrator for further details.<br>";
+			body += "<p>Best regards,";
+			body += "</p><b><i>The LabYoke Team.</i></b></div>";
+			console.log("disable body: " + body);
+		}
+		if(checked == 0){
+			subject = "LabYoke Account - Re-Activated ";
+			body += "Success your user has been reactivated by an admin per request. Please contact your Lab Administrator for further details.<br>";
+			body += "<p>Best regards,";
+			body += "</p><b><i>The LabYoke Team.</i></b></div>";
+			console.log("enable body: " + body);
+
+		}
+			var mailOptions = new MailOptions(email, subject, body);
+			mailOptions.sendAllEmails();
+
+		callback(null, results);
+	});
+//callback(null, results);
+};
+
 LabYokerChangeShare.prototype.cancelShare = function(callback) {
 	var agent = this.agent;
 	var vendor = this.vendor;
@@ -2223,4 +2279,5 @@ exports.LabYokeReporterSavings = LabYokeReporterSavings;
 exports.LabYokeReporterShares = LabYokeReporterShares;
 exports.LabyokerTeam = LabyokerTeam;
 exports.LabYokeGlobal = LabYokeGlobal;
+exports.LabYokeUsers = LabYokeUsers;
 exports.LabyokerLab = LabyokerLab;
