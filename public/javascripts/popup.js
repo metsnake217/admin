@@ -17,11 +17,11 @@ $('html').click(function() {
 $('.cancel').click(function() {
   var cancel = $(this);
   var checked = cancel.is(':checked');
-  var orderText = document.getElementById("orderText");
+  var disableText = document.getElementById("disableText");
   if(checked){
-    orderText.innerHTML = "Do you want to mark this reagent as insufficient?";
+    disableText.innerHTML = "Do you want to disable this user?";
   } else {
-    orderText.innerHTML = "Do you want to mark this reagent as replenished and in sufficient quantities?";
+    disableText.innerHTML = "Do you want to mark this user as active?";
   }
   var pop = document.getElementById("ios-light");
   pop.style.display = "block";
@@ -164,31 +164,25 @@ function iosLight(){
   pop.style.display = "block";
   shade.style.display = "block";
 }
-function iosLight(agent,vendor,catalognumber,reqemail,location,category,qty,lab){
+function iosLight(id, name, surname, email){
   var actionorder = document.getElementById("actionorder");
-  var orderText = document.getElementById("orderText");
+  var disableText = document.getElementById("disableText");
+  var idform = document.getElementById("idform");
+  var nameform = document.getElementById("nameform");
+  var surnameform = document.getElementById("surnameform");
   var emailform = document.getElementById("emailform");
-  var agentform = document.getElementById("agentform");
-  var vendorform = document.getElementById("vendorform");
-  var catalogform = document.getElementById("catalogform");
-  var locationform = document.getElementById("locationform");
-  var categoryform = document.getElementById("categoryform");
-  var qtyform = document.getElementById("qtyform");
-  var labform = document.getElementById("labform");
-  emailform.value = reqemail;
-  agentform.value = agent;
-  vendorform.value = vendor;
-  catalogform.value = catalognumber;
-  locationform.value = location;
-  categoryform.value = category;
-  qtyform.value = qty;
-  labform.value = lab;
-  orderText.innerHTML = "You are about to order <br/>Reagent: " + agent + "<br/>Vendor: "+vendor+"<br/>Catalog#: "+catalognumber;
+
+  idform.value = id;
+  nameform.value = name;
+  surnameform.value = surname;
+  emailform.value = email;
+  
+  disableText.innerHTML = "You are about to disable <br/>User: " + id + "<br/>";
   var pop = document.getElementById("ios-light");
   pop.style.display = "block";
   var shade = document.getElementById("shade");
   shade.style.display = "block";
-  actionorder.onclick = function(){iosLightOrder(reqemail)};
+  actionorder.onclick = function(){iosLightOrder(email)};
 }
 
 function iosLightOrder(email){

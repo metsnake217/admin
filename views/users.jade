@@ -38,6 +38,9 @@ block content
                         form(action="/disable" method="post")
                           input(type="checkbox" name="cancel" value="cancel" class="cancel" checked=(checkedstr===true ? "checked" : undefined))
                           input(type="hidden" name="id" value=ob[prop].id)
+                          input(type="hidden" name="name" value=ob[prop].name)
+                          input(type="hidden" name="surname" value=ob[prop].surname)
+                          input(type="hidden" name="email" value=ob[prop].email)
               script.
                 $(document).ready(function() {
                   $('#rankTblload').DataTable();
