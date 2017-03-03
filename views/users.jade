@@ -37,10 +37,10 @@ block content
                       - isdisabled = "yokeBackColor"
                       - checkedstr = true
                     tr(class=isdisabled)
-                      td(class="desktabonly") #{ob[prop].id}
-                      td(class="wrapped") #{ob[prop].name}
-                      td #{ob[prop].surname}
-                      td #{ob[prop].lab}
+                      td #{ob[prop].id}
+                      td(class="wrapped desktabonly") #{ob[prop].name}
+                      tdclass="desktabonly" #{ob[prop].surname}
+                      td(class="desktabonly") #{ob[prop].lab}
                       td #{ob[prop].email}
                       td
                         form(action="/disable" method="post")
