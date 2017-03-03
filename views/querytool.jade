@@ -48,15 +48,7 @@ block content
                             p!="<span class='labColor'><b>" + prop + ". </b></span>" + JSON.stringify(searchResults[prop])
                      - if (error == "error")
                          p(style="text-align:center")="Your query cannot be processed - "
-                            span!=JSON.stringify(searchResults).replace(/&quot;/g, '"')
-        if(searchResults != undefined && searchResults.length == 0 && searchformText)
-            div.searchResults(id="results")
-                div(id="ctl00_Div2" class="row rank")
-                   div(class="table-responsive")
-                      span(style="text-align: center")
-                        h3="Sorry we could not process your query: "
-                            span(style="color: #3d9dcb;")=" " + searchText
-                        h4="Try another one!!" 
+                            span!=JSON.stringify(searchResults).replace(/&quot;/g, '"') 
                          
             script="$(window).scrollTop($('#results').offset().top).scrollLeft($('#results').offset().left);"
 
