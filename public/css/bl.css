@@ -628,9 +628,10 @@ input{
 position: relative !important;
 }
 .nav-menu-logout{
-background-color: #3d9dcb;
+background-color: #ff8d00;
 margin-right: auto !important;
 margin-right: 15px !important;
+/*background-color: #3d9dcb;*/
 }
 .nav-menu-logout:hover{
     /*color: #b77f20;*/
