@@ -45,8 +45,7 @@ block content
                    div(class="table-responsive" style="margin-top: 20px;")
                      - if(error != "error")  
                        - for(var prop in searchResults)
-                            - var p = prop + 1
-                            p!="<span class='labColor'><b>" + p + ". </b></span>" + JSON.stringify(searchResults[prop])
+                            p!="<span class='labColor'><b>" + prop + ". </b></span>" + JSON.stringify(searchResults[prop])
                      - if (error == "error")
                          p(style="text-align:center")="Your query cannot be processed - "
                             span!=JSON.stringify(searchResults).replace(/&quot;/g, '"')
