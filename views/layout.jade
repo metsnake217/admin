@@ -73,7 +73,7 @@ html(lang='en')
 
                     - activateReports = "addMargin "
                     - activateDepartments = "addMargin "
-                    - activateSearch = "addMargin "
+                    - activateTool = "addMargin "
                     - activateHelp = "addMargin "
                     - activateAbout = "addMargin "
                     - activateUsers = "addMargin "
@@ -84,7 +84,7 @@ html(lang='en')
                     - if (title == 'Departments')
                         - activateDepartments = activateDepartments + "yokeBackColor"
                     - if (title == 'Query Tool')
-                        - activateSearch = activateSearch + "yokeBackColor"
+                        - activateTool = activateTool + "yokeBackColor"
                     - if (title == 'Help')
                         - activateHelp = activateHelp + "yokeBackColor"
                     - if (title == 'Users')
@@ -102,7 +102,7 @@ html(lang='en')
                             - adjustWidth =  "width: 111px;"
                             - menuaccount = "menumyaccount"
                         ul.nav.navbar-nav.addMargin.adjustWidthSearchUL(id="#menumyaccounta")
-                            li(class=activateSearch)
+                            li(class=activateTool)
                                 a(href="/querytool", class="nav-menu",id="menusearch", style=adjustWidth)
                                     span(class="fa fa-search colmenu")
                                     span=" Tool"
