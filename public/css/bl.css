@@ -626,7 +626,8 @@ input{
     font-size: 75pt !important;
 }
 .yokeBackColor{
-    background-color: rgba(138, 109, 59, 0.66) !important;
+    /*background-color: rgba(138, 109, 59, 0.66) !important;*/
+    background-color: #8a6d3b !important;
 }
 .ct-perfect-fourth>svg {
 position: relative !important;
