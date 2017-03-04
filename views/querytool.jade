@@ -35,6 +35,7 @@ block content
                     h3="Your query: "
                         if searchformText
                             span(style="color: #3d9dcb;")=" " + searchText
+                            span(style="color: #8a6d3b;")=" (" + searchResults.length + ")"
               - style = ""
               - if(error != "error")
                   - style = "overflow: auto; max-height: 300px; border-style: solid;"
