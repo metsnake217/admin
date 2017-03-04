@@ -41,12 +41,14 @@ block content
                   - style = "overflow: auto; max-height: 300px; border-style: solid;"
               #labyokers.container.results(style="width:100%;word-wrap:break-word;"+style)
                 div(id="ctl00_Div2" class="row rank").match
-                   - i = 1
+                   - i = 
+                   - var j = 1
                    - className = ""
                    div(class="table-responsive" style="margin-top: 20px;")
                      - if(error != "error")  
                        - for(var prop in searchResults)
-                            p!="<span class='labColor'><b>" + prop + ". </b></span>" + JSON.stringify(searchResults[prop])
+                            p!="<span class='labColor'><b>" + j + ". </b></span>" + JSON.stringify(searchResults[prop])
+                            - j = j + 1
                      - if (error == "error")
                          p(style="text-align:center")="Your query cannot be processed - "
                             span!=JSON.stringify(searchResults).replace(/&quot;/g, '"') 
