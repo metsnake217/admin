@@ -78,7 +78,8 @@ body {
 }
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    background-color: #8a6d3b;
+    /*background-color: #8a6d3b;*/
+    background-color: #3d9dcb;
 }
 
 .activeNav
@@ -149,7 +150,8 @@ body {
     color: white;
 }
 .nav-menu:hover{
-    background-color: #3d9dcb !important;
+    background-color: #8a6d3b !important;
+    /*background-color: #3d9dcb !important;*/
 }
 .menu{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -512,7 +514,9 @@ input:-webkit-autofill:hover {
     /*border-left-color: #3d9dcb;border-left-style: solid;*/border-width: thick; border-right-color: white;border-right-style: solid;
 }
 .account-border{
-    border-color: #3d9dcb;border-right-style: solid;border-width: thick;border-left-style: solid;
+    /*border-color: #3d9dcb;*/
+    border-color: #8a6d3b;
+    border-right-style: solid;border-width: thick;border-left-style: solid;
 }
 .btn{
     outline: none !important;
@@ -628,7 +632,7 @@ input{
 position: relative !important;
 }
 .nav-menu-logout{
-background-color: #ff8d00;
+background-color: #8a6d3b;
 margin-right: auto !important;
 margin-right: 15px !important;
 /*background-color: #3d9dcb;*/
@@ -1211,7 +1215,10 @@ input::-webkit-inner-spin-button {
     font-size: 55pt !important;
 }
 .account-border{
-    border-color: #3d9dcb;border-right-style: solid;border-width: thick;border-left-style: none;
+    /*border-color: #3d9dcb;*/
+    border-color: #8a6d3b;
+    border-right-style: solid;border-width: thick;border-left-style: none;
+    
 }
 .fronthelp {
     text-align: center;
