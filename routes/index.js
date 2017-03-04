@@ -921,6 +921,15 @@ module.exports = function(router) {
 																message : "You have not completed your registration. Please check your emails and click on the link.", title: 'Login'
 															});
 											}
+										if (done[0].disable == 0) {
+
+												return res
+														.render(
+															'login',
+															{
+																message : "Your account has been disabled. Please contact your lab administrator.", title: 'Login'
+															});
+											}
 
 											var init = new LabyokerInit(done[0].email, done[0].lab);
 											init.initialShares(function(error, resultsShares) {
