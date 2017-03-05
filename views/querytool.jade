@@ -37,7 +37,7 @@ block content
                             span(style="color: #3d9dcb;")=" " + searchText
                             span(style="color: #8a6d3b;")=" (" + searchResults.length + ")"
               - style = ""
-              - if(error != "error")
+              - if(error != "error" && type == "select")
                   - style = "overflow: auto; max-height: 300px; border-style: solid;"
             - if(error != "error" && type == "select" && searchResults != null && searchResults.length > 0)
                 div(class="results")
