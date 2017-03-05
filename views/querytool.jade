@@ -91,12 +91,12 @@ block content
                                  - remove = 1
              
             script.
-                $(window).scrollTop($('#queryresults').offset().top).scrollLeft($('#queryresults').offset().left);"
                 var rem = #{remove};
                 if(rem == '0'){
                     $('#raw').remove();
                     $('#queryresults').remove();
-                    
+                } else {
+                    $(window).scrollTop($('#queryresults').offset().top).scrollLeft($('#queryresults').offset().left);"
                 }
 
         
