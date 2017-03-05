@@ -62,13 +62,13 @@ block content
                             tr(class="you info-best" style="font-weight: bold")
                                 - var keys = Object.keys(searchResults)
                                 - for(var prop in keys)
-                                    td(class="wrapped") #{prop}
+                                    td(class="wrapped") #{keys[prop]}
                         tbody
                           - var values = Object.keys(searchResults).map(function(key) {return searchResults[key];})
                           -for(var prop in searchResults)
                             tr(class="wrapped")
                                 -for(var key in keys)
-                                    td #{searchResults[prop].key}
+                                    td #{searchResults[prop].keys[key]}
              
             script="$(window).scrollTop($('#labyokers').offset().top).scrollLeft($('#labyokers').offset().left);"
 
