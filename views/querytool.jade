@@ -52,7 +52,22 @@ block content
                      - if (error == "error")
                          p(style="text-align:center")="Your query cannot be processed - "
                             span!=JSON.stringify(searchResults).replace(/&quot;/g, '"') 
-                         
+
+                    div(id="results")
+            div(id="ctl00_Div2" class="row rank")
+                div(class="table-responsive")                
+                    table(id="rankTblload" class="table rankTbl")
+                        thead
+                            tr(class="you info-best" style="font-weight: bold")
+                                - var keys = Object.keys(searchResults)
+                                - for(var prop in keys)
+                                    td(class="wrapped")!= #{keys[prop]}
+                        tbody
+                          -var values = Object.values(searchResults)
+                          -for(var prop in values)
+                            tr(class="wrapped")
+                              td #{values[prop]}
+             
             script="$(window).scrollTop($('#labyokers').offset().top).scrollLeft($('#labyokers').offset().left);"
 
         
