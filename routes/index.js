@@ -835,6 +835,7 @@ module.exports = function(router) {
 			var messageStr = "";
 			labYokeSearch.query(function(error, results) {
 				console.log("results " + results.length);
+				console.log("results[1] " + results[1]);
 				var err = "";
 				if(results != null && results[1] == "error"){
 					console.log("error " + results[2]);

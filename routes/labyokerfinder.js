@@ -1468,8 +1468,9 @@ LabYokeSearch.prototype.query = function(callback) {
 		//callback(null, results)
 	});
 	query.on('error', function(err) {
-		results.push(err + "");
 		results.push("error");
+		results.push(err + "");
+		
   		console.log('Query error: ' + err);
   		callback(null, results);
 	});
