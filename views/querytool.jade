@@ -63,7 +63,7 @@ block content
                                 - for(var prop in keys)
                                     td(class="wrapped") #{keys[prop]}
                         tbody
-                          -var values = Object.values(searchResults)
+                          - var values = Object.keys(searchResults).map(function(key) {return searchResults[key];})
                           -for(var prop in values)
                             tr(class="wrapped")
                               td #{values[prop]}
