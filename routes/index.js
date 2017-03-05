@@ -837,17 +837,19 @@ module.exports = function(router) {
 				console.log("results " + results.length);
 				console.log("results[1] " + results[1]);
 				var err = "";
+				var errStr = "";
 				if(results != null && results[1] == "error"){
 					console.log("error " + results[2]);
-					err = results[2];
+					err = results[1];
+					errStr = results[2];
 				}
 				if (queryText != null && queryText.length > 0){
 					if(results[1].length == 0 && results[0] == "select"){
 						messageStr = "Sorry we could not find any results with your query request: <b>" + queryText + "</b>. Please try again.";
 					}
-					res.render('querytool', {rowCount:results[2], type:results[0], error: err, mylab: req.session.lab, message: messageStr, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', fullname: req.session.fullname, sendemail: req.session.email, searchResults : results[1], agentsResults : results[2], searchformText: queryText, loggedIn : true});
+					res.render('querytool', {rowCount:results[2], type:results[0], errorStr: errStr, error: err, mylab: req.session.lab, message: messageStr, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', fullname: req.session.fullname, sendemail: req.session.email, searchResults : results[1], agentsResults : results[2], searchformText: queryText, loggedIn : true});
 				} else {
-					res.render('querytool', {rowCount:results[2], type:results[0], error: err, message:'You entered an invalid DB statement. Please try again.',mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', loggedIn : true, agentsResults : results[2]});
+					res.render('querytool', {rowCount:results[2], type:results[0], errorStr: errStr, error: err, message:'You entered an invalid DB statement. Please try again.',mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', loggedIn : true, agentsResults : results[2]});
 				}
 				req.session.messages = null;
 			});
