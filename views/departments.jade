@@ -4,4 +4,31 @@ block content
 	div(class="container login marginbottom")
 		div(style="float: left;" class="share-container")
 			h1= 'Departments.'
-			p!="Coming soon."
+
+		div(style="text-align: center;position: relative;")
+			h2= 'Create a new Department.'
+			p="Add a department to the existing list."
+			div(id="ctl00_Div2" class="frontdiv results")
+				div
+					if message
+						div(class="alert alert-danger fade in alert-dismissable")!= message
+					form(action="/createdepartment" method="post")
+						div(class="textentry")
+							input(name="department" type="text" id="department" class="form-control placeholderColor" placeholder="Department" style="/*background-color:rgba(61, 157, 203, 0.7);color:white*/")
+						div(class="buttons")
+							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
+							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
+
+			h2= 'Add a new lab.'
+			p="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department who can be listed in the diagram."
+			div(id="ctl00_Div2" class="frontdiv results")
+				div
+					if message
+						div(class="alert alert-danger fade in alert-dismissable")!= message
+					form(action="/createlab" method="post")
+						div(class="textentry")
+							input(name="lab" type="text" id="lab" class="form-control placeholderColor" placeholder="Lab" style="/*background-color:rgba(61, 157, 203, 0.7);color:white*/")
+						div(class="buttons")
+							//input(type="submit" class="button" value="Get in")
+							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
+							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
