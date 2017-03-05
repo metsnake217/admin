@@ -836,9 +836,9 @@ module.exports = function(router) {
 			labYokeSearch.query(function(error, results) {
 				console.log("results " + results.length);
 				var err = "";
-				if(results != null && results.length > 3){
-					console.log("error " + results[3]);
-					err = results[3];
+				if(results != null && results[1] == "error"){
+					console.log("error " + results[2]);
+					err = results[2];
 				}
 				if (queryText != null && queryText.length > 0){
 					if(results[1].length == 0 && results[0] == "select"){
