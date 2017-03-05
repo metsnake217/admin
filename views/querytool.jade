@@ -33,11 +33,11 @@ block content
             div
               div(id="queryresults")
                   div(style="background-color: #3d9dcb; height: 2px; margin-bottom: 40px; margin-top: 30px;")
-                  span(style="text-align: center")
-                  -var count = 0
-                  - if(error != "error")
-                    - count = rowCount
-                    h3="Your query: "
+                    span(style="text-align: center")
+                      -var count = 0
+                      - if(error != "error")
+                        - count = rowCount
+                      h3="Your query: "
                         if searchformText
                             span(style="color: #3d9dcb;")=" " + searchText
                             span(style="color: #8a6d3b;")=" (" + count + ")"
