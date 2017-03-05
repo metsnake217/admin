@@ -78,7 +78,7 @@ block content
                        - for(var prop in searchResults)
                             p!="<span class='labColor'><b>" + j + ". </b></span>" + JSON.stringify(searchResults[prop])
                             - j = j + 1
-                     - if (error == "error" || type != "select")
+                     - if(error == "error")
                          p(style="text-align:center")="Your query cannot be processed - "
                             span!=JSON.stringify(searchResults).replace(/&quot;/g, '"')
                      - if(error != "error" && type != "select")
