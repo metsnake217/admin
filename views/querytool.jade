@@ -60,11 +60,12 @@ block content
                     table(id="rankTblload" class="table rankTbl")
                         thead
                             tr(class="you info-best" style="font-weight: bold")
-                                - var keys = Object.keys(searchResults[0])
+                                - keys = Object.keys(searchResults[0])
                                 - for(var prop in keys)
                                     td(class="wrapped") #{keys[prop]}
                         tbody
                           - var values = Object.keys(searchResults).map(function(key) {return searchResults[key];})
+                          - keys = Object.keys(searchResults[0])
                           -for(var prop in searchResults)
                             tr(class="wrapped")
                                 -for(var key in keys)
