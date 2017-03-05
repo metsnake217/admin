@@ -30,7 +30,7 @@ block content
         if(searchResults != null && searchResults.length > 0)
             div(style="background-color: #3d9dcb; height: 2px; margin-bottom: 40px; margin-top: 30px;")
             div
-              div
+              div(id="queryresults")
                   span(style="text-align: center")
                     h3="Your query: "
                         if searchformText
@@ -40,7 +40,7 @@ block content
               - if(error != "error")
                   - style = "overflow: auto; max-height: 300px; border-style: solid;"
             - if(error != "error")
-                div(id="queryresults" class="results")
+                div(class="results")
                     div(id="ctl00_Div2" class="row rank")
                         - var keys
                         div(class="table-responsive")                
