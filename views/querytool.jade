@@ -35,7 +35,7 @@ block content
                     h3="Your query: "
                         if searchformText
                             span(style="color: #3d9dcb;")=" " + searchText
-                            span(style="color: #8a6d3b;")=" (" + searchResults.length + ")"
+                            span(style="color: #8a6d3b;")=" (" + rowCount + ")"
               - style = ""
               - if(error != "error" && type == "select")
                   - style = "overflow: auto; max-height: 300px; border-style: solid;"
@@ -67,8 +67,8 @@ block content
                                    $('#rankTblload').DataTable();
                                 });
 
-            h3(style="margin-top:15px;margin-bottom:15px")="Raw  data. "
-            #labyokers.container.results(style="width:100%;word-wrap:break-word;"+style)
+            h4(style="margin-top:15px;margin-bottom:15px")="Raw  data. "
+            #labyokers.results(style="width:100%;word-wrap:break-word;"+style)
                 div(id="ctl00_Div2" class="row rank").match
                    - i = 
                    - var j = 1
