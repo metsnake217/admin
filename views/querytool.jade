@@ -40,7 +40,7 @@ block content
               - if(error != "error")
                   - style = "overflow: auto; max-height: 300px; border-style: solid;"
             - if(error != "error")
-                div(id="results")
+                div(id="queryresults" class="results")
                     div(id="ctl00_Div2" class="row rank")
                         - var keys
                         div(class="table-responsive")                
@@ -81,7 +81,7 @@ block content
                          p(style="text-align:center")="Your query cannot be processed - "
                             span!=JSON.stringify(searchResults).replace(/&quot;/g, '"') 
              
-            script="$(window).scrollTop($('#labyokers').offset().top).scrollLeft($('#labyokers').offset().left);"
+            script="$(window).scrollTop($('#queryresults').offset().top).scrollLeft($('#queryresults').offset().left);"
 
         
 
