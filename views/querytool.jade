@@ -66,25 +66,35 @@ block content
                                 $(document).ready(function() {
                                    $('#rankTblload').DataTable();
                                 });
-
-            h4(style="margin-top:15px;margin-bottom:15px")="Raw  data. "
-            #labyokers.results(style="width:100%;word-wrap:break-word;"+style)
-                div(id="ctl00_Div2" class="row rank").match
-                   - i = 
-                   - var j = 1
-                   - className = ""
-                   div(class="table-responsive" style="margin-top: 20px;")
-                     - if(error != "error" && type == "select")  
-                       - for(var prop in searchResults)
-                            p!="<span class='labColor'><b>" + j + ". </b></span>" + JSON.stringify(searchResults[prop])
-                            - j = j + 1
-                     - if(error == "error")
-                         p(style="text-align:center")="Your query cannot be processed - "
-                            span!=JSON.stringify(errorStr).replace(/&quot;/g, '"')
-                     - if(error != "error" && type != "select" && rowCount != "error")
-                         p(style="text-align:center")!="" + type + " - " + rowCount + " row(s) affected."
+            - if(error != "error" && type == "select" && searchResults != null && searchResults.length > 0)
+                div(id="raw")
+                    h4(style="margin-top:15px;margin-bottom:15px")="Raw  data. "
+                    #labyokers.results(style="width:100%;word-wrap:break-word;"+style)
+                        div(id="ctl00_Div2" class="row rank").match
+                           - i = 
+                           - var j = 1
+                           - className = ""
+                           - var remove = 0
+                           div(class="table-responsive" style="margin-top: 20px;")
+                             - if(error != "error" && type == "select")  
+                               - for(var prop in searchResults)
+                                    p!="<span class='labColor'><b>" + j + ". </b></span>" + JSON.stringify(searchResults[prop])
+                                    - j = j + 1
+                                    - remove = 1
+                             - if(error == "error")
+                                 p(style="text-align:center")="Your query cannot be processed - "
+                                    span!=JSON.stringify(errorStr).replace(/&quot;/g, '"')
+                                 - remove = 1
+                             - if(error != "error" && type != "select" && rowCount != "error")
+                                 p(style="text-align:center")!="" + type + " - " + rowCount + " row(s) affected."
+                                 - remove = 1
              
-            script="$(window).scrollTop($('#queryresults').offset().top).scrollLeft($('#queryresults').offset().left);"
+            script.
+                $(window).scrollTop($('#queryresults').offset().top).scrollLeft($('#queryresults').offset().left);"
+                var rem = #{remove};
+                if(rem == '0'){
+                    $('#raw').remove();
+                }
 
         
 
