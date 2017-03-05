@@ -61,7 +61,7 @@ block content
                             tr(class="you info-best" style="font-weight: bold")
                                 - var keys = Object.keys(searchResults)
                                 - for(var prop in keys)
-                                    td(class="wrapped")!= #{keys[prop]}
+                                    td(class="wrapped") #{keys[prop]}
                         tbody
                           -var values = Object.values(searchResults)
                           -for(var prop in values)
