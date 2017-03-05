@@ -1462,6 +1462,7 @@ LabYokeSearch.prototype.query = function(callback) {
 	});
 	query.on("end", function(result) {
 		results.push(result.rows);
+		console.log("result of query: " + JSON.stringify(result.rows));
 		callback(null, results)
 		//callback(null, results)
 	});
