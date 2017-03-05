@@ -70,7 +70,11 @@ block content
                                 tr(class="wrapped")
                                     - var values = Object.keys(searchResults[prop]).map(function(key) {var t = searchResults[prop];return t[key];})
                                     -for(var val in values)
-                                        td #{values[val]}
+                                        - var valobj = values[val]
+                                        - if(Object.prototype.toString.call(valobj) === '[object Date]')
+                                            - var d = new Date(valobj)
+                                            - valobj = d.toLocaleDateString("en-US")
+                                        td #{valobj}
                         script.
                             $(document).ready(function() {
                                $('#rankTblload').DataTable();
