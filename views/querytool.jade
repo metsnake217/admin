@@ -55,18 +55,20 @@ block content
 
                     div(id="results")
             div(id="ctl00_Div2" class="row rank")
+                - var keys
                 div(class="table-responsive")                
                     table(id="rankTblload" class="table rankTbl")
                         thead
                             tr(class="you info-best" style="font-weight: bold")
                                 - var keys = Object.keys(searchResults)
                                 - for(var prop in keys)
-                                    td(class="wrapped") #{keys[prop]}
+                                    td(class="wrapped") #{prop}
                         tbody
                           - var values = Object.keys(searchResults).map(function(key) {return searchResults[key];})
-                          -for(var prop in values)
+                          -for(var prop in searchResults)
                             tr(class="wrapped")
-                              td #{values[prop]}
+                                -for(var key in keys)
+                                    td #{searchResults[prop].key}
              
             script="$(window).scrollTop($('#labyokers').offset().top).scrollLeft($('#labyokers').offset().left);"
 
