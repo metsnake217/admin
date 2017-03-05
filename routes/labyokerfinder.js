@@ -1453,6 +1453,9 @@ LabYokerGetOrder.prototype.getorders = function(callback) {
 LabYokeSearch.prototype.query = function(callback) {
 	var results = [];
 	console.log("queryText: " + this.queryText);
+	var stringArray = this.queryText.split(" ");
+	var type = stringArray[0].toLowerCase();
+	results.push(type);
 	var query = client.query(this.queryText);
 	query.on("row", function(row, result) {
 		result.addRow(row);

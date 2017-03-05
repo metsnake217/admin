@@ -836,17 +836,17 @@ module.exports = function(router) {
 			labYokeSearch.query(function(error, results) {
 				console.log("results " + results.length);
 				var err = "";
-				if(results != null && results.length > 1){
-					console.log("error " + results[1]);
-					err = results[1];
+				if(results != null && results.length > 2){
+					console.log("error " + results[2]);
+					err = results[2];
 				}
 				if (queryText != null && queryText.length > 0){
-					if(results[0].length == 0){
+					if(results[1].length == 0){
 						messageStr = "Sorry we could not find any results with your query request: <b>" + queryText + "</b>. Please try again.";
 					}
-					res.render('querytool', {error: err, mylab: req.session.lab, message: messageStr, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', fullname: req.session.fullname, sendemail: req.session.email, searchResults : results[0], agentsResults : results[1], searchformText: queryText, loggedIn : true});
+					res.render('querytool', {type:results[0], error: err, mylab: req.session.lab, message: messageStr, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', fullname: req.session.fullname, sendemail: req.session.email, searchResults : results[1], agentsResults : results[2], searchformText: queryText, loggedIn : true});
 				} else {
-					res.render('querytool', {error: err, message:'You entered an invalid DB statement. Please try again.',mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', loggedIn : true, agentsResults : results[1]});
+					res.render('querytool', {type:results[0], error: err, message:'You entered an invalid DB statement. Please try again.',mylab: req.session.lab,ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title: 'Query Tool', loggedIn : true, agentsResults : results[2]});
 				}
 				req.session.messages = null;
 			});
