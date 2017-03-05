@@ -27,7 +27,7 @@ block content
                             button(class="btn " + classButton + " btn-lg btn-block" type='submit') Submit
                             img(src="images/yoke5.png", alt="The Search", title="Search", style="border-width:0px; width: 50px; margin-top: -77px; margin-left: 300px;")
         
-        - if((searchResults != null && searchResults.length > 0) || (rowCount != null && rowCount.length > 0))
+        - if((searchResults != null && searchResults.length > 0) || (rowCount != null && rowCount != undefined))
             div(style="background-color: #3d9dcb; height: 2px; margin-bottom: 40px; margin-top: 30px;")
             div
               div(id="queryresults")
