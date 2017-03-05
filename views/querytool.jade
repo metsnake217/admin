@@ -82,7 +82,7 @@ block content
                          p(style="text-align:center")="Your query cannot be processed - "
                             span!=JSON.stringify(searchResults).replace(/&quot;/g, '"')
                      - if(error != "error" && type != "select")
-                         p(style="text-align:center")!="" + type + " - " + rowCount + " rows affected."
+                         p(style="text-align:center")!="" + type + " - " + rowCount + " row(s) affected."
              
             script="$(window).scrollTop($('#queryresults').offset().top).scrollLeft($('#queryresults').offset().left);"
 
