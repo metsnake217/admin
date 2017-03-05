@@ -5,6 +5,7 @@ block content
         div
             h1= 'Query.'
             p!="Start querying the database."
+            - var remove = 0
             - searchText = "Looking for reagent..."
             - searchTextCatalog = "Looking for catalog number..."
             - classButton = "btn-success"
@@ -75,7 +76,6 @@ block content
                            - i = 
                            - var j = 1
                            - className = ""
-                           - var remove = 0
                            div(class="table-responsive" style="margin-top: 20px;")
                              - if(error != "error" && type == "select")  
                                - for(var prop in searchResults)
