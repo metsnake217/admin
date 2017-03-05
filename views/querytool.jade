@@ -53,24 +53,28 @@ block content
                          p(style="text-align:center")="Your query cannot be processed - "
                             span!=JSON.stringify(searchResults).replace(/&quot;/g, '"') 
 
-                    div(id="results")
-            div(id="ctl00_Div2" class="row rank")
-                - var keys
-                div(class="table-responsive")                
-                    table(id="rankTblload" class="table rankTbl")
-                        thead
-                            tr(class="you info-best" style="font-weight: bold")
-                                - keys = Object.keys(searchResults[0])
-                                - for(var prop in keys)
-                                    td(class="wrapped") #{keys[prop]}
-                        tbody
-                          - var values = Object.keys(searchResults).map(function(key) {return searchResults[key];})
-                          - keys = Object.keys(searchResults[0])
-                          -for(var prop in searchResults)
-                            tr(class="wrapped")
-                                - var values = Object.keys(searchResults[prop]).map(function(key) {var t = searchResults[prop];return t[key];})
-                                -for(var val in values)
-                                    td #{values[val]}
+            div(id="results")
+                div(id="ctl00_Div2" class="row rank")
+                    - var keys
+                    div(class="table-responsive")                
+                        table(id="rankTblload" class="table rankTbl")
+                            thead
+                                tr(class="you info-best" style="font-weight: bold")
+                                    - keys = Object.keys(searchResults[0])
+                                    - for(var prop in keys)
+                                        td(class="wrapped") #{keys[prop]}
+                            tbody
+                              - var values = Object.keys(searchResults).map(function(key) {return searchResults[key];})
+                              - keys = Object.keys(searchResults[0])
+                              -for(var prop in searchResults)
+                                tr(class="wrapped")
+                                    - var values = Object.keys(searchResults[prop]).map(function(key) {var t = searchResults[prop];return t[key];})
+                                    -for(var val in values)
+                                        td #{values[val]}
+                        script.
+                            $(document).ready(function() {
+                               $('#rankTblload').DataTable();
+                            });
              
             script="$(window).scrollTop($('#labyokers').offset().top).scrollLeft($('#labyokers').offset().left);"
 
