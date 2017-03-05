@@ -28,9 +28,10 @@ block content
                             img(src="images/yoke5.png", alt="The Search", title="Search", style="border-width:0px; width: 50px; margin-top: -77px; margin-left: 300px;")
         
         - if((searchResults != null && searchResults.length > 0) || (rowCount != null && rowCount != undefined))
-            div(style="background-color: #3d9dcb; height: 2px; margin-bottom: 40px; margin-top: 30px;")
+            
             div
               div(id="queryresults")
+                  div(style="background-color: #3d9dcb; height: 2px; margin-bottom: 40px; margin-top: 30px;")
                   span(style="text-align: center")
                     h3="Your query: "
                         if searchformText
@@ -94,6 +95,8 @@ block content
                 var rem = #{remove};
                 if(rem == '0'){
                     $('#raw').remove();
+                    $('#queryresults').remove();
+                    
                 }
 
         
