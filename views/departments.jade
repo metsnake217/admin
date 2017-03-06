@@ -57,12 +57,15 @@ block content
 								- for(var prop in depts)
 									- var department = depts[prop].departmentname
 									option(value=department) #{department}
+						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
+							div(class="arrow-up", style="margin-bottom: 5px;")
+							div(class="arrow-down")
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'> Administrator </span>"
 						select(name="adminlab" type="text" id="adminlab" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Admin")
 							option(value"selectdept")="Select an administrator"
 							- if(users != undefined)
 								- for(var prop in users)
-									- var user = users[prop]
+									- var user = users[prop].email
 									option(value=user) #{user}
 						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
