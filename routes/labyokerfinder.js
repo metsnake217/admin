@@ -143,6 +143,10 @@ LabyokerPasswordChange = function(hash, password) {
 
 LabYokeGlobal = function() {};
 
+LabYokeDepartment = function(name) {
+	this.name = name
+};
+
 LabYokeUsers = function(id,name,surname,email,checked) {
 	this.id = id;
 	this.name = name;
@@ -987,6 +991,28 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 	query.on("end", function(result) {
 		resultsLogin.push(result.rows);
 		console.log("get departments: " + resultsLogin[0].length);
+		callback(null, resultsLogin);
+	});
+};
+
+LabYokeDepartment.prototype.createdepartment = function(callback) {
+	var resultsLogin = [];
+	var departmentname = this.name;
+	var query = client.query("INSERT INTO departments VALUES ('', '" + departmentname + "'");
+
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		resultsLogin.push("success");
+		resultsLogin.push("Your new department <b>" + departmentname + "</b> has been successfully added.");
+		console.log("successful");
+		callback(null, resultsLogin);
+	});
+	query.on("error", function(err) {
+		console.log("error");
+		resultsLogin.push("error");
+		resultsLogin.push("Your new department <b>" + departmentname + "</b> cannot be added due to: " + err);
 		callback(null, resultsLogin);
 	});
 };
@@ -2157,5 +2183,6 @@ exports.LabYokeReporterSavings = LabYokeReporterSavings;
 exports.LabYokeReporterShares = LabYokeReporterShares;
 exports.LabyokerTeam = LabyokerTeam;
 exports.LabYokeGlobal = LabYokeGlobal;
+exports.LabYokeDepartment = LabYokeDepartment;
 exports.LabYokeUsers = LabYokeUsers;
 exports.LabyokerLab = LabyokerLab;

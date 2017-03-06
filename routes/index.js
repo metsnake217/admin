@@ -4,6 +4,7 @@ var dates = require('../config/staticvariables');
 
 var LabYokeUsers = labyokeFinderClass.LabYokeUsers;
 var LabYokeGlobal = labyokeFinderClass.LabYokeGlobal;
+var LabYokeDepartment = labyokeFinderClass.LabYokeDepartment;
 var LabYokerOrder = labyokeFinderClass.LabYokerOrder;
 var LabYokeReporterOrders = labyokeFinderClass.LabYokeReporterOrders;
 var LabYokeReporterShares = labyokeFinderClass.LabYokeReporterShares;
@@ -57,89 +58,31 @@ module.exports = function(router) {
 	var competitionEnds = dates.competitionEnds;
 
     router.post('/departments', isLoggedIn, function(req, res) {
-        var exceltojson;
-        upload(req,res,function(err){
-        	var cont = 1;
-            if(err){
-                 //res.json({error_code:1,err_desc:err});
-                 res.render('departments', {
-                   nosuccess: "generic", myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, loggedIn : true, isLoggedInAdmin: req.session.admin, title: 'Departments', labyoker : req.session.user
-                 });
-                 cont = 0;
-                 console.log("generic error: "+cont);
-                 //return;
-            }
-            /** Multer gives us file info in req.file object */
-            if(!req.file){
-                //res.json({error_code:1,err_desc:"No file passed"});
-                
-                res.render('departments', {
-                   nosuccess: "nofile", myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, loggedIn : true, isLoggedInAdmin: req.session.admin, title: 'Departments', labyoker : req.session.user
-                });
-                cont = 0;
-                console.log("no file error: " + cont);
-                //return;
-            }
-            /** Check the extension of the incoming file and 
-             *  use the appropriate module
-             */
-            if(cont == 1){
-            if(req.file.originalname.split('.')[req.file.originalname.split('.').length-1] === 'xlsx'){
-                exceltojson = xlsxtojson;
-            } else {
-                exceltojson = xlstojson;
-            }
-            try {
-                exceltojson({
-                    input: req.file.path,
-                    output: null, //since we don't need output.json
-                    lowerCaseHeaders:true
-                }, function(err,result){
-                    if(err) {
-                        //return res.json({error_code:1,err_desc:err, data: null});
-
-                        res.render('departments', {
-                    	nosuccess: "nodata", myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, loggedIn : true, isLoggedInAdmin: req.session.admin, title: 'Departments', spreadname: req.file.originalname, labyoker : req.session.user
-                    	});
-                    	cont = 0;
-                    	console.log("no data error : " + cont);
-                    }
-                    if(cont == 1){
-                    //var ob = { data:result};
-                    console.log("inside upload ");
-                    var labYokeUploader = new LabYokeUploader(result);
-                    		/*var labYokeAgents = new LabYokeAgents(req.session.email, req.session.lab, req.session.labs, req.session.dept);
-		labYokeAgents.findmyshares(function(error, results) {
+		var labYokeGlobal = new LabYokeGlobal();
+		var labYokeDepartment = new LabYokeDepartment();
+		labYokeDepartment.createdepartment(function(error, results) {
+			var status = results[0];
+			var message = results[1];
+		labYokeGlobal.finddepartments(function(error, departments) {
 			//req.session.orders = results[2];
-			req.session.shares = 0;
-			console.log("test ? " + results[3]);
-*/
-                    labYokeUploader.upload(function(error, done) {
-                    	//console.log("is upload json: " + json);
-                    	console.log("is upload done?: " + done);
-                    if(done == "successfulUpload"){
-                    	console.log("inside successful upload");
-                    	console.log("mysharesrequest " + req.session.mysharesrequest);
-                    	res.render('departments', {
-                    	myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, json: result, loggedIn : true, isLoggedInAdmin: req.session.admin, title: 'Departments', spreadname: req.file.originalname, labyoker : req.session.user
-                    });
-                	} else {
-                		console.log("inside not successful upload");
-                		res.render('departments', {nosuccess: "databaserror", report_venn: req.session.report_venn, test: req.session.test, currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, myshares: req.session.myshares, mysharesrequest: req.session.mysharesrequest, report_sharesbycategory: req.session.report_sharesbycategory, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
-						req.session.messages = null;
-                	}
-                });
-}
-
-		//});
-
-                    //res.json({error_code:0,err_desc:null, data: result});
-                });
-            } catch (e){
-                res.json({error_code:1,err_desc:"Corrupted excel file"});
-            }
-        }
-        })
+			/*req.session.myshares = results[0];
+			req.session.report_sharesbycategory = results[1];
+			req.session.mysharesrequest = results[3];
+			req.session.test = results[4];
+			req.session.report_venn = results[5];
+			req.session.shares = 0;*/
+			var errormessagedept = null;
+			var successmessagedept = null;
+			if(status == "success"){
+				successmessagedept = message;
+			} else {
+				errormessagedept = message;
+			}
+			console.log("test ? " + results[0]);
+			res.render('departments', {errormessage: errormessagedept, successmessage: successmessagedept, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			req.session.messages = null;
+		});
+		});
     });
 
 

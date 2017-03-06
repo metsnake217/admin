@@ -22,8 +22,10 @@ block content
 				h3= 'Create a new Department.'
 				p="Add a department to the existing list."
 				div(id="ctl00_Div2" class="results")
-					if message
-						div(class="alert alert-danger fade in alert-dismissable")!= message
+					if errormessagedept != null
+						div(class="alert alert-danger fade in alert-dismissable")!= errormessagedept
+					if successmessagedept != null
+						div(class="alert alert-success fade in alert-dismissable")!= successmessagedept
 					form(action="/createdepartment" method="post")
 						div(class="textentry")
 							input(name="department" type="text" id="department" class="form-control placeholderColor" placeholder="Department" style="")
@@ -35,8 +37,10 @@ block content
 				h3= 'Add a new lab.'
 				p="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department who can be listed in the diagram."
 				div(id="ctl00_Div2" class="results")
-					if message
-						div(class="alert alert-danger fade in alert-dismissable")!= message
+					if errormessagelab != null
+						div(class="alert alert-danger fade in alert-dismissable")!= errormessagelab
+					if successmessagelab != null
+						div(class="alert alert-success fade in alert-dismissable")!= successmessagelab
 					form(action="/createlab" method="post")
 						div(class="textentry")
 						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
