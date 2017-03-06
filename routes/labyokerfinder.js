@@ -998,7 +998,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 LabYokeDepartment.prototype.createdepartment = function(callback) {
 	var resultsLogin = [];
 	var departmentname = this.name;
-	var query = client.query("INSERT INTO departments VALUES ('', '" + departmentname + "'");
+	var query = client.query("INSERT INTO departments VALUES ('', '" + departmentname + "')";
 
 	query.on("row", function(row, result) {
 		result.addRow(row);
