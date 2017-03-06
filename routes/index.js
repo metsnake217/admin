@@ -513,17 +513,17 @@ module.exports = function(router) {
 	});
 
 	router.get('/departments', isLoggedIn, function(req, res) {
-		var labYokeAgents = new LabYokeAgents(req.session.email, req.session.lab, req.session.labs, req.session.dept);
-		labYokeAgents.findmyshares(function(error, results) {
+		var labYokeGlobal = new LabYokeGlobal();
+		labYokeGlobal.finddepartments(function(error, results) {
 			//req.session.orders = results[2];
-			req.session.myshares = results[0];
+			/*req.session.myshares = results[0];
 			req.session.report_sharesbycategory = results[1];
 			req.session.mysharesrequest = results[3];
 			req.session.test = results[4];
 			req.session.report_venn = results[5];
-			req.session.shares = 0;
-			console.log("test ? " + results[3]);
-			res.render('departments', {report_venn: results[5], test: results[4], currentlabname: req.session.lab, ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, myshares: results[0], mysharesrequest: results[3], report_sharesbycategory: results[1], loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			req.session.shares = 0;*/
+			console.log("test ? " + results[0]);
+			res.render('departments', {depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 	});

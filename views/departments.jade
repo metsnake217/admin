@@ -39,7 +39,15 @@ block content
 						div(class="alert alert-danger fade in alert-dismissable")!= message
 					form(action="/createlab" method="post")
 						div(class="textentry")
+						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
+							select(name="labname" type="text" id="labname" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px"
 							input(name="lab" type="text" id="lab" class="form-control placeholderColor" placeholder="Lab" style="/*background-color:rgba(61, 157, 203, 0.7);color:white*/")
+						label(style="width: 100%;")!="<span class='labColor'> Department </span>"
+							select(name="deptlab" type="text" id="deptlab" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
+								- if(depts != undefined)
+									- for(var prop in depts)
+										- var department = depts[prop].department
+										option(value=department) #{department}
 						div(class="buttons", style="margin-top: 15px;")
 							//input(type="submit" class="button" value="Get in")
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add

@@ -978,144 +978,15 @@ LabyokerLabs.prototype.getlabs = function(callback) {
 	});
 };
 
-LabYokeAgents.prototype.findmyshares = function(callback) {
-	var results = [];
-	var labs = this.labs;
-	var mylab = this.mylab;
-	var department = this.dept;
-	var mylabtable = mylab.replace(" ","").toLowerCase();
-	console.log("findmyshares: " + this.email);
-	var query = client
-			.query("SELECT * FROM vm2016_agentsshare where email='"
-					+ this.email + "' order by date desc");
-	var email = this.email;
+LabYokeAgents.prototype.finddepartments = function(callback) {
+	var resultsLogin = [];
+	var query = client.query("SELECT departmentname from departments");
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
 	query.on("end", function(result) {
-		results.push(result.rows);
-
-	var labsstr = "";
-	var i = 0;
-	var a = "a";
-	var select = "";
-
-	/*for(var prop in labs){
-		a = "a" + i;
-		labsstr = (labs[prop].labname).replace(" ","").toLowerCase() + "_orders "; //+ a + " ";
-		select = select + "SELECT a.agent, count(a.agent), b.insufficient as insuff from vm2016_agentsshare a, " + labsstr + " b where a.agent = b.agent and a.catalognumber = b.catalognumber and b.email='"
-					+ email + "' and b.lab='" + mylab + "' group by a.agent, b.insufficient UNION ";
-		i++;
-	}*/
-
-	//labsstr = labsstr.replace(/,\s*$/, "");
-	//date = date.replace(/,\s*$/, "");
-	//select = select.replace(/UNION\s*$/, "");
-
-	console.log("get getLabOrders_2 labsstr: " + labsstr);
-
-	console.log("get getLabOrders_2 select: " + select /*+ " order by agent asc limit 6"*/);
-
-		var query2 = client.query("SELECT a.agent, count(a.agent), b.insufficient as insuff from vm2016_agentsshare a, " + mylabtable + "_orders b where a.agent = b.agent and a.catalognumber = b.catalognumber and b.email='"
-					+ email + "' group by a.agent, b.insufficient order by agent asc limit 6");
-		query2.on("row", function(row, result2) {
-			result2.addRow(row);
-		});
-		query2.on("end", function(result2) {
-			results.push(result2.rows);
-
-	/*var labsstr = "";
-	var i = 0;
-	var a = "a";
-	var select = "";
-
-	for(var prop in labs){
-		a = "a" + i;
-		labsstr = (labs[prop].labname).replace(" ","").toLowerCase() + "_orders "; //+ a + " ";
-		select = select + "SELECT * from " + labsstr + "_orders where email='" + email + "' and lab='" + mylab + "' UNION ";
-		i++;
-	}
-	select = select.replace(/UNION\s*$/, "");
-	*/
-			var query4 = client.query("SELECT * from " + mylabtable + "_orders where email='" + email + "'  order by date desc");
-			query4.on("row", function(row, result4) {
-				result4.addRow(row);
-			});
-			query4.on("end", function(result4) {
-				var test4 = result4.rows;
-				results.push(test4.length);
-				results.push(test4);
-
-	labsstr = "";
-	select = "";
-
-	/*for(var prop in labs){
-		labsstr = (labs[prop].labname).replace(" ","").toLowerCase() + "_orders "; //+ a + " ";
-		select = select + " update "+ labsstr + " set status='' where status='new' and email='" + email+ "'; ";
-	}
-	var q = "BEGIN TRANSACTION; " + select + " COMMIT;";
-	*/
-	var q = "update "+ mylabtable + "_orders set status='' where status='new' and email='" + email+ "'";
-	console.log("q update: " + q);
-			var query3 = client.query(q);
-
-
-				//var query3 = client.query("update " + mylabtable + "_orders set status='' where status='new' and email='" + email+ "'");
-
-				query3.on("row", function(row, result3) {
-					result3.addRow(row);
-				});
-				query3.on("end", function(result3) {
-
-	labsstr = "";
-	select = "";
-
-	/*for(var prop in labs){
-		labsstr = (labs[prop].labname).replace(" ","").toLowerCase() + "_orders ";
-		select = select + "SELECT agent, count(agent) as counting, EXTRACT(MONTH FROM date_trunc( 'month', date )) as monthorder, EXTRACT(year FROM date_trunc( 'year', date )) as yearorder from " + labsstr + " where email='" + email + "' and insufficient=1 group by agent, date_trunc( 'month', date ), date_trunc( 'year', date ) UNION ";
-	}
-	select = select.replace(/UNION\s*$/, "");
-	var q = select + " order by agent asc limit 5";
-	*/
-	var q = "SELECT agent, count(agent) as counting, EXTRACT(MONTH FROM date_trunc( 'month', date )) as monthorder, EXTRACT(year FROM date_trunc( 'year', date )) as yearorder from " + mylabtable + "_orders where email='" + email + "' and insufficient=1 group by agent, date_trunc( 'month', date ), date_trunc( 'year', date )";
-	console.log("q monthly: " + q);
-	var query5 = client.query(q);
-	
-
-					//var query5 = client
-					//	.query("SELECT agent, count(agent) as counting, EXTRACT(MONTH FROM date_trunc( 'month', date )) as monthorder, EXTRACT(year FROM date_trunc( 'year', date )) as yearorder from " + mylabtable + "_orders where email='" + email
-					//+ "' and insufficient=1 group by agent, date_trunc( 'month', date ), date_trunc( 'year', date ) order by agent asc limit 5");
-					query5.on("row", function(row, result5) {
-						result5.addRow(row);
-					});
-					query5.on("end", function(result5) {
-						results.push(result5.rows);
-						console.log("orders findmyshares result5: " + result5.rows);
-
-						var q = client
-								.query("select b.lab, a.catalognumber, c.labname from vm2016_agentsshare a, vm2016_users b, labs c where c.department='"
-										+ department + "' and a.email = b.email and b.lab = c.labname and c.isvenn = 1 group by c.labname, a.catalognumber,b.lab order by c.labname");
-	
-
-						console.log("q all reagents in current department: " + q);
-						var query6 = client.query(q);
-						query6.on("row", function(row, result6) {
-							result6.addRow(row);
-						});
-						query6.on("end", function(result6) {
-							console.log("finishing up getting share data");
-							results.push(result6.rows);
-							console.log("getting all products loaded: " + result6.rows)
-							callback(null, results);
-						});
-
-						//callback(null, results)
-					});
-				});
-
-			});
-			//callback(null, results)
-		});
+		resultsLogin.push(result.rows);
+		callback(null, resultsLogin);
 	});
 };
 
