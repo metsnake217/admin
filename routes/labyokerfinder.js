@@ -1022,13 +1022,16 @@ LabYokeLab.prototype.createlab = function(callback) {
 	var query = client.query("select * from labs where lower(labname) = '" + labname.toLowerCase() + "'");
 
 	if(labdept == "Select a Department"){
+		console.log("bad dept");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
 	}
 	if(labadmin == "Select an Administrator"){
+		console.log("bad admin");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
 	}	
+	console.log("stopproc: " + stopproc);
 	if(stopproc == 0){
 		query.on("row", function(row, result) {
 			result.addRow(row);
