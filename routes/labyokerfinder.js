@@ -998,22 +998,36 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 LabYokeDepartment.prototype.createdepartment = function(callback) {
 	var resultsLogin = [];
 	var departmentname = this.name;
-	var query = client.query("INSERT INTO departments (departmentname) VALUES ('" + departmentname + "')");
+	var query = client.query("select * from departments where departmentname='" + departmentname + "'");
 
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
 	query.on("end", function(result) {
-		resultsLogin.push("success");
-		resultsLogin.push("Your new department <b>" + departmentname + "</b> has been successfully added.");
-		console.log("successful");
-		callback(null, resultsLogin);
-	});
-	query.on("error", function(err) {
-		console.log("error");
-		resultsLogin.push("error");
-		resultsLogin.push("Your new department <b>" + departmentname + "</b> cannot be added due to: " + err);
-		callback(null, resultsLogin);
+		if(result.rows.length == 0){
+			var query2 = client.query("INSERT INTO departments (departmentname) VALUES ('" + departmentname + "')");
+
+			query2.on("row", function(row, result2) {
+				result2.addRow(row);
+			});
+			query.on("end", function(result2) {
+				resultsLogin.push("success");
+				resultsLogin.push("Your new department <b>" + departmentname + "</b> has been successfully added.");
+				console.log("successful");
+				callback(null, resultsLogin);
+			});
+			query.on("error", function(err) {
+				console.log("error");
+				resultsLogin.push("error");
+				resultsLogin.push("Your new department <b>" + departmentname + "</b> cannot be added due to: " + err);
+				callback(null, resultsLogin);
+			});
+		} else {
+			console.log("error");
+			resultsLogin.push("error");
+			resultsLogin.push("There is already a department by the name of <b>" + departmentname + "</b>. Please enter another department name.");
+			callback(null, resultsLogin);
+		}
 	});
 };
 
