@@ -57,7 +57,7 @@ module.exports = function(router) {
 	var competitionStarts = dates.competitionStarts;
 	var competitionEnds = dates.competitionEnds;
 
-    router.post('/departments', isLoggedIn, function(req, res) {
+    router.post('/createdepartment', isLoggedIn, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
 		var labYokeDepartment = new LabYokeDepartment();
 		labYokeDepartment.createdepartment(function(error, results) {
