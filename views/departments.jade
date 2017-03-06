@@ -19,7 +19,7 @@ block content
 					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Department"
 					option(value="createLab" selected=(checkedstrLab===true ? "selected" : undefined))="Lab"
 				div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
-					div(class="arrow-up")
+					div(class="arrow-up", style="margin-bottom: 5px;")
 					div(class="arrow-down")
 			div(id="createDept")
 				h3= 'Create a new Department.'
@@ -55,6 +55,9 @@ block content
 								- for(var prop in depts)
 									- var department = depts[prop].departmentname
 									option(value=department) #{department}
+						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
+							div(class="arrow-up", style="margin-bottom: 5px;")
+							div(class="arrow-down")
 						div(class="buttons", style="margin-top: 15px;")
 							//input(type="submit" class="button" value="Get in")
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
