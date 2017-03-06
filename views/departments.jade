@@ -4,23 +4,36 @@ block content
 	div(class="container login marginbottom share-container")
 		h1= 'Departments.'
 
-		div(style="text-align: center;position: relative;")
-			h2= 'Create a new Department.'
+		div(style="width: 50%;")
+			- var checkedstrDept = false;
+			- var section = "department"
+			- if(section !=null && section.length>0 && section == "department")
+				- checkedstrDept = true
+			- var checkedstrLab = false;
+			- if(section !=null && section.length>0 && section == "lab")
+				- checkedstrLab = true
+			form(action="createSelect", method="post")
+			div(class="buttons")
+				select(name="createSelect" type="text" id="createSelect" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Create...")
+					option(value="createNone",style="font-weight:bold")="Create a ..."
+					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Department"
+					option(value="createLab" selected=(checkedstrDept===true ? "selected" : undefined))="Lab"
+			h3= 'Create a new Department.'
 			p="Add a department to the existing list."
-			div(id="ctl00_Div2" class="frontdiv results")
+			div(id="ctl00_Div2" class="results")
 				div
 					if message
 						div(class="alert alert-danger fade in alert-dismissable")!= message
 					form(action="/createdepartment" method="post")
 						div(class="textentry")
-							input(name="department" type="text" id="department" class="form-control placeholderColor" placeholder="Department" style="/*background-color:rgba(61, 157, 203, 0.7);color:white*/")
+							input(name="department" type="text" id="department" class="form-control placeholderColor" placeholder="Department" style="")
 						div(class="buttons" style="margin-top: 15px;")
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
 
-			h2= 'Add a new lab.'
+			h3= 'Add a new lab.'
 			p="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department who can be listed in the diagram."
-			div(id="ctl00_Div2" class="frontdiv results")
+			div(id="ctl00_Div2" class="results")
 				div
 					if message
 						div(class="alert alert-danger fade in alert-dismissable")!= message
@@ -31,3 +44,41 @@ block content
 							//input(type="submit" class="button" value="Get in")
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
+		script.
+			window.onload = function() {
+				$('#createDept').hide();
+				$('#createLab').hide();
+
+				var eSelect = document.getElementById('createSelect');
+				console.debug("selected: " + $('#createSelect').val());
+
+				if(eSelect.selectedIndex === 1 || $('#createSelect').val() == 'createDept') {
+					console.log("createDept inside");
+					$('#createDept').show();
+					$('#createLab').hide();
+				} else if(eSelect.selectedIndex === 2 || $('#createSelect').val() == 'createLab') {
+					console.log("createLab inside");
+					$('#createLab').show();
+					$('#createDept').hide();
+				} else if(eSelect.selectedIndex === 0 || $('#createSelect').val() == 'createNone') {
+					console.log("create None inside");
+					$('#createLab').hide();
+					$('#createDept').hide();
+				}
+
+				eSelect.onchange = function() {
+					if(eSelect.selectedIndex === 1 || $('#createSelect').val() == 'createDept') {
+						console.log("createDept inside");
+						$('#createDept').show();
+						$('#createLab').hide();
+					} else if(eSelect.selectedIndex === 2 || $('#createSelect').val() == 'createLab') {
+						console.log("createLab inside");
+						$('#createLab').show();
+						$('#createDept').hide();
+					} else if(eSelect.selectedIndex === 0 || $('#createSelect').val() == 'reportNone') {
+						console.log("create None inside");
+						$('#createLab').hide();
+						$('#createDept').hide();
+					}
+				}
+			}
