@@ -1043,7 +1043,7 @@ LabYokeLab.prototype.createlab = function(callback) {
 		} else {
 			console.log("error");
 			resultsLogin.push("error");
-			resultsLogin.push("There is already a lab by the name of <b>" + departmentname + "</b>. Please enter another department name.");
+			resultsLogin.push("There is already a lab by the name of <b>" + labname + "</b>. Please enter another department name.");
 			callback(null, resultsLogin);
 		}
 	});
