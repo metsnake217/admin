@@ -82,7 +82,7 @@ module.exports = function(router) {
 				errormessagedept = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {errormessagedept: errormessagedept, successmessagedept: successmessagedept, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			res.render('departments', {section:"department", errormessagedept: errormessagedept, successmessagedept: successmessagedept, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 		});
@@ -473,7 +473,7 @@ module.exports = function(router) {
 			req.session.report_venn = results[5];
 			req.session.shares = 0;*/
 			console.log("test ? " + results[0]);
-			res.render('departments', {depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			res.render('departments', {section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 	});

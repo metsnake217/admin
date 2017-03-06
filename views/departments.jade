@@ -6,16 +6,18 @@ block content
 		P!="You can create a new department and lab. As well as set some useful settings for labs."
 		div(style="width: 50%;")
 			- var checkedstrDept = false;
-			- var section = "department"
 			- if(section !=null && section.length>0 && section == "department")
 				- checkedstrDept = true
 			- var checkedstrLab = false;
 			- if(section !=null && section.length>0 && section == "lab")
 				- checkedstrLab = true
+			- var checkedstrAll = false;
+			- if(section !=null && section.length>0 && section == "all")
+				- checkedstrAll = true
 			form(action="createSelect", method="post")
 			div(class="buttons", style="margin-bottom: 50px;")
 				select(name="createSelect" type="text" id="createSelect" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Create...")
-					option(value="createNone",style="font-weight:bold")="Create a ..."
+					option(value="createNone" selected=(checkedstrAll===true ? "selected" : undefined) style="font-weight:bold")="Create a ..."
 					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Department"
 					option(value="createLab" selected=(checkedstrLab===true ? "selected" : undefined))="Lab"
 				div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
