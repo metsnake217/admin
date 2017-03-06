@@ -998,25 +998,26 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 LabYokeDepartment.prototype.createdepartment = function(callback) {
 	var resultsLogin = [];
 	var departmentname = this.name;
-	var query = client.query("select * from departments where departmentname='" + departmentname + "'");
+	var query = client.query("select * from departments where lower(departmentname) = '" + departmentname.toLowerCase() + "'");
 
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
 	query.on("end", function(result) {
+		console.log("select depts: " + result.rows.length);
 		if(result.rows.length == 0){
 			var query2 = client.query("INSERT INTO departments (departmentname) VALUES ('" + departmentname + "')");
 
 			query2.on("row", function(row, result2) {
 				result2.addRow(row);
 			});
-			query.on("end", function(result2) {
+			query2.on("end", function(result2) {
 				resultsLogin.push("success");
 				resultsLogin.push("Your new department <b>" + departmentname + "</b> has been successfully added.");
 				console.log("successful");
 				callback(null, resultsLogin);
 			});
-			query.on("error", function(err) {
+			query2.on("error", function(err) {
 				console.log("error");
 				resultsLogin.push("error");
 				resultsLogin.push("Your new department <b>" + departmentname + "</b> cannot be added due to: " + err);
