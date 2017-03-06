@@ -18,6 +18,9 @@ block content
 					option(value="createNone",style="font-weight:bold")="Create a ..."
 					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Department"
 					option(value="createLab" selected=(checkedstrLab===true ? "selected" : undefined))="Lab"
+				div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
+					div(class="arrow-up")
+					div(class="arrow-down")
 			div(id="createDept")
 				h3= 'Create a new Department.'
 				p="Add a department to the existing list."
@@ -87,7 +90,7 @@ block content
 						console.log("createLab inside");
 						$('#createLab').show();
 						$('#createDept').hide();
-					} else if(eSelect.selectedIndex === 0 || $('#createSelect').val() == 'reportNone') {
+					} else if(eSelect.selectedIndex === 0 || $('#createSelect').val() == 'createNone') {
 						console.log("create None inside");
 						$('#createLab').hide();
 						$('#createDept').hide();
