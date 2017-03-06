@@ -1017,14 +1017,17 @@ LabYokeLab.prototype.createlab = function(callback) {
 	var labdept = this.department;
 	var stopproc = false;
 	var stopmessage = "";
+	console.log("admin is: " + labadmin);
+	console.log("admin is: " + labdept);
 	var query = client.query("select * from labs where lower(labname) = '" + labname.toLowerCase() + "'");
-	if(labadmin == "Select an Administrator"){
-		stopproc = true;
-		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
-	}
+
 	if(labdept == "Select a Department"){
 		stopproc = true;
 		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
+	}
+	if(labadmin == "Select an Administrator"){
+		stopproc = true;
+		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
 	}	
 	if(!stopproc){
 		query.on("row", function(row, result) {
