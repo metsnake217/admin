@@ -17,7 +17,7 @@ block content
 				select(name="createSelect" type="text" id="createSelect" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Create...")
 					option(value="createNone",style="font-weight:bold")="Create a ..."
 					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Department"
-					option(value="createLab" selected=(checkedstrDept===true ? "selected" : undefined))="Lab"
+					option(value="createLab" selected=(checkedstrLab===true ? "selected" : undefined))="Lab"
 			div(id="createDept")
 				h3= 'Create a new Department.'
 				p="Add a department to the existing list."
