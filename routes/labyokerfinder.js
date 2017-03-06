@@ -978,7 +978,7 @@ LabyokerLabs.prototype.getlabs = function(callback) {
 	});
 };
 
-LabYokeAgents.prototype.finddepartments = function(callback) {
+LabYokeGlobal.prototype.finddepartments = function(callback) {
 	var resultsLogin = [];
 	var query = client.query("SELECT departmentname from departments");
 	query.on("row", function(row, result) {
