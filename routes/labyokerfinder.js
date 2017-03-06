@@ -980,7 +980,7 @@ LabyokerLabs.prototype.getlabs = function(callback) {
 
 LabYokeGlobal.prototype.finddepartments = function(callback) {
 	var resultsLogin = [];
-	var query = client.query("SELECT departmentname from departments");
+	var query = client.query("SELECT * from departments");
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});

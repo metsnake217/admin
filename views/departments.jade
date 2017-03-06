@@ -46,7 +46,7 @@ block content
 							option(value"selectdept")="Select a Department"
 							- if(depts != undefined)
 								- for(var prop in depts)
-									- var department = depts[prop].department
+									- var department = depts[prop].departmentname
 									option(value=department) #{department}
 						div(class="buttons", style="margin-top: 15px;")
 							//input(type="submit" class="button" value="Get in")
