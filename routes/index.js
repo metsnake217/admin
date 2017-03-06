@@ -63,6 +63,8 @@ module.exports = function(router) {
 		labYokeDepartment.createdepartment(function(error, results) {
 			var status = results[0];
 			var message = results[1];
+			console.log("createdepartment status: " + status);
+			console.log("createdepartment status: " + message);
 		labYokeGlobal.finddepartments(function(error, departments) {
 			//req.session.orders = results[2];
 			/*req.session.myshares = results[0];
@@ -78,7 +80,7 @@ module.exports = function(router) {
 			} else {
 				errormessagedept = message;
 			}
-			console.log("test ? " + results[0]);
+			console.log("departments: " + departments.length);
 			res.render('departments', {errormessage: errormessagedept, successmessage: successmessagedept, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
