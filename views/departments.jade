@@ -18,10 +18,10 @@ block content
 					option(value="createNone",style="font-weight:bold")="Create a ..."
 					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Department"
 					option(value="createLab" selected=(checkedstrDept===true ? "selected" : undefined))="Lab"
-			h3= 'Create a new Department.'
-			p="Add a department to the existing list."
-			div(id="ctl00_Div2" class="results")
-				div(id="createDept")
+			div(id="createDept")
+				h3= 'Create a new Department.'
+				p="Add a department to the existing list."
+				div(id="ctl00_Div2" class="results")
 					if message
 						div(class="alert alert-danger fade in alert-dismissable")!= message
 					form(action="/createdepartment" method="post")
@@ -31,10 +31,10 @@ block content
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
 
-			h3= 'Add a new lab.'
-			p="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department who can be listed in the diagram."
-			div(id="ctl00_Div2" class="results")
-				div(id="createLab")
+			div(id="createLab")
+				h3= 'Add a new lab.'
+				p="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department who can be listed in the diagram."
+				div(id="ctl00_Div2" class="results")
 					if message
 						div(class="alert alert-danger fade in alert-dismissable")!= message
 					form(action="/createlab" method="post")
