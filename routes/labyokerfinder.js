@@ -1015,21 +1015,21 @@ LabYokeLab.prototype.createlab = function(callback) {
 	var labname = this.name;
 	var labadmin = this.admin;
 	var labdept = this.department;
-	var stopproc = false;
+	var stopproc = 0;
 	var stopmessage = "";
 	console.log("admin is: " + labadmin);
 	console.log("admin is: " + labdept);
 	var query = client.query("select * from labs where lower(labname) = '" + labname.toLowerCase() + "'");
 
 	if(labdept == "Select a Department"){
-		stopproc = true;
+		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
 	}
 	if(labadmin == "Select an Administrator"){
-		stopproc = true;
+		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
 	}	
-	if(!stopproc){
+	if(stopproc == 0){
 		query.on("row", function(row, result) {
 			result.addRow(row);
 		});
