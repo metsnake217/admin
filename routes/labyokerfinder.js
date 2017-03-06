@@ -986,6 +986,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 	});
 	query.on("end", function(result) {
 		resultsLogin.push(result.rows);
+		console.log("get departments: " + resultsLogin[0].length);
 		callback(null, resultsLogin);
 	});
 };
