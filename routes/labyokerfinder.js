@@ -1018,15 +1018,15 @@ LabYokeLab.prototype.createlab = function(callback) {
 	var stopproc = 0;
 	var stopmessage = "";
 	console.log("admin is: " + labadmin);
-	console.log("admin is: " + labdept);
+	console.log("dept is: " + labdept);
 	var query = client.query("select * from labs where lower(labname) = '" + labname.toLowerCase() + "'");
 
-	if(labdept == "Select a Department"){
+	if(labdept === "Select a Department"){
 		console.log("bad dept");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
 	}
-	if(labadmin == "Select an Administrator"){
+	if(labadmin === "Select an Administrator"){
 		console.log("bad admin");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
