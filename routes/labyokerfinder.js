@@ -1015,38 +1015,51 @@ LabYokeLab.prototype.createlab = function(callback) {
 	var labname = this.name;
 	var labadmin = this.admin;
 	var labdept = this.department;
+	var stopproc = false;
+	var stopmessage = "";
 	var query = client.query("select * from labs where lower(labname) = '" + labname.toLowerCase() + "'");
+	if(labadmin == "Select an Administrator"){
+		stopproc = true;
+		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
+	}
+	if(labdept == "Select a Department"){
+		stopproc = true;
+		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
+	}	
+	if(!stopproc){
+		query.on("row", function(row, result) {
+			result.addRow(row);
+		});
+		query.on("end", function(result) {
+			console.log("select labs: " + result.rows.length);
+			if(result.rows.length == 0){
+				var query2 = client.query("INSERT INTO labs (labname,admin,department) VALUES ('" + labname + "','" + labadmin + "','" + labdept + "')");
 
-	query.on("row", function(row, result) {
-		result.addRow(row);
-	});
-	query.on("end", function(result) {
-		console.log("select labs: " + result.rows.length);
-		if(result.rows.length == 0){
-			var query2 = client.query("INSERT INTO labs (labname,admin,department) VALUES ('" + labname + "','" + labadmin + "','" + labdept + "')");
-
-			query2.on("row", function(row, result2) {
-				result2.addRow(row);
-			});
-			query2.on("end", function(result2) {
-				resultsLogin.push("success");
-				resultsLogin.push("Your new lab <b>" + labname + "</b> has been successfully added.");
-				console.log("successful");
-				callback(null, resultsLogin);
-			});
-			query2.on("error", function(err) {
+				query2.on("row", function(row, result2) {
+					result2.addRow(row);
+				});
+				query2.on("end", function(result2) {
+					resultsLogin.push("success");
+					resultsLogin.push("Your new lab <b>" + labname + "</b> has been successfully added.");
+					console.log("successful");
+					callback(null, resultsLogin);
+				});
+				query2.on("error", function(err) {
+					console.log("error");
+					resultsLogin.push("error");
+					resultsLogin.push("Your new lab <b>" + labname + "</b> cannot be added due to: " + err);
+					callback(null, resultsLogin);
+				});
+			} else {
 				console.log("error");
 				resultsLogin.push("error");
-				resultsLogin.push("Your new lab <b>" + labname + "</b> cannot be added due to: " + err);
+				resultsLogin.push("There is already a lab by the name of <b>" + labname + "</b>. Please enter another department name.");
 				callback(null, resultsLogin);
-			});
-		} else {
-			console.log("error");
-			resultsLogin.push("error");
-			resultsLogin.push("There is already a lab by the name of <b>" + labname + "</b>. Please enter another department name.");
-			callback(null, resultsLogin);
-		}
-	});
+			}
+		});
+	} else {
+		callback(null, stopmessage);
+	}
 };
 
 LabYokeDepartment.prototype.createdepartment = function(callback) {
