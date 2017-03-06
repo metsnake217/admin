@@ -67,13 +67,6 @@ module.exports = function(router) {
 			console.log("createdepartment status: " + status);
 			console.log("createdepartment message: " + message);
 		labYokeGlobal.finddepartments(function(error, departments) {
-			//req.session.orders = results[2];
-			/*req.session.myshares = results[0];
-			req.session.report_sharesbycategory = results[1];
-			req.session.mysharesrequest = results[3];
-			req.session.test = results[4];
-			req.session.report_venn = results[5];
-			req.session.shares = 0;*/
 			var errormessagedept = null;
 			var successmessagedept = null;
 			if(status == "success"){
@@ -88,6 +81,29 @@ module.exports = function(router) {
 		});
     });
 
+    router.post('/createlab', isLoggedIn, function(req, res) {
+		var labYokeGlobal = new LabYokeGlobal();
+		var labYokeLab = new LabYokeLab(req.body.labname,req.body.adminlab,req.body.deptlab);
+		console.log("lab is: " + req.body.labname);
+		labYokeLab.createlab(function(error, results) {
+			var status = results[0];
+			var message = results[1];
+			console.log("createlab status: " + status);
+			console.log("createlab message: " + message);
+		labYokeGlobal.finddepartments(function(error, departments) {
+			var errormessagedept = null;
+			var successmessagedept = null;
+			if(status == "success"){
+				successmessagedept = message;
+			} else {
+				errormessagedept = message;
+			}
+			console.log("departments: " + departments.length);
+			res.render('departments', {section:"lab", errormessagedept: errormessagedept, successmessagedept: successmessagedept, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			req.session.messages = null;
+		});
+		});
+    });
 
 	router.get('/', function(req, res) {
 		res.redirect('/querytool');
@@ -98,6 +114,10 @@ module.exports = function(router) {
 	});
 
 	router.get('/createdepartment', function(req, res) {
+		res.redirect('/departments');
+	});
+
+	router.get('/createlab', function(req, res) {
 		res.redirect('/departments');
 	});
 
@@ -473,7 +493,7 @@ module.exports = function(router) {
 			req.session.report_venn = results[5];
 			req.session.shares = 0;*/
 			console.log("test ? " + results[0]);
-			res.render('departments', {section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			res.render('departments', {users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 	});

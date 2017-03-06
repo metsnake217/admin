@@ -49,7 +49,7 @@ block content
 					form(action="/createlab" method="post")
 						div(class="textentry")
 						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
-						input(name="lab" type="text" id="lab" class="form-control placeholderColor" placeholder="Lab name" style="/*background-color:rgba(61, 157, 203, 0.7);color:white*/")
+						input(name="labname" type="text" id="labname" class="form-control placeholderColor" placeholder="Lab name" style="/*background-color:rgba(61, 157, 203, 0.7);color:white*/")
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'> Department </span>"
 						select(name="deptlab" type="text" id="deptlab" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
 							option(value"selectdept")="Select a Department"
@@ -57,6 +57,13 @@ block content
 								- for(var prop in depts)
 									- var department = depts[prop].departmentname
 									option(value=department) #{department}
+						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'> Administrator </span>"
+						select(name="adminlab" type="text" id="adminlab" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Admin")
+							option(value"selectdept")="Select an administrator"
+							- if(users != undefined)
+								- for(var prop in users)
+									- var user = users[prop]
+									option(value=user) #{user}
 						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")

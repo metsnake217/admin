@@ -147,6 +147,12 @@ LabYokeDepartment = function(name) {
 	this.name = name
 };
 
+LabYokeLab = function(name,department,admin) {
+	this.name = name;
+	this.department = department;
+	this.admin = admin;
+};
+
 LabYokeUsers = function(id,name,surname,email,checked) {
 	this.id = id;
 	this.name = name;
@@ -989,9 +995,57 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 		result.addRow(row);
 	});
 	query.on("end", function(result) {
-		resultsLogin.push(result.rows);
-		console.log("get departments: " + resultsLogin[0].length);
-		callback(null, resultsLogin);
+
+		var query2 = client.query("SELECT email from vm2016_users where admin = 1");
+		query2.on("row", function(row, result2) {
+			result2.addRow(row);
+		});
+		query2.on("end", function(result2) {
+			resultsLogin.push(result.rows);
+			console.log("get departments: " + resultsLogin[0].length);
+			resultsLogin.push(result2.rows);
+			console.log("get users: " + resultsLogin[1].length);
+			callback(null, resultsLogin);
+		});
+	});
+};
+
+LabYokeLab.prototype.createlab = function(callback) {
+	var resultsLogin = [];
+	var labname = this.name;
+	var labadmin = this.admin;
+	var labdept = this.department;
+	var query = client.query("select * from labs where lower(labname) = '" + labname.toLowerCase() + "'");
+
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		console.log("select labs: " + result.rows.length);
+		if(result.rows.length == 0){
+			var query2 = client.query("INSERT INTO labs (labname,admin,department) VALUES ('" + labname + "','" + labadmin + "','" + labdept + "')");
+
+			query2.on("row", function(row, result2) {
+				result2.addRow(row);
+			});
+			query2.on("end", function(result2) {
+				resultsLogin.push("success");
+				resultsLogin.push("Your new lab <b>" + labname + "</b> has been successfully added.");
+				console.log("successful");
+				callback(null, resultsLogin);
+			});
+			query2.on("error", function(err) {
+				console.log("error");
+				resultsLogin.push("error");
+				resultsLogin.push("Your new lab <b>" + labname + "</b> cannot be added due to: " + err);
+				callback(null, resultsLogin);
+			});
+		} else {
+			console.log("error");
+			resultsLogin.push("error");
+			resultsLogin.push("There is already a lab by the name of <b>" + departmentname + "</b>. Please enter another department name.");
+			callback(null, resultsLogin);
+		}
 	});
 };
 
@@ -2199,5 +2253,6 @@ exports.LabYokeReporterShares = LabYokeReporterShares;
 exports.LabyokerTeam = LabyokerTeam;
 exports.LabYokeGlobal = LabYokeGlobal;
 exports.LabYokeDepartment = LabYokeDepartment;
+exports.LabYokeLab = LabYokeLab;
 exports.LabYokeUsers = LabYokeUsers;
 exports.LabyokerLab = LabyokerLab;
