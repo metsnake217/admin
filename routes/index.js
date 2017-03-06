@@ -91,15 +91,15 @@ module.exports = function(router) {
 			console.log("createlab status: " + status);
 			console.log("createlab message: " + message);
 		labYokeGlobal.finddepartments(function(error, departments) {
-			var errormessagedept = null;
-			var successmessagedept = null;
+			var errormessagelab = null;
+			var successmessagelab = null;
 			if(status == "success"){
-				successmessagedept = message;
+				successmessagelab = message;
 			} else {
-				errormessagedept = message;
+				errormessagelab = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {section:"lab", errormessagedept: errormessagedept, successmessagedept: successmessagedept, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			res.render('departments', {section:"lab", errormessagelab: errormessagelab, successmessagelab: successmessagelab, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 		});
