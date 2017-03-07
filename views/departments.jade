@@ -186,7 +186,7 @@ block content
 						var dept = $('#deptlabvenn').val();
 						console.log("deptlabvenn dept: " + dept);
 						var test = JSON.parse('#{JSON.stringify(vennsettings)}'.replace(/&quot;/g, '"'));
-						console.log("deptlabvenn vennsettings: " + test);
+						console.log("deptlabvenn vennsettings: " + #{JSON.stringify(test)});
 						console.log("deptlabvenn vennsettings find index: " + test.indexOf(dept));
 						$('#vennSettingsDisplay').show();
 						$('#vennSettings').show();
