@@ -1012,9 +1012,10 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 			var labs = []; 
 			var venns = [];
 			var vennportion = {departments:[], labs:[], isvenn:[]}
+			var deptlabs = [];
+			var vennlabs = [];
 			for(var prop in venndata){
-				var deptlabs = [];
-				var vennlabs = [];
+				
 				var dept = venndata[prop].department;
 				var lab = venndata[prop].labname;
 				var isvenn = venndata[prop].isvenn;
