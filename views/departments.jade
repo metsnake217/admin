@@ -218,54 +218,6 @@ block content
 							console.debug(labs);
 							console.debug(isvenns);
 							var vennbody = "";
-
-							var tr = document.createElement("tr");
-							tr.setAttribute('class',"wrapped");
-							var td = document.createElement("td");
-							td.innerHTML = lab;
-							f.appendChild(td);
-							var i = document.createElement("input"); //input element, text
-							i.setAttribute('type',"checkbox");
-							i.setAttribute('name',"addvenn");
-							i.setAttribute('value',"addvenn");
-							i.setAttribute('class',"addvenn");
-							if(check == 1){
-								i.setAttribute('checked',"checked");
-							}
-							td = document.createElement("td");
-							td.appendChild(i);
-
-							i = document.createElement("input"); //input element, text
-							i.setAttribute('type',"hidden");
-							i.setAttribute('name',"labnamevenn");
-							i.setAttribute('value',"");
-
-							td = document.createElement("td");
-							td.appendChild(i);
-
-							i = document.createElement("input"); //input element, text
-							i.setAttribute('type',"hidden");
-							i.setAttribute('name',"departmentvenn");
-							i.setAttribute('value',"");
-
-							td = document.createElement("td");
-							td.appendChild(i);
-
-
-
-
-							var s = document.createElement("input"); //input element, Submit button
-							s.setAttribute('type',"submit");
-							s.setAttribute('value',"Submit");
-
-							f.appendChild(i);
-							f.appendChild(s);
-
-							//and some more input elements here
-							//and dont forget to add a submit button
-
-							document.getElementsByTagName('body')[0].appendChild(f);
-
 							for(prop in labs){
 								var check = isvenns[prop];
 								var checkedstr = "";
