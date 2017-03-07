@@ -1013,15 +1013,15 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 LabYokeLab.prototype.createlab = function(callback) {
 	var resultsLogin = [];
 	var labname = this.name;
-	var labadmin = this.admin + "";
-	var labdept = this.department + "";
+	var labadmin = this.admin;
+	var labdept = this.department;
 	var stopproc = 0;
 	var stopmessage = "";
 	console.log("admin is: -" + labadmin.trim()+"-");
 	console.log("dept is: -" + labdept.trim()+"-");
 	console.log("equals? : " + (labdept == "Select a Department"));
 
-	if(labdept.trim() == "Select a Department"){
+	if("Select a Department" == "Select a Department"){
 		console.log("bad dept");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
