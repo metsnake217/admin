@@ -1001,11 +1001,50 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 			result2.addRow(row);
 		});
 		query2.on("end", function(result2) {
+
+			var query3 = client.query("select department,labname,isvenn from labs order by department");
+		query3.on("row", function(row, result3) {
+			result3.addRow(row);
+		});
+		query3.on("end", function(result3) {
+			var venndata = result3.rows;
+			var depts = [];
+			var labs = []; 
+			var venns = [];
+			var vennportion = {departments:[], labs:[], isvenn:[]}
+			for(var prop in venndata){
+				var deptlabs = [];
+				var vennlabs = [];
+				var dept = venndata[prop].department;
+				var lab = venndata[prop].labname;
+				var isvenn = venndata[prop].isvenn;
+				//if(depts.indexOf(dept) == -1){
+				if(prop == 0){
+					depts.push(dept);
+				}
+				deptlabs.push(lab);
+				vennlabs.push(isvenn);
+
+				if(depts.indexOf(dept) == -1 || prop == (venndata.length - 1)){
+					depts.push(dept);
+					labs.push(deptlabs);
+					venns.push(vennlabs);
+					deptlabs = [];
+					vennlabs = [];
+				}
+			}
+			vennportion.departments = depts;
+			vennportion.labs = labs;
+			vennportion.isvenn = venns;
+
 			resultsLogin.push(result.rows);
 			console.log("get departments: " + resultsLogin[0].length);
 			resultsLogin.push(result2.rows);
 			console.log("get users: " + resultsLogin[1].length);
+			resultsLogin.push(vennportion);
+			console.log("vennportion: " + JSON.stringify(vennportion));
 			callback(null, resultsLogin);
+			});
 		});
 	});
 };
