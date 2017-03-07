@@ -1023,12 +1023,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 				if(prop == 0){
 					depts.push(dept);
 				}
-				deptlabs.push(lab);
-				vennlabs.push(isvenn);
-
-				console.log("prop: " + prop);
-				console.log("deptlabs: " + JSON.stringify(deptlabs));
-				console.log("vennlabs: " + JSON.stringify(vennlabs));
+				
 
 				if(depts.indexOf(dept) == -1 || prop == (venndata.length - 1)){
 					console.log("push dept.");
@@ -1040,7 +1035,17 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 					deptlabs = [];
 					vennlabs = [];
 				}
+				deptlabs.push(lab);
+				vennlabs.push(isvenn);
+
+				console.log("prop: " + prop);
+				console.log("deptlabs: " + JSON.stringify(deptlabs));
+				console.log("vennlabs: " + JSON.stringify(vennlabs));
 			}
+
+			labs.push(deptlabs);
+			venns.push(vennlabs);
+
 			vennportion.departments = depts;
 			vennportion.labs = labs;
 			vennportion.isvenn = venns;
