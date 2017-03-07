@@ -103,22 +103,9 @@ block content
 							table(id="rankTblload" class="table rankTbl")
 								thead
 									tr(class="you info-best" style="font-weight: bold")
-										- keys = Object.keys(searchResults[0])
-										- for(var prop in keys)
-											td(class="wrapped") Lab
-											td(class="wrapped") Isvenn
+										td(class="wrapped") Lab
+										td(class="wrapped") Isvenn
 								tbody(id="vennbody")
-									- var values = Object.keys(searchResults).map(function(key) {return searchResults[key];})
-									- keys = Object.keys(searchResults[0])
-									-for(var prop in searchResults)
-									tr(class="wrapped")
-										- var values = Object.keys(searchResults[prop]).map(function(key) {var t = searchResults[prop];return t[key];})
-										-for(var val in values)
-											- var valobj = values[val]
-											- if(Object.prototype.toString.call(valobj) === '[object Date]')
-												- var d = new Date(valobj)
-												- valobj = d.toLocaleDateString("en-US")
-												td #{valobj}
 
 						div(class="buttons" style="margin-top: 15px;")
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
