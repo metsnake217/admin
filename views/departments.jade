@@ -41,29 +41,6 @@ block content
 						div(class="buttons" style="margin-top: 15px;")
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
-			div(id="vennSettings")
-				h3= 'Set the Venn diagram per department.'
-				p="Add a lab to the diagram. You can add up to 6 labs per department."
-				div(id="ctl00_Div2" class="results")
-					if errormessagevenn != null
-						div(class="alert alert-danger fade in alert-dismissable")!= errormessagevenn
-					if successmessagevenn != null
-						div(class="alert alert-success fade in alert-dismissable")!= successmessagevenn
-					form(action="/setvenn" method="post")
-						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'> Department </span>"
-						select(name="deptlab" type="text" id="deptlab" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
-							option(value"selectdept")="Select a Department"
-							- if(depts != undefined)
-								- for(var prop in depts)
-									- var department = depts[prop].departmentname
-									option(value=department) #{department}
-						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
-							div(class="arrow-up", style="margin-bottom: 5px;")
-							div(class="arrow-down")
-					div(id="displaylabs")
-						div(class="buttons" style="margin-top: 15px;")
-							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
-							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
 			div(id="createLab")
 				h3= 'Add a new lab.'
 				p="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department who can be listed in the diagram."
@@ -98,6 +75,29 @@ block content
 							div(class="arrow-down")
 						div(class="buttons", style="margin-top: 15px;")
 							//input(type="submit" class="button" value="Get in")
+							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
+							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
+			div(id="vennSettings")
+				h3= 'Set the Venn diagram per department.'
+				p="Add a lab to the diagram. You can add up to 6 labs per department."
+				div(id="ctl00_Div2" class="results")
+					if errormessagevenn != null
+						div(class="alert alert-danger fade in alert-dismissable")!= errormessagevenn
+					if successmessagevenn != null
+						div(class="alert alert-success fade in alert-dismissable")!= successmessagevenn
+					form(action="/setvenn" method="post")
+						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'> Department </span>"
+						select(name="deptlab" type="text" id="deptlab" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
+							option(value"selectdept")="Select a Department"
+							- if(depts != undefined)
+								- for(var prop in depts)
+									- var department = depts[prop].departmentname
+									option(value=department) #{department}
+						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
+							div(class="arrow-up", style="margin-bottom: 5px;")
+							div(class="arrow-down")
+					div(id="displaylabs")
+						div(class="buttons" style="margin-top: 15px;")
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
 		script.
