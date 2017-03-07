@@ -1013,8 +1013,8 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 LabYokeLab.prototype.createlab = function(callback) {
 	var resultsLogin = [];
 	var labname = this.name;
-	var labadmin = this.admin;
-	var labdept = this.department;
+	var labadmin = this.admin.value;
+	var labdept = this.department.value;
 	var stopproc = 0;
 	var stopmessage = "";
 	console.log("admin is: -" + labadmin.trim()+"-");
@@ -1025,7 +1025,7 @@ LabYokeLab.prototype.createlab = function(callback) {
 		console.log("bad dept");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
-	} else if(labadmin.trim() == "Select an Administrator"){
+	} else if(labadmin == "Select an Administrator"){
 		console.log("bad admin");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
