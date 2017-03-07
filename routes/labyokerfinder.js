@@ -1191,7 +1191,7 @@ LabYokeLabVenn.prototype.setvenn = function(callback) {
 	console.log("stopproc: " + stopproc);
 
 	if(stopproc == 0){*/
-		var query = client.query("select count(*) from labs where department = '" + labdept + "' where isvenn=1");
+		var query = client.query("select count(*) from labs where department = '" + labdept + "' and isvenn=1");
 		query.on("row", function(row, result) {
 			result.addRow(row);
 		});
