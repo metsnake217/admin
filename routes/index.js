@@ -105,6 +105,32 @@ module.exports = function(router) {
 		});
     });
 
+    router.post('/setvenn', isLoggedIn, function(req, res) {
+		var labYokeGlobal = new LabYokeGlobal();
+		var checked = req.body.cancel;
+		var labYokeLabVenn = new LabYokeLabVenn(req.body.labnamevenn, req.body.departmentvenn, req.body.cancel);
+		console.log("lab venn is: " + req.body.labnamevenn);
+		console.log("check venn is: " + req.body.cancel);
+		labYokeLabVenn.setvenn(function(error, results) {
+			var status = results[0];
+			var message = results[1];
+			console.log("setvenn status: " + status);
+			console.log("setvenn message: " + message);
+		labYokeGlobal.finddepartments(function(error, departments) {
+			var errormessagelab = null;
+			var successmessagelab = null;
+			if(status == "success"){
+				successmessagelab = message;
+			} else {
+				errormessagelab = message;
+			}
+			console.log("departments: " + departments.length);
+			res.render('departments', {section:"venn", errormessagelab: errormessagelab, successmessagelab: successmessagelab, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			req.session.messages = null;
+		});
+		});
+    });
+
 	router.get('/', function(req, res) {
 		res.redirect('/querytool');
 	});
@@ -118,6 +144,10 @@ module.exports = function(router) {
 	});
 
 	router.get('/createlab', function(req, res) {
+		res.redirect('/departments');
+	});
+
+	router.get('/setvenn', function(req, res) {
 		res.redirect('/departments');
 	});
 

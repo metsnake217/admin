@@ -153,6 +153,12 @@ LabYokeLab = function(name,department,admin) {
 	this.admin = admin;
 };
 
+LabYokeLabVenn = function(name,department,check) {
+	this.name = name;
+	this.department = department;
+	this.check = check;
+};
+
 LabYokeUsers = function(id,name,surname,email,checked) {
 	this.id = id;
 	this.name = name;
@@ -1159,6 +1165,79 @@ LabYokeDepartment.prototype.createdepartment = function(callback) {
 		}
 	});
 };
+
+
+LabYokeLabVenn.prototype.setvenn = function(callback) {
+	var resultsLogin = [];
+	var labname = this.name;
+	var check = this.check;
+	var labdept = this.department;
+	var stopproc = 0;
+	var stopmessage = "";
+
+	console.log("admin is: -" + check+"-");
+	console.log("dept is: -" + labdept+"-");
+	console.log("equals? : " + (labdept == "Select a Department"));
+
+	/*if(labdept == "Select a Department"){
+		console.log("bad dept");
+		stopproc = 1;
+		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
+	} else if(labadmin == "Select an Administrator"){
+		console.log("bad admin");
+		stopproc = 1;
+		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
+	}	
+	console.log("stopproc: " + stopproc);
+
+	if(stopproc == 0){*/
+		var query = client.query("select count(*) from labs where department = '" + labdept + "' where isvenn=1");
+		query.on("row", function(row, result) {
+			result.addRow(row);
+		});
+		query.on("end", function(result) {
+			console.log("counting venns: " + result.rows);
+			if(result.rows < 6 && check == 1){
+				var query2 = client.query("UPDATE labs set isvenn=" + check + " where labname='" + labname + "' and department = '" + labdept + "'");
+
+				query2.on("row", function(row, result2) {
+					result2.addRow(row);
+				});
+				query2.on("end", function(result2) {
+					resultsLogin.push("success");
+					if(check == 1){
+						resultsLogin.push("You have successfully added <b>" + labname + "</b> to the <b>" + labdept + "</b> Venn diagram.");
+					} else {
+						resultsLogin.push("You have successfully removed <b>" + labname + "</b> from the <b>" + labdept + "</b> Venn diagram.");
+					}
+					console.log("successful");
+					callback(null, resultsLogin);
+				});
+				query2.on("error", function(err) {
+					console.log("error");
+					resultsLogin.push("error");
+					resultsLogin.push("We were unable to set the Venn setting due to: " + err);
+					callback(null, resultsLogin);
+				});
+			} else {
+				console.log("error");
+				resultsLogin.push("error");
+				resultsLogin.push("There are already 6 labs selected for <b>" + labdept + "</b>. Please unselect one of the labs first then try again.");
+				callback(null, resultsLogin);
+			}
+		});
+	/*} else {
+		resultsLogin.push("error");
+		resultsLogin.push(stopmessage);
+		callback(null, resultsLogin);
+	}*/
+};
+
+
+
+
+
+
 
 LabYokeAgents.prototype.reportAllSharesByCategory = function(callback) {
 	var results;
@@ -2328,5 +2407,6 @@ exports.LabyokerTeam = LabyokerTeam;
 exports.LabYokeGlobal = LabYokeGlobal;
 exports.LabYokeDepartment = LabYokeDepartment;
 exports.LabYokeLab = LabYokeLab;
+exports.LabYokeLabVenn = LabYokeLabVenn;
 exports.LabYokeUsers = LabYokeUsers;
 exports.LabyokerLab = LabyokerLab;
