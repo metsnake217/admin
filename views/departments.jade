@@ -160,34 +160,34 @@ block content
 				var eSelectvenn = document.getElementById('deptlabvenn');
 				console.debug("venn setting selected: " + $('#deptlabvenn').val());
 
-				if(eSelectvenn.selectedIndex === 0 || $('#selectdeptvenn').val() == 'selectdeptvenn') {
+				if(eSelectvenn.selectedIndex === 0 || $('#deptlabvenn').val() == 'selectdeptvenn') {
 					console.log("venn settings None inside0");
 					$('#vennSettingsDisplay').hide();
 					$('#vennSettings').show();
 				} else {
 					console.log("venn settings display inside 0");
-					var dept = $('#selectdeptvenn').val();
-					console.log("selectdeptvenn dept: " + dept);
+					var dept = $('#deptlabvenn').val();
+					console.log("deptlabvenn dept: " + dept);
 					var test = JSON.parse('#{JSON.stringify(vennsettings)}'.replace(/&quot;/g, '"'));
-					console.log("selectdeptvenn vennsettings: " + test);
-					console.log("selectdeptvenn vennsettings find index: " + test.indexOf(dept));
+					console.log("deptlabvenn vennsettings: " + test);
+					console.log("deptlabvenn vennsettings find index: " + test.indexOf(dept));
 					$('#vennSettingsDisplay').show();
 					$('#vennSettings').show();
 				}
 
 				eSelectvenn.onchange = function() {
 					console.log("venn changing");
-					if(eSelectvenn.selectedIndex === 0 || $('#selectdeptvenn').val() == 'selectdeptvenn') {
+					if(eSelectvenn.selectedIndex === 0 || $('#deptlabvenn').val() == 'selectdeptvenn') {
 						console.log("venn settings None inside1");
 						$('#vennSettingsDisplay').hide();
 						$('#vennSettings').show();
 					} else {
 						console.log("venn settings display inside 1");
-						var dept = $('#selectdeptvenn').val();
-						console.log("selectdeptvenn dept: " + dept);
+						var dept = $('#deptlabvenn').val();
+						console.log("deptlabvenn dept: " + dept);
 						var test = JSON.parse('#{JSON.stringify(vennsettings)}'.replace(/&quot;/g, '"'));
-						console.log("selectdeptvenn vennsettings: " + test);
-						console.log("selectdeptvenn vennsettings find index: " + test.indexOf(dept));
+						console.log("deptlabvenn vennsettings: " + test);
+						console.log("deptlabvenn vennsettings find index: " + test.indexOf(dept));
 						$('#vennSettingsDisplay').show();
 						$('#vennSettings').show();
 					}
