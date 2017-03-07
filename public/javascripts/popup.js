@@ -41,6 +41,17 @@ $('.addvenn').click(function() {
   addvenn.closest('form').submit();
 }
 
+  actioncancelVenn.onclick = function(){
+    if(checked){
+      addvenn.prop('checked', false);
+    } else {
+      addvenn.prop('checked', true);
+    }
+    iosLightExit();
+}
+
+});
+
 $('.cancel').click(function() {
   var cancel = $(this);
   var checked = cancel.is(':checked');
