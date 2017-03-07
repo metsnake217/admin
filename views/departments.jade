@@ -4,7 +4,7 @@ block content
 	div(id="ios-light")
 		center
 		h1="Add."
-		p(id="disableText")
+		p(id="addVennText")
 		div
 			div(id="actionorder" class="exit" style="width: 50%; float: left; background-color: rgba(138, 109, 59, 0.55);")="OK"
 			div(class="exit" id="actioncancel")="Cancel"
@@ -225,7 +225,7 @@ block content
 									checkedstr = "checked='checked'";
 								}
 								console.log("isvenns check - " + labs[prop] + " : " + check);
-								vennbody += "<tr class='wrapped'><td>" + labs[prop] + "</td><td>" + "<form action='/setvenn' method='post'><input type='checkbox' name='cancel' value='cancel' class='cancel' " + checkedstr + "/><input type='hidden' name='labnamevenn' value='" + labs[prop] + "'/><input type='hidden' name='departmentvenn' value='" + dept + "' />" + "</td></tr>"; 
+								vennbody += "<tr class='wrapped'><td>" + labs[prop] + "</td><td>" + "<form action='/setvenn' method='post'><input type='checkbox' name='addvenn' value='addvenn' class='addvenn' " + checkedstr + "/><input type='hidden' name='labnamevenn' value='" + labs[prop] + "'/><input type='hidden' name='departmentvenn' value='" + dept + "' />" + "</td></tr>"; 
 							}
 							$('#vennbody').html(vennbody);
 							$('#vennSettingsDisplay').show();

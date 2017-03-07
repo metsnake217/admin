@@ -14,6 +14,33 @@ $('html').click(function() {
   }*/
 });
 
+$('.addvenn').click(function() {
+  var addvenn = $(this);
+  var checked = addvenn.is(':checked');
+  var addVennText = document.getElementById("addVennText");
+  if(checked){
+    addVennText.innerHTML = "Do you want to add this lab to the Venn Diagram?";
+  } else {
+    addVennText.innerHTML = "Do you want to remove this lab from the Venn Diagram?";
+  }
+  var pop = document.getElementById("ios-light");
+  pop.style.display = "block";
+  var shade = document.getElementById("shade");
+  shade.style.display = "block";
+
+  actionorderVenn.onclick = function(){
+  var parenttr = addvenn.closest('tr');
+  var currentbackgroundColor = parenttr.css('backgroundColor');
+  
+  console.log("currentbackgroundColor: " + currentbackgroundColor);
+  if(currentbackgroundColor == 'rgb(255, 255, 255)'){
+    parenttr.css('background-color', 'rgba(138, 109, 59, 0.66)');
+  } else {
+    parenttr.css('background-color', 'rgb(255, 255, 255');
+  }
+  addvenn.closest('form').submit();
+}
+
 $('.cancel').click(function() {
   var cancel = $(this);
   var checked = cancel.is(':checked');
