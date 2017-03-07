@@ -1019,7 +1019,7 @@ LabYokeLab.prototype.createlab = function(callback) {
 	var stopmessage = "";
 	console.log("admin is: -" + labadmin+"-");
 	console.log("dept is: -" + labdept+"-");
-	console.log("equals? : " + (labdept == "Select a Department"));
+	console.log("equals? : " + (labdept = "Select a Department"));
 
 	if(labdept == "Select a Department"){
 		console.log("bad dept");
