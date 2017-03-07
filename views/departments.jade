@@ -4,7 +4,7 @@ block content
 	div(class="container login marginbottom share-container")
 		h1= 'Labs & Departments.'
 		P!="You can create a new department and lab. As well as set some useful settings for labs."
-		div(style="width: 50%;")
+		div(style="width: 100%;")
 			- var venn = vennsettings
 			- var checkedstrDept = false;
 			- if(section !=null && section.length>0 && section == "department")
@@ -40,7 +40,7 @@ block content
 						div(class="textentry")
 							input(name="department" type="text" id="department" class="form-control placeholderColor" placeholder="Department" style="")
 						div(class="buttons" style="margin-top: 15px;")
-							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
+							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
 			div(id="createLab")
 				h3= 'Add a new lab.'
@@ -76,7 +76,7 @@ block content
 							div(class="arrow-down")
 						div(class="buttons", style="margin-top: 15px;")
 							//input(type="submit" class="button" value="Get in")
-							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
+							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
 			div(id="vennSettings")
 				h3= 'Set the Venn diagram per department.'
@@ -109,7 +109,7 @@ block content
 								tbody(id="vennbody")
 
 							div(class="buttons" style="margin-top: 15px;")
-								button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
+								button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;") Add
 								img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
 		script.
 			window.onload = function() {
