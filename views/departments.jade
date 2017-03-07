@@ -111,15 +111,23 @@ block content
 				if(eSelect.selectedIndex === 1 || $('#createSelect').val() == 'createDept') {
 					console.log("createDept inside");
 					$('#createDept').show();
+					$('#vennSettings').hide();
 					$('#createLab').hide();
 				} else if(eSelect.selectedIndex === 2 || $('#createSelect').val() == 'createLab') {
 					console.log("createLab inside");
 					$('#createLab').show();
 					$('#createDept').hide();
+					$('#vennSettings').hide();
+				} else if(eSelect.selectedIndex === 2 || $('#createSelect').val() == 'vennSettings') {
+					console.log("vennSettings inside");
+					$('#vennSettings').show();
+					$('#createDept').hide();
+					$('#createLab').hide();
 				} else if(eSelect.selectedIndex === 0 || $('#createSelect').val() == 'createNone') {
 					console.log("create None inside");
 					$('#createLab').hide();
 					$('#createDept').hide();
+					$('#vennSettings').hide();
 				}
 
 				eSelect.onchange = function() {
@@ -127,14 +135,22 @@ block content
 						console.log("createDept inside");
 						$('#createDept').show();
 						$('#createLab').hide();
+						$('#vennSettings').hide();
 					} else if(eSelect.selectedIndex === 2 || $('#createSelect').val() == 'createLab') {
 						console.log("createLab inside");
 						$('#createLab').show();
 						$('#createDept').hide();
+						$('#vennSettings').hide();
+					} else if(eSelect.selectedIndex === 2 || $('#createSelect').val() == 'vennSettings') {
+						console.log("createLab inside");
+						$('#vennSettings').show();
+						$('#createDept').hide();
+						$('#createLab').hide();
 					} else if(eSelect.selectedIndex === 0 || $('#createSelect').val() == 'createNone') {
 						console.log("create None inside");
 						$('#createLab').hide();
 						$('#createDept').hide();
+						$('#vennSettings').hide();
 					}
 				}
 			}
