@@ -1172,7 +1172,7 @@ LabYokeLabVenn.prototype.setvenn = function(callback) {
 	var labname = this.name;
 	var check = this.check;
 	var labdept = this.department;
-	var stopproc = 0;
+	var VEN_LIMIT = 2;
 	var stopmessage = "";
 
 	console.log("admin is: -" + check+"-");
@@ -1197,7 +1197,7 @@ LabYokeLabVenn.prototype.setvenn = function(callback) {
 		});
 		query.on("end", function(result) {
 			console.log("counting venns: " + result.rows);
-			if(result.rows < 6 && check == 1){
+			if(result.rows < VEN_LIMIT && check == 1){
 				var query2 = client.query("UPDATE labs set isvenn=" + check + " where labname='" + labname + "' and department = '" + labdept + "'");
 
 				query2.on("row", function(row, result2) {
