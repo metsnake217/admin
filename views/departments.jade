@@ -88,7 +88,7 @@ block content
 					form(action="/setvenn" method="post")
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'>Department </span>"
 						select(name="deptlab" type="text" id="deptlab" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
-							option(value"selectdept")="Select a Department"
+							option(value="selectdept")="Select a Department"
 							- if(depts != undefined)
 								- for(var prop in depts)
 									- var department = depts[prop].departmentname
@@ -104,6 +104,9 @@ block content
 			window.onload = function() {
 				$('#createDept').hide();
 				$('#createLab').hide();
+
+				$('#vennSettingsDisplay').hide();
+				$('#vennSettings').hide();
 
 				var eSelect = document.getElementById('createSelect');
 				console.debug("selected: " + $('#createSelect').val());
@@ -158,11 +161,11 @@ block content
 				console.debug("venn setting selected: " + $('#deptlab').val());
 
 				if(eSelectvenn.selectedIndex === 0 || $('#selectdept').val() == 'selectdept') {
-					console.log("venn settings None inside");
+					console.log("venn settings None inside0");
 					$('#vennSettingsDisplay').hide();
 					$('#vennSettings').show();
 				} else {
-					console.log("venn settings display inside");
+					console.log("venn settings display inside 0");
 					var dept = $('#selectdept').val();
 					console.log("selectdept dept: " + dept);
 					var test = JSON.parse('#{JSON.stringify(vennsettings)}'.replace(/&quot;/g, '"'));
@@ -174,11 +177,11 @@ block content
 
 				eSelectvenn.onchange = function() {
 					if(eSelectvenn.selectedIndex === 0 || $('#selectdept').val() == 'selectdept') {
-						console.log("venn settings None inside");
+						console.log("venn settings None inside1");
 						$('#vennSettingsDisplay').hide();
 						$('#vennSettings').show();
 					} else {
-						console.log("venn settings display inside");
+						console.log("venn settings display inside 1");
 						var dept = $('#selectdept').val();
 						console.log("selectdept dept: " + dept);
 						var test = JSON.parse('#{JSON.stringify(vennsettings)}'.replace(/&quot;/g, '"'));
