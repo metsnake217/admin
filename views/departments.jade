@@ -5,6 +5,7 @@ block content
 		h1= 'Labs & Departments.'
 		P!="You can create a new department and lab. As well as set some useful settings for labs."
 		div(style="width: 50%;")
+			- var venn = vennsettings
 			- var checkedstrDept = false;
 			- if(section !=null && section.length>0 && section == "department")
 				- checkedstrDept = true
@@ -185,8 +186,8 @@ block content
 						console.log("venn settings display inside 1");
 						var dept = $('#deptlabvenn').val();
 						console.log("deptlabvenn dept: " + dept);
-						var test = JSON.parse('#{JSON.stringify(vennsettings)}'.replace(/&quot;/g, '"'));
-						console.log("deptlabvenn vennsettings: " + #{JSON.stringify(test)});
+						var test = JSON.parse('#{JSON.stringify(venn)}'.replace(/&quot;/g, '"'));
+						console.log("deptlabvenn vennsettings: " + #{JSON.stringify(venn)});
 						console.log("deptlabvenn vennsettings find index: " + test.indexOf(dept));
 						$('#vennSettingsDisplay').show();
 						$('#vennSettings').show();
