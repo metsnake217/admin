@@ -87,7 +87,7 @@ block content
 						div(class="alert alert-success fade in alert-dismissable")!= successmessagevenn
 					form(action="/setvenn" method="post")
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'>Department </span>"
-						select(name="deptlab" type="text" id="deptlab" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
+						select(name="deptlabvenn" type="text" id="deptlabvenn" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
 							option(value="selectdept")="Select a Department"
 							- if(depts != undefined)
 								- for(var prop in depts)
@@ -157,8 +157,8 @@ block content
 					}
 				}
 
-				var eSelectvenn = document.getElementById('deptlab');
-				console.debug("venn setting selected: " + $('#deptlab').val());
+				var eSelectvenn = document.getElementById('deptlabvenn');
+				console.debug("venn setting selected: " + $('#deptlabvenn').val());
 
 				if(eSelectvenn.selectedIndex === 0 || $('#selectdept').val() == 'selectdept') {
 					console.log("venn settings None inside0");
@@ -176,6 +176,7 @@ block content
 				}
 
 				eSelectvenn.onchange = function() {
+					console.log("venn changing");
 					if(eSelectvenn.selectedIndex === 0 || $('#selectdept').val() == 'selectdept') {
 						console.log("venn settings None inside1");
 						$('#vennSettingsDisplay').hide();
