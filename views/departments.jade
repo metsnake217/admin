@@ -98,6 +98,28 @@ block content
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
 					div(id="vennSettingsDisplay", style="display:none")
+
+						div(class="table-responsive")                
+							table(id="rankTblload" class="table rankTbl")
+								thead
+									tr(class="you info-best" style="font-weight: bold")
+										- keys = Object.keys(searchResults[0])
+										- for(var prop in keys)
+											td(class="wrapped") Lab
+											td(class="wrapped") Isvenn
+								tbody(id="vennbody")
+									- var values = Object.keys(searchResults).map(function(key) {return searchResults[key];})
+									- keys = Object.keys(searchResults[0])
+									-for(var prop in searchResults)
+									tr(class="wrapped")
+										- var values = Object.keys(searchResults[prop]).map(function(key) {var t = searchResults[prop];return t[key];})
+										-for(var val in values)
+											- var valobj = values[val]
+											- if(Object.prototype.toString.call(valobj) === '[object Date]')
+												- var d = new Date(valobj)
+												- valobj = d.toLocaleDateString("en-US")
+												td #{valobj}
+
 						div(class="buttons" style="margin-top: 15px;")
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
@@ -190,10 +212,21 @@ block content
 						console.debug(test);
 						var departments = test.departments
 						console.debug(departments);
-						//console.log("deptlabvenn vennsettings0: " + #{JSON.stringify(test)});
 						console.log("deptlabvenn vennsettings find index: " + departments.indexOf(dept));
-						$('#vennSettingsDisplay').show();
-						$('#vennSettings').show();
+						var index = departments.indexOf(dept);
+						if(index > 0){
+							var labs = test.labs[index];
+							var isvenns = test.isvenn[index];
+							console.debug(labs);
+							console.debug(isvenns);
+							var vennbody = "";
+							for(prop in labs){
+								vennbody += "<tr class='wrapped'><td>" + labs[prop] + "</td><td>" + isvenns[prop] + "</td></tr>"; 
+							}
+							$('#vennbody').html(vennbody);
+							$('#vennSettingsDisplay').show();
+							$('#vennSettings').show();
+						}
 					}
 				}
 			}
