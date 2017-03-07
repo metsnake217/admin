@@ -1021,7 +1021,7 @@ LabYokeLab.prototype.createlab = function(callback) {
 	console.log("dept is: -" + labdept.trim()+"-");
 	console.log("equals? : " + (labdept == "Select a Department"));
 
-	if("Select a Department" == "Select a Department"){
+	if(labdept == "Select a Department"){
 		console.log("bad dept");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
@@ -1066,7 +1066,7 @@ LabYokeLab.prototype.createlab = function(callback) {
 	} else {
 		resultsLogin.push("error");
 		resultsLogin.push(stopmessage);
-		callback(null, stopmessage);
+		callback(null, resultsLogin);
 	}
 };
 
