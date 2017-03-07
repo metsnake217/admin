@@ -16,7 +16,7 @@ $('html').click(function() {
 
 $('.addvenn').click(function() {
   console.log("clicked");
-}
+});
 
 $('.addvenn').click(function() {
   console.log("clicked");
