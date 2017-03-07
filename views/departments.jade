@@ -156,6 +156,22 @@ block content
 
 				var eSelectvenn = document.getElementById('deptlab');
 				console.debug("venn setting selected: " + $('#deptlab').val());
+
+				if(eSelectvenn.selectedIndex === 0 || $('#selectdept').val() == 'selectdept') {
+					console.log("venn settings None inside");
+					$('#vennSettingsDisplay').hide();
+					$('#vennSettings').show();
+				} else {
+					console.log("venn settings display inside");
+					var dept = $('#selectdept').val();
+					console.log("selectdept dept: " + dept);
+					var test = JSON.parse('#{JSON.stringify(vennsettings)}'.replace(/&quot;/g, '"'));
+					console.log("selectdept vennsettings: " + test);
+					console.log("selectdept vennsettings find index: " + test.indexOf(dept));
+					$('#vennSettingsDisplay').show();
+					$('#vennSettings').show();
+				}
+
 				eSelectvenn.onchange = function() {
 					if(eSelectvenn.selectedIndex === 0 || $('#selectdept').val() == 'selectdept') {
 						console.log("venn settings None inside");
