@@ -225,7 +225,7 @@ block content
 									checkedstr = "checked='checked'";
 								}
 								console.log("isvenns check - " + labs[prop] + " : " + check);
-								vennbody += "<tr class='wrapped'><td>" + labs[prop] + "</td><td>" + "<form action='/setvenn' method='post'><input id="addvenn" type='checkbox' name='addvenn' value='addvenn' class='addvenn' " + checkedstr + "/><input type='hidden' name='labnamevenn' value='" + labs[prop] + "'/><input type='hidden' name='departmentvenn' value='" + dept + "' />" + "</td></tr>"; 
+								vennbody += "<tr class='wrapped'><td>" + labs[prop] + "</td><td>" + "<form action='/setvenn' method='post'><input type='checkbox' name='addvenn' value='addvenn' class='addvenn' " + checkedstr + "/><input type='hidden' name='labnamevenn' value='" + labs[prop] + "'/><input type='hidden' name='departmentvenn' value='" + dept + "' />" + "</td></tr>"; 
 							}
 							$('#vennbody').html(vennbody);
 							$('#vennSettingsDisplay').show();
