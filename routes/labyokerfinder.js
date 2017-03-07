@@ -1017,6 +1017,23 @@ LabYokeLab.prototype.createlab = function(callback) {
 	var labdept = this.department.value;
 	var stopproc = 0;
 	var stopmessage = "";
+
+
+    var i = 0;
+    var j = 0;
+    var result3 = "";
+    var b = "Select an Administrator";
+    var a = labadmin;
+
+    while (j < b.length)
+    {
+        if (a[i] != b[j] || i == a.length)
+            result3 += b[j];
+        else
+            i++;
+        j++;
+    }
+    console.log("difference is: " + result3);
 	console.log("admin is: -" + labadmin.trim()+"-");
 	console.log("dept is: -" + labdept.trim()+"-");
 	console.log("equals? : " + (labdept == "Select a Department"));
