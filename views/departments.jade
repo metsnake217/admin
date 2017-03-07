@@ -88,7 +88,7 @@ block content
 					form(action="/setvenn" method="post")
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'>Department </span>"
 						select(name="deptlabvenn" type="text" id="deptlabvenn" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
-							option(value="selectdept")="Select a Department"
+							option(value="selectdeptvenn")="Select a Department"
 							- if(depts != undefined)
 								- for(var prop in depts)
 									- var department = depts[prop].departmentname
@@ -160,34 +160,34 @@ block content
 				var eSelectvenn = document.getElementById('deptlabvenn');
 				console.debug("venn setting selected: " + $('#deptlabvenn').val());
 
-				if(eSelectvenn.selectedIndex === 0 || $('#selectdept').val() == 'selectdept') {
+				if(eSelectvenn.selectedIndex === 0 || $('#selectdeptvenn').val() == 'selectdeptvenn') {
 					console.log("venn settings None inside0");
 					$('#vennSettingsDisplay').hide();
 					$('#vennSettings').show();
 				} else {
 					console.log("venn settings display inside 0");
-					var dept = $('#selectdept').val();
-					console.log("selectdept dept: " + dept);
+					var dept = $('#selectdeptvenn').val();
+					console.log("selectdeptvenn dept: " + dept);
 					var test = JSON.parse('#{JSON.stringify(vennsettings)}'.replace(/&quot;/g, '"'));
-					console.log("selectdept vennsettings: " + test);
-					console.log("selectdept vennsettings find index: " + test.indexOf(dept));
+					console.log("selectdeptvenn vennsettings: " + test);
+					console.log("selectdeptvenn vennsettings find index: " + test.indexOf(dept));
 					$('#vennSettingsDisplay').show();
 					$('#vennSettings').show();
 				}
 
 				eSelectvenn.onchange = function() {
 					console.log("venn changing");
-					if(eSelectvenn.selectedIndex === 0 || $('#selectdept').val() == 'selectdept') {
+					if(eSelectvenn.selectedIndex === 0 || $('#selectdeptvenn').val() == 'selectdeptvenn') {
 						console.log("venn settings None inside1");
 						$('#vennSettingsDisplay').hide();
 						$('#vennSettings').show();
 					} else {
 						console.log("venn settings display inside 1");
-						var dept = $('#selectdept').val();
-						console.log("selectdept dept: " + dept);
+						var dept = $('#selectdeptvenn').val();
+						console.log("selectdeptvenn dept: " + dept);
 						var test = JSON.parse('#{JSON.stringify(vennsettings)}'.replace(/&quot;/g, '"'));
-						console.log("selectdept vennsettings: " + test);
-						console.log("selectdept vennsettings find index: " + test.indexOf(dept));
+						console.log("selectdeptvenn vennsettings: " + test);
+						console.log("selectdeptvenn vennsettings find index: " + test.indexOf(dept));
 						$('#vennSettingsDisplay').show();
 						$('#vennSettings').show();
 					}
