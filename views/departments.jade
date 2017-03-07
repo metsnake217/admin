@@ -210,8 +210,11 @@ block content
 							console.debug(isvenns);
 							var vennbody = "";
 							for(prop in labs){
-								var check = isvenns[prop]
-								var checkedstr = "checked="+(check==1 ? 'checked' : undefined)
+								var check = isvenns[prop];
+								var checkedstr = "";
+								if(check == 1){
+									checkedstr = "checked='checked'";
+								}
 								console.log("isvenns check - " + labs[prop] + " : " + check);
 								vennbody += "<tr class='wrapped'><td>" + labs[prop] + "</td><td>" + "<form action='/setvenn' method='post'><input type='checkbox' name='cancel' value='cancel' class='cancel' " + checkedstr + "/><input type='hidden' name='labnamevenn' value='" + labs[prop] + "'/><input type='hidden' name='departmentvenn' value='" + dept + "' />" + "</td></tr>"; 
 							}
