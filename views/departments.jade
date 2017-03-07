@@ -97,6 +97,7 @@ block content
 						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
+					div(id="vennSettingsNolab", style="display:none")
 					div(id="vennSettingsDisplay", style="display:none")
 
 						div(class="table-responsive" id="table")                
@@ -216,11 +217,13 @@ block content
 							$('#vennbody').html(vennbody);
 							$('#vennSettingsDisplay').show();
 							$('#vennSettings').show();
+							$('#vennSettingsNolab').hide();
 						} else {
 							console.log("no labs associated")
-							$('#vennbody').html("No labs are associated to this department.");
-							$('#vennSettingsDisplay').show();
+							$('#vennSettingsNolab').html("No labs are associated to this department.");
+							$('#vennSettingsDisplay').hide();
 							$('#vennSettings').show();
+							$('#vennSettingsNolab').show();
 						}
 					}
 				}
