@@ -14,7 +14,7 @@ $('html').click(function() {
   }*/
 });
 
-$('.addvenn').click(function() {
+$('#addvenn').click(function() {
   console.log("clicked");
   var addvenn = $(this);
   var checked = addvenn.is(':checked');
