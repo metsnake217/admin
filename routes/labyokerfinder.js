@@ -1064,6 +1064,8 @@ LabYokeLab.prototype.createlab = function(callback) {
 			}
 		});
 	} else {
+		resultsLogin.push("error");
+		resultsLogin.push(stopmessage);
 		callback(null, stopmessage);
 	}
 };
