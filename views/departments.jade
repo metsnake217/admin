@@ -99,7 +99,7 @@ block content
 							div(class="arrow-down")
 					div(id="vennSettingsDisplay", style="display:none")
 
-						div(class="table-responsive")                
+						div(class="table-responsive" id="table")                
 							table(id="rankTblload" class="table rankTbl")
 								thead
 									tr(class="you info-best" style="font-weight: bold")
@@ -218,6 +218,7 @@ block content
 							$('#vennSettings').show();
 						} else {
 							$('#vennbody').html("");
+							$('#table').html("No labs are associated to this department.");
 							$('#vennSettingsDisplay').hide();
 							$('#vennSettings').show();
 						}
