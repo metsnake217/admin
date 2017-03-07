@@ -201,14 +201,17 @@ block content
 						console.debug(departments);
 						console.log("deptlabvenn vennsettings find index: " + departments.indexOf(dept));
 						var index = departments.indexOf(dept);
-						if(index > 0){
+						console.debug("index: " + index);
+						if(index > -1){
 							var labs = test.labs[index];
 							var isvenns = test.isvenn[index];
 							console.debug(labs);
 							console.debug(isvenns);
 							var vennbody = "";
 							for(prop in labs){
-								vennbody += "<tr class='wrapped'><td>" + labs[prop] + "</td><td>" + isvenns[prop] + "</td></tr>"; 
+								var check = isvenns[prop]
+								var checkedstr = (check==1 ? "checked" : undefined)
+								vennbody += "<tr class='wrapped'><td>" + labs[prop] + "</td><td>" + "<form action='/setvenn' method='post'><input type='checkbox' name='cancel' value='cancel' class='cancel' checked='" + checkedstr + "'/><input type='hidden' name='labname' value='" + labs[prop] + "'/><input type='hidden' name='department' value='" + dept + "' />" + "</td></tr>"; 
 							}
 							$('#vennbody').html(vennbody);
 							$('#vennSettingsDisplay').show();
