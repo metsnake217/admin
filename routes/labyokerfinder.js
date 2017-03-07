@@ -1017,15 +1017,15 @@ LabYokeLab.prototype.createlab = function(callback) {
 	var labdept = this.department + "";
 	var stopproc = 0;
 	var stopmessage = "";
-	console.log("admin is: -" + labadmin+"-");
-	console.log("dept is: -" + labdept+"-");
+	console.log("admin is: -" + labadmin.trim()+"-");
+	console.log("dept is: -" + labdept.trim()+"-");
 	console.log("equals? : " + (labdept == "Select a Department"));
 
-	if(labdept == "Select a Department"){
+	if(labdept.trim() == "Select a Department"){
 		console.log("bad dept");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
-	} else if(labadmin == "Select an Administrator"){
+	} else if(labadmin.trim() == "Select an Administrator"){
 		console.log("bad admin");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
