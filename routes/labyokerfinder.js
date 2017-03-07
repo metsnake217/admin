@@ -1018,34 +1018,16 @@ LabYokeLab.prototype.createlab = function(callback) {
 	var stopproc = 0;
 	var stopmessage = "";
 
-	var labadmincomp = "\"" + this.admin + "\"";
-	var labdeptcomp = "\"" + this.department + "\"";
-
-    var i = 0;
-    var j = 0;
-    var result3 = "";
-    var b = "Select an Administrator";
-    var a = ""+labadmin;
-
-    while (j < b.length)
-    {
-    	console.log("a[i] : " + a[i]);
-        if (a[i] != b[j] || i == a.length)
-            result3 += b[j];
-        else
-            i++;
-        j++;
-    }
     console.log("difference is: " + result3);
-	console.log("admin is: -" + labadmincomp+"-");
-	console.log("dept is: -" + labdeptcomp+"-");
+	console.log("admin is: -" + labadmin+"-");
+	console.log("dept is: -" + labdept+"-");
 	console.log("equals? : " + (labdept == "Select a Department"));
 
-	if(labdeptcomp == "Select a Department"){
+	if(labdept == "Select a Department"){
 		console.log("bad dept");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
-	} else if(labadmincomp == "Select an Administrator"){
+	} else if(labadmin == "Select an Administrator"){
 		console.log("bad admin");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";

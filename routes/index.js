@@ -83,7 +83,7 @@ module.exports = function(router) {
 
     router.post('/createlab', isLoggedIn, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
-		var labYokeLab = new LabYokeLab(req.body.labname,req.body.adminlab,req.body.deptlab);
+		var labYokeLab = new LabYokeLab(req.body.labname, req.body.deptlab, req.body.adminlab);
 		console.log("lab is: " + req.body.labname);
 		labYokeLab.createlab(function(error, results) {
 			var status = results[0];
