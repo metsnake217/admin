@@ -86,7 +86,7 @@ block content
 					if successmessagevenn != null
 						div(class="alert alert-success fade in alert-dismissable")!= successmessagevenn
 					form(action="/setvenn" method="post")
-						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'> Department </span>"
+						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'>Department </span>"
 						select(name="deptlab" type="text" id="deptlab" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
 							option(value"selectdept")="Select a Department"
 							- if(depts != undefined)
@@ -96,7 +96,7 @@ block content
 						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
-					div(id="displaylabs", style="display:none")
+					div(id="vennSettingsDisplay", style="display:none")
 						div(class="buttons" style="margin-top: 15px;")
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 85%;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
@@ -151,6 +151,23 @@ block content
 						$('#createLab').hide();
 						$('#createDept').hide();
 						$('#vennSettings').hide();
+					}
+				}
+
+				var eSelectvenn = document.getElementById('deptlab');
+				console.debug("venn setting selected: " + $('#deptlab').val());
+				eSelect.onchange = function() {
+					if(eSelectvenn.selectedIndex === 0 || $('#selectdept').val() == 'selectdept') {
+						console.log("venn settings None inside");
+						$('#vennSettingsDisplay').hide();
+					} else {
+						console.log("venn settings display inside");
+						var dept = $('#selectdept').val();
+						console.log("selectdept dept: " + dept);
+						var test = JSON.parse('#{JSON.stringify(vennsettings)}'.replace(/&quot;/g, '"'));
+						console.log("selectdept vennsettings: " + test);
+						console.log("selectdept vennsettings find index: " + test.indexOf(dept));
+						$('#vennSettingsDisplay').show();
 					}
 				}
 			}

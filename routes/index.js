@@ -485,15 +485,8 @@ module.exports = function(router) {
 	router.get('/departments', isLoggedIn, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
 		labYokeGlobal.finddepartments(function(error, results) {
-			//req.session.orders = results[2];
-			/*req.session.myshares = results[0];
-			req.session.report_sharesbycategory = results[1];
-			req.session.mysharesrequest = results[3];
-			req.session.test = results[4];
-			req.session.report_venn = results[5];
-			req.session.shares = 0;*/
-			console.log("test ? " + results[0]);
-			res.render('departments', {users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			console.log("Venn Settings: " + JSON.stringify(results[2]));
+			res.render('departments', {vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 	});
