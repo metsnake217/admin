@@ -225,9 +225,97 @@ block content
 									checkedstr = "checked='checked'";
 								}
 								console.log("isvenns check - " + labs[prop] + " : " + check);
+								/*
 								vennbody += "<tr class='wrapped'><td>" + labs[prop] + "</td><td>" + "<form action='/setvenn' method='post'><input type='checkbox' name='addvenn' value='addvenn' class='addvenn' " + checkedstr + "/><input type='hidden' name='labnamevenn' value='" + labs[prop] + "'/><input type='hidden' name='departmentvenn' value='" + dept + "' />" + "</form></td></tr>"; 
+								*/
+
+
+
+								var tr = document.createElement("tr");
+								tr.setAttribute('class',"wrapped");
+								var td = document.createElement("td");
+								td.innerHTML = lab;
+								tr.appendChild(td);
+
+								var f = document.createElement("form");
+								f.setAttribute('action',"/setvenn");
+								f.setAttribute('method',"post");
+								var i = document.createElement("input"); //input element, text
+								i.setAttribute('type',"checkbox");
+								i.setAttribute('name',"addvenn");
+								i.setAttribute('value',"addvenn");
+								i.setAttribute('class',"addvenn");
+								if(check == 1){
+									i.setAttribute('checked',"checked");
+								}
+								td = document.createElement("td");
+
+								/*i = function () {
+								console.log("clicked");
+								var addvenn = $(this);
+								var checked = addvenn.is(':checked');
+								var addVennText = document.getElementById("addVennText");
+								if(checked){
+								addVennText.innerHTML = "Do you want to add this lab to the Venn Diagram?";
+								} else {
+								addVennText.innerHTML = "Do you want to remove this lab from the Venn Diagram?";
+								}
+								var pop = document.getElementById("ios-light");
+								pop.style.display = "block";
+								var shade = document.getElementById("shade");
+								shade.style.display = "block";
+
+								actionorderVenn.onclick = function(){
+								var parenttr = addvenn.closest('tr');
+								var currentbackgroundColor = parenttr.css('backgroundColor');
+
+								console.log("currentbackgroundColor: " + currentbackgroundColor);
+								if(currentbackgroundColor == 'rgb(255, 255, 255)'){
+								parenttr.css('background-color', 'rgba(138, 109, 59, 0.66)');
+								} else {
+								parenttr.css('background-color', 'rgb(255, 255, 255');
+								}
+								addvenn.closest('form').submit();
+								}
+								actioncancelVenn.onclick = function(){
+								if(checked){
+								addvenn.prop('checked', false);
+								} else {
+								addvenn.prop('checked', true);
+								}
+								iosLightExit();
+								}
+
+								}*/
+
+
+
+
+								f.appendChild(i);
+								
+								
+
+								i = document.createElement("input"); //input element, text
+								i.setAttribute('type',"hidden");
+								i.setAttribute('name',"labnamevenn");
+								i.setAttribute('value',labs[prop]);
+
+								
+								f.appendChild(i);
+
+								i = document.createElement("input"); //input element, text
+								i.setAttribute('type',"hidden");
+								i.setAttribute('name',"departmentvenn");
+								i.setAttribute('value',dept);
+
+								
+								f.appendChild(i);
+								td.appendChild(f);
+								tr.appendChild(td);
+								$('#vennbody').appendChild(tr);
+
 							}
-							$('#vennbody').html(vennbody);
+							//$('#vennbody').html(vennbody);
 							$('#vennSettingsDisplay').show();
 							$('#vennSettings').show();
 							$('#vennSettingsNolab').hide();
