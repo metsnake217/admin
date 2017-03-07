@@ -1013,20 +1013,23 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 LabYokeLab.prototype.createlab = function(callback) {
 	var resultsLogin = [];
 	var labname = this.name;
-	var labadmin = this.admin.value;
-	var labdept = this.department.value;
+	var labadmin = this.admin;
+	var labdept = this.department;
 	var stopproc = 0;
 	var stopmessage = "";
 
+	var labadmincomp = "\"" + this.admin + "\"";
+	var labdeptcomp = "\"" + this.department + "\"";
 
     var i = 0;
     var j = 0;
     var result3 = "";
     var b = "Select an Administrator";
-    var a = labadmin;
+    var a = ""+labadmin;
 
     while (j < b.length)
     {
+    	console.log("a[i] : " + a[i]);
         if (a[i] != b[j] || i == a.length)
             result3 += b[j];
         else
@@ -1034,15 +1037,15 @@ LabYokeLab.prototype.createlab = function(callback) {
         j++;
     }
     console.log("difference is: " + result3);
-	console.log("admin is: -" + labadmin.trim()+"-");
-	console.log("dept is: -" + labdept.trim()+"-");
+	console.log("admin is: -" + labadmincomp+"-");
+	console.log("dept is: -" + labdeptcomp+"-");
 	console.log("equals? : " + (labdept == "Select a Department"));
 
-	if(labdept == 'Select a Department'){
+	if(labdeptcomp == "Select a Department"){
 		console.log("bad dept");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
-	} else if(labadmin == "Select an Administrator"){
+	} else if(labadmincomp == "Select an Administrator"){
 		console.log("bad admin");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
