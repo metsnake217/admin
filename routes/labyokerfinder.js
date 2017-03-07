@@ -1019,20 +1019,20 @@ LabYokeLab.prototype.createlab = function(callback) {
 	var stopmessage = "";
 	console.log("admin is: -" + labadmin+"-");
 	console.log("dept is: -" + labdept+"-");
-	var query = client.query("select * from labs where lower(labname) = '" + labname.toLowerCase() + "'");
+	console.log("equals? : " + (labdept == "Select a Department"));
 
 	if(labdept == "Select a Department"){
 		console.log("bad dept");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
-	}
-	if(labadmin == "Select an Administrator"){
+	} else if(labadmin == "Select an Administrator"){
 		console.log("bad admin");
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
 	}	
 	console.log("stopproc: " + stopproc);
 	if(stopproc == 0){
+		var query = client.query("select * from labs where lower(labname) = '" + labname.toLowerCase() + "'");
 		query.on("row", function(row, result) {
 			result.addRow(row);
 		});
