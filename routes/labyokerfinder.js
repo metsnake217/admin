@@ -1197,7 +1197,7 @@ LabYokeLabVenn.prototype.setvenn = function(callback) {
 		});
 		query.on("end", function(result) {
 			var count = result.rows;
-			console.log("counting venns: " + count[0]);
+			console.log("counting venns: " + JSON.stringify(count[0]));
 			if(count[0] < VEN_LIMIT && check == 1){
 				var query2 = client.query("UPDATE labs set isvenn=" + check + " where labname='" + labname + "' and department = '" + labdept + "'");
 
