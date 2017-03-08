@@ -108,6 +108,8 @@ module.exports = function(router) {
     router.post('/setvenn', isLoggedIn, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
 		var checked = req.body.addvenn;
+		//if(checked == undefined)
+		//	checked = 0;
 		var labYokeLabVenn = new LabYokeLabVenn(req.body.labnamevenn, req.body.departmentvenn, req.body.addvenn);
 		console.log("lab venn is: " + req.body.labnamevenn);
 		console.log("check venn is: " + req.body.addvenn);
@@ -118,15 +120,15 @@ module.exports = function(router) {
 			console.log("setvenn status: " + status);
 			console.log("setvenn message: " + message);
 		labYokeGlobal.finddepartments(function(error, departments) {
-			var errormessagelab = null;
-			var successmessagelab = null;
+			var errormessagevenn = null;
+			var successmessagevenn = null;
 			if(status == "success"){
-				successmessagelab = message;
+				successmessagevenn = message;
 			} else {
-				errormessagelab = message;
+				errormessagevenn = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {section:"venn", errormessagelab: errormessagelab, successmessagelab: successmessagelab, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			res.render('departments', {section:"venn", errormessagevenn: errormessagevenn, successmessagevenn: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 		});
