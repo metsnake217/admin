@@ -128,7 +128,7 @@ module.exports = function(router) {
 				errormessagevenn = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {section:"venn", errormessagevenn: errormessagevenn, successmessagevenn: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			res.render('departments', {section:"venn", vennsettings: departments[2], users: departments[1], errormessagevenn: errormessagevenn, successmessagevenn: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 		});
