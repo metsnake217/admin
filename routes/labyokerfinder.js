@@ -1200,7 +1200,7 @@ LabYokeLabVenn.prototype.setvenn = function(callback) {
 			console.log("counting venns: " + JSON.stringify(count[0]));
 			var c = parseInt(count[0].co,10);
 			console.log("counting venns2: " + c);
-			if(c < VEN_LIMIT && check == 1){
+			if((c < VEN_LIMIT && check == 1) || (check == 0)){
 				var query2 = client.query("UPDATE labs set isvenn=" + check + " where labname='" + labname + "' and department = '" + labdept + "'");
 
 				query2.on("row", function(row, result2) {
