@@ -1222,7 +1222,7 @@ LabYokeLabVenn.prototype.setvenn = function(callback) {
 			} else {
 				console.log("error");
 				resultsLogin.push("error");
-				resultsLogin.push("There are already 6 labs selected for <b>" + labdept + "</b>. Please unselect one of the labs first then try again.");
+				resultsLogin.push("There are already "+VEN_LIMIT+" labs selected for <b>" + labdept + "</b>. Please unselect one of the labs first then try again.");
 				callback(null, resultsLogin);
 			}
 		});
