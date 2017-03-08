@@ -1191,14 +1191,14 @@ LabYokeLabVenn.prototype.setvenn = function(callback) {
 	console.log("stopproc: " + stopproc);
 
 	if(stopproc == 0){*/
-		var query = client.query("select count(*) from labs where department = '" + labdept + "' and isvenn=1");
+		var query = client.query("select count(*) as co from labs where department = '" + labdept + "' and isvenn=1");
 		query.on("row", function(row, result) {
 			result.addRow(row);
 		});
 		query.on("end", function(result) {
 			var count = result.rows;
 			console.log("counting venns: " + JSON.stringify(count[0]));
-			if(count[0] < VEN_LIMIT && check == 1){
+			if(count[0].co < VEN_LIMIT && check == 1){
 				var query2 = client.query("UPDATE labs set isvenn=" + check + " where labname='" + labname + "' and department = '" + labdept + "'");
 
 				query2.on("row", function(row, result2) {
