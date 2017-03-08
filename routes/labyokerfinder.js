@@ -1175,9 +1175,9 @@ LabYokeLabVenn.prototype.setvenn = function(callback) {
 	var VEN_LIMIT = 2;
 	var stopmessage = "";
 
-	console.log("admin is: -" + check+"-");
-	console.log("dept is: -" + labdept+"-");
-	console.log("equals? : " + (labdept == "Select a Department"));
+	console.log("check is: " + check);
+	console.log("dept is: " + labdept);
+	console.log("labname : " + labname);
 
 	/*if(labdept == "Select a Department"){
 		console.log("bad dept");

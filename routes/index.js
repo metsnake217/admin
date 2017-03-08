@@ -107,10 +107,11 @@ module.exports = function(router) {
 
     router.post('/setvenn', isLoggedIn, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
-		var checked = req.body.cancel;
+		var checked = req.body.addvenn;
 		var labYokeLabVenn = new LabYokeLabVenn(req.body.labnamevenn, req.body.departmentvenn, req.body.addvenn);
 		console.log("lab venn is: " + req.body.labnamevenn);
 		console.log("check venn is: " + req.body.addvenn);
+		console.log("dept venn is: " + req.body.departmentvenn);
 		labYokeLabVenn.setvenn(function(error, results) {
 			var status = results[0];
 			var message = results[1];
