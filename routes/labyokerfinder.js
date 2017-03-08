@@ -1098,7 +1098,7 @@ LabYokeLab.prototype.createlab = function(callback) {
 		query.on("end", function(result) {
 			console.log("select labs: " + result.rows.length);
 			if(result.rows.length == 0){
-				var query2 = client.query("INSERT INTO labs (labname,admin,department) VALUES ('" + labname + "','" + labadmin + "','" + labdept + "')");
+				var query2 = client.query("INSERT INTO labs (labname,admin,department, isvenn) VALUES ('" + labname + "','" + labadmin + "','" + labdept + "', 0)");
 
 				query2.on("row", function(row, result2) {
 					result2.addRow(row);
