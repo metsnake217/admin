@@ -112,24 +112,24 @@ block content
 						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
-						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'> Department </span>"
-						select(name="deptlabedit" type="text" id="deptlabedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
+						label(style="width: 100%;margin-top: 10px;top: -25px;position: relative;")!="<span class='labColor'> Department </span>"
+						select(name="deptlabedit" type="text" id="deptlabedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;top: -25px;position: relative;" placeholder="Department")
 							option(value"selectdeptedit")="Select a Department"
 							- if(depts != undefined)
 								- for(var prop in depts)
 									- var department = depts[prop].departmentname
 									option(value=department) #{department}
-						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
+						div(style="top: -58px;position: relative;float: right;margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
-						label(style="width: 100%;top: -25px;position: relative;")!="<span class='labColor'> Administrator </span>"
-						select(name="adminlabedit" type="text" id="adminlabedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;top: -25px;position: relative;" placeholder="Admin")
+						label(style="width: 100%;top: -25px;position: relative;top: -45px;")!="<span class='labColor'> Administrator </span>"
+						select(name="adminlabedit" type="text" id="adminlabedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;top: -45px;position: relative;" placeholder="Admin")
 							option(value"selectdadminedit")="Select an Administrator"
 							- if(users != undefined)
 								- for(var prop in users)
 									- var user = users[prop].email
 									option(value=user) #{user}
-						div(style="top: -60px; position: relative; float: right; margin-right: 10px;")
+						div(style="top: -78px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
 						div(class="buttons", style="margin-top: 15px;")
