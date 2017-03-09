@@ -1104,10 +1104,25 @@ LabYokeLab.prototype.createlab = function(callback) {
 					result2.addRow(row);
 				});
 				query2.on("end", function(result2) {
-					resultsLogin.push("success");
-					resultsLogin.push("Your new lab <b>" + labname + "</b> has been successfully added.");
-					console.log("successful");
-					callback(null, resultsLogin);
+					var createlaborders = "create table " + labname.toLowerCase().replace(" ","")+ "_orders(id serial primary key, agent text not null, vendor text not null, catalognumber text not null,email text,requestoremail text,date date,status text,category text,lab text,insufficient integer,insuffdate date,quantity integer)";
+					var query3 = client.query(createlaborders);
+
+					query3.on("row", function(row, result3) {
+						result3.addRow(row);
+					});
+					query3.on("end", function(result3) {
+
+						resultsLogin.push("success");
+						resultsLogin.push("Your new lab <b>" + labname + "</b> has been successfully added.");
+						console.log("successful");
+						callback(null, resultsLogin);
+						});
+					query3.on("error", function(err) {
+						console.log("error");
+						resultsLogin.push("error");
+						resultsLogin.push("Your new <b>" + labname + "</b>'s orders table cannot be added due to: " + err);
+						callback(null, resultsLogin);
+					});
 				});
 				query2.on("error", function(err) {
 					console.log("error");
