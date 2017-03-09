@@ -1065,6 +1065,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 			resultsLogin.push(vennportion);
 			resultsLogin.push(getlabs);
 			console.log("vennportion: " + JSON.stringify(vennportion));
+			console.log("getlabs: " + JSON.stringify(getlabs));
 			callback(null, resultsLogin);
 			});
 		});

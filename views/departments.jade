@@ -107,7 +107,7 @@ block content
 							option(value"selectlabnameedit")="Select a Lab"
 							- if(labs != undefined)
 								- for(var prop in labs)
-									- var lab = labs[prop].labname
+									- var lab = labs[prop]
 									option(value=lab) #{lab}
 						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
