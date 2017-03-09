@@ -104,6 +104,12 @@ block content
 						div(class="textentry")
 						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
 						input(name="labnameedit" type="text" id="labnameedit" class="form-control placeholderColor" placeholder="Lab name")
+						select(name="labnameedit" type="text" id="labnameedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
+							option(value"selectlabnameedit")="Select a Lab"
+							- if(vennsettings != undefined)
+								- for(var prop in vennsettings)
+									- var lab = vennsettings[prop].labname
+									option(value=lab) #{lab}
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'> Department </span>"
 						select(name="deptlabedit" type="text" id="deptlabedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
 							option(value"selectdeptedit")="Select a Department"
@@ -125,8 +131,7 @@ block content
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
 						div(class="buttons", style="margin-top: 15px;")
-							//input(type="submit" class="button" value="Get in")
-							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;") Add
+							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;") Edit
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
 
 			div(id="vennSettings")

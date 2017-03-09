@@ -105,6 +105,7 @@ module.exports = function(router) {
 		});
     });
 
+
     router.post('/setvenn', isLoggedInSuperAdmin, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
 		var checked = req.body.addvenn;
@@ -149,6 +150,10 @@ module.exports = function(router) {
 	});
 
 	router.get('/createlab', function(req, res) {
+		res.redirect('/departments');
+	});
+
+	router.get('/editlab', function(req, res) {
 		res.redirect('/departments');
 	});
 
