@@ -210,7 +210,7 @@ module.exports = function(router) {
 			return next();
 		console.log('requested url: '+req.originalUrl);
 		req.session.to = req.originalUrl;
-		res.redirect('/querytool');
+		res.redirect('/login');
 	}
 
 	function isLoggedInAndNotActive(req, res, next) {
