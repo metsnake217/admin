@@ -1764,7 +1764,7 @@ Labyoker.prototype.login = function(callback) {
 	var results2;
 	var resultsLogin = [];
 	var query = client.query("SELECT * FROM vm2016_users where id='" + username
-			+ "' and admin=1"/* and password='"+password+"'" */);
+			+ "' and (admin=1 or admin=2)"/* and password='"+password+"'" */);
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
