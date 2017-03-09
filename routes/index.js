@@ -75,7 +75,7 @@ module.exports = function(router) {
 				errormessagedept = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {section:"department", errormessagedept: errormessagedept, successmessagedept: successmessagedept, depts: departments[0], vennsettings: departments[2], users: departments[1],labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			res.render('departments', {section:"department", labs: departments[3], errormessagedept: errormessagedept, successmessagedept: successmessagedept, depts: departments[0], vennsettings: departments[2], users: departments[1],labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 		});
@@ -99,7 +99,7 @@ module.exports = function(router) {
 				errormessagelab = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {section:"lab", errormessagelab: errormessagelab, successmessagelab: successmessagelab, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			res.render('departments', {section:"lab", labs: departments[3], errormessagelab: errormessagelab, successmessagelab: successmessagelab, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 		});
@@ -131,7 +131,7 @@ module.exports = function(router) {
 				errormessagevenn = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {section:"venn", vennsettings: departments[2], users: departments[1], errormessagevenn: errormessagevenn, successmessagevenn: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			res.render('departments', {section:"venn", labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagevenn: errormessagevenn, successmessagevenn: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 		});
@@ -534,7 +534,7 @@ module.exports = function(router) {
 		var labYokeGlobal = new LabYokeGlobal();
 		labYokeGlobal.finddepartments(function(error, results) {
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
-			res.render('departments', {vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			res.render('departments', {labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 	});

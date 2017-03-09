@@ -105,9 +105,9 @@ block content
 						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
 						select(name="labnameedit" type="text" id="labnameedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
 							option(value"selectlabnameedit")="Select a Lab"
-							- if(venn != undefined)
-								- for(var prop in venn)
-									- var lab = venn[prop].labname
+							- if(labs != undefined)
+								- for(var prop in labs)
+									- var lab = labs[prop].labname
 									option(value=lab) #{lab}
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'> Department </span>"
 						select(name="deptlabedit" type="text" id="deptlabedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
