@@ -107,7 +107,7 @@ module.exports = function(router) {
 
     router.post('/editlab', isLoggedInSuperAdmin, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
-		var labYokeLab = new LabYokeLab(req.body.labname, req.body.deptlab, req.body.adminlab);
+		var labYokeLab = new LabYokeLab(req.body.labnameedit, req.body.deptlabedit, req.body.adminlabedit);
 		console.log("lab is: " + req.body.labname);
 		labYokeLab.editlab(function(error, results) {
 			var status = results[0];

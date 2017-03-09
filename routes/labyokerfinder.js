@@ -1159,8 +1159,9 @@ LabYokeLab.prototype.editlab = function(callback) {
 	var searchtag = "";
 	var set = "";
 
-	console.log("admin is: -" + labadmin + "-");
-	console.log("dept is: -" + labdept + "-");
+	console.log("lab is: " + labname + "");
+	console.log("admin is: " + labadmin + "");
+	console.log("dept is: " + labdept + "");
 	console.log("equals? : " + (labdept == "Select a Department"));
 
 	if(labname == "Select a Lab"){
