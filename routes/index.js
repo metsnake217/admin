@@ -57,7 +57,7 @@ module.exports = function(router) {
 	var competitionStarts = dates.competitionStarts;
 	var competitionEnds = dates.competitionEnds;
 
-    router.post('/createdepartment', isLoggedIn, function(req, res) {
+    router.post('/createdepartment', isLoggedInSuperAdmin, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
 		var labYokeDepartment = new LabYokeDepartment(req.body.department);
 		console.log("department is: " + req.body.department);
@@ -81,7 +81,7 @@ module.exports = function(router) {
 		});
     });
 
-    router.post('/createlab', isLoggedIn, function(req, res) {
+    router.post('/createlab', isLoggedInSuperAdmin, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
 		var labYokeLab = new LabYokeLab(req.body.labname, req.body.deptlab, req.body.adminlab);
 		console.log("lab is: " + req.body.labname);
@@ -105,7 +105,7 @@ module.exports = function(router) {
 		});
     });
 
-    router.post('/setvenn', isLoggedIn, function(req, res) {
+    router.post('/setvenn', isLoggedInSuperAdmin, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
 		var checked = req.body.addvenn;
 		if(checked == undefined)
@@ -202,6 +202,14 @@ module.exports = function(router) {
 			return next();
 		console.log('requested url: '+req.originalUrl);
 		req.session.to = req.originalUrl;
+		res.redirect('/login');
+	}
+
+	function isLoggedInSuperAdmin(req, res, next) {
+		if (req.session.user && req.session.usersuperadmin)
+			return next();
+		console.log('requested url: '+req.originalUrl);
+		req.session.to = req.originalUrl;
 		res.redirect('/querytool');
 	}
 
@@ -233,7 +241,7 @@ module.exports = function(router) {
 		}
 	});
 
-	router.get('/querytool', isLoggedIn, function(req, res) {
+	router.get('/querytool', isLoggedInSuperAdmin, function(req, res) {
 		if (req.session.user) {
 			var labYokeSearch = new LabYokeSearch("",req.session.email);
 			labYokeSearch.findagents(function(error, results) {			
@@ -251,7 +259,7 @@ module.exports = function(router) {
 
 
 
-	router.get('/users', isLoggedIn, function(req, res) {
+	router.get('/users', isLoggedInSuperAdmin, function(req, res) {
 		if (req.session.user) {
 			var labyokeGlobal = new LabYokeGlobal();
 			labyokeGlobal.getUsers(function(error, results) {			
@@ -267,7 +275,7 @@ module.exports = function(router) {
 		}
 	});
 
-	router.post('/disable', isLoggedIn, function(req, res) {
+	router.post('/disable', isLoggedInSuperAdmin, function(req, res) {
 		if (req.session.user) {
 			var id = req.body.id;
 			var name = req.body.name;
@@ -296,7 +304,7 @@ module.exports = function(router) {
 		}
 	});
 
-	router.post('/users', isLoggedIn, function(req, res) {
+	router.post('/users', isLoggedInSuperAdmin, function(req, res) {
 		if (req.session.user) {
 			var agent = req.body.agentform;
 			var lab = req.body.labform;
@@ -324,7 +332,7 @@ module.exports = function(router) {
 		}
 	});
 
-	router.post('/cancelshare', isLoggedIn, function(req, res) {
+	router.post('/cancelshare', isLoggedInSuperAdmin, function(req, res) {
 		if (req.session.user) {
 			var agent = req.body.agent;
 			var lab = req.body.lab;
@@ -517,7 +525,7 @@ module.exports = function(router) {
 		req.session.messages = null;
 	});
 
-	router.get('/departments', isLoggedIn, function(req, res) {
+	router.get('/departments', isLoggedInSuperAdmin, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
 		labYokeGlobal.finddepartments(function(error, results) {
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
@@ -526,7 +534,7 @@ module.exports = function(router) {
 		});
 	});
 
-	router.get('/account', isLoggedIn, function(req, res) {
+	router.get('/account', isLoggedInSuperAdmin, function(req, res) {
 		console.log("inside accounnt: " + req.session.email);
 		console.log("account labs: " + req.session.labs);
 		console.log("account lab: " + req.session.lab);
@@ -825,7 +833,7 @@ module.exports = function(router) {
 			}
 	});
 
-	router.post('/querytool', function(req, res) {
+	router.post('/querytool', isLoggedInSuperAdmin, function(req, res) {
 		if (req.session.user) {
 			var queryText = req.body.queryText;
 			console.log("queryText tool: " + queryText);
@@ -856,7 +864,7 @@ module.exports = function(router) {
 		}
 	});
 
-	router.post('/searchCatalog', function(req, res) {
+	router.post('/searchCatalog', isLoggedInSuperAdmin, function(req, res) {
 		if (req.session.user) {
 			var searchText = req.body.searchTextCatalog;
 			var labYokeSearch = new LabYokeSearch(searchText, req.session.email);
@@ -952,11 +960,14 @@ module.exports = function(router) {
 													req.session.userid = done[0].id;
 													req.session.useradmin = false;
 													console.log("admin? " + done[0].admin);
-													req.session.admin = done[0].admin;
+													var c = parseInt(done[0].admin,10);
+													req.session.admin = c;
 													if(req.session.admin > 0)
 														req.session.useradmin = true;
 													if(req.session.admin > 1)
 														req.session.usersuperadmin = true;
+													console.log("req.session.usersuperadmin: " + req.session.usersuperadmin);
+													console.log("req.session.admin: " + req.session.admin);
 													req.session.active = done[0].active;
 													req.session.email = done[0].email;
 													req.session.lab = done[0].lab;
