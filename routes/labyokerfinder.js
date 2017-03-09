@@ -1191,7 +1191,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 		//stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
 	} else {
 		if(where != "where"){
-			where += "and";
+			where += " or ";
 			searchtag += " and ";
 			set += ",";
 		}
