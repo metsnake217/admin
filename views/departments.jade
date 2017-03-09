@@ -103,12 +103,11 @@ block content
 					form(action="/editlab" method="post")
 						div(class="textentry")
 						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
-						input(name="labnameedit" type="text" id="labnameedit" class="form-control placeholderColor" placeholder="Lab name")
 						select(name="labnameedit" type="text" id="labnameedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
 							option(value"selectlabnameedit")="Select a Lab"
-							- if(vennsettings != undefined)
-								- for(var prop in vennsettings)
-									- var lab = vennsettings[prop].labname
+							- if(venn != undefined)
+								- for(var prop in venn)
+									- var lab = venn[prop].labname
 									option(value=lab) #{lab}
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'> Department </span>"
 						select(name="deptlabedit" type="text" id="deptlabedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
