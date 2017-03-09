@@ -105,6 +105,29 @@ module.exports = function(router) {
 		});
     });
 
+    router.post('/editlab', isLoggedInSuperAdmin, function(req, res) {
+		var labYokeGlobal = new LabYokeGlobal();
+		var labYokeLab = new LabYokeLab(req.body.labname, req.body.deptlab, req.body.adminlab);
+		console.log("lab is: " + req.body.labname);
+		labYokeLab.editlab(function(error, results) {
+			var status = results[0];
+			var message = results[1];
+			console.log("createlab status: " + status);
+			console.log("createlab message: " + message);
+		labYokeGlobal.finddepartments(function(error, departments) {
+			var errormessagelabedit = null;
+			var successmessagelabedit = null;
+			if(status == "success"){
+				successmessagelabedit = message;
+			} else {
+				errormessagelabedit = message;
+			}
+			console.log("departments: " + departments.length);
+			res.render('departments', {section:"editlab", labs: departments[3], errormessagelabedit: errormessagelabedit, successmessagelabedit: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			req.session.messages = null;
+		});
+		});
+    });
 
     router.post('/setvenn', isLoggedInSuperAdmin, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();

@@ -96,10 +96,10 @@ block content
 				h3= 'Edit an existing lab.'
 				p="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department who can be listed in the diagram."
 				div(id="ctl00_Div2" class="results")
-					if errormessageeditlab != null
-						div(class="alert alert-danger fade in alert-dismissable")!= errormessageeditlab
-					if successmessageeditlab != null
-						div(class="alert alert-success fade in alert-dismissable")!= successmessageeditlab
+					if errormessagelabedit != null
+						div(class="alert alert-danger fade in alert-dismissable")!= errormessagelabedit
+					if successmessagelabedit != null
+						div(class="alert alert-success fade in alert-dismissable")!= successmessagelabedit
 					form(action="/editlab" method="post")
 						div(class="textentry")
 						label(style="width: 100%;")!="<span class='labColor'> Name </span>"

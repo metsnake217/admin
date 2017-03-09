@@ -1148,6 +1148,93 @@ LabYokeLab.prototype.createlab = function(callback) {
 	}
 };
 
+LabYokeLab.prototype.editlab = function(callback) {
+	var resultsLogin = [];
+	var labname = this.name;
+	var labadmin = this.admin;
+	var labdept = this.department;
+	var stopproc = 0;
+	var stopmessage = "";
+	var where = "where";
+	var searchtag = "";
+	var set = "";
+
+	console.log("admin is: -" + labadmin + "-");
+	console.log("dept is: -" + labdept + "-");
+	console.log("equals? : " + (labdept == "Select a Department"));
+
+	if(labname == "Select a Lab"){
+		console.log("bad lab");
+		labdept = null;
+		stopproc = 1;
+		stopmessage = "We cannot process your request. Please select a valid lab from the dropdown.";
+	}
+	if(labdept == "Select a Department"){
+		console.log("bad dept");
+		labdept = null;
+		//stopproc = 1;
+		//stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
+	} else {
+		searchtag += "department <b>" + labdept + "</b>";
+		where += " department = '" + labdept + "'";
+		set += " department='" + labdept + "'";
+	}
+	if(labadmin == "Select an Administrator"){
+		console.log("bad admin");
+		labadmin = null;
+		//stopproc = 1;
+		//stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
+	} else {
+		if(where != "where"){
+			where += "and";
+			searchtag += " and ";
+			set += ",";
+		}
+		where += " admin='" + labadmin + "'";
+		searchtag += "admin <b>" + labadmin + "</b>";
+		set += " admin='" + labadmin + "'";
+	}
+	console.log("stopproc: " + stopproc);
+	if(stopproc == 0){
+		var query = client.query("select * from labs " + where);
+		query.on("row", function(row, result) {
+			result.addRow(row);
+		});
+		query.on("end", function(result) {
+			console.log("select labs: " + result.rows.length);
+			if(result.rows.length == 0){
+				//var query2 = client.query("INSERT INTO labs (labname,admin,department, isvenn) VALUES ('" + labname + "','" + labadmin + "','" + labdept + "', 0)");
+				var query2 = client.query("UPDATE labs set " + set + " where labname='" + labname + "'");
+
+				query2.on("row", function(row, result2) {
+					result2.addRow(row);
+				});
+				query2.on("end", function(result2) {
+					resultsLogin.push("success");
+					resultsLogin.push("Your lab <b>" + labname + "</b> has been successfully updated.");
+					console.log("successful");
+					callback(null, resultsLogin);
+				});
+				query2.on("error", function(err) {
+					console.log("error");
+					resultsLogin.push("error");
+					resultsLogin.push("Your lab <b>" + labname + "</b> cannot be updated due to: " + err);
+					callback(null, resultsLogin);
+				});
+			} else {
+				console.log("error");
+				resultsLogin.push("error");
+				resultsLogin.push("There is already a lab with the " + searchtag);
+				callback(null, resultsLogin);
+			}
+		});
+	} else {
+		resultsLogin.push("error");
+		resultsLogin.push(stopmessage);
+		callback(null, resultsLogin);
+	}
+};
+
 LabYokeDepartment.prototype.createdepartment = function(callback) {
 	var resultsLogin = [];
 	var departmentname = this.name;
