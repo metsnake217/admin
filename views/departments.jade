@@ -34,10 +34,10 @@ block content
 			div(class="buttons", style="margin-bottom: 50px;")
 				select(name="createSelect" type="text" id="createSelect" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Create...")
 					option(value="createNone" selected=(checkedstrAll===true ? "selected" : undefined) style="font-weight:bold")="Start to ..."
-					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Department"
-					option(value="createLab" selected=(checkedstrLab===true ? "selected" : undefined))="Lab"
-					option(value="vennsettings" selected=(checkedstrVenn===true ? "selected" : undefined))="Ven Diagram Settings"
-					option(value="editLab" selected=(checkedstrEditLab===true ? "selected" : undefined))="Edit a Lab"
+					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Create new Department"
+					option(value="createLab" selected=(checkedstrLab===true ? "selected" : undefined))="Create new Lab"
+					option(value="vennsettings" selected=(checkedstrVenn===true ? "selected" : undefined))="Set Department's Ven Diagram Settings"
+					option(value="editLab" selected=(checkedstrEditLab===true ? "selected" : undefined))="Edit Lab"
 				div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
 					div(class="arrow-up", style="margin-bottom: 5px;")
 					div(class="arrow-down")
@@ -56,7 +56,7 @@ block content
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
 			div(id="createLab")
-				h3= 'Add a new Lab.'
+				h3= 'Add a new lab.'
 				p="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department who can be listed in the diagram."
 				div(id="ctl00_Div2" class="results")
 					if errormessagelab != null
@@ -93,7 +93,7 @@ block content
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
 
 			div(id="editLab")
-				h3= 'Edit an existing Lab.'
+				h3= 'Edit an existing lab.'
 				p="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department who can be listed in the diagram."
 				div(id="ctl00_Div2" class="results")
 					if errormessageeditlab != null
@@ -137,7 +137,7 @@ block content
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
 
 			div(id="vennSettings")
-				h3= 'Set Venn diagram settings per Department.'
+				h3= 'Set Venn diagram per Department.'
 				p="Add a lab to the diagram. You can add up to 6 labs per department."
 				div(id="ctl00_Div2" class="results")
 					if errormessagevenn != null
