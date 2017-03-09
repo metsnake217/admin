@@ -1158,6 +1158,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 	var where = "where";
 	var searchtag = "";
 	var set = "";
+	var cont = 1;
 
 	console.log("lab is: " + labname + "");
 	console.log("admin is: " + labadmin + "");
@@ -1169,6 +1170,8 @@ LabYokeLab.prototype.editlab = function(callback) {
 		labdept = null;
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid lab from the dropdown.";
+	} else {
+
 	}
 	if(labdept == "Select a Department"){
 		console.log("bad dept");
@@ -1179,6 +1182,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 		searchtag += "department <b>" + labdept + "</b>";
 		where += " department = '" + labdept + "'";
 		set += " department='" + labdept + "'";
+		cont = 0;
 	}
 	if(labadmin == "Select an Administrator"){
 		console.log("bad admin");
@@ -1194,9 +1198,11 @@ LabYokeLab.prototype.editlab = function(callback) {
 		where += " admin='" + labadmin + "'";
 		searchtag += "admin <b>" + labadmin + "</b>";
 		set += " admin='" + labadmin + "'";
+		cont = 0;
 	}
 	console.log("stopproc: " + stopproc);
-	if(stopproc == 0){
+	console.log("where: " + where);
+	if(stopproc == 0 && cont == 0){
 		var query = client.query("select * from labs " + where);
 		query.on("row", function(row, result) {
 			result.addRow(row);
@@ -1227,6 +1233,12 @@ LabYokeLab.prototype.editlab = function(callback) {
 				resultsLogin.push("There is already a lab with the " + searchtag);
 				callback(null, resultsLogin);
 			}
+		});
+		query.on("error", function(err) {
+			console.log("error");
+			resultsLogin.push("error");
+			resultsLogin.push("Your lab <b>" + labname + "</b> cannot be updated due to: " + err);
+			callback(null, resultsLogin);
 		});
 	} else {
 		resultsLogin.push("error");
