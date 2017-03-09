@@ -24,6 +24,9 @@ block content
 			- var checkedstrVenn = false;
 			- if(section !=null && section.length>0 && section == "venn")
 				- checkedstrVenn = true
+			- var checkedstrEditLab = false;
+			- if(section !=null && section.length>0 && section == "editlab")
+				- checkedstrEditLab = true
 			- var checkedstrAll = false;
 			- if(section !=null && section.length>0 && section == "all")
 				- checkedstrAll = true
@@ -34,6 +37,7 @@ block content
 					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Department"
 					option(value="createLab" selected=(checkedstrLab===true ? "selected" : undefined))="Lab"
 					option(value="vennsettings" selected=(checkedstrVenn===true ? "selected" : undefined))="Ven Diagram Settings"
+					option(value="editLab" selected=(checkedstrEditLab===true ? "selected" : undefined))="Edit a Lab"
 				div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
 					div(class="arrow-up", style="margin-bottom: 5px;")
 					div(class="arrow-down")
@@ -87,6 +91,44 @@ block content
 							//input(type="submit" class="button" value="Get in")
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
+
+			div(id="editLab")
+				h3= 'Edit a lab.'
+				p="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department who can be listed in the diagram."
+				div(id="ctl00_Div2" class="results")
+					if errormessageeditlab != null
+						div(class="alert alert-danger fade in alert-dismissable")!= errormessageeditlab
+					if successmessageeditlab != null
+						div(class="alert alert-success fade in alert-dismissable")!= successmessageeditlab
+					form(action="/editlab" method="post")
+						div(class="textentry")
+						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
+						input(name="labnameedit" type="text" id="labnameedit" class="form-control placeholderColor" placeholder="Lab name")
+						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'> Department </span>"
+						select(name="deptlabedit" type="text" id="deptlabedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
+							option(value"selectdeptedit")="Select a Department"
+							- if(depts != undefined)
+								- for(var prop in depts)
+									- var department = depts[prop].departmentname
+									option(value=department) #{department}
+						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
+							div(class="arrow-up", style="margin-bottom: 5px;")
+							div(class="arrow-down")
+						label(style="width: 100%;top: -25px;position: relative;")!="<span class='labColor'> Administrator </span>"
+						select(name="adminlabedit" type="text" id="adminlabedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;top: -25px;position: relative;" placeholder="Admin")
+							option(value"selectdadminedit")="Select an Administrator"
+							- if(users != undefined)
+								- for(var prop in users)
+									- var user = users[prop].email
+									option(value=user) #{user}
+						div(style="top: -60px; position: relative; float: right; margin-right: 10px;")
+							div(class="arrow-up", style="margin-bottom: 5px;")
+							div(class="arrow-down")
+						div(class="buttons", style="margin-top: 15px;")
+							//input(type="submit" class="button" value="Get in")
+							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;") Add
+							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
+
 			div(id="vennSettings")
 				h3= 'Venn diagram per Department.'
 				p="Add a lab to the diagram. You can add up to 6 labs per department."
@@ -124,6 +166,7 @@ block content
 			window.onload = function() {
 				$('#createDept').hide();
 				$('#createLab').hide();
+				$('#editLab').hide();
 
 				$('#vennSettingsDisplay').hide();
 				$('#vennSettings').hide();
@@ -136,14 +179,23 @@ block content
 					$('#createDept').show();
 					$('#vennSettings').hide();
 					$('#createLab').hide();
+					$('#editLab').hide();
 				} else if(eSelect.selectedIndex === 2 || $('#createSelect').val() == 'createLab') {
 					console.log("createLab inside");
 					$('#createLab').show();
 					$('#createDept').hide();
 					$('#vennSettings').hide();
+					$('#editLab').hide();
 				} else if(eSelect.selectedIndex === 3 || $('#createSelect').val() == 'vennSettings') {
 					console.log("vennSettings inside");
 					$('#vennSettings').show();
+					$('#createDept').hide();
+					$('#createLab').hide();
+					$('#editLab').hide();
+				} else if(eSelect.selectedIndex === 3 || $('#createSelect').val() == 'editLab') {
+					console.log("edit lab inside");
+					$('#editLab').show();
+					$('#vennSettings').hide();
 					$('#createDept').hide();
 					$('#createLab').hide();
 				} else if(eSelect.selectedIndex === 0 || $('#createSelect').val() == 'createNone') {
@@ -151,6 +203,7 @@ block content
 					$('#createLab').hide();
 					$('#createDept').hide();
 					$('#vennSettings').hide();
+					$('#editLab').hide();
 				}
 
 				eSelect.onchange = function() {
@@ -159,21 +212,31 @@ block content
 						$('#createDept').show();
 						$('#createLab').hide();
 						$('#vennSettings').hide();
+						$('#editLab').hide();
 					} else if(eSelect.selectedIndex === 2 || $('#createSelect').val() == 'createLab') {
 						console.log("createLab inside");
 						$('#createLab').show();
 						$('#createDept').hide();
 						$('#vennSettings').hide();
+						$('#editLab').hide();
 					} else if(eSelect.selectedIndex === 3 || $('#createSelect').val() == 'vennSettings') {
 						console.log("vennSettings inside");
 						$('#vennSettings').show();
 						$('#createDept').hide();
 						$('#createLab').hide();
+						$('#editLab').hide();
+					} else if(eSelect.selectedIndex === 3 || $('#createSelect').val() == 'editLab') {
+						console.log("edit lab inside");
+						$('#vennSettings').hide();
+						$('#createDept').hide();
+						$('#createLab').hide();
+						$('#editLab').show();
 					} else if(eSelect.selectedIndex === 0 || $('#createSelect').val() == 'createNone') {
 						console.log("create None inside");
 						$('#createLab').hide();
 						$('#createDept').hide();
 						$('#vennSettings').hide();
+						$('#editLab').hide();
 					}
 				}
 
