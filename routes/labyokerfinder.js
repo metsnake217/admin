@@ -1002,7 +1002,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 	});
 	query.on("end", function(result) {
 
-		var query2 = client.query("SELECT email from vm2016_users where admin = 1");
+		var query2 = client.query("SELECT email from vm2016_users where admin = 1 or admin = 2");
 		query2.on("row", function(row, result2) {
 			result2.addRow(row);
 		});
