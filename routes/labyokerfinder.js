@@ -1190,8 +1190,8 @@ LabYokeLab.prototype.editlab = function(callback) {
 	if(labadmin == "Select an Administrator"){
 		console.log("bad admin");
 		labadmin = null;
-		//stopproc = 1;
-		//stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
+		stopproc = 1;
+		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
 	} else {
 		if(where != "where"){
 			where += " or ";
