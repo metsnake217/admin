@@ -2429,7 +2429,7 @@ LabYokeUsers.prototype.makeadminUser = function(callback) {
 	var results;
 	var orderonly = "";
 
-	var query2 = client.query("Select * from labs where admin='" + email "'");
+	var query2 = client.query("Select * from labs where admin='" + email + "'");
 	query2.on("row", function(row, result2) {
 		result2.addRow(row);
 	});
