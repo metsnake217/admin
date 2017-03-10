@@ -1226,11 +1226,17 @@ LabYokeLab.prototype.editlab = function(callback) {
 			var a = result.rows;
 			var findadmin = 0;
 			var finddept = 0;
+				console.log("lab: " + labname);
+				console.log("admin: " + labadmin);
+				console.log("dept: " + labdept);
 			for(prop in a){
 				/*if(labdept == a[prop].department){
 					finddept = 1;
 					searchtag = "department <b>" + labdept + "</b>";
 				}*/
+				console.log("dept: " + a[prop].department);
+				console.log("labname: " + a[prop].labname);
+				console.log("admin: " + a[prop].admin);
 
 				if(labname == a[prop].labname && labdept == a[prop].department){
 					console.log("same dept and lab!!!");
