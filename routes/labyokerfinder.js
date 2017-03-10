@@ -1231,7 +1231,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 					finddept = 1;
 					searchtag = "department <b>" + labdept + "</b>";
 				}*/
-				if(labadmin == a[prop].admin){
+				if(labadmin == a[prop].admin && labname != a[prop].admin && labdept != a[prop].labname){
 					findadmin = 1;
 					searchtag = "admin <b>" + labadmin + "</b>";
 				}
