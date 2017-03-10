@@ -38,7 +38,7 @@ block content
                       - isdisabled = "yokeBackColor"
                       - checkedstr = true
                     - var isadmin = parseInt(ob[prop].admin)
-                    - if(isadmin == 0)
+                    - if(isadmin == 1)
                       - checkedstradmin = true
                     tr(class=isdisabled)
                       td #{ob[prop].id}
@@ -46,7 +46,7 @@ block content
                       td(class="desktabonly") #{ob[prop].surname}
                       td(class="desktabonly") #{ob[prop].lab}
                       td #{ob[prop].email}
-                      td!=checkedstradmin
+                      td
                         form(action="/isadmin" method="post")
                           input(type="checkbox" name="isadmin" value="isadmin" class="isadmin" checked=(checkedstradmin===true ? "checked" : undefined))
                           input(type="hidden" name="id" value=ob[prop].id)
