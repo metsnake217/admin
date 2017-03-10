@@ -2464,7 +2464,7 @@ LabYokeUsers.prototype.makeadminUser = function(callback) {
 
 				}
 					var mailOptions = new MailOptions(email, subject, body);
-					//mailOptions.sendAllEmails();
+					mailOptions.sendAllEmails();
 
 				callback(null, results);
 			});
@@ -2475,7 +2475,6 @@ LabYokeUsers.prototype.makeadminUser = function(callback) {
 	query2.on("error", function(result2) {
 		callback(null, "error2");
 	});
-//callback(null, results);
 };
 
 
