@@ -1229,7 +1229,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 				query2.on("row", function(row, result2) {
 					result2.addRow(row);
 				});
-				query2.on("end", function(result2) {*/
+				query2.on("end", function(result2) {
 					resultsLogin.push("success");
 					resultsLogin.push("Your lab <b>" + labname + "</b> has been successfully updated.");
 					console.log("successful");
