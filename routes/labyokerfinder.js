@@ -1173,7 +1173,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid lab from the dropdown.";
 	} else {
-		where0 += " labname = '" + labname + "'";
+		//where0 += " labname = '" + labname + "'";
 	}
 	if(labdept == "Select a Department"){
 		console.log("bad dept");
@@ -1206,7 +1206,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 	console.log("stopproc: " + stopproc);
 	console.log("where: " + where);
 	if(stopproc == 0 && cont == 0){
-				var query3 = client.query("select * from labs " + where0);
+		/*var query3 = client.query("select * from labs " + where0);
 		query3.on("row", function(row, result3) {
 			result3.addRow(row);
 		});
@@ -1216,7 +1216,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 			if(result3.rows.length == 1){
 				samedept = 1;
 			}
-
+		*/
 		var query = client.query("select * from labs " + where);
 		query.on("row", function(row, result) {
 			result.addRow(row);
@@ -1227,10 +1227,10 @@ LabYokeLab.prototype.editlab = function(callback) {
 			var findadmin = 0;
 			var finddept = 0;
 			for(prop in a){
-				if(labdept == a[prop].department){
+				/*if(labdept == a[prop].department){
 					finddept = 1;
 					searchtag = "department <b>" + labdept + "</b>";
-				}
+				}*/
 				if(labadmin == a[prop].admin){
 					findadmin = 1;
 					searchtag = "admin <b>" + labadmin + "</b>";
@@ -1238,7 +1238,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 			}
 			console.log("find dept: " + finddept);
 			console.log("find admin: " + findadmin);
-			if(result.rows.length == 0 || (samedept == 1 && findadmin == 0 && finddept == 0)){
+			if(result.rows.length == 0 || (/*samedept == 1 &&*/ findadmin == 0 && /*finddept == 0*/)){
 				var query2 = client.query("UPDATE labs set " + set + " where labname='" + labname + "'");
 
 				query2.on("row", function(row, result2) {
@@ -1270,7 +1270,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 			resultsLogin.push("Your lab <b>" + labname + "</b> cannot be updated due to: " + err + ".");
 			callback(null, resultsLogin);
 		});
-		});
+		/*});*/
 	} else {
 		resultsLogin.push("error");
 		resultsLogin.push(stopmessage);
