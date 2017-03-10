@@ -1235,8 +1235,13 @@ LabYokeLab.prototype.editlab = function(callback) {
 					findadmin = 1;
 					searchtag = "admin <b>" + labadmin + "</b>";
 				}
-				if(labname == a[prop].admin && labdept == a[prop].labname){
+				if(labname == a[prop].labname && labdept == a[prop].department){
 					console.log("same dept and lab!!!");
+					findadmin = 0;
+					//searchtag = "admin <b>" + labadmin + "</b>";
+				}
+				if(labadmin == a[prop].admin && labname == a[prop].labname){
+					console.log("same admin and lab!!!");
 					findadmin = 0;
 					//searchtag = "admin <b>" + labadmin + "</b>";
 				}
