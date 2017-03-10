@@ -1156,9 +1156,11 @@ LabYokeLab.prototype.editlab = function(callback) {
 	var stopproc = 0;
 	var stopmessage = "We cannot process your request. Please select a department or admin.";
 	var where = "where";
+	var where0 = "where";
 	var searchtag = "";
 	var set = "";
 	var cont = 1;
+	var samedept = 0;
 
 	console.log("lab is: " + labname + "");
 	console.log("admin is: " + labadmin + "");
@@ -1171,7 +1173,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 		stopproc = 1;
 		stopmessage = "We cannot process your request. Please select a valid lab from the dropdown.";
 	} else {
-
+		where0 += " labname = '" + labname + "'";
 	}
 	if(labdept == "Select a Department"){
 		console.log("bad dept");
@@ -1181,6 +1183,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 	} else {
 		searchtag += "department <b>" + labdept + "</b>";
 		where += " department = '" + labdept + "'";
+		where0 += " and department = '" + labdept + "'";
 		set += " department='" + labdept + "'";
 		cont = 0;
 	}
@@ -1203,13 +1206,24 @@ LabYokeLab.prototype.editlab = function(callback) {
 	console.log("stopproc: " + stopproc);
 	console.log("where: " + where);
 	if(stopproc == 0 && cont == 0){
+				var query3 = client.query("select * from labs " + where0);
+		query3.on("row", function(row, result3) {
+			result3.addRow(row);
+		});
+		query3.on("end", function(result3) {
+			
+			console.log("select labs: " + result3.rows.length);
+			if(result3.rows.length == 1){
+				samedept = 1;
+			}
+
 		var query = client.query("select * from labs " + where);
 		query.on("row", function(row, result) {
 			result.addRow(row);
 		});
 		query.on("end", function(result) {
 			console.log("select labs: " + result.rows.length);
-			if(result.rows.length == 0){
+			if(result.rows.length == 0 || samedept == 1){
 				/*var query2 = client.query("UPDATE labs set " + set + " where labname='" + labname + "'");
 
 				query2.on("row", function(row, result2) {
@@ -1233,12 +1247,14 @@ LabYokeLab.prototype.editlab = function(callback) {
 				resultsLogin.push("There is already a lab with the " + searchtag);
 				callback(null, resultsLogin);
 			}
+
 		});
 		query.on("error", function(err) {
 			console.log("error");
 			resultsLogin.push("error");
 			resultsLogin.push("Your lab <b>" + labname + "</b> cannot be updated due to: " + err);
 			callback(null, resultsLogin);
+		});
 		});
 	} else {
 		resultsLogin.push("error");
