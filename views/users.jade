@@ -40,9 +40,9 @@ block content
                       - checkedstr = true
                     - var isadmin = parseInt(ob[prop].admin)
                     - if(isadmin == 1)
-                      - isadminclass = "labColorBackground"
+                      - isadminclass = "labColor"
                       - checkedstradmin = true
-                    tr(class= isadminclass isdisabled)
+                    tr(class= isadminclass + " " + isdisabled)
                       td #{ob[prop].id}
                       td(class="wrapped desktabonly") #{ob[prop].name}
                       td(class="desktabonly") #{ob[prop].surname}
