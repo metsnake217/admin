@@ -321,11 +321,18 @@ module.exports = function(router) {
 			console.log("checked: " + checked);
 			console.log("email: " + email);
 			var labYokeusers = new LabYokeUsers(id,name, surname, email,checked);
-			labYokeusers.makeadminUser(function(error, results) {
-				if(results != null && results.length > 0){
-					res.redirect('/users');			
-					//res.render('departments', {ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Shares',loggedIn : true});
-					req.session.messages = null;
+			labYokeusers.makeadminUser(function(error, resultsadmin) {
+				if(resultsadmin != null && resultsadmin.length > 0){
+					//res.redirect('/users');			
+					var labyokeGlobal = new LabYokeGlobal();
+					labyokeGlobal.getUsers(function(error, results) {			
+						if (results != null && results.length > 0){
+							res.render('users', {erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
+						} else {
+							res.render('users', {erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
+						}
+						req.session.messages = null;
+					});
 				}
 			});
 		} else {

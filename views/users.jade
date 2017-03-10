@@ -14,6 +14,10 @@ block content
       h1= 'Users.'
       p!="You can now <span class='yokeColor'>disable</span> or reactivate users per request. The user will receive a notification email."
       if users
+        if erroruser != "error1"
+            div(class="alert alert-danger fade in alert-dismissable")!= "This user has already been assigned to a lab. Please first select a new admin for the lab and try again."
+        if erroruser != "error2"
+            div(class="alert alert-danger fade in alert-dismissable")!= "There was an issue with updating the user. Please try again."
         div(id="results")
           div(id="ctl00_Div2" class="row rank")
             div(class="table-responsive")                
