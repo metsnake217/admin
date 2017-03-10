@@ -1195,7 +1195,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 	} else {
 		if(where != "where"){
 			where += " or ";
-			searchtag += " and ";
+			searchtag += " and/or ";
 			set += ",";
 		}
 		where += " admin='" + labadmin + "'";
