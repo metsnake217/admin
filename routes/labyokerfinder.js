@@ -1224,7 +1224,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 		query.on("end", function(result) {
 			console.log("select labs: " + result.rows.length);
 			if(result.rows.length == 0 || samedept == 1){
-				/*var query2 = client.query("UPDATE labs set " + set + " where labname='" + labname + "'");
+				var query2 = client.query("UPDATE labs set " + set + " where labname='" + labname + "'");
 
 				query2.on("row", function(row, result2) {
 					result2.addRow(row);
@@ -1234,13 +1234,13 @@ LabYokeLab.prototype.editlab = function(callback) {
 					resultsLogin.push("Your lab <b>" + labname + "</b> has been successfully updated.");
 					console.log("successful");
 					callback(null, resultsLogin);
-				/*});
+				});
 				query2.on("error", function(err) {
 					console.log("error");
 					resultsLogin.push("error");
 					resultsLogin.push("Your lab <b>" + labname + "</b> cannot be updated due to: " + err);
 					callback(null, resultsLogin);
-				});*/
+				});
 			} else {
 				console.log("error");
 				resultsLogin.push("error");
