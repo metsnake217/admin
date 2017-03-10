@@ -2435,7 +2435,8 @@ LabYokeUsers.prototype.makeadminUser = function(callback) {
 	});
 	query2.on("end", function(result2) {
 		resultsadmin = result2.rows;
-		if(resultsadmin.length > 0){
+		console.log("resultsadmin " + resultsadmin.length);
+		if(resultsadmin.length == 0){
 			var str = "UPDATE vm2016_users SET admin=" + checked
 					+ " where id='" + id + "'";
 			console.log("str: " + str);
@@ -2463,7 +2464,7 @@ LabYokeUsers.prototype.makeadminUser = function(callback) {
 
 				}
 					var mailOptions = new MailOptions(email, subject, body);
-					mailOptions.sendAllEmails();
+					//mailOptions.sendAllEmails();
 
 				callback(null, results);
 			});
