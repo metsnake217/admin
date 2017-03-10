@@ -53,14 +53,52 @@ $('.addvenn').click(function() {
 
 });
 
+$('.isadmin').click(function() {
+  var cancel = $(this);
+  var checked = cancel.is(':checked');
+  var adminText = document.getElementById("disableText");
+  if(checked){
+    disableText.innerHTML = "<h1>Admin.</h1>Do you want to upgrade this user to <b>admin</b> status?";
+  } else {
+    disableText.innerHTML = "<h1>Admin.</h1>Do you want to downgrade this user to <b>regular</b> status?";
+  }
+  var pop = document.getElementById("ios-light");
+  pop.style.display = "block";
+  var shade = document.getElementById("shade");
+  shade.style.display = "block";
+
+  actionorder.onclick = function(){
+  var parenttr = cancel.closest('tr');
+  var currentbackgroundColor = parenttr.css('backgroundColor');
+  
+  console.log("currentbackgroundColor: " + currentbackgroundColor);
+  if(currentbackgroundColor == 'rgb(255, 255, 255)'){
+    parenttr.css('background-color', 'rgba(138, 109, 59, 0.66)');
+  } else {
+    parenttr.css('background-color', 'rgb(255, 255, 255');
+  }
+  cancel.closest('form').submit();
+}
+
+  actioncancel.onclick = function(){
+    if(checked){
+      cancel.prop('checked', false);
+    } else {
+      cancel.prop('checked', true);
+    }
+    iosLightExit();
+}
+
+});
+
 $('.cancel').click(function() {
   var cancel = $(this);
   var checked = cancel.is(':checked');
   var disableText = document.getElementById("disableText");
   if(checked){
-    disableText.innerHTML = "Do you want to disable this user?";
+    disableText.innerHTML = "<h1>Disable.</h1>Do you want to disable this user?";
   } else {
-    disableText.innerHTML = "Do you want to mark this user as active?";
+    disableText.innerHTML = "<h1>Disable.</h1>Do you want to mark this user as active?";
   }
   var pop = document.getElementById("ios-light");
   pop.style.display = "block";
