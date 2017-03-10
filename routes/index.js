@@ -303,6 +303,35 @@ module.exports = function(router) {
 		}
 	});
 
+	router.post('/isadmin', isLoggedInSuperAdmin, function(req, res) {
+		if (req.session.user) {
+			var id = req.body.id;
+			var name = req.body.name;
+			var surname = req.body.surname;
+			var checked = req.body.isadmin;
+			var email = req.body.email;
+			if(checked != null)
+				checked = 0;
+			if(checked == undefined)
+				checked = 1;
+			console.log("id: " + id);
+			console.log("name: " + name);
+			console.log("surname: " + surname);
+			console.log("checked: " + checked);
+			console.log("email: " + email);
+			var labYokeusers = new LabYokeUsers(id,name, surname, email,checked);
+			labYokeusers.makeadminUser(function(error, results) {
+				if(results != null && results.length > 0){
+					res.redirect('/users');			
+					//res.render('departments', {ordersnum: req.session.orders, sharesnum: req.session.shares, labyoker : req.session.user, isLoggedInAdmin: req.session.admin, title:'Shares',loggedIn : true});
+					req.session.messages = null;
+				}
+			});
+		} else {
+			res.redirect('/login');
+		}
+	});
+
 	router.post('/disable', isLoggedInSuperAdmin, function(req, res) {
 		if (req.session.user) {
 			var id = req.body.id;
@@ -672,6 +701,10 @@ module.exports = function(router) {
 	});
 
 	router.get('/disable', function(req, res) {
+		res.redirect('/users');
+	});
+
+	router.get('/isadmin', function(req, res) {
 		res.redirect('/users');
 	});
 

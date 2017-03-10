@@ -26,6 +26,7 @@ block content
                     td(class="desktabonly")= 'Surname'
                     td(class="desktabonly")= 'Lab'
                     td= 'Email'
+                    td= 'Admin'
                     td= 'Disable'
                 tbody
                   -var ob = users
@@ -36,12 +37,23 @@ block content
                     - if(disabled == 0)
                       - isdisabled = "yokeBackColor"
                       - checkedstr = true
+                    - var isadmin = parseInt(ob[prop].admin)
+                    - if(isadmin == 0)
+                      - checkedstradmin = true
                     tr(class=isdisabled)
                       td #{ob[prop].id}
                       td(class="wrapped desktabonly") #{ob[prop].name}
                       td(class="desktabonly") #{ob[prop].surname}
                       td(class="desktabonly") #{ob[prop].lab}
                       td #{ob[prop].email}
+                      td
+                        form(action="/isadmin" method="post")
+                          input(type="checkbox" name="isadmin" value="isadmin" class="isadmin" checked=(checkedstradmin===true ? "checked" : undefined))
+                          input(type="hidden" name="id" value=ob[prop].id)
+                          input(type="hidden" name="name" value=ob[prop].name)
+                          input(type="hidden" name="surname" value=ob[prop].surname)
+                          input(type="hidden" name="email" value=ob[prop].email)
+                          input(type="hidden" name="admin" value=ob[prop].admin)
                       td
                         form(action="/disable" method="post")
                           input(type="checkbox" name="cancel" value="cancel" class="cancel" checked=(checkedstr===true ? "checked" : undefined))

@@ -2414,6 +2414,57 @@ LabYokeUsers.prototype.disableUser = function(callback) {
 //callback(null, results);
 };
 
+LabYokeUsers.prototype.makeadminUser = function(callback) {
+	var id = this.id;
+	var name = this.name;
+	var surname = this.surname;
+	var checked = this.checked;
+	var email = this.email;
+
+	console.log("id: " + id);
+	console.log("surname: " + surname);
+	console.log("name: " + name);
+	console.log("checked: " + checked);
+	var results;
+	var orderonly = "";
+
+
+	var str = "UPDATE vm2016_users SET admin=" + checked
+			+ " where id='" + id + "'";
+	console.log("str: " + str);
+	var query = client.query(str);
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = "success";
+			var subject = "LabYoke Account - Admin de-activated ";
+			var body = "<div style='text-align:center'><img style='width: 141px; margin: 0 20px;' src='https:\/\/team-labyoke.herokuapp.com\/images\/yoke4.png', alt='The Yoke',  title='Yoke', class='yokelogo'/></div><div style=\"font-family:'calibri'; font-size:11pt;padding: 20px;float:left\">Hello " + name + " " + surname + ",<br/><br/>";
+
+		if(checked == 0){
+			body += "Unfortunately your status has been downgraded to <b>regular</b> by an admin per request. Please contact your Lab Administrator for further details.<br>";
+			body += "<p>Best regards,";
+			body += "</p><b><i>The LabYoke Team.</i></b></div>";
+			console.log("disable body: " + body);
+		}
+		if(checked == 1){
+			subject = "LabYoke Account - Admin activated ";
+			body += "Success your status has been upgraded to <b>admin</b> per request. Please contact your Lab Administrator for further details.<br>";
+			body += "<p>Best regards,";
+			body += "</p><b><i>The LabYoke Team.</i></b></div>";
+			console.log("enable body: " + body);
+
+		}
+			var mailOptions = new MailOptions(email, subject, body);
+			mailOptions.sendAllEmails();
+
+		callback(null, results);
+	});
+//callback(null, results);
+};
+
+
+
 LabYokerChangeShare.prototype.cancelShare = function(callback) {
 	var agent = this.agent;
 	var vendor = this.vendor;
