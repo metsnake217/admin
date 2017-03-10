@@ -310,6 +310,7 @@ module.exports = function(router) {
 			var surname = req.body.surname;
 			var checked = req.body.isadmin;
 			var email = req.body.email;
+			console.log("req.body.isadmin: " + req.body.isadmin);
 			if(checked != null)
 				checked = 0;
 			if(checked == undefined)
