@@ -33,14 +33,16 @@ block content
                     - var checkedstr = false
                     - var checkedstradmin = false
                     - var isdisabled = ""
+                    - var isadminclass = ""
                     - var disabled = parseInt(ob[prop].disable)
                     - if(disabled == 0)
                       - isdisabled = "yokeBackColor"
                       - checkedstr = true
                     - var isadmin = parseInt(ob[prop].admin)
                     - if(isadmin == 1)
+                      - isadminclass = "labColorBackground"
                       - checkedstradmin = true
-                    tr(class=isdisabled)
+                    tr(class= isadminclass isdisabled)
                       td #{ob[prop].id}
                       td(class="wrapped desktabonly") #{ob[prop].name}
                       td(class="desktabonly") #{ob[prop].surname}
