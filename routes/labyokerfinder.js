@@ -1227,11 +1227,13 @@ LabYokeLab.prototype.editlab = function(callback) {
 			var findadmin = 0;
 			var finddept = 0;
 			for(prop in a){
-				if(labadmin == a[prop].admin){
-					findadmin = 1;
-				}
 				if(labdept == a[prop].department){
 					finddept = 1;
+					searchtag = "department <b>" + labdept + "</b>";
+				}
+				if(labadmin == a[prop].admin){
+					findadmin = 1;
+					searchtag = "admin <b>" + labadmin + "</b>";
 				}
 			}
 			console.log("find dept: " + finddept);
@@ -1257,7 +1259,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 			} else {
 				console.log("error");
 				resultsLogin.push("error");
-				resultsLogin.push("There is already a lab with the " + searchtag);
+				resultsLogin.push("There is already a lab with the " + searchtag + ".");
 				callback(null, resultsLogin);
 			}
 
@@ -1265,7 +1267,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 		query.on("error", function(err) {
 			console.log("error");
 			resultsLogin.push("error");
-			resultsLogin.push("Your lab <b>" + labname + "</b> cannot be updated due to: " + err);
+			resultsLogin.push("Your lab <b>" + labname + "</b> cannot be updated due to: " + err + ".");
 			callback(null, resultsLogin);
 		});
 		});
