@@ -1226,6 +1226,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 			var a = result.rows;
 			var findadmin = 0;
 			var finddept = 0;
+			var adminExists = 0;
 				console.log("lab field: " + labname);
 				console.log("admin field: " + labadmin);
 				console.log("dept field: " + labdept);
@@ -1248,15 +1249,16 @@ LabYokeLab.prototype.editlab = function(callback) {
 					findadmin = 0;
 					//searchtag = "admin <b>" + labadmin + "</b>";
 				}
-				if(labadmin == a[prop].admin && labname != a[prop].labname && labdept == a[prop].department){
-					console.log("admin exists in different lab and same department!!!");
+				if(labadmin == a[prop].admin && labname != a[prop].labname){
+					adminExists = 1;
+					console.log("admin exists in different lab!!!");
 					findadmin = 1;
 					searchtag = "admin <b>" + labadmin + "</b>";
 				}
 			}
 			console.log("find dept: " + finddept);
 			console.log("find admin: " + findadmin);
-			if(result.rows.length == 0 || (/*samedept == 1 &&*/ findadmin == 0 /* && finddept == 0*/)){
+			if(result.rows.length == 0 || (/*samedept == 1 &&*/ findadmin == 0 && adminExists == 0 /* && finddept == 0*/)){
 				var query2 = client.query("UPDATE labs set " + set + " where labname='" + labname + "'");
 
 				query2.on("row", function(row, result2) {
