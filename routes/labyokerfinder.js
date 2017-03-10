@@ -1226,9 +1226,9 @@ LabYokeLab.prototype.editlab = function(callback) {
 			var a = result.rows;
 			var findadmin = 0;
 			var finddept = 0;
-				console.log("lab: " + labname);
-				console.log("admin: " + labadmin);
-				console.log("dept: " + labdept);
+				console.log("lab field: " + labname);
+				console.log("admin field: " + labadmin);
+				console.log("dept field: " + labdept);
 			for(prop in a){
 				/*if(labdept == a[prop].department){
 					finddept = 1;
@@ -1248,8 +1248,8 @@ LabYokeLab.prototype.editlab = function(callback) {
 					findadmin = 0;
 					//searchtag = "admin <b>" + labadmin + "</b>";
 				}
-				if(labadmin == a[prop].admin && labname != a[prop].labname && labdept != a[prop].department){
-					console.log("admin exists in different lab and department!!!");
+				if(labadmin == a[prop].admin && labname != a[prop].labname && labdept == a[prop].department){
+					console.log("admin exists in different lab and same department!!!");
 					findadmin = 1;
 					searchtag = "admin <b>" + labadmin + "</b>";
 				}
