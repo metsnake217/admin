@@ -3,7 +3,6 @@ extends layout
 block content
   div(id="ios-light")
     center
-      h1="Disable."
       p(id="disableText")
       div
         div(id="actionorder" class="exit" style="width: 50%; float: left; background-color: rgba(138, 109, 59, 0.55);")="OK"
@@ -46,7 +45,7 @@ block content
                       td(class="desktabonly") #{ob[prop].surname}
                       td(class="desktabonly") #{ob[prop].lab}
                       td #{ob[prop].email}
-                      td
+                      td!=ob[prop].admin
                         form(action="/isadmin" method="post")
                           input(type="checkbox" name="isadmin" value="isadmin" class="isadmin" checked=(checkedstradmin===true ? "checked" : undefined))
                           input(type="hidden" name="id" value=ob[prop].id)
