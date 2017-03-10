@@ -312,9 +312,9 @@ module.exports = function(router) {
 			var email = req.body.email;
 			console.log("req.body.isadmin: " + req.body.isadmin);
 			if(checked != null)
-				checked = 0;
-			if(checked == undefined)
 				checked = 1;
+			if(checked == undefined)
+				checked = 0;
 			console.log("id: " + id);
 			console.log("name: " + name);
 			console.log("surname: " + surname);

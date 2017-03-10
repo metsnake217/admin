@@ -73,7 +73,7 @@ $('.isadmin').click(function() {
   
   console.log("currentbackgroundColor: " + currentbackgroundColor);
   if(currentbackgroundColor == 'rgb(255, 255, 255)'){
-    parenttr.css('background-color', 'rgba(138, 109, 59, 0.66)');
+    parenttr.css('background-color', 'rgb(61, 157, 203)');
   } else {
     parenttr.css('background-color', 'rgb(255, 255, 255');
   }
