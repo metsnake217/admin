@@ -45,7 +45,7 @@ block content
                       td(class="desktabonly") #{ob[prop].surname}
                       td(class="desktabonly") #{ob[prop].lab}
                       td #{ob[prop].email}
-                      td!=ob[prop].admin
+                      td!=checkedstradmin
                         form(action="/isadmin" method="post")
                           input(type="checkbox" name="isadmin" value="isadmin" class="isadmin" checked=(checkedstradmin===true ? "checked" : undefined))
                           input(type="hidden" name="id" value=ob[prop].id)
