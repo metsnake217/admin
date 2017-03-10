@@ -1238,7 +1238,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 			}
 			console.log("find dept: " + finddept);
 			console.log("find admin: " + findadmin);
-			if(result.rows.length == 0 || (/*samedept == 1 &&*/ findadmin == 0 && /*finddept == 0*/)){
+			if(result.rows.length == 0 || (/*samedept == 1 &&*/ findadmin == 0 /* && finddept == 0*/)){
 				var query2 = client.query("UPDATE labs set " + set + " where labname='" + labname + "'");
 
 				query2.on("row", function(row, result2) {
