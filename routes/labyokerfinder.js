@@ -1231,10 +1231,7 @@ LabYokeLab.prototype.editlab = function(callback) {
 					finddept = 1;
 					searchtag = "department <b>" + labdept + "</b>";
 				}*/
-				if(labadmin == a[prop].admin){
-					findadmin = 1;
-					searchtag = "admin <b>" + labadmin + "</b>";
-				}
+
 				if(labname == a[prop].labname && labdept == a[prop].department){
 					console.log("same dept and lab!!!");
 					findadmin = 0;
@@ -1244,6 +1241,11 @@ LabYokeLab.prototype.editlab = function(callback) {
 					console.log("same admin and lab!!!");
 					findadmin = 0;
 					//searchtag = "admin <b>" + labadmin + "</b>";
+				}
+				if(labadmin == a[prop].admin && labname != a[prop].labname && labdept != a[prop].department){
+					console.log("admin exists in different lab and department!!!");
+					findadmin = 1;
+					searchtag = "admin <b>" + labadmin + "</b>";
 				}
 			}
 			console.log("find dept: " + finddept);
