@@ -1102,15 +1102,16 @@ LabYokeLab.prototype.createlab = function(callback) {
 		query.on("end", function(result) {
 			console.log("select labs: " + result.rows.length);
 			if(result.rows.length == 0){
-				var query2 = client.query("INSERT INTO labs (labname,admin,department, isvenn) VALUES ('" + labname + "','" + labadmin + "','" + labdept + "', 0)");
+				var query2 = client.query("INSERT INTO labs (labname,admin,department,isvenn) VALUES ('" + labname + "','" + labadmin + "','" + labdept + "', 0)");
 
 				query2.on("row", function(row, result2) {
 					console.log("inserted new lab.");
 					result2.addRow(row);
 				});
 				query2.on("end", function(result2) {
-					console.log("labname before create: " + labname.toLowerCase().replace(" ",""));
-					var createlaborders = "create table " + labname.toLowerCase().replace(" ","")+ "_orders(id serial primary key, agent text not null, vendor text not null, catalognumber text not null,email text,requestoremail text,date date,status text,category text,lab text,insufficient integer,insuffdate date,quantity integer)";
+					var l = labname.toLowerCase().replace(/ /g,"");
+					console.log("labname before create: " + l);
+					var createlaborders = "create table " + l + "_orders(id serial primary key, agent text not null, vendor text not null, catalognumber text not null,email text,requestoremail text,date date,status text,category text,lab text,insufficient integer,insuffdate date,quantity integer)";
 					var query3 = client.query(createlaborders);
 
 					query3.on("row", function(row, result3) {
