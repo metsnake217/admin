@@ -1111,7 +1111,7 @@ LabYokeLab.prototype.createlab = function(callback) {
 				query2.on("end", function(result2) {
 					var l = labname.toLowerCase().replace(/ /g,"");
 					console.log("labname before create: " + l);
-					var createlaborders = "create table " + l + "_orders(id serial primary key, agent text not null, vendor text not null, catalognumber text not null,email text,requestoremail text,date date,status text,category text,lab text,insufficient integer,insuffdate date,quantity integer)";
+					var createlaborders = "create table " + l + "_orders(agent text not null, vendor text not null, catalognumber text not null,email text,requestoremail text,date date,status text,category text,lab text,insufficient integer,insuffdate date,quantity integer,id serial primary key)";
 					var query3 = client.query(createlaborders);
 
 					query3.on("row", function(row, result3) {
