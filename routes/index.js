@@ -160,6 +160,37 @@ module.exports = function(router) {
 		});
     });
 
+    router.post('/setdisabled', isLoggedInSuperAdmin, function(req, res) {
+		var labYokeGlobal = new LabYokeGlobal();
+		var checked = req.body.disablelab;
+		if(checked == undefined)
+			checked = 0;
+		else
+			checked = 1;
+		var labYokeLabVenn = new LabYokeLabVenn(req.body.labnamevenn, req.body.departmentvenn, checked);
+		console.log("lab disable is: " + req.body.labnamevenn);
+		console.log("check disable is: " + req.body.addvenn);
+		console.log("dept disable is: " + req.body.departmentvenn);
+		labYokeLabVenn.setdisable(function(error, results) {
+			var status = results[0];
+			var message = results[1];
+			console.log("setdisable status: " + status);
+			console.log("setdisable message: " + message);
+		labYokeGlobal.finddepartments(function(error, departments) {
+			var errormessagedisable = null;
+			var successmessagedisable= null;
+			if(status == "success"){
+				successmessagedisable = message;
+			} else {
+				errormessagedisable = message;
+			}
+			console.log("departments: " + departments.length);
+			res.render('departments', {section:"venn", labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagedisable: errormessagedisable, successmessagedisable: successmessagedisable, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			req.session.messages = null;
+		});
+		});
+    });
+
 	router.get('/', function(req, res) {
 		res.redirect('/querytool');
 	});

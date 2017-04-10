@@ -151,6 +151,11 @@ block content
 						div(class="alert alert-danger fade in alert-dismissable")!= errormessagevenn
 					if successmessagevenn != null
 						div(class="alert alert-success fade in alert-dismissable")!= successmessagevenn
+					if errormessagedisable != null
+						div(class="alert alert-danger fade in alert-dismissable")!= errormessagedisable
+					if successmessagedisable != null
+						div(class="alert alert-success fade in alert-dismissable")!= successmessagedisable
+						
 					form(action="/setvenn" method="post")
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'>Department </span>"
 						select(name="deptlabvenn" type="text" id="deptlabvenn" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
