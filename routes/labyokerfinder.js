@@ -1018,15 +1018,18 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 			var labs = []; 
 			var getlabs = [];
 			var venns = [];
-			var vennportion = {departments:[], labs:[], isvenn:[]}
+			var disabled = [];
+			var vennportion = {departments:[], labs:[], isvenn:[], isdisabled:[]}
 			var deptlabs = [];
 			var vennlabs = [];
+			var disabledlabs = [];
 			for(var prop in venndata){
 				
 				var dept = venndata[prop].department;
 				var lab = venndata[prop].labname;
 				getlabs.push(lab);
 				var isvenn = venndata[prop].isvenn;
+				var isdisabled = venndata[prop].disable;
 				//if(depts.indexOf(dept) == -1){
 				if(prop == 0){
 					depts.push(dept);
@@ -1038,13 +1041,16 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 					depts.push(dept);
 					labs.push(deptlabs);
 					venns.push(vennlabs);
+					disabled.push(disabledlabs);
 					console.log("labs: " + JSON.stringify(labs));
 					console.log("venns: " + JSON.stringify(venns));
 					deptlabs = [];
 					vennlabs = [];
+					disabledlabs = [];
 				}
 				deptlabs.push(lab);
 				vennlabs.push(isvenn);
+				disabledlabs.push(isdisabled);
 
 				console.log("prop: " + prop);
 				console.log("deptlabs: " + JSON.stringify(deptlabs));
@@ -1053,10 +1059,12 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 
 			labs.push(deptlabs);
 			venns.push(vennlabs);
+			isdisabled.push(disabledlabs);
 
 			vennportion.departments = depts;
 			vennportion.labs = labs;
 			vennportion.isvenn = venns;
+			vennportion.isdisabled = isdisabled;
 
 			resultsLogin.push(result.rows);
 			console.log("get departments: " + resultsLogin[0].length);
