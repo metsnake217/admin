@@ -1063,7 +1063,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 
 			labs.push(deptlabs);
 			venns.push(vennlabs);
-			isdisabled.push(disabledlabs);
+			disabled.push(disabledlabs);
 
 			vennportion.departments = depts;
 			vennportion.labs = labs;
