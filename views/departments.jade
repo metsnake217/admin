@@ -164,6 +164,7 @@ block content
 									tr(class="you info-best" style="font-weight: bold")
 										td(class="wrapped") Lab
 										td(class="wrapped") Isvenn
+										td(class="wrapped") Disable
 								tbody(id="vennbody")
 
 							div(class="buttons" style="margin-top: 15px;")
@@ -358,30 +359,78 @@ block content
 								}
 
 								}
-
-
-
-
 								f.appendChild(i);
 								
+								var fdis = document.createElement("form");
+								fdis.setAttribute('action',"/setvenn");
+								fdis.setAttribute('method',"post");
+								var idis = document.createElement("input"); //input element, text
+								idis.setAttribute('type',"checkbox");
+								idis.setAttribute('name',"disablelab");
+								idis.setAttribute('value',"disablelab");
+								idis.setAttribute('class',"disablelab");
+								if(checkdis == 1){
+									idis.setAttribute('checked',"checked");
+								}
+								td = document.createElement("td");
+
+								idis.onclick = function () {
+								console.log("clicked disable");
+								var disablelab = $(this);
+								var checked = disablelab.is(':checked');
+								var disablelabText = document.getElementById("disablelabText");
+								if(checked){
+								disablelabText.innerHTML = "Do you want to disable this lab?";
+								} else {
+								disablelabText.innerHTML = "Do you want to re-enable this lab?";
+								}
+								var pop = document.getElementById("ios-light");
+								pop.style.display = "block";
+								var shade = document.getElementById("shade");
+								shade.style.display = "block";
+
+								actionorderDisable.onclick = function(){
+								var parenttr = disablelab.closest('tr');
+								var currentbackgroundColor = parenttr.css('backgroundColor');
+
+								console.log("currentbackgroundColor: " + currentbackgroundColor);
+								if(currentbackgroundColor == 'rgb(255, 255, 255)'){
+								parenttr.css('background-color', 'rgba(138, 109, 59, 0.66)');
+								} else {
+								parenttr.css('background-color', 'rgb(255, 255, 255');
+								}
+								disablelab.closest('form').submit();
+								}
+								actioncancelDisable.onclick = function(){
+								if(checked){
+								disablelab.prop('checked', false);
+								} else {
+								disablelab.prop('checked', true);
+								}
+								iosLightExit();
+								}
+
+								}
+								fdis.appendChild(idis);
 								
 
 								i = document.createElement("input"); //input element, text
 								i.setAttribute('type',"hidden");
 								i.setAttribute('name',"labnamevenn");
-								i.setAttribute('value',labs[prop]);
-
-								
+								i.setAttribute('value',labs[prop]);								
 								f.appendChild(i);
+								fdis.appendChild(i);
 
 								i = document.createElement("input"); //input element, text
 								i.setAttribute('type',"hidden");
 								i.setAttribute('name',"departmentvenn");
-								i.setAttribute('value',dept);
-
-								
+								i.setAttribute('value',dept);								
 								f.appendChild(i);
+								fdis.appendChild(i);
+
+
 								td.appendChild(f);
+								td.appendChild(fdis);
 								tr.appendChild(td);
 								document.getElementById("vennbody").appendChild(tr);
 
