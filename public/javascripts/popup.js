@@ -14,6 +14,45 @@ $('html').click(function() {
   }*/
 });
 
+$('.disablelab').click(function() {
+  console.log("clicked");
+  var disablelab = $(this);
+  var checked = disablelab.is(':checked');
+  var disablelabText = document.getElementById("disablelabText");
+  if(checked){
+    disablelabText.innerHTML = "Do you want to disable this lab?";
+  } else {
+    disablelabText.innerHTML = "Do you want to re-enable this lab?";
+  }
+  var pop = document.getElementById("ios-light");
+  pop.style.display = "block";
+  var shade = document.getElementById("shade");
+  shade.style.display = "block";
+
+  actionorderDisable.onclick = function(){
+  var parenttr = disablelab.closest('tr');
+  var currentbackgroundColor = parenttr.css('backgroundColor');
+  
+  console.log("currentbackgroundColor: " + currentbackgroundColor);
+  if(currentbackgroundColor == 'rgb(255, 255, 255)'){
+    parenttr.css('background-color', 'rgba(138, 109, 59, 0.66)');
+  } else {
+    parenttr.css('background-color', 'rgb(255, 255, 255');
+  }
+  disablelab.closest('form').submit();
+}
+
+  actioncancelDisable.onclick = function(){
+    if(checked){
+      disablelab.prop('checked', false);
+    } else {
+      disablelab.prop('checked', true);
+    }
+    iosLightExit();
+}
+
+});
+
 $('.addvenn').click(function() {
   console.log("clicked");
   var addvenn = $(this);
