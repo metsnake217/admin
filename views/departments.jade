@@ -376,6 +376,8 @@ block content
 								}
 								td = document.createElement("td");
 
+								tdis = document.createElement("td");
+
 								idis.onclick = function () {
 								console.log("clicked disable");
 								var disablelab = $(this);
@@ -432,8 +434,9 @@ block content
 
 
 								td.appendChild(f);
-								td.appendChild(fdis);
+								tdis.appendChild(fdis);
 								tr.appendChild(td);
+								tr.appendChild(tdis);
 								document.getElementById("vennbody").appendChild(tr);
 
 							}
