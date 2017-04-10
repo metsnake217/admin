@@ -377,9 +377,9 @@ block content
 								idis.onclick = function () {
 								console.log("clicked disable");
 								var disablelab = $(this);
-								var checked = disablelab.is(':checked');
+								var checkedis = disablelab.is(':checked');
 								var disablelabText = document.getElementById("disablelabText");
-								if(checked){
+								if(checkedis){
 								disablelabText.innerHTML = "Do you want to disable this lab?";
 								} else {
 								disablelabText.innerHTML = "Do you want to re-enable this lab?";
@@ -402,7 +402,7 @@ block content
 								disablelab.closest('form').submit();
 								}
 								actioncancelDisable.onclick = function(){
-								if(checked){
+								if(checkedis){
 								disablelab.prop('checked', false);
 								} else {
 								disablelab.prop('checked', true);
