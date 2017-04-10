@@ -8,7 +8,7 @@ block content
 			div
 				div(id="actionorderVenn" class="exit" style="width: 50%; float: left; background-color: rgba(138, 109, 59, 0.55);")="OK"
 				div(class="exit" id="actioncancelVenn")="Cancel"
-	div(id="ios-light")
+	div(id="ios-lightdis")
 		center
 			h1="Disable."
 			p(id="disablelabText")
@@ -395,9 +395,9 @@ block content
 								} else {
 								disablelabText.innerHTML = "Do you want to re-enable this lab?";
 								}
-								var pop = document.getElementById("ios-light");
+								var pop = document.getElementById("ios-lightdis");
 								pop.style.display = "block";
-								var shade = document.getElementById("shade");
+								var shade = document.getElementById("shadedis");
 								shade.style.display = "block";
 
 								actionorderDisable.onclick = function(){
@@ -418,7 +418,7 @@ block content
 								} else {
 								disablelab.prop('checked', true);
 								}
-								iosLightExit();
+								iosLightExitDis();
 								}
 
 								}

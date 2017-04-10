@@ -325,6 +325,11 @@ function iosLightExit(){
   pop.style.display = "none";
   shade.style.display = "none";
 }
+function iosLightExitDis(){
+  var pop = document.getElementById("ios-lightdis");
+  pop.style.display = "none";
+  shade.style.display = "none";
+}
 function modernExit(){
   var pop = document.getElementById("modern-light");
   pop.style.display = "none";
