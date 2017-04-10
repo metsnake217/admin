@@ -24,7 +24,7 @@ $('.disablelab').click(function() {
   } else {
     disablelabText.innerHTML = "Do you want to re-enable this lab?";
   }
-  var pop = document.getElementById("ios-light");
+  var pop = document.getElementById("ios-lightdis");
   pop.style.display = "block";
   var shade = document.getElementById("shade");
   shade.style.display = "block";
@@ -280,6 +280,13 @@ function iosLight(){
   pop.style.display = "block";
   shade.style.display = "block";
 }
+
+function iosLightDis(){
+  var pop = document.getElementById("ios-lightdis");
+  pop.style.display = "block";
+  shade.style.display = "block";
+}
+
 function iosLight(id, name, surname, email){
   var actionorder = document.getElementById("actionorder");
   var disableText = document.getElementById("disableText");
