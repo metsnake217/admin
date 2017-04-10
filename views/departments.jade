@@ -286,12 +286,14 @@ block content
 						if(index > -1){
 							var labs = test.labs[index];
 							var isvenns = test.isvenn[index];
+							var isdisabled = test.isdisabled[index];
 							console.debug(labs);
 							console.debug(isvenns);
 							var vennbody = "";
 							$('#vennbody').html("")
 							for(prop in labs){
 								var check = isvenns[prop];
+								var checkdis = isdisabled[prop];
 								var checkedstr = "";
 								if(check == 1){
 									checkedstr = "checked='checked'";
@@ -362,7 +364,7 @@ block content
 								f.appendChild(i);
 								
 								var fdis = document.createElement("form");
-								fdis.setAttribute('action',"/setvenn");
+								fdis.setAttribute('action',"/setdisabled");
 								fdis.setAttribute('method',"post");
 								var idis = document.createElement("input"); //input element, text
 								idis.setAttribute('type',"checkbox");

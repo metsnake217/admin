@@ -1008,7 +1008,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 		});
 		query2.on("end", function(result2) {
 
-			var query3 = client.query("select department,labname,isvenn from labs order by department");
+			var query3 = client.query("select department,labname,isvenn, disable from labs order by department");
 		query3.on("row", function(row, result3) {
 			result3.addRow(row);
 		});
@@ -1102,7 +1102,7 @@ LabYokeLab.prototype.createlab = function(callback) {
 		query.on("end", function(result) {
 			console.log("select labs: " + result.rows.length);
 			if(result.rows.length == 0){
-				var query2 = client.query("INSERT INTO labs (labname,admin,department,isvenn) VALUES ('" + labname + "','" + labadmin + "','" + labdept + "', 0)");
+				var query2 = client.query("INSERT INTO labs (labname,admin,department,isvenn, disable) VALUES ('" + labname + "','" + labadmin + "','" + labdept + "', 0, 0)");
 
 				query2.on("row", function(row, result2) {
 					console.log("inserted new lab.");
@@ -1408,7 +1408,74 @@ LabYokeLabVenn.prototype.setvenn = function(callback) {
 	}*/
 };
 
+LabYokeLabVenn.prototype.setdisable = function(callback) {
+	var resultsLogin = [];
+	var labname = this.name;
+	var check = this.check;
+	var labdept = this.department;
+	var VEN_LIMIT = 0;
+	var stopmessage = "";
 
+	console.log("check is: " + check);
+	console.log("dept is: " + labdept);
+	console.log("labname : " + labname);
+
+	/*if(labdept == "Select a Department"){
+		console.log("bad dept");
+		stopproc = 1;
+		stopmessage = "We cannot process your request. Please select a valid department from the dropdown.";
+	} else if(labadmin == "Select an Administrator"){
+		console.log("bad admin");
+		stopproc = 1;
+		stopmessage = "We cannot process your request. Please select a valid administrator from the dropdown.";
+	}	
+	console.log("stopproc: " + stopproc);
+
+	if(stopproc == 0){*/
+		var query = client.query("select count(*) as co from vm2016_users where lab = '" + labname + "' and disable != 1");
+		query.on("row", function(row, result) {
+			result.addRow(row);
+		});
+		query.on("end", function(result) {
+			var count = result.rows;
+			console.log("counting users in lab: " + JSON.stringify(count[0]));
+			var c = parseInt(count[0].co,10);
+			console.log("counting users: " + c);
+			if((c > VEN_LIMIT && check == 1) || (check == 0)){
+				var query2 = client.query("UPDATE labs set disable=" + check + " where labname='" + labname + "' and department = '" + labdept + "'");
+
+				query2.on("row", function(row, result2) {
+					result2.addRow(row);
+				});
+				query2.on("end", function(result2) {
+					resultsLogin.push("success");
+					if(check == 1){
+						resultsLogin.push("You have successfully disabled <b>" + labname + "</b> in <b>" + labdept + "</b>.");
+					} else {
+						resultsLogin.push("You have successfully re-enabled <b>" + labname + "</b> in <b>" + labdept + "</b>.");
+					}
+					console.log("successful");
+					callback(null, resultsLogin);
+				});
+				query2.on("error", function(err) {
+					console.log("error");
+					resultsLogin.push("error");
+					resultsLogin.push("We were unable to set the Disable setting due to: " + err);
+					callback(null, resultsLogin);
+				});
+			} else {
+				console.log("error");
+				resultsLogin.push("error");
+				resultsLogin.push("There are users assigned to this lab. Please do transfer them first then try again.");
+				callback(null, resultsLogin);
+			}
+		});
+	/*} else {
+		resultsLogin.push("error");
+		resultsLogin.push(stopmessage);
+		callback(null, resultsLogin);
+	}*/
+};
 
 
 
