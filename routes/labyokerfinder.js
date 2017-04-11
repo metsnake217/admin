@@ -1456,7 +1456,7 @@ LabYokeLabVenn.prototype.setdisable = function(callback) {
 			console.log("counting users in lab: " + JSON.stringify(count[0]));
 			var c = parseInt(count[0].co,10);
 			console.log("counting users: " + c);
-			if((c > VEN_LIMIT && check == 1) || (check == 0)){
+			if(c  == 0){
 				var query2 = client.query("UPDATE labs set disable=" + check + " where labname='" + labname + "' and department = '" + labdept + "'");
 
 				query2.on("row", function(row, result2) {
