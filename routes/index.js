@@ -219,6 +219,10 @@ module.exports = function(router) {
 		res.redirect('/departments');
 	});
 
+	router.get('/transferusertolab', function(req, res) {
+		res.redirect('/users');
+	});
+
 	router.get('/help', function(req, res) {
 		res.render('help', {
 			ordersnum: req.session.orders,
@@ -332,6 +336,45 @@ module.exports = function(router) {
 					res.render('users', {labs:req.session.labs, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
 				}
 				req.session.messages = null;
+			});
+		} else {
+			res.redirect('/login');
+		}
+	});
+
+	
+	router.post('/transferusertolab', isLoggedInSuperAdmin, function(req, res) {
+		// TO DO
+		if (req.session.user) {
+			var id = req.body.id;
+			var name = req.body.name;
+			var surname = req.body.surname;
+			var checked = req.body.isadmin;
+			var email = req.body.email;
+			console.log("req.body.isadmin: " + req.body.isadmin);
+			if(checked != null)
+				checked = 1;
+			if(checked == undefined)
+				checked = 0;
+			console.log("id: " + id);
+			console.log("name: " + name);
+			console.log("surname: " + surname);
+			console.log("checked: " + checked);
+			console.log("email: " + email);
+			var labYokeusers = new LabYokeUsers(id,name, surname, email,checked);
+			labYokeusers.makeadminUser(function(error, resultsadmin) {
+				if(resultsadmin != null && resultsadmin.length > 0){
+					//res.redirect('/users');			
+					var labyokeGlobal = new LabYokeGlobal();
+					labyokeGlobal.getUsers(function(error, results) {			
+						if (results != null && results.length > 0){
+							res.render('users', {erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
+						} else {
+							res.render('users', {erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
+						}
+						req.session.messages = null;
+					});
+				}
 			});
 		} else {
 			res.redirect('/login');
