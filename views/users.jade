@@ -69,7 +69,7 @@ block content
                           div(style="top: -35px;position: relative;float: right;margin-right: 10px;")
                             div(class="arrow-up", style="margin-bottom: 5px;")
                             div(class="arrow-down")
-                      td #{ob[prop].email}
+                      td(class="desktabonly") #{ob[prop].email}
                       td
                         - if(isadmin != 2)
                             form(action="/isadmin" method="post")
