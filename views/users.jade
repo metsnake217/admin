@@ -51,6 +51,17 @@ block content
                       td(class="wrapped desktabonly") #{ob[prop].name}
                       td(class="desktabonly") #{ob[prop].surname}
                       td(class="desktabonly") #{ob[prop].lab}
+                      td
+                        form(action="/editlab" method="post")
+                          select(name="labnameedit" type="text" id="labnameedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Lab")
+                            option(value"selectlabnameedit")="Select a Lab"
+                            - if(labs != undefined)
+                              - for(var prop in labs)
+                                - var lab = labs[prop]
+                                - var checkedstrLab = false;
+                                - if(lab == "#{ob[prop].lab}")
+                                  - checkedstrLab = true
+                                option(value=lab selected=(checkedstrLab===true ? "selected" : undefined)) #{lab}
                       td #{ob[prop].email}
                       td
                         - if(isadmin != 2)
