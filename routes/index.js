@@ -169,7 +169,7 @@ module.exports = function(router) {
 			checked = 1;
 		var labYokeLabVenn = new LabYokeLabVenn(req.body.labnamevenn, req.body.departmentvenn, checked);
 		console.log("lab disable is: " + req.body.labnamevenn);
-		console.log("check disable is: " + req.body.addvenn);
+		console.log("check disable is: " + req.body.disablelab);
 		console.log("dept disable is: " + req.body.departmentvenn);
 		labYokeLabVenn.setdisable(function(error, results) {
 			var status = results[0];

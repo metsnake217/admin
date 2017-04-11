@@ -1447,7 +1447,7 @@ LabYokeLabVenn.prototype.setdisable = function(callback) {
 	console.log("stopproc: " + stopproc);
 
 	if(stopproc == 0){*/
-		var query = client.query("select count(*) as co from vm2016_users where lab = '" + labname + "' and disable != 1");
+		var query = client.query("select count(*) as co from vm2016_users where lab = '" + labname + "' and disable is null or disable = 0");
 		query.on("row", function(row, result) {
 			result.addRow(row);
 		});
