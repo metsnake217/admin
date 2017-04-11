@@ -327,9 +327,9 @@ module.exports = function(router) {
 			var labyokeGlobal = new LabYokeGlobal();
 			labyokeGlobal.getUsers(function(error, results) {			
 				if (results != null && results.length > 0){
-					res.render('users', {mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
+					res.render('users', {labs:req.session.labs, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
 				} else {
-					res.render('users', {mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
+					res.render('users', {labs:req.session.labs, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
 				}
 				req.session.messages = null;
 			});
