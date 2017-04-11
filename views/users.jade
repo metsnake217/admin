@@ -59,7 +59,7 @@ block content
                               - for(var prop in labs)
                                 - var lab = labs[prop].labname
                                 - var checkedstrLab = false;
-                                - if(lab == #{ob[prop].lab})
+                                - if(lab == ob[prop].lab)
                                   - checkedstrLab = true
                                 option(value=lab selected=(checkedstrLab===true ? "selected" : undefined)) #{lab}
                       td #{ob[prop].email}
