@@ -56,8 +56,8 @@ block content
                           select(name="labnameedit" type="text" id="labnameedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Lab")
                             option(value"selectlabnameedit")="Select a Lab"
                             - if(labs != undefined)
-                              - for(var prop in labs)
-                                - var lab = labs[prop].labname
+                              - for(var pr in labs)
+                                - var lab = labs[pr].labname
                                 - var checkedstrLab = false;
                                 - if(lab == ob[prop].lab)
                                   - checkedstrLab = true
