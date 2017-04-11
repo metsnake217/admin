@@ -61,7 +61,7 @@ block content
                                 - var checkedstrLab = false;
                                 - if(lab == ob[prop].lab)
                                   - checkedstrLab = true
-                                option(value=lab selected=(checkedstrLab===true ? "selected" : undefined)) #{lab}
+                                option(value=lab selected=(checkedstrLab===true ? "selected" : undefined)) #{lab}-#{ob[prop].lab}
                       td #{ob[prop].email}
                       td
                         - if(isadmin != 2)
