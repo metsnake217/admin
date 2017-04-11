@@ -215,6 +215,10 @@ module.exports = function(router) {
 		res.redirect('/departments');
 	});
 
+	router.get('/setdisabled', function(req, res) {
+		res.redirect('/departments');
+	});
+
 	router.get('/help', function(req, res) {
 		res.render('help', {
 			ordersnum: req.session.orders,
