@@ -43,8 +43,8 @@ block content
 					option(value="createNone" selected=(checkedstrAll===true ? "selected" : undefined) style="font-weight:bold")="Start to ..."
 					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Create new Department"
 					option(value="createLab" selected=(checkedstrLab===true ? "selected" : undefined))="Create new Lab"
-					option(value="vennsettings" selected=(checkedstrVenn===true ? "selected" : undefined))="Set Department's Ven Diagram Settings"
-					option(value="editLab" selected=(checkedstrEditLab===true ? "selected" : undefined))="Edit Lab"
+					option(value="vennsettings" selected=(checkedstrVenn===true ? "selected" : undefined))="Set Lab Settings"
+					option(value="editLab" selected=(checkedstrEditLab===true ? "selected" : undefined))="Transfer Lab"
 				div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
 					div(class="arrow-up", style="margin-bottom: 5px;")
 					div(class="arrow-down")
@@ -100,8 +100,8 @@ block content
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
 
 			div(id="editLab")
-				h3= 'Edit an existing lab.'
-				p="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department who can be listed in the diagram."
+				h3= 'Transfer an existing Lab.'
+				p="Each lab is assigned an administrator and department. Select the department and/or Administrator that the Lab should be assigned to provided they are available and have not been assigned to another lab."
 				div(id="ctl00_Div2" class="results")
 					if errormessagelabedit != null
 						div(class="alert alert-danger fade in alert-dismissable")!= errormessagelabedit
@@ -144,8 +144,8 @@ block content
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; margin-top: -50px; float: right;")
 
 			div(id="vennSettings")
-				h3= 'Set Venn diagram per Department.'
-				p="Add a lab to the diagram. You can add up to 6 labs per department."
+				h3= 'Edit Lab Settings.'
+				p="In this section, you can now ddd a lab to its Department's Venn diagram. Or Disable a lab provided no users have been assigned to it.<br/>Note: You can add up to 6 labs per department for graph visibility sake."
 				div(id="ctl00_Div2" class="results")
 					if errormessagevenn != null
 						div(class="alert alert-danger fade in alert-dismissable")!= errormessagevenn
@@ -155,7 +155,7 @@ block content
 						div(class="alert alert-danger fade in alert-dismissable")!= errormessagedisable
 					if successmessagedisable != null
 						div(class="alert alert-success fade in alert-dismissable")!= successmessagedisable
-						
+
 					form(action="/setvenn" method="post")
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'>Department </span>"
 						select(name="deptlabvenn" type="text" id="deptlabvenn" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
@@ -213,7 +213,7 @@ block content
 					$('#createLab').hide();
 					$('#editLab').hide();
 				} else if(eSelect.selectedIndex === 3 || $('#createSelect').val() == 'editLab') {
-					console.log("edit lab inside");
+					console.log("transfer lab inside");
 					$('#editLab').show();
 					$('#vennSettings').hide();
 					$('#createDept').hide();
@@ -246,7 +246,7 @@ block content
 						$('#createLab').hide();
 						$('#editLab').hide();
 					} else if(eSelect.selectedIndex === 3 || $('#createSelect').val() == 'editLab') {
-						console.log("edit lab inside");
+						console.log("transfer lab inside");
 						$('#vennSettings').hide();
 						$('#createDept').hide();
 						$('#createLab').hide();
