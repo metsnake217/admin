@@ -57,7 +57,7 @@ block content
                       td(class="wrapped desktabonly") #{ob[prop].name}
                       td(class="desktabonly") #{ob[prop].surname}
                       td(class="wrapped")
-                        form(action="/transferusertolab" method="post")
+                        form(action="/transferusertolab" method="post" id="transform")
                           select(name="labnameedit" type="text" id="labnameedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Lab")
                             option(value"selectlabnameedit")="Select a Lab"
                             - if(labs != undefined)
@@ -95,5 +95,12 @@ block content
                 $(document).ready(function() {
                   $('#rankTblload').DataTable();
                 });
+                window.onload = function() {
+                  document.getElementById("labnameedit").onchange = function() {
+                    console.log("changing lab " + $(this).val());
+                    console.debug($(this).parent());
+                    //$(this).parent().submit();     
+                  };
+                };
       if !users
         div(class="alert alert-danger")!= "No Users have registered"
