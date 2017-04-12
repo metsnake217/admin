@@ -361,9 +361,9 @@ module.exports = function(router) {
 			if(oldlab == newlab){
 				labyokeGlobal.getUsers(function(error, results) {			
 					if (results != null && results.length > 0){
-						res.render('users', {transferuser:usertransfer, transfermess: "nochange", erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
+						res.render('users', {transferuser:usertransfer, transfermess: "nochange", mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
 					} else {
-						res.render('users', {transferuser:usertransfer, transfermess: "nochange", erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
+						res.render('users', {transferuser:usertransfer, transfermess: "nochange", mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
 					}
 					req.session.messages = null;
 				});
@@ -376,9 +376,9 @@ module.exports = function(router) {
 					}
 					labyokeGlobal.getUsers(function(error, results) {			
 						if (results != null && results.length > 0){
-							res.render('users', {transferuser:usertransfer, transfermess: result, erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
+							res.render('users', {transferuser:usertransfer, transfermess: result, erroruser: resultstransfer, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
 						} else {
-							res.render('users', {transferuser:usertransfer, transfermess: result, erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
+							res.render('users', {transferuser:usertransfer, transfermess: result, erroruser: resultstransfer, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
 						}
 						req.session.messages = null;
 					});		
