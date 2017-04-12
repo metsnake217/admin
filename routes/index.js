@@ -359,7 +359,8 @@ module.exports = function(router) {
 			console.log("id: " + id);
 			var labyokeGlobal = new LabYokeGlobal();
 			if(oldlab == newlab){
-				labyokeGlobal.getUsers(function(error, results) {			
+				labyokeGlobal.getUsers(function(error, results) {
+					console.log("users transfer total: " + results);			
 					if (results != null && results.length > 0){
 						res.render('users', {transferuser:usertransfer, transfermess: "nochange", mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
 					} else {
@@ -374,7 +375,8 @@ module.exports = function(router) {
 					if(resultstransfer != null && resultstransfer.length > 0){
 						result = resultstransfer;
 					}
-					labyokeGlobal.getUsers(function(error, results) {			
+					labyokeGlobal.getUsers(function(error, results) {
+						console.log("users transfer total: " + results);			
 						if (results != null && results.length > 0){
 							res.render('users', {transferuser:usertransfer, transfermess: result, erroruser: resultstransfer, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
 						} else {
