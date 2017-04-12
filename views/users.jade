@@ -94,20 +94,14 @@ block content
               script.
                 $(document).ready(function() {
                   $('#rankTblload').DataTable();
-                });
-                //$( ".labnameedit" ).change(function () {
+                
                 $( "#labnameedit" ).on("click", "option", function() {
-                    /*var str = "";
-                    $( "select option:selected" ).each(function() {
-                      str += $( this ).text();
-                    });
-                    console.log(str);
-                    */
                     console.log("changing lab " + $(this).val());
                     console.debug($(this).parent());
                     //$(this).parent().submit();
                   });
-                  //.change();
+                  
+                });
 
       if !users
         div(class="alert alert-danger")!= "No Users have registered"
