@@ -2480,7 +2480,7 @@ LabYokeUserTransfer.prototype.transfer = function(callback) {
 	});
 	query.on("end", function(result) {
 		results = "success";
-			var subject = "LabYoke Account - Transferred ";
+			var subject = "LabYoke Account - Lab Transfer ";
 			var body = "<div style='text-align:center'><img style='width: 141px; margin: 0 20px;' src='https:\/\/team-labyoke.herokuapp.com\/images\/yoke4.png', alt='The Yoke',  title='Yoke', class='yokelogo'/></div><div style=\"font-family:'calibri'; font-size:11pt;padding: 20px;float:left\">Hello " + name + " " + surname + ",<br/><br/>";
 			body += "You have just been transferred to another lab - <b>" + lab + "</b> - by an admin per request. Please contact your Lab Administrator for further details.<br>";
 			body += "<p>Best regards,";
