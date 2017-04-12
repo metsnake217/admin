@@ -370,7 +370,7 @@ module.exports = function(router) {
 			} else {
 				var labYokeusertransfer = new LabYokeUserTransfer(id, newlab, name, surname);
 				labYokeusertransfer.transfer(function(error, resultstransfer) {
-					String result = "fail";
+					var result = "fail";
 					if(resultstransfer != null && resultstransfer.length > 0){
 						result = resultstransfer;
 					}
