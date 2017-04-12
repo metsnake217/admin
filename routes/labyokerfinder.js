@@ -2469,8 +2469,8 @@ LabYokeUserTransfer.prototype.transfer = function(callback) {
 
 	var results = "fail";
 
-	var str = "UPDATE vm2016_users SET lab=" + lab
-			+ " where id='" + id + "'";
+	var str = "UPDATE vm2016_users SET lab='" + lab
+			+ "' where id='" + id + "'";
 	console.log("str: " + str);
 	var query = client.query(str);
 	query.on("row", function(row, result) {
