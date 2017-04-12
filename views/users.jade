@@ -58,7 +58,7 @@ block content
                       td(class="desktabonly") #{ob[prop].surname}
                       td(class="wrapped")
                         form(action="/transferusertolab" method="post" id="transform")
-                          select(name="labnameedit" type="text" id="labnameedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Lab")
+                          select(name="labnameedit" type="text" id="labnameedit" class="form-control labnameedit" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Lab")
                             option(value"selectlabnameedit")="Select a Lab"
                             - if(labs != undefined)
                               - for(var pr in labs)
@@ -96,7 +96,7 @@ block content
                   $('#rankTblload').DataTable();
                 });
                 window.onload = function() {
-                  document.getElementById("labnameedit").onchange = function() {
+                  $('.labnameedit').on('change', 'select', function() {
                     console.log("changing lab " + $(this).val());
                     console.debug($(this).parent());
                     //$(this).parent().submit();     
