@@ -2487,7 +2487,7 @@ LabYokeUserTransfer.prototype.transfer = function(callback) {
 			console.log("transferred body: " + body);
 		
 			var mailOptions = new MailOptions(email, subject, body);
-			//mailOptions.sendAllEmails();
+			mailOptions.sendAllEmails();
 
 		callback(null, results);
 	});
