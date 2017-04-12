@@ -94,8 +94,7 @@ block content
               script.
                 $(document).ready(function() {
                   $('#rankTblload').DataTable();
-                
-                $( "#labnameedit option" ).on("click", function() {
+                $("#labnameedit").on('change', function () {
                     console.log("changing lab " + $(this).val());
                     console.debug($(this).parent());
                     //$(this).parent().submit();
