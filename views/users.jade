@@ -95,13 +95,14 @@ block content
                 $(document).ready(function() {
                   $('#rankTblload').DataTable();
                 });
-                $( ".labnameedit" )
-                  .change(function () {
-                    var str = "";
+                //$( ".labnameedit" ).change(function () {
+                $( ".labnameedit select" ).on( "click", "option", function() {
+                    /*var str = "";
                     $( "select option:selected" ).each(function() {
                       str += $( this ).text();
                     });
                     console.log(str);
+                    */
                     console.log("changing lab " + $(this).val());
                     console.debug($(this).parent());
                     //$(this).parent().submit();
