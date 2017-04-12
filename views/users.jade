@@ -95,12 +95,18 @@ block content
                 $(document).ready(function() {
                   $('#rankTblload').DataTable();
                 });
-                window.onload = function() {
-                  $('.labnameedit').on('change', 'select', function() {
+                $( ".labnameedit" )
+                  .change(function () {
+                    var str = "";
+                    $( "select option:selected" ).each(function() {
+                      str += $( this ).text();
+                    });
+                    console.log(str);
                     console.log("changing lab " + $(this).val());
                     console.debug($(this).parent());
-                    //$(this).parent().submit();     
-                  });
-                };
+                    //$(this).parent().submit();
+                  })
+                  .change();
+
       if !users
         div(class="alert alert-danger")!= "No Users have registered"
