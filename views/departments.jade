@@ -430,19 +430,29 @@ block content
 								fdis.appendChild(idis);
 								
 
-								i = document.createElement("input"); //input element, text
+								i = document.createElement("input");
 								i.setAttribute('type',"hidden");
 								i.setAttribute('name',"labnamevenn");
-								i.setAttribute('value',labs[prop]);								
-								f.appendChild(i);
-								fdis.appendChild(i);
+								i.setAttribute('value',labs[prop]);	
 
-								i = document.createElement("input"); //input element, text
+								idis = document.createElement("input");
+								idis.setAttribute('type',"hidden");
+								idis.setAttribute('name',"labnamevenn");
+								idis.setAttribute('value',labs[prop]);								
+								f.appendChild(i);
+								fdis.appendChild(idis);
+
+								i = document.createElement("input");
 								i.setAttribute('type',"hidden");
 								i.setAttribute('name',"departmentvenn");
-								i.setAttribute('value',dept);								
+								i.setAttribute('value',dept);	
+
+								idis = document.createElement("input");
+								idis.setAttribute('type',"hidden");
+								idis.setAttribute('name',"departmentvenn");
+								idis.setAttribute('value',dept);								
 								f.appendChild(i);
-								fdis.appendChild(i);
+								fdis.appendChild(idis);
 
 
 								td.appendChild(f);
