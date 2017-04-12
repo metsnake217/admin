@@ -147,6 +147,13 @@ LabYokeDepartment = function(name) {
 	this.name = name
 };
 
+LabYokeUserTransfer = function(id, lab, name, surname) {
+	this.id = id;
+	this.lab = lab;
+	this.name = name;
+	this.surname = surname;
+};
+
 LabYokeLab = function(name,department,admin) {
 	this.name = name;
 	this.department = department;
@@ -2451,6 +2458,40 @@ LabyokerUserDetails.prototype.changeDetails = function(callback) {
 	});
 };
 
+LabYokeUserTransfer.prototype.transfer = function(callback) {
+	var id = this.id;
+	var lab = this.lab;
+	var name = this.name;
+	var surname = this.surname;
+
+	console.log("id: " + id);
+	console.log("lab: " + lab);
+
+	var results = "fail";
+
+	var str = "UPDATE lab SET labname=" + lab
+			+ " where id='" + id + "'";
+	console.log("str: " + str);
+	var query = client.query(str);
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = "success";
+			var subject = "LabYoke Account - Transferred ";
+			var body = "<div style='text-align:center'><img style='width: 141px; margin: 0 20px;' src='https:\/\/team-labyoke.herokuapp.com\/images\/yoke4.png', alt='The Yoke',  title='Yoke', class='yokelogo'/></div><div style=\"font-family:'calibri'; font-size:11pt;padding: 20px;float:left\">Hello " + name + " " + surname + ",<br/><br/>";
+			body += "You have just been transferred to another lab - <b>" + lab + "</b> - by an admin per request. Please contact your Lab Administrator for further details.<br>";
+			body += "<p>Best regards,";
+			body += "</p><b><i>The LabYoke Team.</i></b></div>";
+			console.log("transferred body: " + body);
+		
+			var mailOptions = new MailOptions(email, subject, body);
+			//mailOptions.sendAllEmails();
+
+		callback(null, results);
+	});
+};
+
 LabYokeUsers.prototype.disableUser = function(callback) {
 	var id = this.id;
 	var name = this.name;
@@ -2731,4 +2772,5 @@ exports.LabYokeDepartment = LabYokeDepartment;
 exports.LabYokeLab = LabYokeLab;
 exports.LabYokeLabVenn = LabYokeLabVenn;
 exports.LabYokeUsers = LabYokeUsers;
+exports.LabYokeUserTransfer = LabYokeUserTransfer;
 exports.LabyokerLab = LabyokerLab;

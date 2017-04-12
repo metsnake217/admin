@@ -18,6 +18,12 @@ block content
             div(class="alert alert-danger fade in alert-dismissable")!= "This user has already been assigned to a lab. Please first select a new admin for the lab and try again."
         if erroruser == "error2"
             div(class="alert alert-danger fade in alert-dismissable")!= "There was an issue with updating the user. Please try again."
+        if transfermess == "fail"
+            div(class="alert alert-danger fade in alert-dismissable")!= "There was an issue transferring the user to a different lab"
+        if transfermess == "success"
+            div(class="alert alert-success fade in alert-dismissable")!= "You have successfully transferred the user <b>" + transferuser + "</b> to another lab."
+        if transfermess == "nochange"
+            div(class="alert alert-warning fade in alert-dismissable")!= "No change has been applied for the user <b>" + transferuser + "</b>. You have selected the same lab."
         div(id="results")
           div(id="ctl00_Div2" class="row rank")
             div(class="table-responsive")                
@@ -64,8 +70,7 @@ block content
                           input(type="hidden" name="id" value=ob[prop].id)
                           input(type="hidden" name="name" value=ob[prop].name)
                           input(type="hidden" name="surname" value=ob[prop].surname)
-                          input(type="hidden" name="email" value=ob[prop].email)
-                          input(type="hidden" name="admin" value=ob[prop].admin)
+                          input(type="hidden" name="oldlab" value=ob[prop].lab)
                           div(style="top: -35px;position: relative;float: right;margin-right: 10px;")
                             div(class="arrow-up", style="margin-bottom: 5px;")
                             div(class="arrow-down")

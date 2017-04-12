@@ -349,33 +349,41 @@ module.exports = function(router) {
 			var id = req.body.id;
 			var name = req.body.name;
 			var surname = req.body.surname;
-			var checked = req.body.isadmin;
-			var email = req.body.email;
-			console.log("req.body.isadmin: " + req.body.isadmin);
-			if(checked != null)
-				checked = 1;
-			if(checked == undefined)
-				checked = 0;
+			var newlab = req.body.labnameedit;
+			var oldlab = req.body.oldlab;
+			var usertransfer = id;
+			if(name != null && name != "" && surname != null && surname != ""){
+				usertransfer = name + " " + surname;
+			}
+			console.log("transferusertolab: " + newlab);
 			console.log("id: " + id);
-			console.log("name: " + name);
-			console.log("surname: " + surname);
-			console.log("checked: " + checked);
-			console.log("email: " + email);
-			var labYokeusers = new LabYokeUsers(id,name, surname, email,checked);
-			labYokeusers.makeadminUser(function(error, resultsadmin) {
-				if(resultsadmin != null && resultsadmin.length > 0){
-					//res.redirect('/users');			
-					var labyokeGlobal = new LabYokeGlobal();
+			var labyokeGlobal = new LabYokeGlobal();
+			if(oldlab == newlab){
+				labyokeGlobal.getUsers(function(error, results) {			
+					if (results != null && results.length > 0){
+						res.render('users', {transferuser:usertransfer, transfermess: "nochange", erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
+					} else {
+						res.render('users', {transferuser:usertransfer, transfermess: "nochange", erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
+					}
+					req.session.messages = null;
+				});
+			} else {
+				var labYokeusertransfer = new LabYokeUserTransfer(id, newlab, name, surname);
+				labYokeusertransfer.transfer(function(error, resultstransfer) {
+					String result = "fail";
+					if(resultstransfer != null && resultstransfer.length > 0){
+						result = resultstransfer;
+					}
 					labyokeGlobal.getUsers(function(error, results) {			
 						if (results != null && results.length > 0){
-							res.render('users', {erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
+							res.render('users', {transferuser:usertransfer, transfermess: result, erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, users : results, loggedIn : true, title: 'Users'});
 						} else {
-							res.render('users', {erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
+							res.render('users', {transferuser:usertransfer, transfermess: result, erroruser: resultsadmin, mylab: req.session.lab,labyoker : req.session.user, isLoggedInAdmin: req.session.admin, loggedIn : true, title: 'Users'});
 						}
 						req.session.messages = null;
-					});
-				}
-			});
+					});		
+				});
+			}
 		} else {
 			res.redirect('/login');
 		}
