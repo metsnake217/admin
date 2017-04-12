@@ -2463,6 +2463,7 @@ LabYokeUserTransfer.prototype.transfer = function(callback) {
 	var lab = this.lab;
 	var name = this.name;
 	var surname = this.surname;
+	var email = this.email;
 
 	console.log("id: " + id);
 	console.log("lab: " + lab);
