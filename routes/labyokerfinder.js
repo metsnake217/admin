@@ -147,11 +147,12 @@ LabYokeDepartment = function(name) {
 	this.name = name
 };
 
-LabYokeUserTransfer = function(id, lab, name, surname) {
+LabYokeUserTransfer = function(id, lab, name, surname, email) {
 	this.id = id;
 	this.lab = lab;
 	this.name = name;
 	this.surname = surname;
+	this.email = email;
 };
 
 LabYokeLab = function(name,department,admin) {

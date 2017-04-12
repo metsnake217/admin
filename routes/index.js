@@ -351,6 +351,7 @@ module.exports = function(router) {
 			var surname = req.body.surname;
 			var newlab = req.body.labnameedit;
 			var oldlab = req.body.oldlab;
+			var email = req.body.email;
 			var usertransfer = id;
 			if(name != null && name != "" && surname != null && surname != ""){
 				usertransfer = name + " " + surname;
@@ -369,7 +370,7 @@ module.exports = function(router) {
 					req.session.messages = null;
 				});
 			} else {
-				var labYokeusertransfer = new LabYokeUserTransfer(id, newlab, name, surname);
+				var labYokeusertransfer = new LabYokeUserTransfer(id, newlab, name, surname, email);
 				labYokeusertransfer.transfer(function(error, resultstransfer) {
 					var result = "fail";
 					if(resultstransfer != null && resultstransfer.length > 0){
