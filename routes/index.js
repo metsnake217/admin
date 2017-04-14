@@ -294,6 +294,7 @@ module.exports = function(router) {
 	}
 
 	router.get('/login', function(req, res) {
+		console.log("login req.session.user: " + req.session.user);
 		if (req.session.user) {
 			res.redirect('/querytool');
 		} else {
