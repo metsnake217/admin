@@ -1,3 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,700,300);
+* {
+  /*box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;*/
+  -webkit-font-smoothing: antialiased;
+}
 
 /* general stuff*/
 input[type='number'] {
@@ -79,7 +89,7 @@ body {
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
     /*background-color: #8a6d3b;*/
-    background-color: #3d9dcb;
+    background-color: rgba(61, 157, 203, 0.78);
 }
 
 .activeNav
@@ -140,7 +150,7 @@ body {
 
 /*modified #460077*/
 .btn-success{
-    background-color: #8a6d3b;
+    background-color: rgba(138, 109, 59, 0.70) ;
     width:278px;
     border: 0;
     outline: none;
@@ -150,7 +160,7 @@ body {
     color: white;
 }
 .nav-menu:hover{
-    background-color: #8a6d3b !important;
+    background-color: rgba(138, 109, 59, 0.70)  !important;
     /*background-color: #3d9dcb !important;*/
 }
 .menu{
