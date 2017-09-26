@@ -1227,7 +1227,7 @@ input::-webkit-inner-spin-button {
 }
 .account-border{
     /*border-color: #3d9dcb;*/
-    border-color: #8a6d3b;
+    border-color: rgba(138, 109, 59, 0.70);
     border-right-style: solid;border-width: thick;border-left-style: none;
     
 }
