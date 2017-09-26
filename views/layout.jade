@@ -144,12 +144,10 @@ html(lang='en')
      if (title=='Reports' || title=='Account' || title=='Register')
        script(type="text/javascript" src="/javascripts/jquery.maskedinput.min.js")
      - if (title!='Forgot Password' && title!='Register' && title!='About Us' && title!='Help' && title!='Login' && title!='Change Password')
-       div(style="position: relative;width: 100%;text-align: center;z-index: -1;")
-            img(src="/images/yoke4.png", alt="The Yoke", title="Yoke", class="yokelogofooter")
        script.
           var h = $(window).height() - 125;
           $(".marginbottom").css("min-height",h);
-     div(style="margin-top: 40px; background-color: #8a6d3b; position: fixed;bottom: 0;width: 100%;")
+     div(style="margin-top: 100px; background-color: #8a6d3b; position: fixed;bottom: 0;width: 100%;")
             div(style="color:white; text-align:center; font-size:11px;")="@labyoke"
     script.
         $(".nav-menu-logout").click(function() {
