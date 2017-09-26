@@ -636,14 +636,14 @@ input{
     font-size: 75pt !important;
 }
 .yokeBackColor{
-    /*background-color: rgba(138, 109, 59, 0.66) !important;*/
-    background-color: #8a6d3b !important;
+    background-color: rgba(138, 109, 59, 0.70) !important;
+    /*background-color: #8a6d3b !important;*/
 }
 .ct-perfect-fourth>svg {
 position: relative !important;
 }
 .nav-menu-logout{
-background-color: #8a6d3b;
+background-color: rgba(138, 109, 59, 0.70);
 margin-right: auto !important;
 margin-right: 15px !important;
 /*background-color: #3d9dcb;*/
