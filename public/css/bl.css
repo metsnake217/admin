@@ -380,16 +380,18 @@ border-top: 5px solid #8a6d3b;
 }*/
 
 #results, .results{
-    border-style: solid;
+    /*border-style: solid;
     border-top: none;
-    border-bottom: none;
+    border-bottom: none;*/
     padding-left: 20px;
-    border-color: #8a6d3b;
+    /*border-color: #8a6d3b;*/
     
     margin-left: 0px;
     border-radius: 8px;
     padding-right: 20px;
     margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 25px;
 }
 
 .number-over{
