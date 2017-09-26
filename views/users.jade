@@ -24,7 +24,7 @@ block content
             div(class="alert alert-success fade in alert-dismissable")!= "You have successfully transferred the user <b>" + transferuser + "</b> to another lab."
         if transfermess == "nochange"
             div(class="alert alert-warning fade in alert-dismissable")!= "No change has been applied for the user <b>" + transferuser + "</b>. You have selected the same lab."
-        div(id="results")
+        div(id="results", class="shadow")
           div(id="ctl00_Div2" class="row rank")
             div(class="table-responsive")                
               table(id="rankTblload" class="table rankTbl")
