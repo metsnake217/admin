@@ -65,11 +65,14 @@ html(lang='en')
         .navbar.navbar-inverse.navbar-fixed-top.adjustnav(role='navigation')
             .container.nobottom
                 .navbar-header(style="float:left; margin-left:auto;")
-                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse', style="border-color:#8a6d3b")
+                    //button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse', style="border-color:#8a6d3b")
                         
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
+                        //span.icon-bar
+                        //span.icon-bar
+                        //span.icon-bar
+                    button(class="hamburger hamburger--spring" data-toggle="collapse" data-target=".navbar-collapse" type="button" style="outline:none")
+                      span(class="hamburger-box")
+                        span(class="hamburger-inner")
 
                     - activateReports = "addMargin "
                     - activateDepartments = "addMargin "
@@ -79,12 +82,14 @@ html(lang='en')
                     - activateUsers = "addMargin "
                     - activateAccount = "account-border addMargin "
                     - activateAdmin = "addMargin "
+                    - activeSearchMob = "addMargin "
                     - if (title == 'Reports')
                         - activateReports = activateDepartments + "labBackColor"
                     - if (title == 'Departments')
                         - activateDepartments = activateDepartments + "labBackColor"
                     - if (title == 'Query Tool')
                         - activateTool = activateTool + "labBackColor"
+                        - activeSearchMob = "labColorBackgroundHover"
                     - if (title == 'Help')
                         - activateHelp = activateHelp + "labBackColor"
                     - if (title == 'Users')
@@ -105,7 +110,7 @@ html(lang='en')
                             - adjustWidth =  "width: 111px;"
                             - menuaccount = "menumyaccount"
                         ul.nav.navbar-nav.addMargin.adjustWidthSearchUL(id="#menumyaccounta")
-                            li(class=activateSearch)
+                            li(class=activateTool)
                                 a(href="/querytool", class="nav-menu",id="menusearch", style=adjustWidth)
                                     span(class="fa fa-search colmenu", style="font-size: 14pt;margin-top: -5px")
                                     span=" Tool"
