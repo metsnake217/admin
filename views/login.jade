@@ -33,15 +33,13 @@ block content
         img(src="images/bouee3.png", alt="Help", title="Help", class="helplogin")
         script.
             $( document ).ready(function() {
+            sessionStorage.clear();
             var toppinglogin = sessionStorage.getItem('toppinglogin');
             var topping = sessionStorage.getItem('topping');
             if(toppinglogin){
                 $(".login").css("margin-top", toppinglogin + "px");
             }
                 
-            /*if(topping){
-                sessionStorage.removeItem('topping');
-            }*/
             $(".login").css("display", "block");
             var h = $(window).height();
             var wi = $(window).width();
