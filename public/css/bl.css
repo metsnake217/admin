@@ -3993,7 +3993,7 @@ input{
 .addMargin3{
     margin-right: 9px;
 }
-.addMargin:hover, .addMargin:focus, .addMargin:active{
+.addMargin{
     width: 49.5%;
     /*width: 99% !important;*/
     /*130px*/
