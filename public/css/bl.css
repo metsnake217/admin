@@ -2270,7 +2270,7 @@ input[type=radio]:checked ~ .checkingcatalog::before{
     display:none;*/
 }
 .searchmob{
-    margin-top: -88px;left: 24%;background-color: rgba(138, 109, 59, 0.91); /*#8a6d3b;*/
+    margin-top: -70px;left: 43%;background-color: rgba(138, 109, 59, 0.91); /*#8a6d3b;*/
     padding: 30px;
     width: 80px;
 }
@@ -2482,7 +2482,7 @@ border-top: 5px solid #8a6d3b;
     border-radius: 8px;
     padding-right: 20px;
     margin-bottom: 20px;
-    
+
 
 }
 
