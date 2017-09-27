@@ -9,6 +9,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.labBackColor {
+    background-color: rgb(61, 157, 203) !important;
+}
+
 /*paper clip*/
 .pin {
     z-index: 1;
