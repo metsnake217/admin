@@ -4432,7 +4432,8 @@ span.num.greatherthanninetynine {
 .searchmob{
     padding: 30px;
     width: 80px;
-    margin-top: -88px;
+    margin-top: -70px;
+    left: 40%;
 }
 .uploadh{
     padding-left: 8px !important;
