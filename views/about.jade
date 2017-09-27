@@ -1,25 +1,186 @@
 extends layout
 
 block content
-                           
-  div(class="container")
-    div(class="fa fa-home labColor us", style="margin-top: 15px;")
-      span(class="fa fa-plus aboutplus")
-      a(href="/querytool")
-         img(src="/images/yoke4.png", alt="The Yoke",  title="Yoke", class="yokelogous")
-    div
+  div(id="pageloader")
+      div(class="spinner")
+        div(class="bounce1")
+        div(class="bounce2")
+        div(class="bounce3")                        
+  div(class="container margintop container2 moveFromLeft")
+    //img(src="/images/house.png" style="display:none;") 
+    //div(class="fa fa-home labColor us", style="margin-top: 15px;")
+    //  span(class="fa fa-plus aboutplus")
+    //  a(href="/search")
+    //     img(src="/images/yoke4.png", alt="The Yoke",  title="Yoke", class="yokelogous")
+    div(class="fronthelp", style="margin-top: 30px;")
+      a(href="/search")
+        img(src="/images/house0.png", alt="The Yoke",  title="Konate-Schib", class="yokelogo", style="width: 209px;height: 143.78px;")
+    div(class="section2")
       //img(src="/images/referee.png" alt="" style="border-width:0px; width: 250px;float: right;")
-      h1!= title + "."
-      div(style="text-align:center; color:white;margin-top: 15px;").alert.alert-warning.labColorBackground
-        h3(style="margin-top: 10px;")="Who Are We?!"
+      //h1!= i18n.__("layout.About Us") + "."
+      //div(style="text-align:center; color:white;margin-top: 15px;").alert.alert-warning.labColorBackground
+      //  h3(style="margin-top: 10px;")!= i18n.__("about.aboutus") + "?!"
+      h1!= i18n.__("about.aboutus") + "."
       div.pointsLayout.alert.results
-          span="The House Of Konate-Schib Foundation is a private foundation formed in 2017 by Gnagna Konate-Shaysh and Andria Schibler. Gnagna’s Foundation is funded entirely through profits and royalties from LabYoke research management software. The foundation believes that through philanthropy, we can make the world a better place. We have two missions."
+          span #{i18n.__("about.desc1")}
       div.pointsLayout.alert.results
-          span="We have two missions."
+          span #{i18n.__("about.desc5")}
       div.pointsLayout.alert.results
         div.pointsLayout.alert.alert-success
-          span!="Our first initiative is to make sure students have safe, affordable, adequate housing while attending university. We believe providing funding to help students secure reasonable living arrangements throughout their studies is a vital part of education and paves the way for future success. Student housing should not be the limiting factor during a person’s education and development."
+          span #{i18n.__("about.desc2")}
         div.pointsLayout.alert.alert-success
-          span!="Our second initiative is to provide funding for students who are capable and wish to pursue a career in either computer science or cell biology."
+          span #{i18n.__("about.desc3")}
       div.pointsLayout.alert.results
-          span!="<b>We believe providing educational funds is a great way to secure future technological developments which will allow communities to function in a safe, efficient, and healthier manner.</b>"
+          span!= i18n.__("about.desc4")
+      div.pointsLayout.alert.results
+          span #{i18n.__("about.desc6")}
+    div(class="teamrow", style="overflow: hidden;")
+      div(class="teamcolumn manual-flip")
+        div(class="teamcard")
+          div(class="front front1")
+            img(src="/images/card.jpg" alt="Jane" style="width:100%")
+            div(class="teamcontainer")
+              h3!="Andria Schibler"
+              p(class="teamtitle") #{i18n.__("card1.title")}
+              div(class="header")
+                h5(class="motto") #{i18n.__("card1.motto")}
+                span(class="threepointssep")
+              div(class="teamcontent")
+                div(class="main")
+                   h4(class="cardtext-center", style="font-weight:bold") #{i18n.__("card1.aboutme")}
+                   p(class="cardtext-center") #{i18n.__("card1.desc")}
+                   div(class="stats-container")
+                       div(class="stats")
+                           h4!="2350"
+                           p #{i18n.__("card1.stats1")}
+                       div(class="stats", style="float:right")
+                           h4!="14"
+                           p #{i18n.__("card1.stats2")}
+              //p(style="z-index: 4",class="frontbutton")
+                //button(class="teambutton", onclick="rotateCard(this)") #{i18n.__("card.contact1")}
+          //div(class="back back1")
+            //div(class="header")
+              //h5(class="motto") #{i18n.__("card1.motto")}
+            //div(class="teamcontent")
+              //div(class="main")
+                 //h4(class="cardtext-center") #{i18n.__("card1.aboutme")}
+                 //p(class="cardtext-center") #{i18n.__("card1.desc")}
+                 //div(class="stats-container")
+                     //div(class="stats")
+                         //h4!="2350"
+                         //p #{i18n.__("card1.stats1")}
+                     //div(class="stats", style="float:right")
+                         //h4!="14"
+                         //p #{i18n.__("card1.stats2")}
+            //p(class="backbutton")
+              //button(class="teambuttonback", onclick="rotateCard(this)") #{i18n.__("card.back")}
+      div(class="teamcolumn manual-flip /*teamcolumn1*/")
+        div(class="teamcard")
+          div(class="front front2")
+            img(src="images/card2_0.jpg" alt="Jane" style="width:100%")
+            div(class="teamcontainer")
+              h3!="Eran Shaysh"
+              p(class="teamtitle") #{i18n.__("card2.title")}
+              div(class="header")
+                h5(class="motto") #{i18n.__("card2.motto")}
+                span(class="threepointssep")
+              div(class="teamcontent")
+                div(class="main")
+                   h4(class="cardtext-center", style="font-weight:bold") #{i18n.__("card2.aboutme")}
+                   p(class="cardtext-center") #{i18n.__("card2.desc")}
+                   div(class="stats-container")
+                       div(class="stats")
+                           h4!="76"
+                           p #{i18n.__("card2.stats1")}
+                       div(class="stats", style="float:right")
+                           h4!="114"
+                           p #{i18n.__("card2.stats2")}
+              //p(style="z-index: 4",class="frontbutton")
+                //button(class="teambutton", onclick="rotateCard(this)") #{i18n.__("card.contact2")}
+          //div(class="back back2")
+            //div(class="header")
+              //h5(class="motto") #{i18n.__("card2.motto")}
+            //div(class="teamcontent")
+              //div(class="main")
+                 //h4(class="cardtext-center") #{i18n.__("card2.aboutme")}
+                 //p(class="cardtext-center") #{i18n.__("card2.desc")}
+                 //div(class="stats-container")
+                     //div(class="stats")
+                         //h4!="76"
+                         //p #{i18n.__("card2.stats1")}
+                     //div(class="stats", style="float:right")
+                         //h4!="114"
+                         //p #{i18n.__("card2.stats2")}
+            //p(class="backbutton")
+              //button(class="teambuttonback", onclick="rotateCard(this)") #{i18n.__("card.back")}
+      div(class="teamcolumn manual-flip /*teamcolumn2*/")
+        div(class="teamcard /*teamcard2*/")
+          div(class="front front3")
+            img(src="images/card3_0.png" alt="Jane" style="width:100%")
+            div(class="teamcontainer")
+              h3!="Gnagna Konaté-Shaysh"
+              p(class="teamtitle") #{i18n.__("card3.title")}
+              div(class="header")
+                h5(class="motto") #{i18n.__("card3.motto")}
+                span(class="threepointssep")
+              div(class="teamcontent")
+                div(class="main")
+                   h4(class="cardtext-center", style="font-weight:bold") #{i18n.__("card3.aboutme")}
+                   p(class="cardtext-center") #{i18n.__("card3.desc")}
+                   div(class="stats-container")
+                       div(class="stats")
+                           h4!="5000K"
+                           p #{i18n.__("card3.stats1")}
+                       div(class="stats", style="float:right")
+                           h4!="54"
+                           p #{i18n.__("card3.stats2")}
+              //p(style="z-index: 4",class="frontbutton")
+                //button(class="teambutton", onclick="rotateCard(this)") #{i18n.__("card.contact3")}
+          //div(class="back back3")
+            //div(class="header")
+              //h5(class="motto") #{i18n.__("card3.motto")}
+            //div(class="teamcontent")
+              //div(class="main")
+                 //h4(class="cardtext-center") #{i18n.__("card3.aboutme")}
+                 //p(class="cardtext-center") #{i18n.__("card3.desc")}
+                 //div(class="stats-container")
+                     //div(class="stats")
+                         //h4!="5K"
+                         //p #{i18n.__("card3.stats1")}
+                     //div(class="stats", style="float:right")
+                         //h4!="54"
+                         //p #{i18n.__("card3.stats2")}
+            //p(class="backbutton")
+              //button(class="teambuttonback", onclick="rotateCard(this)") #{i18n.__("card.back")}
+      script.
+        function rotateCard(btn){
+            var $otherbutton;
+            var $card = $(btn).closest('.teamcolumn');
+            var classname = $(btn).parent().attr("class");
+            console.log("classname: " + classname);
+            if(classname == "frontbutton"){
+              $otherbutton = $(btn).parent().next('.backbutton');
+            } else {
+              $otherbutton = $(btn).parent().prev('.frontbutton');
+            }
+            console.log($otherbutton);
+            var $front = $card.find('.front');
+            //console.log($front);
+            if($card.hasClass('hover')){
+                $card.removeClass('hover');
+                $front.show();
+                //$(btn).parent().hide();
+                //$otherbutton.show();
+            } else {
+                $card.addClass('hover');
+                $front.hide();
+                //$(btn).parent().hide();
+                //$otherbutton.show();
+            }
+        }
+        $(window).on('load', function() {
+          var h = 200 + $('.fronthelp').height() + $('.section2').height() + $('.front1').height();
+          console.log("container height: " + h);
+          //$('.container2').css('height',h);
+        });
+  div(style="clear:both")

@@ -103,7 +103,7 @@ html(lang='en')
 
                 span
                   a(href="/querytool", class="roundaccountmob searchmob " + activeSearchMob, style="color: white;text-decoration: none;")
-                    span(class="fa fa-search colmenu " + activeSearchMob, style="color: white;font-size: 11pt;")
+                    span(class="fa fa-gear colmenu " + activeSearchMob, style="color: white;font-size: 11pt;")
                 .collapse.navbar-collapse(id="navburger")
                     div.adjustWidthSearch(style="float:left", class=isreghide)
                         - adjustWidth = ""
@@ -114,7 +114,7 @@ html(lang='en')
                         ul.nav.navbar-nav.addMargin.adjustWidthSearchUL(id="#menumyaccounta")
                             li(class=activateTool)
                                 a(href="/querytool", class="nav-menu",id="menusearch", style=adjustWidth)
-                                    span(class="fa fa-search colmenu", style="font-size: 14pt;margin-top: -5px")
+                                    span(class="fa fa-gear colmenu", style="font-size: 14pt;margin-top: -5px")
                                     span=" Tool"
 
                             
@@ -122,11 +122,11 @@ html(lang='en')
                         ul.nav.navbar-nav(id="menumyshares", class="addMargin", style="border-left-color: white;border-left-style: solid;border-width: thick;")
                             li(class=activateDepartments)
                                 a(href="/departments",class="nav-menu",id="")
-                                    span(class="fa fa-exchange colmenu")
+                                    span(class="fa fa-building colmenu")
                                     span=" Labs & Deps"
                             li(class=activateUsers)
                                 a(href="/users",class="nav-menu",id="")
-                                    span(class="fa fa-ship colmenu")
+                                    span(class="fa fa-users colmenu")
                                     span=" Users"
                         ul.nav.navbar-nav(id=menuaccount, class="addMargin menu-border")
                             //li(class=activateAccount)
