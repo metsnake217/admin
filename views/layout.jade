@@ -94,18 +94,22 @@ html(lang='en')
                     - if (title == 'About Us')
                         - activateAbout = activateAbout + "labBackColor"
 
-                .collapse.navbar-collapse
-                    div.adjustWidthSearch(style="float:left")
+                span
+                  a(href="/querytool", class="roundaccountmob searchmob " + activeSearchMob, style="color: white;text-decoration: none;")
+                    span(class="fa fa-search colmenu " + activeSearchMob, style="color: white;font-size: 11pt;")
+                .collapse.navbar-collapse(id="navburger")
+                    div.adjustWidthSearch(style="float:left", class=isreghide)
                         - adjustWidth = ""
                         - menuaccount = "menumyaccountadmin"
                         if(isLoggedInAdmin == false)
                             - adjustWidth =  "width: 111px;"
                             - menuaccount = "menumyaccount"
                         ul.nav.navbar-nav.addMargin.adjustWidthSearchUL(id="#menumyaccounta")
-                            li(class=activateTool)
+                            li(class=activateSearch)
                                 a(href="/querytool", class="nav-menu",id="menusearch", style=adjustWidth)
-                                    span(class="fa fa-search colmenu")
+                                    span(class="fa fa-search colmenu", style="font-size: 14pt;margin-top: -5px")
                                     span=" Tool"
+
                             
                     div(class="paddingMobile")
                         ul.nav.navbar-nav(id="menumyshares", class="addMargin", style="border-left-color: white;border-left-style: solid;border-width: thick;")
@@ -118,11 +122,11 @@ html(lang='en')
                                     span(class="fa fa-ship colmenu")
                                     span=" Users"
                         ul.nav.navbar-nav(id=menuaccount, class="addMargin menu-border")
-                            li(class=activateAccount)
-                                a(href="/account",class="nav-menu myaccount", id="menumyaccounta")
-                                    span(class="fa fa-cog colmenu")
-                                    span(class="desktabonly2")=" " + user + "'s"
-                                    span=" Profile"
+                            //li(class=activateAccount)
+                                //a(href="/account",class="nav-menu myaccount", id="menumyaccounta")
+                                    //span(class="fa fa-cog colmenu")
+                                    //span(class="desktabonly2")=" " + user + "'s"
+                                    //span=" Profile"
                             li(class=activateHelp)
                                 a(href='/help', class="nav-menu",id="menumyaccounta")
                                     span(class="fa fa-anchor colmenu")
