@@ -115,9 +115,9 @@ html(lang='en')
                     - if (title == 'About Us')
                         - activateAbout = activateAbout + "yokeBackColor"
                 span
-                  a(href="/account", class="roundaccountmob " + activeAccountMob, style="font-size: 17px;color: white;text-decoration: none;")!= user_surname + "" + surname
+                  a(href="/users", class="roundaccountmob " + activeAccountMob, style="font-size: 17px;color: white;text-decoration: none;")!= "Tool"
                 span
-                  a(href="/search", class="roundaccountmob searchmob " + activeSearchMob, style="color: white;text-decoration: none;")
+                  a(href="/departments", class="roundaccountmob searchmob " + activeSearchMob, style="color: white;text-decoration: none;")
                     span(class="fa fa-search colmenu " + activeSearchMob, style="color: white;font-size: 11pt;")
                 .collapse.navbar-collapse(id="navburger")
                     div.adjustWidthSearch(style="float:left", class=isreghide)
@@ -127,40 +127,23 @@ html(lang='en')
                             - adjustWidth =  "width: 111px;"
                             - menuaccount = "menumyaccount"
                         ul.nav.navbar-nav.addMargin.adjustWidthSearchUL(id="#menumyaccounta")
-                            li(class=activateSearch)
-                                a(href="/querytool", class="nav-menu",id="menusearch", style=adjustWidth)
-                                    span(class="fa fa-search colmenu")
-                                    span=" Tool"
-                            if(isLoggedInAdmin == true)
-                                li(class=activateReports)
-                                        a(href="/reports",class="nav-menu", id="menusearch", style="")
-                                            span(class="fa fa-file-text colmenu")
-                                            span #{i18n.__("layout.Reports")}
-                                li(class=activateAdmin)
-                                        //a(href="/share/do#upload",class="nav-menu", id="menusearch", style="")
-                                        a(href="/admins",class="nav-menu", id="menusearch", style="")
-                                            span(class="fa fa-user-plus colmenu")
-                                            span #{i18n.__("layout.Admin")}
-                            
-                    div(class="paddingMobile " + isregpadding)
-                        ul.nav.navbar-nav(id="menumyshares", class="addMargin menumyshares " + menumyshares, style="border-left-color: white;border-left-style: solid;border-width: thick;")
-                            li(class=activateDepartments)
-                                a(href="/departments",class="nav-menu",id="menushare")
-                                    span(class="fa fa-exchange colmenu")
-                                    span=" Labs & Deps"
-                            li(class=activateUsers)
-                                a(href="/users",class="nav-menu",id="menushare")
-                                    span(class="fa fa-ship colmenu")
-                                    span=" Users"
-                        ul.nav.navbar-nav(id=menuaccount, class="addMargin menu-border padnum")
                             li(class=activateHelp)
-                                a(href='/help', class="nav-menu",id="menumyaccounta")
-                                    span(class="fa fa-anchor colmenu")
-                                    span!=" Help "
-                            li(class=activateAbout)
-                                a(href='/about', class="nav-menu",id="menumyaccounta")
-                                    span(class="fa fa-home colmenu")
-                                    span!=" Us "
+                                a(href="/tool", class="nav-menu",id="menusearch", style=adjustWidth)
+                                    span(class="fa fa-search colmenu")
+                                    span="Tool"
+                            if(isLoggedInAdmin == true)
+                                li(class=activateHelp)
+                                  a(href="/help", class="nav-menu",id="menusearch", style=adjustWidth)
+                                    span(class="fa fa-search colmenu")
+                                    span="Help"
+                                li(class=activateAbout)
+                                        a(href="/about",class="nav-menu", id="menusearch", style="")
+                                            span(class="fa fa-file-text colmenu")
+                                            span="Us"
+                                //li(class=activateAdmin)
+                                        //a(href="/admins",class="nav-menu", id="menusearch", style="")
+                                            //span(class="fa fa-user-plus colmenu")
+                                            //span #{i18n.__("layout.Admin")}
                     span
                       a(href="/account", class="roundaccount " + roundaccountLeft + activeAccountMob)!=user_surname + "" + surname
                     ul.nav.navbar-nav.navbar-right
