@@ -10,6 +10,9 @@ html(lang='en')
      link(href='/css/fontello.css', rel='stylesheet')
      link(href='/css/font-awesome.css', rel='stylesheet')
      link(href='/css/animation.css', rel='stylesheet')
+     link(href='/css/hamburgers-master/dist/hamburgers.css', rel='stylesheet')
+     if (title=='About Us')
+       link(href='/css/rotating-card.css', rel='stylesheet')
      if (title=='Users')
        link(href='/css/normalize.css', rel='stylesheet')
        link(href='/css/component.css', rel='stylesheet')
@@ -66,9 +69,9 @@ html(lang='en')
             .container.nobottom(style="margin-top: 5px;")
                 .navbar-header.paddingrightnav(style="margin-bottom: 16px;float:right; margin-left:auto;margin-right: -10px;")
                     //button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse', style="border-color:#8a6d3b")
-                        //span.icon-bar
-                        //span.icon-bar
-                        //span.icon-bar
+                      //  span.icon-bar
+                      //  span.icon-bar
+                      //  span.icon-bar
                     button(class="hamburger hamburger--spring" data-toggle="collapse" data-target=".navbar-collapse" type="button" style="outline:none")
                       span(class="hamburger-box")
                         span(class="hamburger-inner")
