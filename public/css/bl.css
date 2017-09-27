@@ -3779,6 +3779,10 @@ margin-top:0px;
 }
 
 @media (max-width: 767px){
+.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
+    margin-right: 0;
+    margin-left: 0;
+}
 .reportlabels{
     padding: 0px;
 }
@@ -3909,7 +3913,7 @@ h1{
 
 #menumyshares{
     background-color: rgba(138, 109, 59, 0.70) !important;
-    width: 55%;
+    width: 50%;
 }
 .padnum{
     background-color: rgba(138, 109, 59, 0.70) !important;
@@ -3980,7 +3984,7 @@ input{
     /*background-color: rgba(138, 109, 59, 0.62);*/
 }
 .navbar-nav {
-    margin: 0px -15px;
+   /* margin: 0px -15px;*/
 }
 .aboutplus{
     font-size: 55pt !important;
