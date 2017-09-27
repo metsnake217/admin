@@ -3779,6 +3779,10 @@ margin-top:0px;
 }
 
 @media (max-width: 767px){
+.navbar-collapse {
+    padding-right: 0px;
+    padding-left: 0px;
+}
 .container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
     margin-right: 0;
     margin-left: 0;
@@ -3938,7 +3942,7 @@ h1{
     margin-top: 7%;
 }
 .navbar-collapse{
-    width: 104%;
+    width: 100%;
 }
 .roundaccountmob{
     display:block;
@@ -3984,7 +3988,7 @@ input{
     /*background-color: rgba(138, 109, 59, 0.62);*/
 }
 .navbar-nav {
-   /* margin: 0px -15px;*/
+    margin: 0px 0px;
 }
 .aboutplus{
     font-size: 55pt !important;
