@@ -3908,6 +3908,7 @@ h1{
 
 #menumyshares{
     background-color: rgba(138, 109, 59, 0.70) !important;
+    width: 55%;
 }
 .padnum{
     background-color: rgba(138, 109, 59, 0.70) !important;
@@ -3993,7 +3994,7 @@ input{
 .addMargin3{
     margin-right: 9px;
 }
-.addMargin{
+.addMargin:hover{
     width: 49.5%;
     /*width: 99% !important;*/
     /*130px*/
