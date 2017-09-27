@@ -2,7 +2,7 @@ extends layout
 
 block content
 
-    div(class="container login front", style="margin-top: 5%;margin-bottom: 15px;display: block;margin-top: 104.5px;transition: all 0.5s ease;")
+    div(class="container login front", style="margin-top: 5%;margin-bottom: 15px;display: block;transition: all 0.5s ease;")
          div(style="text-align: center;position: relative;")
              a(href="/querytool")
                 img(src="/images/yoke4.png", alt="The Yoke",  title="Yoke", class="yokelogo")
@@ -33,7 +33,6 @@ block content
         img(src="images/bouee3.png", alt="Help", title="Help", class="helplogin")
         script.
             $( document ).ready(function() {
-            sessionStorage.clear();
             var toppinglogin = sessionStorage.getItem('toppinglogin');
             var topping = sessionStorage.getItem('topping');
             if(toppinglogin){
