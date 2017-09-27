@@ -7,33 +7,24 @@ block content
         div(class="bounce2")
         div(class="bounce3")                        
   div(class="container margintop container2 moveFromLeft")
-    //img(src="/images/house.png" style="display:none;") 
-    //div(class="fa fa-home labColor us", style="margin-top: 15px;")
-    //  span(class="fa fa-plus aboutplus")
-    //  a(href="/search")
-    //     img(src="/images/yoke4.png", alt="The Yoke",  title="Yoke", class="yokelogous")
     div(class="fronthelp", style="margin-top: 30px;")
       a(href="/search")
         img(src="/images/house0.png", alt="The Yoke",  title="Konate-Schib", class="yokelogo", style="width: 209px;height: 143.78px;")
     div(class="section2")
-      //img(src="/images/referee.png" alt="" style="border-width:0px; width: 250px;float: right;")
-      //h1!= i18n.__("layout.About Us") + "."
-      //div(style="text-align:center; color:white;margin-top: 15px;").alert.alert-warning.labColorBackground
-      //  h3(style="margin-top: 10px;")!= i18n.__("about.aboutus") + "?!"
-      h1!= i18n.__("about.aboutus") + "."
+      h1!= "Who We Are."
       div.pointsLayout.alert.results
-          span #{i18n.__("about.desc1")}
+          span="The House Of Konate-Schib is a private organization formed in 2017 by Gnagna Konate-Shaysh and Andria Schibler. The House of Konate-Schib is funded entirely through profits from LabYoke research management software. The foundation believes that through philanthropy, we can make the world a better place. We are striving to make a positive impact on people’s lives while reducing government spending and increasing efficiency."
       div.pointsLayout.alert.results
-          span #{i18n.__("about.desc5")}
+          span="We have two missions."
       div.pointsLayout.alert.results
         div.pointsLayout.alert.alert-success
-          span #{i18n.__("about.desc2")}
+          span="Our first initiative is to make sure students have safe and affordable housing while attending university. Providing funding to help students secure reasonable living arrangements throughout their studies is a vital part of education and paves the way for future success. Student housing should not be the limiting factor during a person’s education and development."
         div.pointsLayout.alert.alert-success
-          span #{i18n.__("about.desc3")}
+          span="Our second initiative is to provide academic funding for students who are capable and wish to pursue a career in either computer science or cell biology. Providing educational funds is a great way to encourage technological developments which allow communities to function in amore safe, efficient, and healthier manner."
       div.pointsLayout.alert.results
-          span!= i18n.__("about.desc4")
+          span!="<b>We believe providing educational funds is a great way to secure future technological developments which will allow communities to function in a safe, efficient, and healthier manner.</b>"
       div.pointsLayout.alert.results
-          span #{i18n.__("about.desc6")}
+          span="The Team."
     div(class="teamrow", style="overflow: hidden;")
       div(class="teamcolumn manual-flip")
         div(class="teamcard")
@@ -41,117 +32,63 @@ block content
             img(src="/images/card.jpg" alt="Jane" style="width:100%")
             div(class="teamcontainer")
               h3!="Andria Schibler"
-              p(class="teamtitle") #{i18n.__("card1.title")}
+              p(class="teamtitle")="The Researcher."
               div(class="header")
-                h5(class="motto") #{i18n.__("card1.motto")}
+                h5(class="motto")="\"Find Cures!\""
                 span(class="threepointssep")
               div(class="teamcontent")
                 div(class="main")
-                   h4(class="cardtext-center", style="font-weight:bold") #{i18n.__("card1.aboutme")}
-                   p(class="cardtext-center") #{i18n.__("card1.desc")}
+                   h4(class="cardtext-center", style="font-weight:bold")="Why me?"
+                   p(class="cardtext-center")="Say something quick about Schib!"
                    div(class="stats-container")
                        div(class="stats")
                            h4!="2350"
-                           p #{i18n.__("card1.stats1")}
+                           p="Code Lines"
                        div(class="stats", style="float:right")
                            h4!="14"
-                           p #{i18n.__("card1.stats2")}
-              //p(style="z-index: 4",class="frontbutton")
-                //button(class="teambutton", onclick="rotateCard(this)") #{i18n.__("card.contact1")}
-          //div(class="back back1")
-            //div(class="header")
-              //h5(class="motto") #{i18n.__("card1.motto")}
-            //div(class="teamcontent")
-              //div(class="main")
-                 //h4(class="cardtext-center") #{i18n.__("card1.aboutme")}
-                 //p(class="cardtext-center") #{i18n.__("card1.desc")}
-                 //div(class="stats-container")
-                     //div(class="stats")
-                         //h4!="2350"
-                         //p #{i18n.__("card1.stats1")}
-                     //div(class="stats", style="float:right")
-                         //h4!="14"
-                         //p #{i18n.__("card1.stats2")}
-            //p(class="backbutton")
-              //button(class="teambuttonback", onclick="rotateCard(this)") #{i18n.__("card.back")}
+                           p="Music Favs"
       div(class="teamcolumn manual-flip /*teamcolumn1*/")
         div(class="teamcard")
           div(class="front front2")
             img(src="images/card2_0.jpg" alt="Jane" style="width:100%")
             div(class="teamcontainer")
               h3!="Eran Shaysh"
-              p(class="teamtitle") #{i18n.__("card2.title")}
+              p(class="teamtitle")="The Creative Mind."
               div(class="header")
-                h5(class="motto") #{i18n.__("card2.motto")}
+                h5(class="motto")="\"Build kick-ass work!\""
                 span(class="threepointssep")
               div(class="teamcontent")
                 div(class="main")
-                   h4(class="cardtext-center", style="font-weight:bold") #{i18n.__("card2.aboutme")}
-                   p(class="cardtext-center") #{i18n.__("card2.desc")}
+                   h4(class="cardtext-center", style="font-weight:bold")="What do I do?"
+                   p(class="cardtext-center")="Say something quick about Schib!"
                    div(class="stats-container")
                        div(class="stats")
                            h4!="76"
-                           p #{i18n.__("card2.stats1")}
+                           p="Campaigns"
                        div(class="stats", style="float:right")
                            h4!="114"
-                           p #{i18n.__("card2.stats2")}
-              //p(style="z-index: 4",class="frontbutton")
-                //button(class="teambutton", onclick="rotateCard(this)") #{i18n.__("card.contact2")}
-          //div(class="back back2")
-            //div(class="header")
-              //h5(class="motto") #{i18n.__("card2.motto")}
-            //div(class="teamcontent")
-              //div(class="main")
-                 //h4(class="cardtext-center") #{i18n.__("card2.aboutme")}
-                 //p(class="cardtext-center") #{i18n.__("card2.desc")}
-                 //div(class="stats-container")
-                     //div(class="stats")
-                         //h4!="76"
-                         //p #{i18n.__("card2.stats1")}
-                     //div(class="stats", style="float:right")
-                         //h4!="114"
-                         //p #{i18n.__("card2.stats2")}
-            //p(class="backbutton")
-              //button(class="teambuttonback", onclick="rotateCard(this)") #{i18n.__("card.back")}
+                           p="Videos"
       div(class="teamcolumn manual-flip /*teamcolumn2*/")
         div(class="teamcard /*teamcard2*/")
           div(class="front front3")
             img(src="images/card3_0.png" alt="Jane" style="width:100%")
             div(class="teamcontainer")
               h3!="Gnagna Konaté-Shaysh"
-              p(class="teamtitle") #{i18n.__("card3.title")}
+              p(class="teamtitle")="The Techie."
               div(class="header")
-                h5(class="motto") #{i18n.__("card3.motto")}
+                h5(class="motto")="\"Code & Give Back!\""
                 span(class="threepointssep")
               div(class="teamcontent")
                 div(class="main")
-                   h4(class="cardtext-center", style="font-weight:bold") #{i18n.__("card3.aboutme")}
-                   p(class="cardtext-center") #{i18n.__("card3.desc")}
+                   h4(class="cardtext-center", style="font-weight:bold")="What do I love?"
+                   p(class="cardtext-center")="I've worn lots of hats over the years. As a result, I have a unique ability to manage multidisciplinary creative projects and to navigate complex challenges."
                    div(class="stats-container")
                        div(class="stats")
                            h4!="5000K"
-                           p #{i18n.__("card3.stats1")}
+                           p="Campaigns"
                        div(class="stats", style="float:right")
                            h4!="54"
-                           p #{i18n.__("card3.stats2")}
-              //p(style="z-index: 4",class="frontbutton")
-                //button(class="teambutton", onclick="rotateCard(this)") #{i18n.__("card.contact3")}
-          //div(class="back back3")
-            //div(class="header")
-              //h5(class="motto") #{i18n.__("card3.motto")}
-            //div(class="teamcontent")
-              //div(class="main")
-                 //h4(class="cardtext-center") #{i18n.__("card3.aboutme")}
-                 //p(class="cardtext-center") #{i18n.__("card3.desc")}
-                 //div(class="stats-container")
-                     //div(class="stats")
-                         //h4!="5K"
-                         //p #{i18n.__("card3.stats1")}
-                     //div(class="stats", style="float:right")
-                         //h4!="54"
-                         //p #{i18n.__("card3.stats2")}
-            //p(class="backbutton")
-              //button(class="teambuttonback", onclick="rotateCard(this)") #{i18n.__("card.back")}
+                           p="Music Favs"
       script.
         function rotateCard(btn){
             var $otherbutton;
@@ -184,3 +121,4 @@ block content
           //$('.container2').css('height',h);
         });
   div(style="clear:both")
+  
