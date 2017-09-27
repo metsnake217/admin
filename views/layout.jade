@@ -1,6 +1,25 @@
 doctype html
 html(lang='en')
    head
+     - var a = "layout." + title
+     - var language = "en"
+     - if(lang != null && lang != undefined)
+        - language = lang
+     - var testing = ""
+     - var isreghide = "isreghide"
+     - var isregpadding = "isregpadding"
+     - var menushare = "menushare"
+     - var menumyshares = "menumyshares2"
+     - var isadminroundaccountLeft = " isadminroundaccountLeft "
+     - var isregroundaccountLeft = " isregroundaccountLeft "
+     - var roundaccountLeft = isregroundaccountLeft
+     - if(isLoggedInAdmin == true)
+        - testing = "test"
+        - roundaccountLeft = isadminroundaccountLeft
+        - isreghide = ""
+        - isregpadding = ""
+        - menushare = ""
+        - menumyshares = ""
      title= 'Admin LabYoke - ' + title
      link(href='/css/animate.css', rel='stylesheet')
      link(rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css")
