@@ -12,7 +12,7 @@ block content
   div(class="container login2 marginbottom margintop container2 moveFromLeft")
     div
       h1= 'Users.'
-      p!="You can now <span class='yokeColor'>disable</span> or <span class='labColor'>upgrade</span> or transfer users from one lab to another per request. The user will receive a notification email."
+      p(style="margin-top: 40px;")!="You can now <span class='yokeColor'>disable</span> or <span class='labColor'>upgrade</span> or transfer users from one lab to another per request. The user will receive a notification email."
       if users
         if erroruser == "error1"
             div(class="alert alert-danger fade in alert-dismissable")!= "This user has already been assigned to a lab. Please first select a new admin for the lab and try again."
