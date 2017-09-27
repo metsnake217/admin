@@ -3994,11 +3994,7 @@ input{
 .addMargin3{
     margin-right: 9px;
 }
-.addMargin:hover{
-    width: 49.5%;
-    /*width: 99% !important;*/
-    /*130px*/
-}
+
 .yokelogous{
     border: none;
     width: 134px;
