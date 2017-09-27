@@ -62,14 +62,16 @@ html(lang='en')
            - user = user.substring(0,7)
    body(class=loggedIn)
      if (loggedIn==true)
-        .navbar.navbar-inverse.navbar-fixed-top.adjustnav(role='navigation')
-            .container.nobottom
-                .navbar-header(style="float:left; margin-left:auto;")
-                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse', style="border-color:#8a6d3b")
-                        
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
+        .navbar.navbar-inverse.navbar-fixed-top.adjustnav.navbackground(role='navigation',style="background-color: white;font-size: 10pt;position:fixed !important;padding-top:10px")
+            .container.nobottom(style="margin-top: 5px;")
+                .navbar-header.paddingrightnav(style="margin-bottom: 16px;float:right; margin-left:auto;margin-right: -10px;")
+                    //button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse', style="border-color:#8a6d3b")
+                      //  span.icon-bar
+                      //  span.icon-bar
+                      //  span.icon-bar
+                    button(class="hamburger hamburger--spring" data-toggle="collapse" data-target=".navbar-collapse" type="button" style="outline:none")
+                      span(class="hamburger-box")
+                        span(class="hamburger-inner")
 
                     - activateReports = "addMargin "
                     - activateDepartments = "addMargin "
@@ -93,22 +95,36 @@ html(lang='en')
                         - activateAccount = activateAccount + "yokeBackColor"
                     - if (title == 'About Us')
                         - activateAbout = activateAbout + "yokeBackColor"
-
-                .collapse.navbar-collapse
-                    div.adjustWidthSearch(style="float:left")
+                span
+                  a(href="/account", class="roundaccountmob " + activeAccountMob, style="font-size: 17px;color: white;text-decoration: none;")!= user_surname + "" + surname
+                span
+                  a(href="/search", class="roundaccountmob searchmob " + activeSearchMob, style="color: white;text-decoration: none;")
+                    span(class="fa fa-search colmenu " + activeSearchMob, style="color: white;font-size: 11pt;")
+                .collapse.navbar-collapse(id="navburger")
+                    div.adjustWidthSearch(style="float:left", class=isreghide)
                         - adjustWidth = ""
                         - menuaccount = "menumyaccountadmin"
                         if(isLoggedInAdmin == false)
                             - adjustWidth =  "width: 111px;"
                             - menuaccount = "menumyaccount"
                         ul.nav.navbar-nav.addMargin.adjustWidthSearchUL(id="#menumyaccounta")
-                            li(class=activateTool)
+                            li(class=activateSearch)
                                 a(href="/querytool", class="nav-menu",id="menusearch", style=adjustWidth)
                                     span(class="fa fa-search colmenu")
                                     span=" Tool"
+                            if(isLoggedInAdmin == true)
+                                li(class=activateReports)
+                                        a(href="/reports",class="nav-menu", id="menusearch", style="")
+                                            span(class="fa fa-file-text colmenu")
+                                            span #{i18n.__("layout.Reports")}
+                                li(class=activateAdmin)
+                                        //a(href="/share/do#upload",class="nav-menu", id="menusearch", style="")
+                                        a(href="/admins",class="nav-menu", id="menusearch", style="")
+                                            span(class="fa fa-user-plus colmenu")
+                                            span #{i18n.__("layout.Admin")}
                             
-                    div(class="paddingMobile")
-                        ul.nav.navbar-nav(id="menumyshares", class="addMargin", style="border-left-color: white;border-left-style: solid;border-width: thick;")
+                    div(class="paddingMobile " + isregpadding)
+                        ul.nav.navbar-nav(id="menumyshares", class="addMargin menumyshares " + menumyshares, style="border-left-color: white;border-left-style: solid;border-width: thick;")
                             li(class=activateDepartments)
                                 a(href="/departments",class="nav-menu",id="menushare")
                                     span(class="fa fa-exchange colmenu")
@@ -117,12 +133,7 @@ html(lang='en')
                                 a(href="/users",class="nav-menu",id="menushare")
                                     span(class="fa fa-ship colmenu")
                                     span=" Users"
-                        ul.nav.navbar-nav(id=menuaccount, class="addMargin menu-border")
-                            li(class=activateAccount)
-                                a(href="/account",class="nav-menu myaccount", id="menumyaccounta")
-                                    span(class="fa fa-cog colmenu")
-                                    span(class="desktabonly2")=" " + user + "'s"
-                                    span=" Profile"
+                        ul.nav.navbar-nav(id=menuaccount, class="addMargin menu-border padnum")
                             li(class=activateHelp)
                                 a(href='/help', class="nav-menu",id="menumyaccounta")
                                     span(class="fa fa-anchor colmenu")
@@ -131,6 +142,8 @@ html(lang='en')
                                 a(href='/about', class="nav-menu",id="menumyaccounta")
                                     span(class="fa fa-home colmenu")
                                     span!=" Us "
+                    span
+                      a(href="/account", class="roundaccount " + roundaccountLeft + activeAccountMob)!=user_surname + "" + surname
                     ul.nav.navbar-nav.navbar-right
                         li(class="nav-menu-logout", style="cursor:pointer")
                             a 

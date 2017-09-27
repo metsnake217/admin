@@ -20,8 +20,11 @@ input::-webkit-inner-spin-button {
 }
 
 body {
-    padding-top:5px;
+  font-family: 'Nunito', sans-serif;
+  padding-top:5px;
+  -webkit-font-smoothing: antialiased;
 }
+
 
 .footer2{
     margin-top:60px;
