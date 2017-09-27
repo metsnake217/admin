@@ -1,25 +1,6 @@
 doctype html
 html(lang='en')
    head
-     - var a = "layout." + title
-     - var language = "en"
-     - if(lang != null && lang != undefined)
-        - language = lang
-     - var testing = ""
-     - var isreghide = "isreghide"
-     - var isregpadding = "isregpadding"
-     - var menushare = "menushare"
-     - var menumyshares = "menumyshares2"
-     - var isadminroundaccountLeft = " isadminroundaccountLeft "
-     - var isregroundaccountLeft = " isregroundaccountLeft "
-     - var roundaccountLeft = isregroundaccountLeft
-     - if(isLoggedInAdmin == true)
-        - testing = "test"
-        - roundaccountLeft = isadminroundaccountLeft
-        - isreghide = ""
-        - isregpadding = ""
-        - menushare = ""
-        - menumyshares = ""
      title= 'Admin LabYoke - ' + title
      link(href='/css/animate.css', rel='stylesheet')
      link(rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css")
@@ -81,16 +62,14 @@ html(lang='en')
            - user = user.substring(0,7)
    body(class=loggedIn)
      if (loggedIn==true)
-        .navbar.navbar-inverse.navbar-fixed-top.adjustnav.navbackground(role='navigation',style="background-color: white;font-size: 10pt;position:fixed !important;padding-top:10px")
-            .container.nobottom(style="margin-top: 5px;")
-                .navbar-header.paddingrightnav(style="margin-bottom: 16px;float:right; margin-left:auto;margin-right: -10px;")
-                    //button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse', style="border-color:#8a6d3b")
-                      //  span.icon-bar
-                      //  span.icon-bar
-                      //  span.icon-bar
-                    button(class="hamburger hamburger--spring" data-toggle="collapse" data-target=".navbar-collapse" type="button" style="outline:none")
-                      span(class="hamburger-box")
-                        span(class="hamburger-inner")
+        .navbar.navbar-inverse.navbar-fixed-top.adjustnav(role='navigation')
+            .container.nobottom
+                .navbar-header(style="float:left; margin-left:auto;")
+                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse', style="border-color:#8a6d3b")
+                        
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
 
                     - activateReports = "addMargin "
                     - activateDepartments = "addMargin "
@@ -114,38 +93,44 @@ html(lang='en')
                         - activateAccount = activateAccount + "yokeBackColor"
                     - if (title == 'About Us')
                         - activateAbout = activateAbout + "yokeBackColor"
-                span
-                  a(href="/users", class="roundaccountmob " + activeAccountMob, style="font-size: 17px;color: white;text-decoration: none;")!= "Tool"
-                span
-                  a(href="/departments", class="roundaccountmob searchmob " + activeSearchMob, style="color: white;text-decoration: none;")
-                    span(class="fa fa-search colmenu " + activeSearchMob, style="color: white;font-size: 11pt;")
-                .collapse.navbar-collapse(id="navburger")
-                    div.adjustWidthSearch(style="float:left", class=isreghide)
+
+                .collapse.navbar-collapse
+                    div.adjustWidthSearch(style="float:left")
                         - adjustWidth = ""
                         - menuaccount = "menumyaccountadmin"
                         if(isLoggedInAdmin == false)
                             - adjustWidth =  "width: 111px;"
                             - menuaccount = "menumyaccount"
                         ul.nav.navbar-nav.addMargin.adjustWidthSearchUL(id="#menumyaccounta")
+                            li(class=activateTool)
+                                a(href="/querytool", class="nav-menu",id="menusearch", style=adjustWidth)
+                                    span(class="fa fa-search colmenu")
+                                    span=" Tool"
+                            
+                    div(class="paddingMobile")
+                        ul.nav.navbar-nav(id="menumyshares", class="addMargin", style="border-left-color: white;border-left-style: solid;border-width: thick;")
+                            li(class=activateDepartments)
+                                a(href="/departments",class="nav-menu",id="menushare")
+                                    span(class="fa fa-exchange colmenu")
+                                    span=" Labs & Deps"
+                            li(class=activateUsers)
+                                a(href="/users",class="nav-menu",id="menushare")
+                                    span(class="fa fa-ship colmenu")
+                                    span=" Users"
+                        ul.nav.navbar-nav(id=menuaccount, class="addMargin menu-border")
+                            li(class=activateAccount)
+                                a(href="/account",class="nav-menu myaccount", id="menumyaccounta")
+                                    span(class="fa fa-cog colmenu")
+                                    span(class="desktabonly2")=" " + user + "'s"
+                                    span=" Profile"
                             li(class=activateHelp)
-                                a(href="/tool", class="nav-menu",id="menusearch", style=adjustWidth)
-                                    span(class="fa fa-search colmenu")
-                                    span="Tool"
-                            if(isLoggedInAdmin == true)
-                                li(class=activateHelp)
-                                  a(href="/help", class="nav-menu",id="menusearch", style=adjustWidth)
-                                    span(class="fa fa-search colmenu")
-                                    span="Help"
-                                li(class=activateAbout)
-                                        a(href="/about",class="nav-menu", id="menusearch", style="")
-                                            span(class="fa fa-file-text colmenu")
-                                            span="Us"
-                                //li(class=activateAdmin)
-                                        //a(href="/admins",class="nav-menu", id="menusearch", style="")
-                                            //span(class="fa fa-user-plus colmenu")
-                                            //span #{i18n.__("layout.Admin")}
-                    span
-                      a(href="/account", class="roundaccount " + roundaccountLeft + activeAccountMob)!=user_surname + "" + surname
+                                a(href='/help', class="nav-menu",id="menumyaccounta")
+                                    span(class="fa fa-anchor colmenu")
+                                    span!=" Help "
+                            li(class=activateAbout)
+                                a(href='/about', class="nav-menu",id="menumyaccounta")
+                                    span(class="fa fa-home colmenu")
+                                    span!=" Us "
                     ul.nav.navbar-nav.navbar-right
                         li(class="nav-menu-logout", style="cursor:pointer")
                             a 
