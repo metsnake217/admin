@@ -380,11 +380,11 @@ border-top: 5px solid #8a6d3b;
 }*/
 
 #results, .results{
-    /*border-style: solid;
+    border-style: solid;
     border-top: none;
-    border-bottom: none;*/
+    border-bottom: none;
     padding-left: 20px;
-    /*border-color: #8a6d3b;*/
+    border-color: #8a6d3b;
     
     margin-left: 0px;
     border-radius: 8px;
