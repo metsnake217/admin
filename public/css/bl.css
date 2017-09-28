@@ -2270,9 +2270,9 @@ input[type=radio]:checked ~ .checkingcatalog::before{
     display:none;*/
 }
 .searchmob{
-    margin-top: -70px;left: 43%;background-color: rgba(138, 109, 59, 0.91); /*#8a6d3b;*/
-    padding: 30px;
-    width: 80px;
+    margin-top: -70px;left: 44%;background-color: rgba(138, 109, 59, 0.91); /*#8a6d3b;*/
+    padding: 50px;
+    width: 120px;
 }
 .roundaccountmob:hover, .roundaccountmob:active, .roundaccountmob:focus{
     background-color: #3d9dcb;
@@ -3779,6 +3779,9 @@ margin-top:0px;
 }
 
 @media (max-width: 767px){
+.margintop{
+    margin-top:110px !important;
+}
 .navbar-collapse {
     padding-right: 0px;
     padding-left: 0px;
@@ -4275,7 +4278,7 @@ span.num.greatherthanninetynine {
     width: 80%;
 }
 .navbar-collapse{
-    width: 105%;
+    width: 100%;
 }
 .positionbutton{
     left: 25%;
