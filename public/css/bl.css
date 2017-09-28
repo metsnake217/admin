@@ -2716,8 +2716,8 @@ input:-webkit-autofill:hover {
     margin-bottom: 69px;
 }
 .container {
-    padding-right: 0px !important;
-    padding-left: 0px !important;
+    padding-right: 7px !important;
+    padding-left: 7px !important;
 }
 .margintop{
     margin-top:70px !important;
