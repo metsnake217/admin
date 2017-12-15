@@ -1067,6 +1067,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 					deptlabs = [];
 					vennlabs = [];
 					disabledlabs = [];
+					deptlabadmins = [];
 				}
 				deptlabs.push(lab);
 				deptlabadmins.push(labadmin);
