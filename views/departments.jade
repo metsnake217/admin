@@ -340,7 +340,7 @@ block content
 								console.log("labadmins : " + currentadmin);
 								console.dir(labadmins);
 
-								if(labadmins != undefined){
+								/*if(labadmins != undefined){
 								for(var pr in labadmins){
 								var labadmin = labadmins[pr].email
 								console.log("labadmin : " + labadmin);
@@ -358,7 +358,26 @@ block content
 								optadmin.innerHTML = labadmin;
 								selectadmin.appendChild(optadmin);
 								}
+								}*/
+								var optadmin = document.createElement("option");
+								optadmin.setAttribute('selected',"selected");
+								optadmin.setAttribute('name',"addcurrentadmin");
+								optadmin.setAttribute('value',currentadmin);
+								optadmin.innerHTML = currentadmin;
+								selectadmin.appendChild(optadmin);
+
+								if(labadmins != undefined){
+								for(var pr in labadmins){
+								var labadmin = labadmins[pr].email
+								console.log("labadmin : " + labadmin);
+								
+								optadmin.setAttribute('name',"addpossibleadmin");
+								optadmin.setAttribute('value',labadmin);
+								optadmin.innerHTML = labadmin;
+								selectadmin.appendChild(optadmin);
 								}
+								}
+
 								fadmin.appendChild(selectadmin);
 								var divarrow = document.createElement("div");
 								divarrow.setAttribute('style',"top: -35px;position: relative;float: right;margin-right: 10px;");
