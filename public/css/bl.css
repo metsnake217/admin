@@ -2775,7 +2775,8 @@ table.dataTable tbody tr.odd{
     rgba(255, 255, 255, 0.14) !important;
 }
 table.dataTable tbody tr.even{
-    background-color: rgba(255, 255, 255, 0.14) !important
+    /*background-color: rgba(255, 255, 255, 0.14) !important;*/
+    background-color: rgb(222, 213, 201) !important;
 }
 table.dataTable tbody tr.searchagents td{
     font-size: 12px;
