@@ -360,6 +360,17 @@ block content
 								}
 								}
 								fadmin.appendChild(selectadmin);
+								var divarrow = document.createElement("div");
+								divarrow.setAttribute('style',"top: -35px;position: relative;float: right;margin-right: 10px;");
+								var divarrowup = document.createElement("div");
+								divarrowup.setAttribute('style',"margin-bottom: 5px;");
+								divarrowup.setAttribute("class","arrow-up");
+								var divarrowdown = document.createElement("div");
+								divarrowdown.setAttribute("class","arrow-down");
+								divarrow.appendChild(divarrowup);
+								divarrow.appendChild(divarrowdown);
+								fadmin.appendChild(divarrow);
+
 								td.appendChild(fadmin);
 								tr.appendChild(td);
 
