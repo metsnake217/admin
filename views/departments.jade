@@ -350,7 +350,9 @@ block content
 								}
 								console.log("checkedstrLab: " + checkedstrLab);
 								var optadmin = document.createElement("option");
-								optadmin.setAttribute('selected',checkedstrLab);
+								if(checkedstrLab != "undefined"){
+									optadmin.setAttribute('selected',checkedstrLab);
+								}
 								optadmin.setAttribute('name',"addvenn");
 								optadmin.setAttribute('value',labadmin);
 								optadmin.innerHTML = labadmin;
