@@ -1074,6 +1074,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 				console.log("vennlabs: " + JSON.stringify(vennlabs));
 				console.log("disabledlabs: " + JSON.stringify(disabledlabs));
 				console.log("labdadmins: " + JSON.stringify(labadmins));
+				console.log("getadmins: " + JSON.stringify(getadmins));
 			}
 
 			labs.push(deptlabs);
