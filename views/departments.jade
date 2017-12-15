@@ -84,13 +84,13 @@ block content
 						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
-						label(style="width: 100%;top: -25px;position: relative;")!="<span class='labColor'> Administrator </span>"
-						select(name="adminlab" type="text" id="adminlab" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;top: -25px;position: relative;" placeholder="Admin")
-							option(value"selectdept")="Select an Administrator"
-							- if(users != undefined)
-								- for(var prop in users)
-									- var user = users[prop].email
-									option(value=user) #{user}
+						//label(style="width: 100%;top: -25px;position: relative;")!="<span class='labColor'> Administrator </span>"
+						//select(name="adminlab" type="text" id="adminlab" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px;top: -25px;position: relative;" placeholder="Admin")
+						//	option(value"selectdept")="Select an Administrator"
+							- //if(users != undefined)
+								- //for(var prop in users)
+									- //var user = users[prop].email
+									//option(value=user) #{user}
 						div(style="top: -60px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
@@ -175,6 +175,7 @@ block content
 								thead
 									tr(class="you info-best" style="font-weight: bold")
 										td(class="wrapped") Lab
+										td(class="wrapped") Admin
 										td(class="wrapped") Isvenn
 										td(class="wrapped") Disable
 								tbody(id="vennbody")
@@ -297,6 +298,7 @@ block content
 						console.debug("index: " + index);
 						if(index > -1){
 							var labs = test.labs[index];
+							var labadmins = JSON.parse('#{JSON.stringify(labadmins)}'.replace(/&quot;/g, '"'));
 							var isvenns = test.isvenn[index];
 							var isdisabled = test.isdisabled[index];
 							console.debug(labs);
@@ -322,6 +324,40 @@ block content
 								var td = document.createElement("td");
 								td.innerHTML = labs[prop];
 								tr.appendChild(td);
+
+								td = document.createElement("td");
+								var fadmin = document.createElement("form");
+								fadmin.setAttribute('action',"/setadmin");
+								fadmin.setAttribute('method',"post");
+								var selectadmin = document.createElement("select");
+								selectadmin.setAttribute('type',"text");
+								selectadmin.setAttribute('name',"labnameadmin");
+								selectadmin.setAttribute('id',"labnameadmin");
+								selectadmin.setAttribute('class',"form-control labnameedit");
+
+								console.log("labadmins");
+								console.dir(labadmins);
+
+								/*if(labadmins != undefined){
+                              		for(var pr in labadmins){
+                                		var labadmin = labadmins[pr].admin
+                                		var checkedstrLab = false;
+                                		if(labadmin == ob[prop].admin){
+                                 			checkedstrLab = true
+                                 		}
+                                 		var optadmin = document.createElement("option");
+                                 		var selected=(checkedstrLab===true ? "selected" : undefined)
+										optadmin.setAttribute('selected',selected);
+										optadmin.setAttribute('name',"addvenn");
+										optadmin.setAttribute('value',labadmin);
+                                		selectadmin.appendChild(optadmin);
+                                	}
+                                }*/
+                                fadmin.appendChild(selectadmin);
+                                td.appendChild(fadmin);
+								tr.appendChild(td);
+
+
 
 								var f = document.createElement("form");
 								f.setAttribute('action',"/setvenn");
@@ -453,6 +489,7 @@ block content
 								idis.setAttribute('value',dept);								
 								f.appendChild(i);
 								fdis.appendChild(idis);
+
 
 
 								td.appendChild(f);

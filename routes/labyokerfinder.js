@@ -1005,6 +1005,7 @@ LabyokerLabs.prototype.getlabs = function(callback) {
 LabYokeGlobal.prototype.finddepartments = function(callback) {
 	var resultsLogin = [];
 	var query = client.query("SELECT * from departments");
+	var labadmins = [];
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
@@ -1013,6 +1014,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 		var query2 = client.query("SELECT email from vm2016_users where admin = 1 or admin = 2");
 		query2.on("row", function(row, result2) {
 			result2.addRow(row);
+			labadmins = result2.rows; 
 		});
 		query2.on("end", function(result2) {
 
@@ -1068,6 +1070,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 				console.log("deptlabs: " + JSON.stringify(deptlabs));
 				console.log("vennlabs: " + JSON.stringify(vennlabs));
 				console.log("disabledlabs: " + JSON.stringify(disabledlabs));
+				console.log("labdadmins: " + JSON.stringify(labdadmins));
 			}
 
 			labs.push(deptlabs);
@@ -1087,6 +1090,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 			console.log("get users: " + resultsLogin[1].length);
 			resultsLogin.push(vennportion);
 			resultsLogin.push(getlabs);
+			resultsLogin.push(labadmins);
 			console.log("vennportion: " + JSON.stringify(vennportion));
 			console.log("getlabs: " + JSON.stringify(getlabs));
 			callback(null, resultsLogin);
