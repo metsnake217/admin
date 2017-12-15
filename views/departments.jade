@@ -339,22 +339,22 @@ block content
 								console.dir(labadmins);
 
 								/*if(labadmins != undefined){
-                              		for(var pr in labadmins){
-                                		var labadmin = labadmins[pr].admin
-                                		var checkedstrLab = false;
-                                		if(labadmin == ob[prop].admin){
-                                 			checkedstrLab = true
-                                 		}
-                                 		var optadmin = document.createElement("option");
-                                 		var selected=(checkedstrLab===true ? "selected" : undefined)
-										optadmin.setAttribute('selected',selected);
-										optadmin.setAttribute('name',"addvenn");
-										optadmin.setAttribute('value',labadmin);
-                                		selectadmin.appendChild(optadmin);
-                                	}
-                                }*/
-                                fadmin.appendChild(selectadmin);
-                                td.appendChild(fadmin);
+								for(var pr in labadmins){
+								var labadmin = labadmins[pr].email
+								var checkedstrLab = false;
+								if(labadmin == ob[prop].admin){
+								checkedstrLab = true
+								}
+								var optadmin = document.createElement("option");
+								var selected=(checkedstrLab===true ? "selected" : undefined)
+								optadmin.setAttribute('selected',selected);
+								optadmin.setAttribute('name',"addvenn");
+								optadmin.setAttribute('value',labadmin);
+								selectadmin.appendChild(optadmin);
+								}
+								}*/
+								fadmin.appendChild(selectadmin);
+								td.appendChild(fadmin);
 								tr.appendChild(td);
 
 
