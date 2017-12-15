@@ -308,6 +308,7 @@ block content
 							for(prop in labs){
 								var check = isvenns[prop];
 								var checkdis = isdisabled[prop];
+								var currentadmin = labs[pr].admin;
 								var checkedstr = "";
 								if(check == 1){
 									checkedstr = "checked='checked'";
@@ -338,12 +339,12 @@ block content
 								console.log("labadmins");
 								console.dir(labadmins);
 
-								/*if(labadmins != undefined){
+								if(labadmins != undefined){
 								for(var pr in labadmins){
 								var labadmin = labadmins[pr].email
 								var checkedstrLab = false;
-								if(labadmin == ob[prop].admin){
-								checkedstrLab = true
+								if(currentadmin != undefined && labadmin == currentadmin){
+									checkedstrLab = true
 								}
 								var optadmin = document.createElement("option");
 								var selected=(checkedstrLab===true ? "selected" : undefined)
@@ -352,7 +353,7 @@ block content
 								optadmin.setAttribute('value',labadmin);
 								selectadmin.appendChild(optadmin);
 								}
-								}*/
+								}
 								fadmin.appendChild(selectadmin);
 								td.appendChild(fadmin);
 								tr.appendChild(td);
