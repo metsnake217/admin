@@ -1018,7 +1018,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 		});
 		query2.on("end", function(result2) {
 
-			var query3 = client.query("select department,labname,isvenn, disable from labs order by department");
+			var query3 = client.query("select department,labname,isvenn, disable, admin from labs order by department");
 		query3.on("row", function(row, result3) {
 			result3.addRow(row);
 		});
