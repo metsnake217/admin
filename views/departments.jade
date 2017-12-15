@@ -344,13 +344,13 @@ block content
 								for(var pr in labadmins){
 								var labadmin = labadmins[pr].email
 								console.log("labadmin : " + labadmin);
-								var checkedstrLab = false;
+								var checkedstrLab = "undefined";
 								if(currentadmin != undefined && labadmin == currentadmin){
-									checkedstrLab = true
+									checkedstrLab = "selected"
 								}
+								console.log("checkedstrLab: " + checkedstrLab);
 								var optadmin = document.createElement("option");
-								var selected=(checkedstrLab===true ? "selected" : undefined)
-								optadmin.setAttribute('selected',selected);
+								optadmin.setAttribute('selected',checkedstrLab);
 								optadmin.setAttribute('name',"addvenn");
 								optadmin.setAttribute('value',labadmin);
 								optadmin.innerHTML = labadmin;
