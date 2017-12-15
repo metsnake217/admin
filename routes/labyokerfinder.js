@@ -1026,12 +1026,14 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 			var venndata = result3.rows;
 			var depts = [];
 			var labs = []; 
+			var admins = []; 
 			var getlabs = [];
-			var getadmins = [];
+			//var getadmins = [];
 			var venns = [];
 			var disabled = [];
-			var vennportion = {departments:[], labs:[], isvenn:[], isdisabled:[]	}
+			var vennportion = {departments:[], labs:[], isvenn:[], isdisabled:[], admins:[]	}
 			var deptlabs = [];
+			var deptlabadmins = [];
 			var vennlabs = [];
 			var disabledlabs = [];
 			for(var prop in venndata){
@@ -1040,7 +1042,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 				var lab = venndata[prop].labname;
 				var labadmin = venndata[prop].admin;
 				getlabs.push(lab);
-				getadmins.push(labadmin);
+				//getadmins.push(labadmin);
 				var isvenn = venndata[prop].isvenn;
 				var dis = venndata[prop].disable;
 				if(dis == null){
@@ -1057,6 +1059,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 					console.log("push dept.");
 					depts.push(dept);
 					labs.push(deptlabs);
+					admins.push(deptlabadmins);
 					venns.push(vennlabs);
 					disabled.push(disabledlabs);
 					console.log("labs: " + JSON.stringify(labs));
@@ -1066,10 +1069,12 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 					disabledlabs = [];
 				}
 				deptlabs.push(lab);
+				deptlabadmins.push(labadmin);
 				vennlabs.push(isvenn);
 				disabledlabs.push(isdisabled);
 
 				console.log("prop: " + prop);
+				console.log("deptlabadmins: " + JSON.stringify(deptlabadmins));
 				console.log("deptlabs: " + JSON.stringify(deptlabs));
 				console.log("vennlabs: " + JSON.stringify(vennlabs));
 				console.log("disabledlabs: " + JSON.stringify(disabledlabs));
@@ -1080,11 +1085,13 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 			labs.push(deptlabs);
 			venns.push(vennlabs);
 			disabled.push(disabledlabs);
+			admins.push(deptlabadmins);
 
 			vennportion.departments = depts;
 			vennportion.labs = labs;
 			vennportion.isvenn = venns;
 			vennportion.isdisabled = disabled;
+			vennportion.admins = admins;
 
 			console.log("vennportion: " + JSON.stringify(vennportion));
 
@@ -1095,7 +1102,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 			resultsLogin.push(vennportion);
 			resultsLogin.push(getlabs);
 			resultsLogin.push(labadmins);
-			resultsLogin.push(getadmins);
+			//resultsLogin.push(getadmins);
 			console.log("vennportion: " + JSON.stringify(vennportion));
 			console.log("getlabs: " + JSON.stringify(getlabs));
 			callback(null, resultsLogin);

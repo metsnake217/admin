@@ -298,8 +298,9 @@ block content
 						console.debug("index: " + index);
 						if(index > -1){
 							var labs = test.labs[index];
+							var currentadmins = test.admins[index];
 							var labadmins = JSON.parse('#{JSON.stringify(labadmins)}'.replace(/&quot;/g, '"'));
-							var getadmins = JSON.parse('#{JSON.stringify(getadmins)}'.replace(/&quot;/g, '"'));
+							//var getadmins = JSON.parse('#{JSON.stringify(getadmins)}'.replace(/&quot;/g, '"'));
 							var isvenns = test.isvenn[index];
 							var isdisabled = test.isdisabled[index];
 							console.debug(labs);
@@ -309,7 +310,7 @@ block content
 							for(prop in labs){
 								var check = isvenns[prop];
 								var checkdis = isdisabled[prop];
-								var currentadmin = getadmins[prop];
+								var currentadmin = currentadmins[prop];
 								var checkedstr = "";
 								if(check == 1){
 									checkedstr = "checked='checked'";
