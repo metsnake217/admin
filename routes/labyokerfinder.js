@@ -1011,7 +1011,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 	});
 	query.on("end", function(result) {
 
-		var query2 = client.query("SELECT email from vm2016_users where admin = 1 or admin = 2");
+		var query2 = client.query("SELECT a.email from vm2016_users a where (a.admin = 1 or a.admin = 2) and a.email not in (select admin from labs)");
 		query2.on("row", function(row, result2) {
 			result2.addRow(row);
 			labadmins = result2.rows; 
