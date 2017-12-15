@@ -2471,7 +2471,7 @@ border-top: 5px solid #8a6d3b;
     border-radius: 4px;
 }*/
 
-#results, .results, .results2, #results2{
+#results, .results, .results2, #results2, .results3{
     border-style: solid;
     border-top: none;
     border-bottom: none;
@@ -2485,6 +2485,10 @@ border-top: 5px solid #8a6d3b;
     padding-top: 10px;
     padding-bottom: 10px;
 
+}
+
+#results, .results, .results2, #results2 {
+  background: #ad987666;
 }
 
 #results2{
@@ -4209,7 +4213,7 @@ span.num.greatherthanninetynine {
         width: auto;
         margin-left: 0;
     }
-    #results, .results{
+    #results, .results, .results3{
         border:none;
         padding: 0px;
     }
