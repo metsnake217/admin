@@ -364,6 +364,7 @@ block content
 								optadmin.setAttribute('selected',"selected");
 								optadmin.setAttribute('name',"addcurrentadmin");
 								optadmin.setAttribute('value',currentadmin);
+								optadmin.setAttribute('current',currentadmin);
 								optadmin.innerHTML = currentadmin;
 
 								selectadmin.appendChild(optadmin);
@@ -375,6 +376,7 @@ block content
 								optadmin = document.createElement("option");
 								optadmin.setAttribute('name',"addpossibleadmin");
 								optadmin.setAttribute('value',labadmin);
+								optadmin.setAttribute('current',currentadmin);
 								optadmin.innerHTML = labadmin;
 								selectadmin.appendChild(optadmin);
 								}
@@ -413,6 +415,8 @@ block content
 								addadmin.closest('form').submit();
 								}
 								actioncancelVenn.onclick = function(){
+								console.log("current: " + addamin.attr("current"));
+								addadmin.val(addamin.attr("current"));
 								//if(checked){
 								//addvenn.prop('checked', false);
 								//} else {
