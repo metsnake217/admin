@@ -384,9 +384,10 @@ block content
 								selectadmin.onclick = function () {
 								console.log("clicked");
 								var addadmin = $(this);
-								//var checked = addvenn.is(':checked');
+								var selectedadmin = selectadmin.options[selectadmin.selectedIndex].value
+								console.log("selectedadmin: " + selectedadmin);
 								var addAdminText = document.getElementById("addVennText");
-								//if(checked){
+								if(selectedadmin != currentadmin){
 								addAdminText.innerHTML = "Do you want to assign this administrator to this lab?";
 								//} else {
 								//addAdminText.innerHTML = "Do you want to remove this lab from the Venn Diagram?";
@@ -395,6 +396,7 @@ block content
 								pop.style.display = "block";
 								var shade = document.getElementById("shade");
 								shade.style.display = "block";
+								}
 
 								actionorderVenn.onclick = function(){
 								var parenttr = addadmin.closest('tr');
@@ -417,6 +419,7 @@ block content
 								//}
 								iosLightExit();
 								}
+
 
 								}
 
