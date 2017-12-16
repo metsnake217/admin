@@ -876,6 +876,10 @@ body.large-screen .card-list-table tbody tr:hover td {
 
 .buttons {
   margin: 10px 0 10px;
+      width: 50%;
+    text-align: center;
+    position: relative;
+    left: 25%;
 }
 
 .table-wrapper {
@@ -4306,6 +4310,12 @@ span.num.greatherthanninetynine {
 }
 
 @media (max-width: 520px) {
+.buttons {
+      width: 100%;
+    text-align: center;
+    position: inherit;
+    left: 0;
+}
 #menushare{
     width: 95% !important;
 }
