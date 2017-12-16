@@ -366,6 +366,19 @@ block content
 								optadmin.setAttribute('value',currentadmin);
 								optadmin.innerHTML = currentadmin;
 
+
+
+								selectadmin.appendChild(optadmin);
+
+								if(labadmins != undefined){
+								for(var pr in labadmins){
+								var labadmin = labadmins[pr].email
+								console.log("labadmin : " + labadmin);
+								optadmin = document.createElement("option");
+								optadmin.setAttribute('name',"addpossibleadmin");
+								optadmin.setAttribute('value',labadmin);
+								optadmin.innerHTML = labadmin;
+
 								optadmin.onclick = function () {
 								console.log("clicked");
 								var addadmin = $(this);
@@ -404,17 +417,6 @@ block content
 								}
 
 								}
-
-								selectadmin.appendChild(optadmin);
-
-								if(labadmins != undefined){
-								for(var pr in labadmins){
-								var labadmin = labadmins[pr].email
-								console.log("labadmin : " + labadmin);
-								optadmin = document.createElement("option");
-								optadmin.setAttribute('name',"addpossibleadmin");
-								optadmin.setAttribute('value',labadmin);
-								optadmin.innerHTML = labadmin;
 								selectadmin.appendChild(optadmin);
 								}
 								}
