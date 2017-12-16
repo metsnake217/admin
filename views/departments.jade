@@ -38,7 +38,7 @@ block content
 			- if(section !=null && section.length>0 && section == "all")
 				- checkedstrAll = true
 			form(action="createSelect", method="post")
-			div(class="buttons", style="margin-bottom: 50px;")
+			div(class="editstart", style="margin-bottom: 50px;")
 				select(name="createSelect" type="text" id="createSelect" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Create...")
 					option(value="createNone" selected=(checkedstrAll===true ? "selected" : undefined) style="font-weight:bold")="Start to ..."
 					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Create new Department"

@@ -873,8 +873,10 @@ body.large-screen .card-list-table tbody td:before {
 body.large-screen .card-list-table tbody tr:hover td {
   background: #fcf3d0;
 }
-
-.buttons {
+.buttons{
+  margin: 10px 0 10px;
+}
+.editstart {
   margin: 40px 0 10px;
       width: 50%;
     text-align: center;
@@ -4310,7 +4312,7 @@ span.num.greatherthanninetynine {
 }
 
 @media (max-width: 520px) {
-.buttons {
+.editstart {
       width: 100%;
     text-align: center;
     position: inherit;
