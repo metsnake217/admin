@@ -1341,6 +1341,37 @@ LabYokeLab.prototype.editlab = function(callback) {
 	}
 };
 
+LabYokeLab.prototype.setadmin = function(callback) {
+	var resultsLogin = [];
+	var labname = this.name;
+	var labadmin = this.admin;
+	var labdept = this.department;
+
+
+	console.log("lab is: " + labname + "");
+	console.log("admin is: " + labadmin + "");
+	console.log("dept is: " + labdept + "");
+	console.log("equals? : " + (labdept == "Select a Department"));
+
+				var query2 = client.query("UPDATE labs set admin='" + labadmin + "' where labname='" + labname + "' and department='" + labdept + "'");
+
+				query2.on("row", function(row, result2) {
+					result2.addRow(row);
+				});
+				query2.on("end", function(result2) {
+					resultsLogin.push("success");
+					resultsLogin.push("Your lab <b>" + labname + "</b> has been successfully updated with a new administrator.");
+					console.log("successful");
+					callback(null, resultsLogin);
+				});
+				query2.on("error", function(err) {
+					console.log("error");
+					resultsLogin.push("error");
+					resultsLogin.push("Your lab <b>" + labname + "</b> administrator cannot be updated due to: " + err);
+					callback(null, resultsLogin);
+				});
+};
+
 LabYokeDepartment.prototype.createdepartment = function(callback) {
 	var resultsLogin = [];
 	var departmentname = this.name;

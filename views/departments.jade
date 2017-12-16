@@ -404,13 +404,13 @@ block content
 								var currentbackgroundColor = parenttr.css('backgroundColor');
 
 								console.log("currentbackgroundColor: " + currentbackgroundColor);
-								if(currentbackgroundColor == '#ded5c9'){
+								if(currentbackgroundColor == 'rgba(0, 0, 0, 0)'){
 								parenttr.css('background-color', 'rgba(138, 109, 59, 0.66)');
 								} else {
 								parenttr.css('background-color', '#ded5c9');
 								}
 								console.log("submit form to add admin");
-								//addadmin.closest('form').submit();
+								addadmin.closest('form').submit();
 								}
 								actioncancelVenn.onclick = function(){
 								//if(checked){

@@ -129,6 +129,32 @@ module.exports = function(router) {
 		});
     });
 
+    router.post('/setadmin', isLoggedInSuperAdmin, function(req, res) {
+		var labYokeGlobal = new LabYokeGlobal();
+		var labYokeLab = new LabYokeLab(req.body.labnameedit, req.body.deptlabedit, req.body.adminlabedit);
+		console.log("lab is: " + req.body.labname);
+		console.log("lab0 is: " + req.body.labnameedit);
+		console.log("adminlabedit is: " + req.body.adminlabedit);
+		labYokeLab.setadmin(function(error, results) {
+			var status = results[0];
+			var message = results[1];
+			console.log("createlab status: " + status);
+			console.log("createlab message: " + message);
+		labYokeGlobal.finddepartments(function(error, departments) {
+			var errormessagelabedit = null;
+			var successmessagelabedit = null;
+			if(status == "success"){
+				successmessagelabedit = message;
+			} else {
+				errormessagelabedit = message;
+			}
+			console.log("departments: " + departments.length);
+			res.render('departments', {labadmins: departments[4], section:"editlab", labs: departments[3], errormessagelabedit: errormessagelabedit, successmessagelabedit: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			req.session.messages = null;
+		});
+		});
+    });
+
     router.post('/setvenn', isLoggedInSuperAdmin, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
 		var checked = req.body.addvenn;
@@ -212,6 +238,10 @@ module.exports = function(router) {
 	});
 
 	router.get('/setvenn', function(req, res) {
+		res.redirect('/departments');
+	});
+
+	router.get('/setadmin', function(req, res) {
 		res.redirect('/departments');
 	});
 
