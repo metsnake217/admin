@@ -163,11 +163,12 @@ block content
 				if successmessageadmin != null || errormessageadmin != null || successmessagedisable != null || errormessagedisable != null || successmessagevenn != null || errormessagevenn != null
 					script.
 						$( document ).ready(function() {
+						$("#createSelect").val("vennsettings");
 						$('#vennSettings').show();
 						$('#createDept').hide();
 						$('#createLab').hide();
 						$('#editLab').hide();
-						nochange = 1;
+						//nochange = 1;
 						});
 				div(id="ctl00_Div2" class="results")
 					form(action="/setvenn" method="post")
