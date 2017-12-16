@@ -16,6 +16,9 @@
 .table-responsive {
     width: 100%;
 }
+#vennSettingsNolab{
+      padding-top: 10px;
+}
 .labBackColor {
     background-color: rgb(61, 157, 203) !important;
 }
