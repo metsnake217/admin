@@ -9,6 +9,9 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.odd{
+  background-color: #d6c8b7 !important;
+}
 #ios-lightdis h1 {
     padding-top: 0px;
     margin-top: 25px;
