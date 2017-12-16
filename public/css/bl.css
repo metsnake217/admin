@@ -2835,8 +2835,8 @@ table.dataTable thead .sorting {
     border: 1px solid #8a6d3b !important;
     font-weight: bolder !important;
     border-top: none !important;
-    border-right-color: white !important;
-    border-left-color: white !important;
+    border-right-color: #ded5c9 !important;
+    border-left-color: #ded5c9 !important;
     background: transparent !important;
     border-bottom-width: thick !important;
 }
