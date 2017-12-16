@@ -381,10 +381,10 @@ block content
 								}
 
 
-								selectadmin.onclick = function () {
+								selectadmin.onchange = function () {
 								console.log("clicked");
 								var addadmin = $(this);
-								var selectedadmin = addadmin.val()//options[addadmin.selectedIndex].value
+								var selectedadmin = addadmin.val();//options[addadmin.selectedIndex].value
 								console.log("selectedadmin: " + selectedadmin);
 								console.log("currentadmin: " + currentadmin);
 								var addAdminText = document.getElementById("addVennText");
