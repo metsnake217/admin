@@ -278,10 +278,12 @@ block content
 				var eSelectvenn = document.getElementById('deptlabvenn');
 				console.debug("venn setting selected: " + $('#deptlabvenn').val());
 
-				if(eSelectvenn.selectedIndex === 0 || $('#deptlabvenn').val() == 'selectdeptvenn') {
+				if(nochange == 0 && (eSelectvenn.selectedIndex === 0 || $('#deptlabvenn').val() == 'selectdeptvenn')) {
 					console.log("venn settings None inside0");
 					$('#vennSettingsDisplay').hide();
 					//$('#vennSettings').hide();
+				} else if(nochange == 1) {
+					console.log("don't switch to default");
 				} else {
 					console.log("venn settings display inside 0");
 					var dept = $('#deptlabvenn').val();
