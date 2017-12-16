@@ -392,9 +392,7 @@ block content
 								var addAdminText = document.getElementById("addVennText");
 								if(selectedadmin != currentadmin){
 								addAdminText.innerHTML = "Do you want to assign this administrator to this lab?";
-								//} else {
-								//addAdminText.innerHTML = "Do you want to remove this lab from the Venn Diagram?";
-								//}
+								
 								var pop = document.getElementById("ios-light");
 								pop.style.display = "block";
 								var shade = document.getElementById("shade");
@@ -402,7 +400,7 @@ block content
 								}
 
 								actionorderVenn.onclick = function(){
-								var parenttr = selectadmin.closest('tr');
+								var parenttr = addadmin.closest('tr');
 								var currentbackgroundColor = parenttr.css('backgroundColor');
 
 								console.log("currentbackgroundColor: " + currentbackgroundColor);
@@ -412,11 +410,12 @@ block content
 								parenttr.css('background-color', '#ded5c9');
 								}
 								console.log("submit form to add admin");
-								selectadmin.closest('form').submit();
+								addadmin.closest('form').submit();
 								}
+								
 								actioncancelVenn.onclick = function(){
-								console.log("current: " + selectadmin.attr("current"));
-								selectadmin.val(selectadmin.attr("current"));
+								console.log("current: " + addamin.attr("current"));
+								addadmin.val(addamin.attr("current"));
 								//if(checked){
 								//addvenn.prop('checked', false);
 								//} else {
