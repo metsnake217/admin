@@ -145,7 +145,7 @@ block content
 
 			div(id="vennSettings")
 				h3= 'Edit Lab Settings.'
-				p="In this section, you can now ddd a lab to its Department's Venn diagram. Or Disable a lab provided no users have been assigned to it.<br/>Note: You can add up to 6 labs per department for graph visibility sake."
+				p="In this section, you can now add a lab to its Department's Venn diagram. Or Set the lab administrator. Or Disable a lab provided no users have been assigned to it.<br/>Note: You can add up to 6 labs per department for graph visibility sake."
 				div(id="ctl00_Div2" class="results")
 					if errormessagevenn != null
 						div(class="alert alert-danger fade in alert-dismissable")!= errormessagevenn
@@ -155,6 +155,16 @@ block content
 						div(class="alert alert-danger fade in alert-dismissable")!= errormessagedisable
 					if successmessagedisable != null
 						div(class="alert alert-success fade in alert-dismissable")!= successmessagedisable
+					if errormessageadmin != null
+						div(class="alert alert-danger fade in alert-dismissable")!= errormessageadmin
+					if successmessageadmin != null
+						div(class="alert alert-success fade in alert-dismissable")!= successmessageadmin
+					if successmessageadmin != null || errormessageadmin != null || successmessagedisable != null || errormessagedisable != null || successmessagevenn != null || errormessagevenn != null
+						script.
+							$('#vennSettings').show();
+							$('#createDept').hide();
+							$('#createLab').hide();
+							$('#editLab').hide();
 
 					form(action="/setvenn" method="post")
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'>Department </span>"

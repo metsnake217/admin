@@ -241,9 +241,9 @@ module.exports = function(router) {
 		res.redirect('/departments');
 	});
 
-	/*router.get('/setadmin', function(req, res) {
+	router.get('/setadmin', function(req, res) {
 		res.redirect('/departments');
-	});*/
+	});
 
 	router.get('/setdisabled', function(req, res) {
 		res.redirect('/departments');
