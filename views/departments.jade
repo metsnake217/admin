@@ -366,8 +366,6 @@ block content
 								optadmin.setAttribute('value',currentadmin);
 								optadmin.innerHTML = currentadmin;
 
-
-
 								selectadmin.appendChild(optadmin);
 
 								if(labadmins != undefined){
@@ -378,8 +376,12 @@ block content
 								optadmin.setAttribute('name',"addpossibleadmin");
 								optadmin.setAttribute('value',labadmin);
 								optadmin.innerHTML = labadmin;
+								selectadmin.appendChild(optadmin);
+								}
+								}
 
-								optadmin.onclick = function () {
+
+								selectadmin.onclick = function () {
 								console.log("clicked");
 								var addadmin = $(this);
 								//var checked = addvenn.is(':checked');
@@ -416,9 +418,6 @@ block content
 								iosLightExit();
 								}
 
-								}
-								selectadmin.appendChild(optadmin);
-								}
 								}
 
 								fadmin.appendChild(selectadmin);
