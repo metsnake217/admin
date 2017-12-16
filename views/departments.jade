@@ -160,10 +160,12 @@ block content
 					div(class="alert alert-success fade in alert-dismissable")!= successmessageadmin
 				if successmessageadmin != null || errormessageadmin != null || successmessagedisable != null || errormessagedisable != null || successmessagevenn != null || errormessagevenn != null
 					script.
+						$( document ).ready(function() {
 						$('#vennSettings').show();
 						$('#createDept').hide();
 						$('#createLab').hide();
 						$('#editLab').hide();
+						});
 				div(id="ctl00_Div2" class="results")
 					form(action="/setvenn" method="post")
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'>Department </span>"
