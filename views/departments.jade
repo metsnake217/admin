@@ -39,13 +39,13 @@ block content
 				- checkedstrAll = true
 			form(action="createSelect", method="post")
 			div(class="buttons", style="margin-bottom: 50px;")
-				select(name="createSelect" type="text" id="createSelect" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Create...")
+				select(name="createSelect" type="text" id="createSelect" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Create...")
 					option(value="createNone" selected=(checkedstrAll===true ? "selected" : undefined) style="font-weight:bold")="Start to ..."
 					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Create new Department"
 					option(value="createLab" selected=(checkedstrLab===true ? "selected" : undefined))="Create new Lab"
 					option(value="vennsettings" selected=(checkedstrVenn===true ? "selected" : undefined))="Set Lab Settings"
 					option(value="editLab" selected=(checkedstrEditLab===true ? "selected" : undefined))="Transfer Lab"
-				div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
+				div(style="top: -25px; position: relative; float: right; margin-right: 10px;")
 					div(class="arrow-up", style="margin-bottom: 5px;")
 					div(class="arrow-down")
 			div(id="createDept")
@@ -75,13 +75,13 @@ block content
 						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
 						input(name="labname" type="text" id="labname" class="form-control placeholderColor" placeholder="Lab name" style="/*background-color:rgba(61, 157, 203, 0.7);color:white*/")
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'> Department </span>"
-						select(name="deptlab" type="text" id="deptlab" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
+						select(name="deptlab" type="text" id="deptlab" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Department")
 							option(value"selectdept")="Select a Department"
 							- if(depts != undefined)
 								- for(var prop in depts)
 									- var department = depts[prop].departmentname
 									option(value=department) #{department}
-						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
+						div(style="top: -25px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
 						//label(style="width: 100%;top: -25px;position: relative;")!="<span class='labColor'> Administrator </span>"
@@ -110,13 +110,13 @@ block content
 					form(action="/editlab" method="post")
 						div(class="textentry")
 						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
-						select(name="labnameedit" type="text" id="labnameedit" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
+						select(name="labnameedit" type="text" id="labnameedit" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Department")
 							option(value"selectlabnameedit")="Select a Lab"
 							- if(labs != undefined)
 								- for(var prop in labs)
 									- var lab = labs[prop]
 									option(value=lab) #{lab}
-						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
+						div(style="top: -25px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
 						label(style="width: 100%;margin-top: 10px;top: -25px;position: relative;")!="<span class='labColor'> Department </span>"
@@ -158,13 +158,13 @@ block content
 
 					form(action="/setvenn" method="post")
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'>Department </span>"
-						select(name="deptlabvenn" type="text" id="deptlabvenn" class="form-control" style="border-color:#3d9dcb;margin-bottom:10px" placeholder="Department")
+						select(name="deptlabvenn" type="text" id="deptlabvenn" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Department")
 							option(value="selectdeptvenn")="Select a Department"
 							- if(depts != undefined)
 								- for(var prop in depts)
 									- var department = depts[prop].departmentname
 									option(value=department) #{department}
-						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
+						div(style="top: -25px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
 					div(id="vennSettingsNolab", style="display:none")
@@ -381,7 +381,7 @@ block content
 
 								fadmin.appendChild(selectadmin);
 								var divarrow = document.createElement("div");
-								divarrow.setAttribute('style',"top: -35px;position: relative;float: right;margin-right: 10px;");
+								divarrow.setAttribute('style',"top: -25px;position: relative;float: right;margin-right: 10px;");
 								var divarrowup = document.createElement("div");
 								divarrowup.setAttribute('style',"margin-bottom: 5px;");
 								divarrowup.setAttribute("class","arrow-up");
