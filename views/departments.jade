@@ -384,8 +384,9 @@ block content
 								selectadmin.onclick = function () {
 								console.log("clicked");
 								var addadmin = $(this);
-								var selectedadmin = selectadmin.options[selectadmin.selectedIndex].value
+								var selectedadmin = addadmin.val()//options[addadmin.selectedIndex].value
 								console.log("selectedadmin: " + selectedadmin);
+								console.log("currentadmin: " + currentadmin);
 								var addAdminText = document.getElementById("addVennText");
 								if(selectedadmin != currentadmin){
 								addAdminText.innerHTML = "Do you want to assign this administrator to this lab?";
