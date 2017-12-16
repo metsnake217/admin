@@ -2290,7 +2290,7 @@ input[type=radio]:checked ~ .checkingcatalog::before{
     display:none;*/
 }
 .searchmob{
-    margin: 0 auto;margin-top: -70px;left: 44%;background-color: rgba(138, 109, 59, 0.91); /*#8a6d3b;*/
+    margin: 0 auto;margin-top: -70px;/*left: 44%;*/background-color: rgba(138, 109, 59, 0.91); /*#8a6d3b;*/
     padding: 50px;
     width: 120px;
 }
