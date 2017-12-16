@@ -57,7 +57,7 @@ block content
 					div(class="alert alert-danger fade in alert-dismissable")!= errormessagedept
 				if successmessagedept != null
 					div(class="alert alert-success fade in alert-dismissable")!= successmessagedept
-				div(id="ctl00_Div2" class="results")
+				div(id="ctl00_Div2" class="results resultsshadow")
 					form(action="/createdepartment" method="post")
 						div(class="textentry")
 							input(name="department" type="text" id="department" class="form-control placeholderColor" placeholder="Department" style="")
@@ -71,7 +71,7 @@ block content
 					div(class="alert alert-danger fade in alert-dismissable")!= errormessagelab
 				if successmessagelab != null
 					div(class="alert alert-success fade in alert-dismissable")!= successmessagelab
-				div(id="ctl00_Div2" class="results")
+				div(id="ctl00_Div2" class="results resultsshadow")
 					form(action="/createlab" method="post")
 						div(class="textentry")
 						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
@@ -108,7 +108,7 @@ block content
 					div(class="alert alert-danger fade in alert-dismissable")!= errormessagelabedit
 				if successmessagelabedit != null
 					div(class="alert alert-success fade in alert-dismissable")!= successmessagelabedit
-				div(id="ctl00_Div2" class="results")
+				div(id="ctl00_Div2" class="results resultsshadow")
 					form(action="/editlab" method="post")
 						div(class="textentry")
 						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
@@ -170,7 +170,7 @@ block content
 						$('#editLab').hide();
 						//nochange = 1;
 						});
-				div(id="ctl00_Div2" class="results")
+				div(id="ctl00_Div2" class="results resultsshadow")
 					form(action="/setvenn" method="post")
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'>Department </span>"
 						select(name="deptlabvenn" type="text" id="deptlabvenn" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Department")

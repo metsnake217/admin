@@ -9,6 +9,13 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.resultsshadow{
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-sizing: content-box;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-top: 25px;
+}
 .odd{
   background-color: #d6c8b7 !important;
 }
