@@ -882,9 +882,7 @@ body.large-screen .card-list-table tbody tr:hover td {
 .editstart {
   margin: 40px 0 10px;
       width: 50%;
-    text-align: center;
-    position: relative;
-    left: 25%;
+margin: 0 auto;
 }
 
 .table-wrapper {
@@ -2269,7 +2267,7 @@ input[type=radio]:checked ~ .checkingcatalog::before{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
     position: relative;
     top: 68px;
-    left: 53%;
+    /*left: 53%;*/
     border-radius: 550px;
     padding: 40px;
     width: 100px;
@@ -2292,7 +2290,7 @@ input[type=radio]:checked ~ .checkingcatalog::before{
     display:none;*/
 }
 .searchmob{
-    margin-top: -70px;left: 44%;background-color: rgba(138, 109, 59, 0.91); /*#8a6d3b;*/
+    margin: 0 auto;margin-top: -70px;left: 44%;background-color: rgba(138, 109, 59, 0.91); /*#8a6d3b;*/
     padding: 50px;
     width: 120px;
 }
@@ -4355,6 +4353,9 @@ span.num.greatherthanninetynine {
 
 
  @media (max-width: 440px) {
+.searchmob{
+    margin: initial;
+}
 .pin:after{
     width: 8px;
     height: 8px;
