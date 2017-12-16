@@ -149,7 +149,7 @@ module.exports = function(router) {
 				errormessagelabedit = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {labadmins: departments[4], section:"vennSettings", labs: departments[3], errormessagelabedit: errormessagelabedit, successmessagelabedit: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			res.render('departments', {labadmins: departments[4], section:"vennSettings", labs: departments[3], errormessageadmin: errormessagelabedit, successmessageadmin: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 		});
