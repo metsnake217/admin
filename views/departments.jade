@@ -402,7 +402,7 @@ block content
 								}
 
 								actionorderVenn.onclick = function(){
-								var parenttr = addadmin.closest('tr');
+								var parenttr = selectadmin.closest('tr');
 								var currentbackgroundColor = parenttr.css('backgroundColor');
 
 								console.log("currentbackgroundColor: " + currentbackgroundColor);
@@ -412,11 +412,11 @@ block content
 								parenttr.css('background-color', '#ded5c9');
 								}
 								console.log("submit form to add admin");
-								addadmin.closest('form').submit();
+								selectadmin.closest('form').submit();
 								}
 								actioncancelVenn.onclick = function(){
-								console.log("current: " + addamin.attr("current"));
-								addadmin.val(addamin.attr("current"));
+								console.log("current: " + selectadmin.attr("current"));
+								selectadmin.val(selectadmin.attr("current"));
 								//if(checked){
 								//addvenn.prop('checked', false);
 								//} else {
