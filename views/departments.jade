@@ -428,6 +428,19 @@ block content
 								}
 
 								fadmin.appendChild(selectadmin);
+
+								var inputhidden = document.createElement("input");
+								inputhidden.setAttribute('type',"hidden");
+								inputhidden.setAttribute('name',"labname");
+								inputhidden.setAttribute('value',labs[prop]);	
+								fadmin.appendChild(inputhidden);
+
+								inputhidden = document.createElement("input");
+								inputhidden.setAttribute('type',"hidden");
+								inputhidden.setAttribute('name',"dept");
+								inputhidden.setAttribute('value',dept);	
+								fadmin.appendChild(inputhidden);
+
 								var divarrow = document.createElement("div");
 								divarrow.setAttribute('style',"top: -25px;position: relative;float: right;margin-right: 10px;");
 								var divarrowup = document.createElement("div");

@@ -131,7 +131,7 @@ module.exports = function(router) {
 
     router.post('/setadmin', isLoggedInSuperAdmin, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
-		var labYokeLab = new LabYokeLab(req.body.labnameedit, req.body.deptlabedit, req.body.adminlabedit);
+		var labYokeLab = new LabYokeLab(req.body.labname, req.body.dept, req.body.labnameadmin);
 		console.log("lab is: " + req.body.labname);
 		console.log("lab0 is: " + req.body.labnameedit);
 		console.log("adminlabedit is: " + req.body.adminlabedit);
@@ -149,7 +149,7 @@ module.exports = function(router) {
 				errormessagelabedit = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {labadmins: departments[4], section:"editlab", labs: departments[3], errormessagelabedit: errormessagelabedit, successmessagelabedit: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			res.render('departments', {labadmins: departments[4], section:"vennSettings", labs: departments[3], errormessagelabedit: errormessagelabedit, successmessagelabedit: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 		});
