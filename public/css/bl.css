@@ -1154,7 +1154,8 @@ padding-right: 50px;
 }
 
 .form-control {
-    border-radius: 0px !important;
+    /*border-radius: 0px !important;*/
+        border-radius: 50px 20px !important;
 }
 
 .dataTables_filter input{
