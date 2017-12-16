@@ -365,6 +365,46 @@ block content
 								optadmin.setAttribute('name',"addcurrentadmin");
 								optadmin.setAttribute('value',currentadmin);
 								optadmin.innerHTML = currentadmin;
+
+								optadmin.onclick = function () {
+								console.log("clicked");
+								var addadmin = $(this);
+								//var checked = addvenn.is(':checked');
+								var addAdminText = document.getElementById("addVennText");
+								//if(checked){
+								addAdminText.innerHTML = "Do you want to assign this administrator to this lab?";
+								//} else {
+								//addAdminText.innerHTML = "Do you want to remove this lab from the Venn Diagram?";
+								//}
+								var pop = document.getElementById("ios-light");
+								pop.style.display = "block";
+								var shade = document.getElementById("shade");
+								shade.style.display = "block";
+
+								actionorderVenn.onclick = function(){
+								var parenttr = addadmin.closest('tr');
+								var currentbackgroundColor = parenttr.css('backgroundColor');
+
+								console.log("currentbackgroundColor: " + currentbackgroundColor);
+								if(currentbackgroundColor == 'rgb(255, 255, 255)'){
+								parenttr.css('background-color', 'rgba(138, 109, 59, 0.66)');
+								} else {
+								parenttr.css('background-color', 'rgb(255, 255, 255');
+								}
+								console.log("submit form to add admin");
+								//addadmin.closest('form').submit();
+								}
+								actioncancelVenn.onclick = function(){
+								//if(checked){
+								//addvenn.prop('checked', false);
+								//} else {
+								//addvenn.prop('checked', true);
+								//}
+								iosLightExit();
+								}
+
+								}
+
 								selectadmin.appendChild(optadmin);
 
 								if(labadmins != undefined){
