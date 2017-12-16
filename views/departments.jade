@@ -1,6 +1,8 @@
 extends layout
 
 block content
+	script.
+		var nochange = 0;
 	div(id="ios-light")
 		center
 			h1="Add."
@@ -165,6 +167,7 @@ block content
 						$('#createDept').hide();
 						$('#createLab').hide();
 						$('#editLab').hide();
+						nochange = 1;
 						});
 				div(id="ctl00_Div2" class="results")
 					form(action="/setvenn" method="post")
@@ -230,7 +233,7 @@ block content
 					$('#vennSettings').hide();
 					$('#createDept').hide();
 					$('#createLab').hide();
-				} else if(eSelect.selectedIndex === 0 || $('#createSelect').val() == 'createNone') {
+				} else if(nochange == 0 && (eSelect.selectedIndex === 0 || $('#createSelect').val() == 'createNone')) {
 					console.log("create None inside");
 					$('#createLab').hide();
 					$('#createDept').hide();
