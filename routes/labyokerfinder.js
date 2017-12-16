@@ -1360,7 +1360,7 @@ LabYokeLab.prototype.setadmin = function(callback) {
 				});
 				query2.on("end", function(result2) {
 					resultsLogin.push("success");
-					resultsLogin.push("The lab <b>" + labname + "</b> in the <b>" + labdept + "</b> department has been successfully updated with a new administrator: <i><b>" + labadmin + "</b></i>");
+					resultsLogin.push("The lab <b>" + labname + "</b> in the <b>" + labdept + "</b> department has been successfully updated with a new administrator: <i><b>" + labadmin + "</b></i>.");
 					console.log("successful");
 					callback(null, resultsLogin);
 				});
