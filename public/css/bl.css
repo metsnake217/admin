@@ -13,6 +13,9 @@
     padding-top: 0px;
     margin-top: 25px;
   }
+.table-responsive {
+    width: 100%;
+}
 .labBackColor {
     background-color: rgb(61, 157, 203) !important;
 }
@@ -3096,7 +3099,7 @@ margin-right: 15px !important;
 
 
 .rankTbl{
-
+      margin-top: 10px;
     overflow-x: visible;
 }
 
