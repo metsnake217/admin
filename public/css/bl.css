@@ -9,6 +9,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+#ios-lightdis h1 {
+    padding-top: 0px;
+    margin-top: 25px;
+  }
 .labBackColor {
     background-color: rgb(61, 157, 203) !important;
 }
@@ -1050,6 +1054,9 @@ body.large-screen .card-list-table tbody tr:hover td {
 }
 
 @media (max-width: 700px) {
+#ios-lightdis {
+    width: 70%;
+  }
 .restrictreporttext{
     width:55%;
 }
