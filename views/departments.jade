@@ -412,10 +412,10 @@ block content
 								console.log("submit form to add admin");
 								addadmin.closest('form').submit();
 								}
-								
+
 								actioncancelVenn.onclick = function(){
-								console.log("current: " + addadmin.attr("current"));
-								addadmin.val(addadmin.attr("current"));
+								console.log("current: " + $('option:selected', this).attr('current'));
+								addadmin.val($('option:selected', this).attr('current'));
 								//if(checked){
 								//addvenn.prop('checked', false);
 								//} else {
