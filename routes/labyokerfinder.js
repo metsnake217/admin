@@ -1415,7 +1415,7 @@ LabYokeLabVenn.prototype.setvenn = function(callback) {
 	var labname = this.name;
 	var check = this.check;
 	var labdept = this.department;
-	var VEN_LIMIT = 2;
+	var VEN_LIMIT = 6;
 	var stopmessage = "";
 
 	console.log("check is: " + check);
