@@ -46,7 +46,7 @@ block content
               - if(error != "error" && type == "select")
                   - style = "overflow: auto; max-height: 300px; border-style: solid;"
             - if(error != "error" && type == "select" && searchResults != null && searchResults.length > 0)
-                div(class="results")
+                div(class="results resultsshadow")
                     div(id="ctl00_Div2" class="row rank")
                         - var keys
                         div(class="table-responsive")                
@@ -74,8 +74,8 @@ block content
                                 });
 
             div(id="raw")
-                h4(style="margin-top:15px;margin-bottom:15px")="Raw  data. "
-                #labyokers.results(style="width:100%;word-wrap:break-word;"+style)
+                h4(style="padding-top:15px;margin-bottom:15px")="Raw  data. "
+                #labyokers.results.resultsshadow(style="width:100%;word-wrap:break-word;"+style)
                     div(id="ctl00_Div2" class="row rank").match
                        - i = 
                        - var j = 1
