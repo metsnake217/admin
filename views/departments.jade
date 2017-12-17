@@ -22,7 +22,7 @@ block content
 	div(class="container login2 marginbottom margintop container2 moveFromLeft")
 		h1= 'Labs & Departments.'
 		P!="You can create a new department and lab. As well as set some useful settings for labs."
-		div(style="width: 100%;margin-bottom: 40px;")
+		div(style="width: 100%;margin-bottom: 40px;margin-top: 40px;")
 			- var venn = vennsettings
 			- var checkedstrDept = false;
 			- if(section !=null && section.length>0 && section == "department")
@@ -39,7 +39,7 @@ block content
 			- var checkedstrAll = false;
 			- if(section !=null && section.length>0 && section == "all")
 				- checkedstrAll = true
-			form(action="createSelect", method="post")
+			//form(action="createSelect", method="post")
 			div(class="editstart", style="margin-bottom: 50px;")
 				select(name="createSelect" type="text" id="createSelect" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Create...")
 					option(value="createNone" selected=(checkedstrAll===true ? "selected" : undefined) style="font-weight:bold")="Start to ..."
