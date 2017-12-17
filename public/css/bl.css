@@ -9,6 +9,18 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.alert-danger{
+      background: radial-gradient(#f2dede,#f2dede, white 60%);
+    border: none;
+    text-align: center;
+}
+
+.alert-success{
+      background: radial-gradient(#dff0d8,#dff0d8, white 60%);
+    border: none;
+    text-align: center;
+}
+
 .table{
   overflow: scroll;
 }
