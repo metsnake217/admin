@@ -75,7 +75,8 @@ block content
 
             div(id="raw")
                 h4(style="padding-top:15px;margin-bottom:15px;cursor:pointer;", id="labyokerslink")="[Raw  data]"
-                #labyokers.results.resultsshadow(style="width:100%;word-wrap:break-word; display:none"+style)
+                  span(class="fa fa-database colmenu")
+                #labyokers.results.resultsshadow(style="width:100%;word-wrap:break-word; display:none;"+style)
                     div(id="ctl00_Div2" class="row rank").match
                        - i = 
                        - var j = 1
