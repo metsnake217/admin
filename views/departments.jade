@@ -51,8 +51,8 @@ block content
 				//	div(class="arrow-up", style="margin-bottom: 5px;")
 				//	div(class="arrow-down")
 			div(id="createDept", style="display:none")
-				h3(style="text-align: center;")= 'Create a new Department.'
-				p(style="text-align: center;")="Add a department to the existing list."
+				h3(style="text-align: center;")!= 'Create a new Department.'
+				p(style="text-align: center;")!="Add a department to the existing list."
 				if errormessagedept != null
 					div(class="alert alert-danger fade in alert-dismissable")!= errormessagedept
 				if successmessagedept != null
@@ -65,8 +65,8 @@ block content
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;margin-top: 20px;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; /*margin-top: -50px;*/ float: right;")
 			div(id="createLab", style="display:none")
-				h3(style="text-align: center;")= 'Add a new lab.'
-				p(style="text-align: center;")="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department who can be listed in the diagram."
+				h3(style="text-align: center;")!= 'Add a new lab.'
+				p(style="text-align: center;")!="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department who can be listed in the diagram."
 				if errormessagelab != null
 					div(class="alert alert-danger fade in alert-dismissable")!= errormessagelab
 				if successmessagelab != null
@@ -102,8 +102,8 @@ block content
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; /*margin-top: -50px;*/ float: right;")
 
 			div(id="editLab", style="display:none")
-				h3(style="text-align: center;")= 'Transfer an existing Lab.'
-				p(style="text-align: center;")="Each lab is assigned an administrator and department. Select the department and/or Administrator that the Lab should be assigned to provided they are available and have not been assigned to another lab."
+				h3(style="text-align: center;")!= 'Transfer an existing Lab.'
+				p(style="text-align: center;")!="Each lab is assigned an administrator and department. Select the department and/or Administrator that the Lab should be assigned to provided they are available and have not been assigned to another lab."
 				if errormessagelabedit != null
 					div(class="alert alert-danger fade in alert-dismissable")!= errormessagelabedit
 				if successmessagelabedit != null
@@ -146,8 +146,8 @@ block content
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; /*margin-top: -50px;*/ float: right;")
 
 			div(id="vennSettings", style="display:none")
-				h3(style="text-align: center;")= 'Edit Lab Settings.'
-				p(style="text-align: center;")="In this section, you can now add a lab to its Department's Venn diagram. Or Set the lab administrator. Or Disable a lab provided no users have been assigned to it.<br/>Note: You can add up to 6 labs per department for graph visibility sake."
+				h3(style="text-align: center;")!= 'Edit Lab Settings.'
+				p(style="text-align: center;")!="In this section, you can now add a lab to its Department's Venn diagram. Or Set the lab administrator. Or Disable a lab provided no users have been assigned to it.<br/>Note: You can add up to 6 labs per department for graph visibility sake."
 				if errormessagevenn != null
 					div(class="alert alert-danger fade in alert-dismissable")!= errormessagevenn
 				if successmessagevenn != null
