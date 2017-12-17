@@ -74,8 +74,8 @@ block content
                                 });
 
             div(id="raw")
-                h4(style="padding-top:15px;margin-bottom:15px")="Raw  data. "
-                #labyokers.results.resultsshadow(style="width:100%;word-wrap:break-word;"+style)
+                h4(style="padding-top:15px;margin-bottom:15px;cursor:pointer;", id="labyokerslink")="[Raw  data]"
+                #labyokers.results.resultsshadow(style="width:100%;word-wrap:break-word; display:none"+style)
                     div(id="ctl00_Div2" class="row rank").match
                        - i = 
                        - var j = 1
@@ -102,6 +102,9 @@ block content
                 } else {
                     $(window).scrollTop($('#queryresults').offset().top).scrollLeft($('#queryresults').offset().left);
                 }
+                labyokerslink.onclick = function(){
+                $("#labyokers").show();
+                };
 
         
 
