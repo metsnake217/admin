@@ -41,15 +41,15 @@ block content
 				- checkedstrAll = true
 			//form(action="createSelect", method="post")
 			div(class="editstart", style="margin-bottom: 50px;")
-				select(name="createSelect" type="text" id="createSelect" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Create...")
+				select(name="createSelect" type="text" id="createSelect" class="form-control" style="border-color:#3d9dcb;border-radius: 500px !important; height: 230px; width: 230px; margin: 0 auto; text-align-last: center; background-color: #3379b7; color: white;font-size: 14pt;" placeholder="Create...")
 					option(value="createNone" selected=(checkedstrAll===true ? "selected" : undefined) style="font-weight:bold")="Start to ..."
 					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Create new Department"
 					option(value="createLab" selected=(checkedstrLab===true ? "selected" : undefined))="Create new Lab"
 					option(value="vennsettings" selected=(checkedstrVenn===true ? "selected" : undefined))="Set Lab Settings"
 					option(value="editLab" selected=(checkedstrEditLab===true ? "selected" : undefined))="Transfer Lab"
-				div(style="top: -25px; position: relative; float: right; margin-right: 10px;")
-					div(class="arrow-up", style="margin-bottom: 5px;")
-					div(class="arrow-down")
+				//div(style="top: -25px; position: relative; float: right; margin-right: 10px;")
+				//	div(class="arrow-up", style="margin-bottom: 5px;")
+				//	div(class="arrow-down")
 			div(id="createDept")
 				h3= 'Create a new Department.'
 				p="Add a department to the existing list."
