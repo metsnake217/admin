@@ -117,33 +117,36 @@ block content
 							- if(labs != undefined)
 								- for(var prop in labs)
 									- var lab = labs[prop]
-									option(value=lab) #{lab}
+									- var admin = admins[prop]
+									option(value=lab, admin=admin) #{lab}
 						div(style="top: -25px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
-						label(style="width: 100%;/*margin-top: 10px;top: -25px;*/position: relative;/*padding-top: 15px;*/")!="<span class='labColor'> Department </span>"
-						select(name="deptlabedit" type="text" id="deptlabedit" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px; top: -25px;*/ position: relative;" placeholder="Department")
-							option(value"selectdeptedit")="Select a Department"
-							- if(depts != undefined)
-								- for(var prop in depts)
-									- var department = depts[prop].departmentname
-									option(value=department) #{department}
-						div(style="top: -23px;position: relative;float: right;margin-right: 10px;")
-							div(class="arrow-up", style="margin-bottom: 5px;")
-							div(class="arrow-down")
-						label(style="width: 100%;/*top: -25px;*/position: relative;/*top: -45px;padding-top: 15px;*/")!="<span class='labColor'> Administrator </span>"
-						select(name="adminlabedit" type="text" id="adminlabedit" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px; top: -45px;*/position: relative;" placeholder="Admin")
-							option(value"selectdadminedit")="Select an Administrator"
-							- if(users != undefined)
-								- for(var prop in users)
-									- var user = users[prop].email
-									option(value=user) #{user}
-						div(style="top: -25px; position: relative; float: right; margin-right: 10px;")
-							div(class="arrow-up", style="margin-bottom: 5px;")
-							div(class="arrow-down")
-						div(class="buttons", style="/*margin-top: 15px;*/")
-							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;margin-top: 20px;") Edit
-							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; /*margin-top: -50px;*/ float: right;")
+						div(id="transferdept", style="display:none;")
+							label(style="width: 100%;/*margin-top: 10px;top: -25px;*/position: relative;/*padding-top: 15px;*/")!="<span class='labColor'> Department </span>"
+							select(name="deptlabedit" type="text" id="deptlabedit" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px; top: -25px;*/ position: relative;" placeholder="Department")
+								option(value"selectdeptedit")="Select a Department"
+								- if(depts != undefined)
+									- for(var prop in depts)
+										- var department = depts[prop].departmentname
+										option(value=department) #{department}
+							div(style="top: -23px;position: relative;float: right;margin-right: 10px;")
+								div(class="arrow-up", style="margin-bottom: 5px;")
+								div(class="arrow-down")
+						div(id="transferadmin", style="display:none;")
+							label(style="width: 100%;/*top: -25px;*/position: relative;/*top: -45px;padding-top: 15px;*/")!="<span class='labColor'> Administrator </span>"
+							select(name="adminlabedit" type="text" id="adminlabedit" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px; top: -45px;*/position: relative;" placeholder="Admin")
+								option(value"selectdadminedit")="Select an Administrator"
+								- if(users != undefined)
+									- for(var prop in users)
+										- var user = users[prop].email
+										option(value=user) #{user}
+							div(style="top: -25px; position: relative; float: right; margin-right: 10px;")
+								div(class="arrow-up", style="margin-bottom: 5px;")
+								div(class="arrow-down")
+							div(class="buttons", style="/*margin-top: 15px;*/")
+								button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;margin-top: 20px;") Edit
+								img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; /*margin-top: -50px;*/ float: right;")
 
 			div(id="vennSettings", style="display:none")
 				h3(style="text-align: center;")!= 'Edit Lab Settings.'
@@ -208,6 +211,22 @@ block content
 				$('#vennSettings').hide();
 
 				var eSelect = document.getElementById('createSelect');
+
+				var labnameedit = document.getElementById('labnameedit');
+				labnameedit.onchange = function() {
+					//var labvalue = $("#labnameedit").val();
+					//$("#deptlabedit").append('<option value="' + labvalue +'">' + labvalue + '</option>');
+					$('#transferdept').show();
+				};
+
+				var deptlabedit = document.getElementById('deptlabedit');
+				deptlabedit.onchange = function() {
+					var adminvalue = $("#labnameedit").attr("admin");
+					console.log("adminvalue: " + adminvalue);
+					$("#adminlabedit").append('<option value="' + adminvalue +'">' + adminvalue + '</option>');
+					$('#transferadmin').show();
+				};
+				
 				console.debug("selected: " + $('#createSelect').val());
 
 				if(eSelect.selectedIndex === 1 || $('#createSelect').val() == 'createDept') {
