@@ -4484,7 +4484,7 @@ span.num.greatherthanninetynine {
     padding: 30px;
     width: 80px;
     margin-top: -70px;
-    left: 40%;
+    left: 35%;
 }
 .uploadh{
     padding-left: 8px !important;
@@ -4687,11 +4687,11 @@ h3, .h3 {
     right: 32%;
 }
 .roundaccountmob{
-    left: 48%;
+    /*left: 48%;*/
 }
 
 .searchmob{
-    left: 17%;
+    /*left: 17%;*/
 }
 
 .reportappmargin{
