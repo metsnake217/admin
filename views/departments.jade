@@ -221,7 +221,7 @@ block content
 
 				var deptlabedit = document.getElementById('deptlabedit');
 				deptlabedit.onchange = function() {
-					var adminvalue = $("#labnameedit").attr("admin");
+					var adminvalue = $('option:selected', "#labnameedit").attr('admin');
 					console.log("adminvalue: " + adminvalue);
 					$("#adminlabedit").append('<option value="' + adminvalue +'">' + adminvalue + '</option>');
 					$('#transferadmin').show();
