@@ -41,7 +41,7 @@ block content
 				- checkedstrAll = true
 			//form(action="createSelect", method="post")
 			div(class="editstart", style="margin-bottom: 50px;")
-				select(name="createSelect" type="text" id="createSelect" class="form-control" style="border-color:#3d9dcb;border-radius: 500px !important; height: 230px; width: 230px; margin: 0 auto; text-align-last: center; background-color: #3379b7; color: white;font-size: 14pt;" placeholder="Create...")
+				select(name="createSelect" type="text" id="createSelect" class="form-control" style="border-color:#3d9dcb;border-radius: 500px !important; height: 230px; width: 230px; margin: 0 auto; text-align-last: center; background-color: #3379b7; color: white;font-size: 14pt;cursor: pointer;" placeholder="Create...")
 					option(value="createNone" selected=(checkedstrAll===true ? "selected" : undefined) style="font-weight:bold")="Start to ..."
 					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Create new Department"
 					option(value="createLab" selected=(checkedstrLab===true ? "selected" : undefined))="Create new Lab"
