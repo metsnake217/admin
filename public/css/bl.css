@@ -4490,8 +4490,9 @@ span.num.greatherthanninetynine {
 .searchmob{
     padding: 30px;
     width: 80px;
+    margin: 0 auto;
     margin-top: -70px;
-    left: 35%;
+    /*left: 35%;*/
 }
 .uploadh{
     padding-left: 8px !important;
