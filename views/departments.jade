@@ -23,7 +23,7 @@ block content
 		h1= 'Labs & Departments.'
 		P!="You can create a new department and lab. As well as set some useful settings for labs."
 		div(style="width: 100%;margin-bottom: 40px;margin-top: 40px;")
-			- if(depts != undefined)
+			- if(venn != undefined)
 				div
 					div(class="" style="float: left;text-align: center;")
 						- var test = JSON.parse('#{JSON.stringify(venn)}'.replace(/&quot;/g, '"'));
