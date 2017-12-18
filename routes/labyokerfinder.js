@@ -1050,7 +1050,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 		query4.on("end", function(result4) {
 			userdata = result4.rows;
 			console.log("userdata: " + lab + " - " + userdata);
-		
+		});
 
 				var dept = venndata[prop].department;
 				
@@ -1131,7 +1131,6 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 			console.log("vennportion: " + JSON.stringify(vennportion));
 			console.log("getlabs: " + JSON.stringify(getlabs));
 			callback(null, resultsLogin);
-			});
 			});
 		});
 	});
