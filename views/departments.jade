@@ -234,12 +234,13 @@ block content
 				var eSelect = document.getElementById('createSelect');
 
 				$(".deps").change(function(){
-					console.log("here: " + $(this).val());
+					console.log("heredeps: " + $(this).val());
+					$('#labdetail').show();
 					$( ".setlab:visible" ).addClass("restrictcolumns");
 					if($(".setlab").is(":visible")){
 						$('#labdetail').addClass("restrictcolumns");
 					}
-					$('#labdetail').show();
+					
 					$(this).css('background-color', '#3d9dcb'); 
 				})
 
