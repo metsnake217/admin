@@ -23,10 +23,10 @@ block content
 		h1= 'Labs & Departments.'
 		P!="You can create a new department and lab. As well as set some useful settings for labs."
 		div(style="width: 100%;margin-bottom: 40px;margin-top: 40px;")
-			- if(venn != undefined)
+			- if(vennsettings != undefined)
 				div
 					div(class="" style="float: left;text-align: center;")
-						- var test = JSON.parse(JSON.stringify(venn).replace(/&quot;/g, '"'))
+						- var test = JSON.parse(JSON.stringify(vennsettings).replace(/&quot;/g, '"'))
 						- var depts = test.departments
 						- for(var prop in depts)
 							- var department = depts[prop].departmentname
