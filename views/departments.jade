@@ -28,6 +28,8 @@ block content
 					div(class="" style="float: left;text-align: center;")
 						- var test = JSON.parse(JSON.stringify(vennsettings).replace(/&quot;/g, '"'))
 						- var depts = test.departments
+						span != test
+						span != depts
 						- for(var prop in depts)
 							- var department = depts[prop].departmentname
 							- var index = depts.indexOf(department)
