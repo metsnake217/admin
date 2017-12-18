@@ -4447,8 +4447,12 @@ span.num.greatherthanninetynine {
 
 
  @media (max-width: 440px) {
+.myteammember{
+  width:50%;
+  margin-right:0px;
+}
 .restrictcolumns{
-    width: 100%;
+    width: 100% !important;
 }
 #createSelect{
   border-radius: 50px !important;
