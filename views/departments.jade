@@ -37,7 +37,7 @@ block content
 								- if(index > -1)
 									- var labs = test.labs[index];	
 									- for(var prop2 in labs)
-										option(value=labs[prop2] style="font-weight:bold")!= labs[prop2]
+										option(value=labs[prop2] department=department style="font-weight:bold")!= labs[prop2]
 
 
 			- var venn = vennsettings
@@ -231,8 +231,7 @@ block content
 				var eSelect = document.getElementById('createSelect');
 
 				$(".deps").change(function(){
-					console.log("here");
-					console.debug($(this));
+					console.log("here: " + this.val());
 				})
 				var labnameedit = document.getElementById('labnameedit');
 				labnameedit.onchange = function() {
