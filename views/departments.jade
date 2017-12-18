@@ -246,8 +246,8 @@ block content
 
 				$(".setlab").change(function(){
 					console.log("here: " + $(this).val());
-					$( ".labdetail:visible" ).addClass("restrictcolumns");
-					if($(".labdetail").is(":visible")){
+					$( "#labdetail:visible" ).addClass("restrictcolumns");
+					if($("#labdetail").is(":visible")){
 						$('#setlab').addClass("restrictcolumns");
 					}
 				})
