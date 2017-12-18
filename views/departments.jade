@@ -27,17 +27,7 @@ block content
 			div
 				div(class="" style="float: left;text-align: center;")
 					- var test = JSON.parse('#{JSON.stringify(venn)}'.replace(/&quot;/g, '"'));
-					- var depts = test.departments
-					- for(var prop in depts)
-						- var department = depts[prop].departmentname
-						- var index = depts.indexOf(department);
-						- if(index > -1){
-							- var labs = test.labs[index];	
-							- var selname = "dept" + prop
-							select(name=selname type="text" id=selname style="background-color: rgb(61, 157, 203);margin-right: 15px;" class="deps")
-								option(value="lab" selected="selected" style="font-weight:bold") department
-								- for(var prop2 in labs)
-									option(value=labs[prop2] selected="selected" style="font-weight:bold") labs[prop2]
+
 
 
 			- var venn = vennsettings
