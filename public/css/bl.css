@@ -16,7 +16,7 @@
 }
 
 .restrictcolumns{
-    width: 46%;
+    width: 46% !important;
     margin-right: 10px;
 }
 .unrestrictcolumns{
