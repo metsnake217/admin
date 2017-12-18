@@ -27,7 +27,7 @@ block content
 				div
 					div(class="" style="float: left;text-align: center;")
 						- var test = JSON.parse(JSON.stringify(vennsettings).replace(/&quot;/g, '"'))
-						- var depts = test.departments
+						- var depts = JSON.parse(JSON.stringify(test.departments))
 						span!= depts
 						- for(var prop in depts)
 							- var department = depts[prop]
