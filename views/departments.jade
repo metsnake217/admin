@@ -250,6 +250,9 @@ block content
 				var eSelect = document.getElementById('createSelect');
 
 				$(".deps").change(function(){
+					var savedep = $(this);
+					$(".deps").val($(".deps option:first").val());
+					console.log("savedep: " + savedep.val());
 					console.log("heredeps: " + $(this).val());
 					$('#labdetail').show();
 					$( ".setlab:visible" ).addClass("restrictcolumns");
