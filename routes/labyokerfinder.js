@@ -1061,14 +1061,14 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 var userdata = new Promise(
     function (resolve, reject) {
         //if (isMomHappy) {
-
-		console.log("starting getLabUsers: " + lab);
-		var query4 = client.query("select * from vm2016_users where lab='" + lab + "'");
+        var lab0 = lab
+		console.log("starting getLabUsers: " + lab0);
+		var query4 = client.query("select * from vm2016_users where lab='" + lab0 + "'");
 		query4.on("row", function(row, result4) {
 			result4.addRow(row);
 		});
 		query4.on("end", function(result4) {
-			console.log("returning getLabUsers: " + lab);
+			console.log("returning getLabUsers: " + lab0);
 			resolve(result4.rows);
 		});
             //resolve(phone); // fulfilled
