@@ -15,11 +15,11 @@
   float: left;text-align: center;width:70%;margin-bottom:25px;
 }
 
-.restrictcolums{
+.restrictcolumns{
     width: 46%;
     margin-right: 10px;
 }
-.unrestrictcolums{
+.unrestrictcolumns{
     width: 100%;
 }
 .deps{
@@ -4428,7 +4428,7 @@ span.num.greatherthanninetynine {
 
 
  @media (max-width: 440px) {
-.restrictcolums{
+.restrictcolumns{
     width: 100%;
 }
 #createSelect{
