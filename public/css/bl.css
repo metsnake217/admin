@@ -8,7 +8,9 @@
   user-select: none;*/
   -webkit-font-smoothing: antialiased;
 }
-
+#createDept, #createLab, #editLab, #vennSettings{
+  float: left; width: 100%;
+}
 .deptlist{
   float: left;text-align: center;width:70%;margin-bottom:25px;
 }
