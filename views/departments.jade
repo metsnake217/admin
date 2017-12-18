@@ -206,6 +206,7 @@ block content
 				$('#createDept').hide();
 				$('#createLab').hide();
 				$('#editLab').hide();
+				var adminvalue = "";
 
 				$('#vennSettingsDisplay').hide();
 				$('#vennSettings').hide();
@@ -214,14 +215,16 @@ block content
 
 				var labnameedit = document.getElementById('labnameedit');
 				labnameedit.onchange = function() {
+					$("#adminlabedit option[value=adminvalue]").remove();
 					//var labvalue = $("#labnameedit").val();
 					//$("#deptlabedit").append('<option value="' + labvalue +'">' + labvalue + '</option>');
+					$('#transferadmin').hide();
 					$('#transferdept').show();
 				};
 
 				var deptlabedit = document.getElementById('deptlabedit');
 				deptlabedit.onchange = function() {
-					var adminvalue = $('option:selected', "#labnameedit").attr('admin');
+					adminvalue = $('option:selected', "#labnameedit").attr('admin');
 					console.log("adminvalue: " + adminvalue);
 					$("#adminlabedit").append('<option value="' + adminvalue +'">' + adminvalue + '</option>');
 					$('#transferadmin').show();
