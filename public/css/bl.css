@@ -8,6 +8,18 @@
   user-select: none;*/
   -webkit-font-smoothing: antialiased;
 }
+
+.myteamcard{
+  font-size: 80pt !important;
+}
+.myteammember{
+  width:30%;
+  margin-right:10px;
+  word-wrap:break-word;
+  text-align:center;
+  margin-top: 15px;
+  float:left;
+}
 #createDept, #createLab, #editLab, #vennSettings, #labdetail{
   float: left; width: 100%;
 }
@@ -3869,6 +3881,13 @@ margin-top:0px;
 }
 
 @media (max-width: 767px){
+.myteamcard{
+  font-size: 50pt !important;
+}
+.myteammember{
+  width:50%;
+  margin-right:0px;
+}
 .deps{
   width: 30%;
 }
