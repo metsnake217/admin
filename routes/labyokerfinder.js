@@ -1037,7 +1037,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 		});
 		query3.on("end", function(result3) {
 			var venndata = result3.rows;
-			var userdata;
+			//var userdata;
 			var users = []; 
 			var depts = [];
 			var labs = []; 
@@ -1071,14 +1071,9 @@ var userdata = new Promise(
 			console.log("returning getLabUsers: " + lab0);
 			resolve(result4.rows);
 		});
-            //resolve(phone); // fulfilled
-        //} else {
-        //    var reason = new Error('mom is not happy');
-        //    reject(reason); // reject
-        //}
-
     }
 );
+console.log("userdata: " + userdata);
 
 		/*userdata = new Promise(labyokerLab.getLabUsers(function(error, users0) {
 
