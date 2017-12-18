@@ -1011,7 +1011,7 @@ LabyokerLab.prototype.getLabUsers = function(callback) {
 		});
 		query4.on("end", function(result4) {
 			console.log("returning getLabUsers: " + lab);
-			callback(result4.rows);
+			callback(null,result4.rows);
 		});
 };
 
