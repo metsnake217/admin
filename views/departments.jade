@@ -268,6 +268,7 @@ block content
 					console.log("show labdetail");
 						$('#labdetail').show();
 						$(this).css('background-color', '#3d9dcb');
+						$(window).scrollTop($('#labdetail').offset().top - 100).scrollLeft($('#labdetail').offset().left); 
 					} else {
 						console.log("hide labdetail");
 						$('#labdetail').hide();
@@ -313,20 +314,23 @@ block content
 					$('#createLab').hide();
 					$('#editLab').hide();
 					$('#createSelect').css('background-color', '#3d9dcb');
+					$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left);
 				} else if(eSelect.selectedIndex === 2 || $('#createSelect').val() == 'createLab') {
 					console.log("createLab inside");
 					$('#createLab').show();
 					$('#createDept').hide();
 					$('#vennSettings').hide();
 					$('#editLab').hide();
-					$('#createSelect').css('background-color', '#3d9dcb'); 
+					$('#createSelect').css('background-color', '#3d9dcb');
+					$(window).scrollTop($('#createLab').offset().top - 100).scrollLeft($('#createLab').offset().left);
 				} else if(eSelect.selectedIndex === 3 || $('#createSelect').val() == 'vennSettings') {
 					console.log("vennSettings inside");
 					$('#vennSettings').show();
 					$('#createDept').hide();
 					$('#createLab').hide();
 					$('#editLab').hide();
-					$('#createSelect').css('background-color', '#3d9dcb'); 
+					$('#createSelect').css('background-color', '#3d9dcb');
+					$(window).scrollTop($('#vennSettings').offset().top - 100).scrollLeft($('#vennSettings').offset().left); 
 				} else if(eSelect.selectedIndex === 3 || $('#createSelect').val() == 'editLab') {
 					console.log("transfer lab inside");
 					$('#editLab').show();
@@ -334,6 +338,7 @@ block content
 					$('#createDept').hide();
 					$('#createLab').hide();
 					$('#createSelect').css('background-color', '#3d9dcb'); 
+					$(window).scrollTop($('#editLab').offset().top - 100).scrollLeft($('#editLab').offset().left); 
 				} else if(nochange == 0 && (eSelect.selectedIndex === 0 || $('#createSelect').val() == 'createNone')) {
 					console.log("create None inside");
 					$('#createLab').hide();
