@@ -1002,7 +1002,7 @@ LabyokerLabs.prototype.getlabs = function(callback) {
 	});
 };
 
-getLabUsers(lab){
+function getLabUsers(lab){
 		console.log("starting getLabUsers: " + lab);
 		var query4 = client.query("select * from vm2016_users where lab='" + lab + "'");
 		query4.on("row", function(row, result4) {
@@ -1012,7 +1012,7 @@ getLabUsers(lab){
 			console.log("returning getLabUsers: " + lab);
 			return result4.rows;
 		});
-}
+};
 
 
 
