@@ -1024,6 +1024,8 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 		});
 		query3.on("end", function(result3) {
 			var venndata = result3.rows;
+			var userdata;
+			var users = []; 
 			var depts = [];
 			var labs = []; 
 			var admins = []; 
@@ -1032,15 +1034,26 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 			//var getadmins = [];
 			var venns = [];
 			var disabled = [];
-			var vennportion = {departments:[], labs:[], isvenn:[], isdisabled:[], admins:[]	}
+			var vennportion = {departments:[], labs:[], users:[], isvenn:[], isdisabled:[], admins:[]	}
 			var deptlabs = [];
+			var userslabs = [];
 			var deptlabadmins = [];
 			var vennlabs = [];
 			var disabledlabs = [];
 			for(var prop in venndata){
-				
-				var dept = venndata[prop].department;
 				var lab = venndata[prop].labname;
+				
+		var query4 = client.query("select * from vm2016_users where lab='" + lab + "'");
+		query4.on("row", function(row, result4) {
+			result4.addRow(row);
+		});
+		query4.on("end", function(result4) {
+			userdata = result4.rows;
+			console.log("userdata: " + lab + " - " + userdata);
+		});
+
+				var dept = venndata[prop].department;
+				
 				var labadmin = venndata[prop].admin;
 				getlabs.push(lab);
 				getadmins.push(labadmin);
@@ -1064,14 +1077,17 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 					admins.push(deptlabadmins);
 					venns.push(vennlabs);
 					disabled.push(disabledlabs);
+					users.push(userslabs);
 					console.log("labs: " + JSON.stringify(labs));
 					console.log("venns: " + JSON.stringify(venns));
 					deptlabs = [];
 					vennlabs = [];
 					disabledlabs = [];
 					deptlabadmins = [];
+					userslabs = [];
 				}
 				deptlabs.push(lab);
+				userslabs.push(userdata);
 				deptlabadmins.push(labadmin);
 				vennlabs.push(isvenn);
 				disabledlabs.push(isdisabled);
@@ -1082,6 +1098,8 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 				console.log("vennlabs: " + JSON.stringify(vennlabs));
 				console.log("disabledlabs: " + JSON.stringify(disabledlabs));
 				console.log("labdadmins: " + JSON.stringify(labadmins));
+
+				console.log("userslabs: " + JSON.stringify(userslabs));
 				//console.log("getadmins: " + JSON.stringify(getadmins));
 			}
 
@@ -1089,12 +1107,14 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 			venns.push(vennlabs);
 			disabled.push(disabledlabs);
 			admins.push(deptlabadmins);
+			users.push(userslabs);
 
 			vennportion.departments = depts;
 			vennportion.labs = labs;
 			vennportion.isvenn = venns;
 			vennportion.isdisabled = disabled;
 			vennportion.admins = admins;
+			vennportion.users = users;
 
 			console.log("vennportion: " + JSON.stringify(vennportion));
 
