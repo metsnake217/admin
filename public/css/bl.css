@@ -14,6 +14,14 @@
 .deptlist{
   float: left;text-align: center;width:70%;margin-bottom:25px;
 }
+
+.restrictcolums{
+    width: 46%;
+    margin-right: 10px;
+}
+.unrestrictcolums{
+    width: 100%;
+}
 .deps{
       text-transform: none;
     /* padding-right: 15px; */
@@ -4420,6 +4428,9 @@ span.num.greatherthanninetynine {
 
 
  @media (max-width: 440px) {
+.restrictcolums{
+    width: 100%;
+}
 #createSelect{
   border-radius: 50px !important;
   height: 115px;

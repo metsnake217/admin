@@ -67,7 +67,10 @@ block content
 				//div(style="top: -25px; position: relative; float: right; margin-right: 10px;")
 				//	div(class="arrow-up", style="margin-bottom: 5px;")
 				//	div(class="arrow-down")
-			div(id="createDept", style="display:none")
+			div(id="labdetail", style="display:none")
+				h3(style="text-align: center;")!= 'Lab'
+				p(style="text-align: center;margin: 0px 5%;")!="Details about the lab."
+			div(id="createDept", style="display:none", class="setlab")
 				h3(style="text-align: center;")!= 'Create a new Department.'
 				p(style="text-align: center;margin: 0px 5%;")!="Add a department to the existing list."
 				if errormessagedept != null
@@ -81,7 +84,7 @@ block content
 						div(class="buttons" style="/*margin-top: 15px;*/")
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;margin-top: 20px;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; /*margin-top: -50px;*/ float: right;")
-			div(id="createLab", style="display:none")
+			div(id="createLab", style="display:none", class="setlab")
 				h3(style="text-align: center;")!= 'Add a new lab.'
 				p(style="text-align: center;margin: 0px 5%;")!="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department that can be listed in the diagram."
 				if errormessagelab != null
@@ -118,7 +121,7 @@ block content
 							button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;margin-top: 20px;") Add
 							img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; /*margin-top: -50px;*/ float: right;")
 
-			div(id="editLab", style="display:none")
+			div(id="editLab", style="display:none", class="setlab")
 				h3(style="text-align: center;")!= 'Transfer an existing Lab.'
 				p(style="text-align: center;margin: 0px 5%;")!="Each lab is assigned an administrator and department. Select the department and/or Administrator that the Lab should be assigned to provided they are available and have not been assigned to another lab."
 				if errormessagelabedit != null
@@ -165,7 +168,7 @@ block content
 								button.btn.btn-success.btn-lg.btn-block(type='submit', style="width: 50%;margin-top: 20px;") Edit
 								img(src="images/lab.png", alt="The Lab", title="Lab", style="border-width:0px; width: 50px; /*margin-top: -50px;*/ float: right;")
 
-			div(id="vennSettings", style="display:none")
+			div(id="vennSettings", style="display:none", class="setlab")
 				h3(style="text-align: center;")!= 'Edit Lab Settings.'
 				p(style="text-align: center;margin: 0px 5%;")!="In this section, you can now add a lab to its Department's Venn diagram. Or Set the lab administrator. Or Disable a lab provided no users have been assigned to it.<br/><b>Note:</b> You can add up to 6 labs per department for graph visibility sake."
 				if errormessagevenn != null
@@ -232,7 +235,20 @@ block content
 
 				$(".deps").change(function(){
 					console.log("here: " + $(this).val());
+					$( ".setlab:visible" ).addClass("restrictcolumns");
+					if($(".setlab").is(":visible")){
+						$('#labdetail').addClass("restrictcolumns");
+					}
+					$('#labdetail').show();
 					$(this).css('background-color', '#3d9dcb'); 
+				})
+
+				$(".setlab").change(function(){
+					console.log("here: " + $(this).val());
+					$( ".labdetail:visible" ).addClass("restrictcolumns");
+					if($(".labdetail").is(":visible")){
+						$('#setlab').addClass("restrictcolumns");
+					}
 				})
 				var labnameedit = document.getElementById('labnameedit');
 				labnameedit.onchange = function() {
