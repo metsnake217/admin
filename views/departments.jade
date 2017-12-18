@@ -91,8 +91,12 @@ block content
 				p(style="text-align: center;margin: 0px 5%;")!="Add a department to the existing list."
 				if errormessagedept != null
 					div(class="alert alert-danger fade in alert-dismissable")!= errormessagedept
+					script.
+						$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left); 
 				if successmessagedept != null
 					div(class="alert alert-success fade in alert-dismissable")!= successmessagedept
+					script.
+						$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left);
 				div(id="ctl00_Div2" class="results resultsshadow")
 					form(action="/createdepartment" method="post")
 						div(class="textentry")
@@ -105,8 +109,12 @@ block content
 				p(style="text-align: center;margin: 0px 5%;")!="Each lab is assigned an administrator and department. Labs may or may not be part of the Venn Diagram. There is a maximum of 6 labs per department that can be listed in the diagram."
 				if errormessagelab != null
 					div(class="alert alert-danger fade in alert-dismissable")!= errormessagelab
+					script.
+						$(window).scrollTop($('#createLab').offset().top - 100).scrollLeft($('#createLab').offset().left);
 				if successmessagelab != null
 					div(class="alert alert-success fade in alert-dismissable")!= successmessagelab
+					script.
+						$(window).scrollTop($('#createLab').offset().top - 100).scrollLeft($('#createLab').offset().left);
 				div(id="ctl00_Div2" class="results resultsshadow")
 					form(action="/createlab" method="post")
 						div(class="textentry")
@@ -142,8 +150,12 @@ block content
 				p(style="text-align: center;margin: 0px 5%;")!="Each lab is assigned an administrator and department. Select the department and/or Administrator that the Lab should be assigned to provided they are available and have not been assigned to another lab."
 				if errormessagelabedit != null
 					div(class="alert alert-danger fade in alert-dismissable")!= errormessagelabedit
+					script.
+						$(window).scrollTop($('#editLab').offset().top - 100).scrollLeft($('#editLab').offset().left);
 				if successmessagelabedit != null
 					div(class="alert alert-success fade in alert-dismissable")!= successmessagelabedit
+					script.
+						$(window).scrollTop($('#editLab').offset().top - 100).scrollLeft($('#editLab').offset().left);
 				div(id="ctl00_Div2" class="results resultsshadow")
 					form(action="/editlab" method="post")
 						div(class="textentry")
@@ -201,6 +213,7 @@ block content
 					div(class="alert alert-success fade in alert-dismissable")!= successmessageadmin
 				if successmessageadmin != null || errormessageadmin != null || successmessagedisable != null || errormessagedisable != null || successmessagevenn != null || errormessagevenn != null
 					script.
+						$(window).scrollTop($('#vennSettings').offset().top - 100).scrollLeft($('#vennSettings').offset().left);
 						$( document ).ready(function() {
 						$("#createSelect").val("vennsettings");
 						$('#vennSettings').show();
