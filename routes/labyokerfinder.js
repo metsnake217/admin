@@ -1003,8 +1003,9 @@ LabyokerLabs.prototype.getlabs = function(callback) {
 };
 
 LabyokerLab.prototype.getLabUsers = function(callback) {
-		console.log("starting getLabUsers: " + this.lab);
-		var query4 = client.query("select * from vm2016_users where lab='" + this.lab + "'");
+		var lab = this.lab;
+		console.log("starting getLabUsers: " + lab);
+		var query4 = client.query("select * from vm2016_users where lab='" + lab + "'");
 		query4.on("row", function(row, result4) {
 			result4.addRow(row);
 		});
