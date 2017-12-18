@@ -35,9 +35,9 @@ block content
 								option(value=department selected="selected" style="font-weight:bold")!= department
 								- var index = depts0.indexOf(department)
 								- if(index > -1)
-									- var labs = test.labs[index];	
-									- for(var prop2 in labs)
-										option(value=labs[prop2] department=department style="font-weight:bold")!= labs[prop2]
+									- var labs0 = test.labs[index];	
+									- for(var prop2 in labs0)
+										option(value=labs0[prop2] department=department style="font-weight:bold")!= labs0[prop2]
 
 
 			- var venn = vennsettings
