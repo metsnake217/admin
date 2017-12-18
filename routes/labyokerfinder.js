@@ -1061,7 +1061,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 var userdata = new Promise(
     function (resolve, reject) {
         //if (isMomHappy) {
-		var lab = this.lab;
+
 		console.log("starting getLabUsers: " + lab);
 		var query4 = client.query("select * from vm2016_users where lab='" + lab + "'");
 		query4.on("row", function(row, result4) {
