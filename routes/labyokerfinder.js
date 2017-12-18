@@ -1002,6 +1002,21 @@ LabyokerLabs.prototype.getlabs = function(callback) {
 	});
 };
 
+getLabUsers(lab){
+		console.log("starting getLabUsers: " + lab);
+		var query4 = client.query("select * from vm2016_users where lab='" + lab + "'");
+		query4.on("row", function(row, result4) {
+			result4.addRow(row);
+		});
+		query4.on("end", function(result4) {
+			console.log("returning getLabUsers: " + lab);
+			return result4.rows;
+		});
+}
+
+
+
+
 LabYokeGlobal.prototype.finddepartments = function(callback) {
 	var resultsLogin = [];
 	var query = client.query("SELECT * from departments");
@@ -1043,14 +1058,9 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 			for(var prop in venndata){
 				var lab = venndata[prop].labname;
 				
-		var query4 = client.query("select * from vm2016_users where lab='" + lab + "'");
-		query4.on("row", function(row, result4) {
-			result4.addRow(row);
-		});
-		query4.on("end", function(result4) {
-			userdata = result4.rows;
-			console.log("userdata: " + lab + " - " + userdata);
-		});
+				userdata = getLabUsers(lab);
+				console.log("userdata: " + lab + " - " + userdata);
+	
 
 				var dept = venndata[prop].department;
 				
