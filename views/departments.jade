@@ -258,18 +258,17 @@ block content
 					console.log("savedep: " + savedep);
 					console.log("heredeps: " + $(this).val());
 					$(this).val(savedep)
-					$('#labdetail').show();
+					
 					$( ".setlab:visible" ).addClass("restrictcolumns");
 					if($(".setlab").is(":visible")){
 						$('#labdetail').addClass("restrictcolumns");
 					}
 					console.log("optt: " + $('option:selected', this).attr('department'));
-					/*if($('option:selected', this).attr('department') == undefined){
-						$(".deps").css('background-color', '#3378b7');
-					} else {
-					*/
-					$(this).css('background-color', '#3d9dcb');
-					/*}*/
+					if($('option:selected', this).attr('department') != undefined){
+						$('#labdetail').show();
+						$(this).css('background-color', '#3d9dcb');
+					} 
+					
 				})
 
 				$(".setlab").change(function(){
