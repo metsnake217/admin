@@ -8,7 +8,7 @@
   user-select: none;*/
   -webkit-font-smoothing: antialiased;
 }
-#createDept, #createLab, #editLab, #vennSettings{
+#createDept, #createLab, #editLab, #vennSettings, #labdetail{
   float: left; width: 100%;
 }
 .deptlist{
