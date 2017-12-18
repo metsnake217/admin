@@ -252,7 +252,7 @@ block content
 				$(".deps").change(function(){
 					var savedep = $(this).val();
 					$('.deps').each(function(i, obj) {
-					$(this).val($(this).find("option:eq(0)").val());/
+					$(this).val($(this).find("option:eq(0)").val());
 					});
 					console.log("savedep: " + savedep);
 					console.log("heredeps: " + $(this).val());
