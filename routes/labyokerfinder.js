@@ -1057,10 +1057,34 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 				var lab = venndata[prop].labname;
 				
 				var labyokerLab = new LabyokerLab(lab);
-		userdata = labyokerLab.getLabUsers(function(error, users0) {
 
-console.log("userdata: " + this.lab + " - " + users0);
+var userdata = new Promise(
+    function (resolve, reject) {
+        //if (isMomHappy) {
+		var lab = this.lab;
+		console.log("starting getLabUsers: " + lab);
+		var query4 = client.query("select * from vm2016_users where lab='" + lab + "'");
+		query4.on("row", function(row, result4) {
+			result4.addRow(row);
 		});
+		query4.on("end", function(result4) {
+			console.log("returning getLabUsers: " + lab);
+			resolve(result4.rows);
+		});
+            //resolve(phone); // fulfilled
+        //} else {
+        //    var reason = new Error('mom is not happy');
+        //    reject(reason); // reject
+        //}
+
+    }
+);
+
+		/*userdata = new Promise(labyokerLab.getLabUsers(function(error, users0) {
+
+console.log("userdata: " + this.lab + " - " + users0.email + " - " + users0.name);
+		});
+*/
 
 
 				var dept = venndata[prop].department;
