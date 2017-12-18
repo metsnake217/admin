@@ -18,7 +18,7 @@
     border-color: #3d9dcb;
     border-radius: 500px !important;
     height: 115px;
-    width: 30%;
+    width: 46%;
     margin: 0 auto;
     text-align: center;
     text-align-last: center;
@@ -3858,6 +3858,9 @@ margin-top:0px;
 }
 
 @media (max-width: 767px){
+.deps{
+  width: 30%;
+}
 .deptlist{
   float: left;text-align: center;width:100%;
 }
