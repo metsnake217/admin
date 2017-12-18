@@ -9,6 +9,9 @@
   -webkit-font-smoothing: antialiased;
 }
 
+#createSelect:hover, .deps:hover{
+      background: radial-gradient(circle at 100px 100px, #3d9dcb, #3377b7);
+}
 .myteamcard{
   font-size: 80pt !important;
 }
@@ -4447,6 +4450,9 @@ span.num.greatherthanninetynine {
 
 
  @media (max-width: 440px) {
+.deps{
+  font-size: 11pt;
+}
 .myteammember{
   width:50%;
   margin-right:0px;
