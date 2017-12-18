@@ -259,18 +259,19 @@ block content
 					console.log("heredeps: " + $(this).val());
 					$(this).val(savedep)
 					
-					$( ".setlab:visible" ).addClass("restrictcolumns");
-					if($(".setlab").is(":visible")){
-						$('#labdetail').addClass("restrictcolumns");
-					}
+					
 					console.log("optt: " + $('option:selected', this).attr('department'));
 					if($('option:selected', this).attr('department') != undefined){
 					console.log("show labdetail");
 						$('#labdetail').show();
 						$(this).css('background-color', '#3d9dcb');
 					} else {
-					console.log("hide labdetail");
-						$('#labdetail').hide();
+						console.log("hide labdetail");
+							$('#labdetail').hide();
+					}
+					$( ".setlab:visible" ).addClass("restrictcolumns");
+					if($(".setlab").is(":visible")){
+						$('#labdetail').addClass("restrictcolumns");
 					}
 					
 				})
