@@ -313,10 +313,8 @@ block content
 				eSelect.onchange = function() {
 					console.log("here: " + $(this).val());
 					$( "#labdetail:visible" ).addClass("restrictcolumns");
-					if($("#labdetail").is(":visible")){
-						$('#setlab').addClass("restrictcolumns");
-					}
 					
+
 					if(eSelect.selectedIndex === 1 || $('#createSelect').val() == 'createDept') {
 						console.log("createDept inside");
 						$('#createDept').show();
@@ -325,6 +323,9 @@ block content
 						$('#editLab').hide();
 						$('#createSelect').css('background-color', '#3d9dcb'); 
 						$(".deps").css('background-color', '#3378b7'); 
+						if($("#labdetail").is(":visible")){
+							$('#createDept').addClass("restrictcolumns");
+						}
 					} else if(eSelect.selectedIndex === 2 || $('#createSelect').val() == 'createLab') {
 						console.log("createLab inside");
 						$('#createLab').show();
@@ -333,6 +334,9 @@ block content
 						$('#editLab').hide();
 						$('#createSelect').css('background-color', '#3d9dcb'); 
 						$(".deps").css('background-color', '#3378b7'); 
+						if($("#labdetail").is(":visible")){
+							$('#createLab').addClass("restrictcolumns");
+						}
 					} else if(eSelect.selectedIndex === 3 || $('#createSelect').val() == 'vennSettings') {
 						console.log("vennSettings inside");
 						$('#vennSettings').show();
@@ -341,6 +345,9 @@ block content
 						$('#editLab').hide();
 						$('#createSelect').css('background-color', '#3d9dcb'); 
 						$(".deps").css('background-color', '#3378b7'); 
+						if($("#labdetail").is(":visible")){
+							$('#vennSettings').addClass("restrictcolumns");
+						}
 					} else if(eSelect.selectedIndex === 3 || $('#createSelect').val() == 'editLab') {
 						console.log("transfer lab inside");
 						$('#vennSettings').hide();
@@ -349,6 +356,9 @@ block content
 						$('#editLab').show();
 						$('#createSelect').css('background-color', '#3d9dcb');
 						$(".deps").css('background-color', '#3378b7');
+						if($("#labdetail").is(":visible")){
+							$('#editLab').addClass("restrictcolumns");
+						}
 					} else if(eSelect.selectedIndex === 0 || $('#createSelect').val() == 'createNone') {
 						console.log("create None inside");
 						$('#createLab').hide();
