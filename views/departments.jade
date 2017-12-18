@@ -216,7 +216,7 @@ block content
 				var labnameedit = document.getElementById('labnameedit');
 				labnameedit.onchange = function() {
 					console.log("adminvalue: " + adminvalue);
-					$("#adminlabedit option[value=adminvalue]").remove();
+					$("#adminlabedit option[value=" + adminvalue + "]").remove();
 					//var labvalue = $("#labnameedit").val();
 					//$("#deptlabedit").append('<option value="' + labvalue +'">' + labvalue + '</option>');
 					$('#transferadmin').hide();
