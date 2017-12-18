@@ -1129,7 +1129,7 @@ console.log("userdata: " + this.lab + " - " + users0.email + " - " + users0.name
 				console.log("disabledlabs: " + JSON.stringify(disabledlabs));
 				console.log("labdadmins: " + JSON.stringify(labadmins));
 
-				console.log("userslabs: " + JSON.stringify(userslabs));
+				console.log("userslabs: " + userslabs);
 				//console.log("getadmins: " + JSON.stringify(getadmins));
 			}
 
