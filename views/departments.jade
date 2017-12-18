@@ -230,6 +230,11 @@ block content
 
 				var eSelect = document.getElementById('createSelect');
 
+				var lookdept = document.getElementsByClassName('deps');
+				lookdept.onchange = function() {
+					console.log("want to see department details? ");
+					console.debug(this);
+				};
 				var labnameedit = document.getElementById('labnameedit');
 				labnameedit.onchange = function() {
 					console.log("adminvalue: " + adminvalue);
