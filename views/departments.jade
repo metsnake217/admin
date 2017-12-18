@@ -23,14 +23,14 @@ block content
 		h1= 'Labs & Departments.'
 		P!="You can create a new department and lab. As well as set some useful settings for labs."
 		div(style="width: 100%;margin-bottom: 40px;margin-top: 40px;")
-			//- if(venn != undefined)
+			- if(venn != undefined)
 			div
 				div(class="" style="float: left;text-align: center;")
 					- var test = JSON.parse('#{JSON.stringify(venn)}'.replace(/&quot;/g, '"'));
-					- var departments = test.departments
+					- var depts = test.departments
 					- for(var prop in depts)
 						- var department = depts[prop].departmentname
-						- var index = departments.indexOf(department);
+						- var index = depts.indexOf(department);
 						- if(index > -1){
 							- var labs = test.labs[index];	
 							- var selname = "dept" + prop
