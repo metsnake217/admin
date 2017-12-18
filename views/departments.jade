@@ -23,6 +23,23 @@ block content
 		h1= 'Labs & Departments.'
 		P!="You can create a new department and lab. As well as set some useful settings for labs."
 		div(style="width: 100%;margin-bottom: 40px;margin-top: 40px;")
+			- if(depts != undefined)
+				div
+					div(class="" style="float: left;text-align: center;")
+						- var test = JSON.parse('#{JSON.stringify(venn)}'.replace(/&quot;/g, '"'));
+						- var departments = test.departments
+						- for(var prop in depts)
+							- var department = depts[prop].departmentname
+							- var index = departments.indexOf(department);
+							- if(index > -1){
+								- var labs = test.labs[index];	
+								- var selname = "dept" + prop
+								select(name=selname type="text" id=selname style="background-color: rgb(61, 157, 203);margin-right: 15px;" class="deps")
+									option(value="lab" selected="selected" style="font-weight:bold") department
+									- for(var prop2 in labs)
+										option(value=labs[prop2] selected="selected" style="font-weight:bold") labs[prop2]
+
+
 			- var venn = vennsettings
 			- var checkedstrDept = false;
 			- if(section !=null && section.length>0 && section == "department")
