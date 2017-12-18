@@ -267,7 +267,9 @@ block content
 					if($('option:selected', this).attr('department') != undefined){
 						$('#labdetail').show();
 						$(this).css('background-color', '#3d9dcb');
-					} 
+					} else {
+						$('#labdetail').hide();
+					}
 					
 				})
 
