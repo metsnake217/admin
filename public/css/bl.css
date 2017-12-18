@@ -9,6 +9,22 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.deps{
+      text-transform: none;
+    /* padding-right: 15px; */
+    border-color: #3d9dcb;
+    border-radius: 500px !important;
+    height: 115px;
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+    text-align-last: center;
+    text-align: -webkit-center;
+    background-color: #3379b7;
+    color: white;
+    font-size: 14pt;
+    cursor: pointer;
+}
 #createSelect{
   border-color:#3d9dcb;border-radius: 500px !important;
   height: 215px; width: 215px; margin: 0 auto;
