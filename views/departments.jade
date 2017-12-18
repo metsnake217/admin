@@ -311,6 +311,12 @@ block content
 				}
 
 				eSelect.onchange = function() {
+					console.log("here: " + $(this).val());
+					$( "#labdetail:visible" ).addClass("restrictcolumns");
+					if($("#labdetail").is(":visible")){
+						$('#setlab').addClass("restrictcolumns");
+					}
+					
 					if(eSelect.selectedIndex === 1 || $('#createSelect').val() == 'createDept') {
 						console.log("createDept inside");
 						$('#createDept').show();
