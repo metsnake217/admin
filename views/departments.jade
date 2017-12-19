@@ -302,9 +302,9 @@ block content
 					//var check = size/userslength;
 					var winwi = Math.floor(window.innerWidth/150);
 					if(winwi <= userslength){
-						size = size/winwi;
+						size = (size/winwi) - 2;
 					}
-					
+					console.log("userslength: " + userslength);
 					console.log("window width: " + winwi);
 					console.log("size: " + size);
 					//if(size > 30){
