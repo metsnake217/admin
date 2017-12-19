@@ -71,22 +71,16 @@ block content
 			div(id="labdetail", style="display:none")
 				h3(style="text-align: center;")!= 'Lab'
 				p(style="text-align: center;margin: 0px 5%;")!="Here are the <b style='color:#68b3d6'>users</b> assigned to the lab. The adminsitrator is <b style='color:#95794d'>highlighted</b>."
-				div(class="myteammember")
-					span(class="fa fa-vcard myteamcard" style="color:#68b3d6")
-					span(style="text-align: center;display: block;margin: 10px;")
-						a(href="mailto:" , style="cursor:pointer")!= "Gnagna Konate"
-				div(class="myteammember")
-					span(class="fa fa-vcard myteamcard" style="color:#95794d")
-					span(style="text-align: center;display: block;margin: 10px;")
-						a(href="mailto:" , style="cursor:pointer")!= "Gnagna Konate"
-				div(class="myteammember")
-					span(class="fa fa-vcard myteamcard" style="color:#68b3d6")
-					span(style="text-align: center;display: block;margin: 10px;")
-						a(href="mailto:" , style="cursor:pointer")!= "Gnagna Konate"
-				div(class="myteammember")
-					span(class="fa fa-vcard myteamcard" style="color:#68b3d6")
-					span(style="text-align: center;display: block;margin: 10px;")
-						a(href="mailto:" , style="cursor:pointer")!= "Gnagna Konate"
+				div(id="users")
+					div(class="myteammember")
+						span(class="fa fa-vcard myteamcard" style="color:#68b3d6")
+						span(style="text-align: center;display: block;margin: 10px;")
+							a(href="mailto:" , style="cursor:pointer")!= "Gnagna Konate"
+					div(class="myteammember")
+						span(class="fa fa-vcard myteamcard" style="color:#95794d")
+						span(style="text-align: center;display: block;margin: 10px;")
+							a(href="mailto:" , style="cursor:pointer")!= "Gnagna Konate"
+
 			div(id="createDept", style="display:none", class="setlab")
 				h3(style="text-align: center;")!= 'Create a new Department.'
 				p(style="text-align: center;margin: 0px 5%;")!="Add a department to the existing list."
@@ -291,6 +285,27 @@ block content
 					console.log("labpos: " + labpos);
 					console.log("deptpos: " + deptpos);
 					console.log("user: " + users0[labpos].id)
+
+					var usersdiv = document.getElementById("usersmembers");
+					var userdiv = document.createElement("div");
+					var userpan = document.createElement("span");
+					var userpan2 = document.createElement("span");
+					var usera = document.createElement("a");
+					userdiv.setAttribute('class',"myteammember");
+					userpan.setAttribute('class',"fa fa-vcard myteamcard");
+					if(users0[labpos].admin == 1){
+						userpan.setAttribute('style',"color:#95794d");
+					} else {
+						userpan.setAttribute('style',"color:#68b3d6");
+					}
+					usera.setAttribute('href',users0[labpos].email);
+					usera.setAttribute('style',"cursor:pointer");
+					usera.innerHTML = users0[labpos].name + " " + users0[labpos].surname;
+					userpan2.setAttribute('style',"text-align: center;display: block;margin: 10px;");
+					userspan2.appendChild(usera);
+					userdiv.appendChild(userspan);
+					userdiv.appendChild(userspan2);
+					usersdiv.appendChild(userdiv);
 
 						$('#labdetail').show();
 						$(this).css('background-color', '#3d9dcb');
