@@ -734,7 +734,7 @@ module.exports = function(router) {
 				    });
 				}
 			}*/
-			Promise.all(users).then(function(data){
+			Promise.each(users).then(function(data){
 	        	//vennusers.push(data);
 	        	//console.log("vennusers is:  " +  JSON.stringify(vennusers));
 	     		console.log("data is: " +  JSON.stringify(data));
