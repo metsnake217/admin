@@ -291,37 +291,7 @@ block content
 					$('#labmembers').html("");
 					$('#labdetail').show();
 
-					user0[labpos].then(data=>{
-					console.log("data is: " + prop + " - " +  JSON.stringify(data));
-
 					var usersdiv = document.getElementById("labmembers");
-					var userdiv = document.createElement("div");
-					var userpan = document.createElement("span");
-					var userpan2 = document.createElement("span");
-					var usera = document.createElement("a");
-					userdiv.setAttribute('class',"myteammember");
-					userpan.setAttribute('class',"fa fa-vcard myteamcard");
-					if(data.admin == 1){
-						userpan.setAttribute('style',"color:#95794d");
-					} else {
-						userpan.setAttribute('style',"color:#68b3d6");
-					}
-					usera.setAttribute('href',data.email);
-					usera.setAttribute('style',"cursor:pointer");
-					usera.innerHTML = data.name + " " + data.surname;
-					userpan2.setAttribute('style',"text-align: center;display: block;margin: 10px;");
-					userpan2.appendChild(usera);
-					userdiv.appendChild(userpan);
-					userdiv.appendChild(userpan2);
-					usersdiv.appendChild(userdiv);
-
-
-					}).catch(e=>{
-					//handle error case here when your promise fails
-					console.log("error from promise: " +e)
-					});
-
-					/*var usersdiv = document.getElementById("labmembers");
 					var userdiv = document.createElement("div");
 					var userpan = document.createElement("span");
 					var userpan2 = document.createElement("span");
@@ -341,7 +311,6 @@ block content
 					userdiv.appendChild(userpan);
 					userdiv.appendChild(userpan2);
 					usersdiv.appendChild(userdiv);
-					*/
 
 						
 						$(this).css('background-color', '#3d9dcb');
