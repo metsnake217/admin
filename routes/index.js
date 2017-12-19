@@ -724,6 +724,7 @@ module.exports = function(router) {
 			user0[prop].then(data=>{
 			vennusers.push(data);
 	        console.log("data is: " + prop + " - " +  JSON.stringify(data));
+	        console.log("vennusers is: " + prop + " - " +  JSON.stringify(vennusers));
 	        if(prop == (user0.length - 1)){
 	        	res.render('departments', {vennusers:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 	    	}
