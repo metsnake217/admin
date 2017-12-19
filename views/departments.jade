@@ -265,8 +265,6 @@ block content
 
 				$(".deps").change(function(){
 					var savedep = $(this).val();
-					var labpos = $(this).attr("pos");
-					var deptpos =  $(this).attr("deptpos");
 					console.log("labpos: " + labpos);
 					console.log("labpos: " + labpos);
 					console.log("savedep: " + savedep);
@@ -286,6 +284,8 @@ block content
 					if($('option:selected', this).attr('department') != undefined){
 					console.log("show labdetail");
 
+					var deptpos = $('option:selected', this).attr('deptpos');
+					var labpos = $('option:selected', this).attr('labpos');
 					deptpos = deptpos.replace("dept","");
 					var users = JSON.parse('#{JSON.stringify(vennusers)}'.replace(/&quot;/g, '"'));
 					var users0 = users[deptpos]
