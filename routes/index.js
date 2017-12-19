@@ -716,6 +716,7 @@ module.exports = function(router) {
 		labYokeGlobal.finddepartments(function(error, results) {
 			var users = results[2].users;
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
+			console.log("Venn Settings users users.length: " + users.length);
 			
 			for(var prop0 in users){
 				var user0 = users[prop0];
@@ -724,8 +725,8 @@ module.exports = function(router) {
 				for(var prop in user0){
 					user0[prop].then(data=>{
 					vennusers.push(data);
-					console.log("Venn Settings users users.length: " + users.length);
 					console.log("Venn Settings users prop0: " + prop0);
+					console.log("Venn Settings users prop: " + prop);
 			        //console.log("data is: " + prop + " - " +  JSON.stringify(data));
 			        if(prop0 == (users.length - 1)){
 			        	console.log("vennusers is: " + prop + " - " +  JSON.stringify(vennusers));
