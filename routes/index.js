@@ -717,12 +717,12 @@ module.exports = function(router) {
 			var users = results[2].users;
 			var i=0;
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
-			var limit = users.length;
+			var limit = users.length - 1;
 			for(var prop0 in users){
 				var user0 = users[prop0];
 				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
 				console.log("Venn Settings users length: " + user0.length);
-				limit = limit + user0.length;
+				//limit = limit + user0.length;
 				for(var prop in user0){
 					user0[prop].then(data=>{
 					vennusers.push(data);
@@ -733,7 +733,7 @@ module.exports = function(router) {
 				        //handle error case here when your promise fails
 				        console.log("error from promise: " +e)
 				    }).then(() => {
-				    	
+
 				    	console.log("limit: " + limit);
 				    	if(i == limit ){
 			console.log("vennusers is: " +  JSON.stringify(vennusers));
