@@ -22,9 +22,8 @@ block content
 	div(class="container login2 marginbottom margintop container2 /*moveFromLeft*/")
 		h1= 'Labs & Departments.'
 		P!="You can create a new department and lab. As well as set some useful settings for labs."
-		- var users0 = vennsettings.users
+		- var users0 = vennusers[0]
 		- for(var prop in users0)
-			span!= users0[prop]
 			span!= users0[prop].surname
 
 		div(style="width: 100%;margin-bottom: 40px;margin-top: 40px;")
