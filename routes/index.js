@@ -732,7 +732,7 @@ module.exports = function(router) {
 				        console.log("error from promise: " +e)
 				    }).then(() => {
 
-				    	if(i == (users.length - 1) * (user0.length - 1) ){
+				    	if(i == (users.length) * (user0.length) ){
 			console.log("vennusers is: " +  JSON.stringify(vennusers));
 			res.render('departments', {vennuser:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 
