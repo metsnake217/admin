@@ -713,7 +713,7 @@ module.exports = function(router) {
 	router.get('/departments', isLoggedInSuperAdmin, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
 		labYokeGlobal.finddepartments(function(error, results) {
-			console.log("Venn Settings:: " + results[2]);
+			console.log("Venn Settings raw: " + results[2].users);
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
 			results[2].users[0].then(data=>{
 	        console.log("data is: " + JSON.stringify(data));
