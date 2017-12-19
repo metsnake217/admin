@@ -736,9 +736,9 @@ module.exports = function(router) {
 			}*/
 			Promise.all(users).then(function(data){
 	        	//vennusers.push(data);
-	        	console.log("vennusers is: " + prop + " - " +  JSON.stringify(vennusers));
-	     		console.log("data is: " + prop + " - " +  JSON.stringify(data));
-	     		console.log("data raw is: " + prop + " - " +  data);
+	        	//console.log("vennusers is:  " +  JSON.stringify(vennusers));
+	     		console.log("data is: " +  JSON.stringify(data));
+	     		console.log("data raw is: " +  data);
 	     	    res.render('departments', {vennuser:data, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 	 		});
 			//res.render('departments', {admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
