@@ -741,7 +741,7 @@ module.exports = function(router) {
  dataArr.forEach(function(data) {
 
 
-	     		console.log("data is: " +  JSON.parse(data));
+	     		//console.log("data is: " +  JSON.parse(data));
 	     		console.log("data raw is: " +  data);
 	     	    
     });
