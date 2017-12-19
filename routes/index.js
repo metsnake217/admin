@@ -723,7 +723,7 @@ module.exports = function(router) {
 				//for(var prop in user0){
 					Promise.all(user0).then(function(data0){
 					//user0[prop].then(data=>{
-					vennusers.push(data);
+					vennusers.push(data0);
 			        //console.log("data is: " + prop + " - " +  JSON.stringify(data));
 			        if(prop == (user0.length - 1)){
 			        	    console.log("vennusers is: " + prop + " - " +  JSON.stringify(vennusers));
