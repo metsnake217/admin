@@ -719,14 +719,16 @@ module.exports = function(router) {
 			
 			for(var prop0 in users){
 				var user0 = users[prop0];
-				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
+				//console.log("Venn Settings users raw: " + prop0 + " - " + user0);
 				console.log("Venn Settings users length: " + user0.length);
 				for(var prop in user0){
 					user0[prop].then(data=>{
 					vennusers.push(data);
+					console.log("Venn Settings users users.length: " + users.length);
+					console.log("Venn Settings users prop0: " + prop0);
 			        //console.log("data is: " + prop + " - " +  JSON.stringify(data));
 			        if(prop0 == (users.length - 1)){
-			        	    console.log("vennusers is: " + prop + " - " +  JSON.stringify(vennusers));
+			        	console.log("vennusers is: " + prop + " - " +  JSON.stringify(vennusers));
 			        	res.render('departments', {vennuser:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			    	}
 				    }).catch(e=>{
