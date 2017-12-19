@@ -266,7 +266,9 @@ block content
 				$(".deps").change(function(){
 					var savedep = $(this).val();
 					var labpos = $(this).attr("pos");
-					var deptpos =  $(this).attr("deptpos")
+					var deptpos =  $(this).attr("deptpos");
+					console.log("labpos: " + labpos);
+					console.log("deptpos: " + deptpos);
 					$('.deps').each(function(i, obj) {
 					$(this).val($(this).find("option:eq(0)").val());
 					$(this).css('background-color', '#3378b7');
