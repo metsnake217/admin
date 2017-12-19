@@ -1139,6 +1139,8 @@ console.log("userdata: " + this.lab + " - " + users0.email + " - " + users0.name
 			admins.push(deptlabadmins);
 			users.push(userslabs);
 
+			console.log("users: " + JSON.stringify(users));
+
 			vennportion.departments = depts;
 			vennportion.labs = labs;
 			vennportion.isvenn = venns;
