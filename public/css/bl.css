@@ -984,7 +984,7 @@ body.large-screen .card-list-table tbody tr:hover td {
   margin: 40px 0 10px;
       width: 50%;
 margin: 0 auto;
-margin-bottom: 50px;width:30%;float:left;
+margin-bottom: 50px;width:30%;float:right;
 }
 
 .table-wrapper {
