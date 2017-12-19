@@ -74,8 +74,43 @@ module.exports = function(router) {
 			} else {
 				errormessagedept = message;
 			}
-			console.log("departments: " + departments.length);
-			res.render('departments', {admins:departments[5],labadmins: departments[4], section:"department", labs: departments[3], errormessagedept: errormessagedept, successmessagedept: successmessagedept, depts: departments[0], vennsettings: departments[2], users: departments[1],labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+//			console.log("departments: " + departments.length);
+//			res.render('departments', {admins:departments[5],labadmins: departments[4], section:"department", labs: departments[3], errormessagedept: errormessagedept, successmessagedept: successmessagedept, depts: departments[0], vennsettings: departments[2], users: departments[1],labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+
+			var vennusers = [];
+			var users = departments[2].users;
+			var i=0;
+			console.log("Venn Settings: " + JSON.stringify(departments[2]));
+			var limit = 0;
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("user0 length: " + user0.length);
+					limit += user0.length;
+			}
+			console.log("limit: " + limit);
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
+				console.log("Venn Settings user0 length: " + user0.length);
+				for(var prop in user0){
+					user0[prop].then(data=>{
+					vennusers.push(data);
+				    }).catch(e=>{
+				        console.log("error from promise: " +e)
+				    }).then(() => {
+
+				    	console.log("limit: " + limit);
+				    	if(i == (limit -1) ){
+							console.log("vennusers is: " +  JSON.stringify(vennusers));
+							res.render('departments', {vennuser:vennusers, admins:departments[5],labadmins: departments[4], section:"department", labs: departments[3], errormessagedept: errormessagedept, successmessagedept: successmessagedept, depts: departments[0], vennsettings: departments[2], users: departments[1],labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			    		}
+			    		console.log("i is: " + i);
+			    		i++;
+				    });
+				}
+			}
+
+
 			req.session.messages = null;
 		});
 		});
@@ -99,7 +134,42 @@ module.exports = function(router) {
 				errormessagelab = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {admins:departments[5],labadmins: departments[4], section:"lab", labs: departments[3], errormessagelab: errormessagelab, successmessagelab: successmessagelab, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+//			res.render('departments', {admins:departments[5],labadmins: departments[4], section:"lab", labs: departments[3], errormessagelab: errormessagelab, successmessagelab: successmessagelab, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+
+			var vennusers = [];
+			var users = departments[2].users;
+			var i=0;
+			console.log("Venn Settings: " + JSON.stringify(departments[2]));
+			var limit = 0;
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("user0 length: " + user0.length);
+					limit += user0.length;
+			}
+			console.log("limit: " + limit);
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
+				console.log("Venn Settings user0 length: " + user0.length);
+				for(var prop in user0){
+					user0[prop].then(data=>{
+					vennusers.push(data);
+				    }).catch(e=>{
+				        console.log("error from promise: " +e)
+				    }).then(() => {
+
+				    	console.log("limit: " + limit);
+				    	if(i == (limit -1) ){
+							console.log("vennusers is: " +  JSON.stringify(vennusers));
+							res.render('departments', {vennuser:vennusers, admins:departments[5],labadmins: departments[4], section:"lab", labs: departments[3], errormessagelab: errormessagelab, successmessagelab: successmessagelab, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			    		}
+			    		console.log("i is: " + i);
+			    		i++;
+				    });
+				}
+			}
+
+
 			req.session.messages = null;
 		});
 		});
@@ -123,7 +193,41 @@ module.exports = function(router) {
 				errormessagelabedit = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {admins:departments[5],labadmins: departments[4], section:"editlab", labs: departments[3], errormessagelabedit: errormessagelabedit, successmessagelabedit: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+//			res.render('departments', {admins:departments[5],labadmins: departments[4], section:"editlab", labs: departments[3], errormessagelabedit: errormessagelabedit, successmessagelabedit: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+
+			var vennusers = [];
+			var users = departments[2].users;
+			var i=0;
+			console.log("Venn Settings: " + JSON.stringify(departments[2]));
+			var limit = 0;
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("user0 length: " + user0.length);
+					limit += user0.length;
+			}
+			console.log("limit: " + limit);
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
+				console.log("Venn Settings user0 length: " + user0.length);
+				for(var prop in user0){
+					user0[prop].then(data=>{
+					vennusers.push(data);
+				    }).catch(e=>{
+				        console.log("error from promise: " +e)
+				    }).then(() => {
+
+				    	console.log("limit: " + limit);
+				    	if(i == (limit -1) ){
+							console.log("vennusers is: " +  JSON.stringify(vennusers));
+							res.render('departments', {vennuser:vennusers,labadmins: departments[4], section:"editlab", labs: departments[3], errormessagelabedit: errormessagelabedit, successmessagelabedit: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			    		}
+			    		console.log("i is: " + i);
+			    		i++;
+				    });
+				}
+			}
+
 			req.session.messages = null;
 		});
 		});
@@ -149,7 +253,40 @@ module.exports = function(router) {
 				errormessagelabedit = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {admins:departments[5], labadmins: departments[4], section:"vennSettings", labs: departments[3], errormessageadmin: errormessagelabedit, successmessageadmin: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+//			res.render('departments', {admins:departments[5], labadmins: departments[4], section:"vennSettings", labs: departments[3], errormessageadmin: errormessagelabedit, successmessageadmin: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+
+			var vennusers = [];
+			var users = departments[2].users;
+			var i=0;
+			console.log("Venn Settings: " + JSON.stringify(departments[2]));
+			var limit = 0;
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("user0 length: " + user0.length);
+					limit += user0.length;
+			}
+			console.log("limit: " + limit);
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
+				console.log("Venn Settings user0 length: " + user0.length);
+				for(var prop in user0){
+					user0[prop].then(data=>{
+					vennusers.push(data);
+				    }).catch(e=>{
+				        console.log("error from promise: " +e)
+				    }).then(() => {
+
+				    	console.log("limit: " + limit);
+				    	if(i == (limit -1) ){
+							console.log("vennusers is: " +  JSON.stringify(vennusers));
+							res.render('departments', {vennuser:vennusers,admins:departments[5], labadmins: departments[4], section:"vennSettings", labs: departments[3], errormessageadmin: errormessagelabedit, successmessageadmin: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			    		}
+			    		console.log("i is: " + i);
+			    		i++;
+				    });
+				}
+			}
 			req.session.messages = null;
 		});
 		});
@@ -180,7 +317,40 @@ module.exports = function(router) {
 				errormessagevenn = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {admins:departments[5],labadmins: departments[4], section:"venn", labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagevenn: errormessagevenn, successmessagevenn: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+//			res.render('departments', {admins:departments[5],labadmins: departments[4], section:"venn", labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagevenn: errormessagevenn, successmessagevenn: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			var vennusers = [];
+			var users = departments[2].users;
+			var i=0;
+			console.log("Venn Settings: " + JSON.stringify(departments[2]));
+			var limit = 0;
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("user0 length: " + user0.length);
+					limit += user0.length;
+			}
+			console.log("limit: " + limit);
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
+				console.log("Venn Settings user0 length: " + user0.length);
+				for(var prop in user0){
+					user0[prop].then(data=>{
+					vennusers.push(data);
+				    }).catch(e=>{
+				        console.log("error from promise: " +e)
+				    }).then(() => {
+
+				    	console.log("limit: " + limit);
+				    	if(i == (limit -1) ){
+							console.log("vennusers is: " +  JSON.stringify(vennusers));
+							res.render('departments', {vennuser:vennusers,admins:departments[5],labadmins: departments[4], section:"venn", labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagevenn: errormessagevenn, successmessagevenn: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			    		}
+			    		console.log("i is: " + i);
+			    		i++;
+				    });
+				}
+			}
+
 			req.session.messages = null;
 		});
 		});
@@ -211,7 +381,39 @@ module.exports = function(router) {
 				errormessagedisable = message;
 			}
 			console.log("departments: " + departments.length);
-			res.render('departments', {admins:departments[5],labadmins: departments[4], section:"venn", labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagedisable: errormessagedisable, successmessagedisable: successmessagedisable, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			var vennusers = [];
+			var users = departments[2].users;
+			var i=0;
+			console.log("Venn Settings: " + JSON.stringify(departments[2]));
+			var limit = 0;
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("user0 length: " + user0.length);
+					limit += user0.length;
+			}
+			console.log("limit: " + limit);
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
+				console.log("Venn Settings user0 length: " + user0.length);
+				for(var prop in user0){
+					user0[prop].then(data=>{
+					vennusers.push(data);
+				    }).catch(e=>{
+				        console.log("error from promise: " +e)
+				    }).then(() => {
+
+				    	console.log("limit: " + limit);
+				    	if(i == (limit -1) ){
+							console.log("vennusers is: " +  JSON.stringify(vennusers));
+							res.render('departments', {vennuser:vennusers,admins:departments[5],labadmins: departments[4], section:"venn", labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagedisable: errormessagedisable, successmessagedisable: successmessagedisable, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+				    	}
+			    		console.log("i is: " + i);
+			    		i++;
+				    });
+				}
+			}
+//			res.render('departments', {admins:departments[5],labadmins: departments[4], section:"venn", labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagedisable: errormessagedisable, successmessagedisable: successmessagedisable, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
 		});
@@ -712,8 +914,8 @@ module.exports = function(router) {
 
 	router.get('/departments', isLoggedInSuperAdmin, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
-		var vennusers = [];
 		labYokeGlobal.finddepartments(function(error, results) {
+			var vennusers = [];
 			var users = results[2].users;
 			var i=0;
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
@@ -728,13 +930,9 @@ module.exports = function(router) {
 				var user0 = users[prop0];
 				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
 				console.log("Venn Settings user0 length: " + user0.length);
-				//limit = limit + user0.length;
 				for(var prop in user0){
 					user0[prop].then(data=>{
 					vennusers.push(data);
-				
-			        //console.log("data is: " + prop + " - " +  JSON.stringify(data));
-			        
 				    }).catch(e=>{
 				        //handle error case here when your promise fails
 				        console.log("error from promise: " +e)
@@ -742,12 +940,11 @@ module.exports = function(router) {
 
 				    	console.log("limit: " + limit);
 				    	if(i == (limit -1) ){
-			console.log("vennusers is: " +  JSON.stringify(vennusers));
-			res.render('departments', {vennuser:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
-
-			    	}
-			    	console.log("i is: " + i);
-			    	i++;
+							console.log("vennusers is: " +  JSON.stringify(vennusers));
+							res.render('departments', {vennuser:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			    		}
+			    		console.log("i is: " + i);
+			    		i++;
 				    });
 				}
 			}
