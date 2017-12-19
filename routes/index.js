@@ -712,6 +712,7 @@ module.exports = function(router) {
 
 	router.get('/departments', isLoggedInSuperAdmin, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
+		var vennusers = [];
 		labYokeGlobal.finddepartments(function(error, results) {
 			var users = results[2].users;
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
@@ -721,9 +722,10 @@ module.exports = function(router) {
 			console.log("Venn Settings users length: " + user0.length);
 			for(var prop in user0){
 			user0[prop].then(data=>{
+			vennusers.push(data);
 	        console.log("data is: " + prop + " - " +  JSON.stringify(data));
 	        if(prop == (user0.length - 1)){
-	        	res.render('departments', {vennusers:data, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+	        	res.render('departments', {vennusers:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 	    	}
 		    }).catch(e=>{
 		        //handle error case here when your promise fails
