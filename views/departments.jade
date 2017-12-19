@@ -293,8 +293,8 @@ block content
 
 					user0[labpos].then(data=>{
 					console.log("data is: " + prop + " - " +  JSON.stringify(data));
-			        	
-			        var usersdiv = document.getElementById("labmembers");
+
+					var usersdiv = document.getElementById("labmembers");
 					var userdiv = document.createElement("div");
 					var userpan = document.createElement("span");
 					var userpan2 = document.createElement("span");
@@ -315,11 +315,11 @@ block content
 					userdiv.appendChild(userpan2);
 					usersdiv.appendChild(userdiv);
 
-			    	
-				    }).catch(e=>{
-				        //handle error case here when your promise fails
-				        console.log("error from promise: " +e)
-				    });
+
+					}).catch(e=>{
+					//handle error case here when your promise fails
+					console.log("error from promise: " +e)
+					});
 
 					/*var usersdiv = document.getElementById("labmembers");
 					var userdiv = document.createElement("div");
