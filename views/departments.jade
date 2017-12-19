@@ -71,7 +71,7 @@ block content
 			div(id="labdetail", style="display:none")
 				h3(style="text-align: center;")!= 'Lab'
 				p(style="text-align: center;margin: 0px 5%;")!="Here are the <b style='color:#68b3d6'>users</b> assigned to the lab. The adminsitrator is <b style='color:#95794d'>highlighted</b>."
-				div(id="users")
+				div(id="labmembers")
 					div(class="myteammember")
 						span(class="fa fa-vcard myteamcard" style="color:#68b3d6")
 						span(style="text-align: center;display: block;margin: 10px;")
@@ -287,8 +287,8 @@ block content
 					console.log("user: " + users0[labpos].id)
 
 					$('#labdetail').show();
-					
-					var usersdiv = document.getElementById("usersmembers");
+
+					var usersdiv = document.getElementById("labmembers");
 					var userdiv = document.createElement("div");
 					var userpan = document.createElement("span");
 					var userpan2 = document.createElement("span");
