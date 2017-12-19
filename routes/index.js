@@ -715,6 +715,7 @@ module.exports = function(router) {
 		var vennusers = [];
 		labYokeGlobal.finddepartments(function(error, results) {
 			var users = results[2].users;
+			var i=0;
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
 			for(var prop0 in users){
 				var user0 = users[prop0];
@@ -723,17 +724,21 @@ module.exports = function(router) {
 				for(var prop in user0){
 					user0[prop].then(data=>{
 					vennusers.push(data);
+					i++;
 			        //console.log("data is: " + prop + " - " +  JSON.stringify(data));
 			        
 				    }).catch(e=>{
 				        //handle error case here when your promise fails
 				        console.log("error from promise: " +e)
 				    }).then(() => {
-				    	if(prop0 == (users.length - 1)){
+
+				    	if(i == (users.length - 1)){
 			console.log("vennusers is: " +  JSON.stringify(vennusers));
 			res.render('departments', {vennuser:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 
 			    	}
+			    	console.log("i is: " + i);
+			    	i++;
 				    });
 				}
 			}
