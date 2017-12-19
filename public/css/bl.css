@@ -39,7 +39,7 @@
 }
 .deps{
       text-transform: none;
-    /* padding-right: 15px; */
+    padding-right: 15px;
     border-color: #3d9dcb;
     border-radius: 500px !important;
     height: 115px;
@@ -56,6 +56,7 @@
     border:none;
 }
 .depsorph{
+  padding-right: 15px;
       text-transform: none;
     border-color: #3d9dcb;
     border-radius: 500px !important;
