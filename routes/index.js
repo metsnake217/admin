@@ -725,8 +725,8 @@ module.exports = function(router) {
 					//user0[prop].then(data=>{
 					vennusers.push(data0);
 			        //console.log("data is: " + prop + " - " +  JSON.stringify(data));
-			        if(prop == (user0.length - 1)){
-			        	    console.log("vennusers is: " + prop + " - " +  JSON.stringify(vennusers));
+			        if(prop0 == (user.length - 1)){
+			        	    console.log("vennusers is: " + prop0 + " - " +  JSON.stringify(vennusers));
 			        	res.render('departments', {vennuser:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			    	}
 				    }).catch(e=>{
