@@ -720,16 +720,14 @@ module.exports = function(router) {
 			var limit = 0;
 			for(var prop0 in users){
 				var user0 = users[prop0];
-				
-				for(var prop in user0){
-					limit += user0[prop].length;
-				}
+				console.log("user0 length: " + user0.length);
+					limit += user0.length;
 			}
 			console.log("limit: " + limit);
 			for(var prop0 in users){
 				var user0 = users[prop0];
 				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
-				console.log("Venn Settings users length: " + user0.length);
+				console.log("Venn Settings user0 length: " + user0.length);
 				//limit = limit + user0.length;
 				for(var prop in user0){
 					user0[prop].then(data=>{
