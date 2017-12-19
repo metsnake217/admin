@@ -717,7 +717,15 @@ module.exports = function(router) {
 			var users = results[2].users;
 			var i=0;
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
-			var limit = users.length - 1;
+			var limit = 0;
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				
+				for(var prop in user0){
+					limit += user0[prop].length;
+				}
+			}
+			console.log("limit: " + limit);
 			for(var prop0 in users){
 				var user0 = users[prop0];
 				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
