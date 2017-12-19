@@ -284,7 +284,7 @@ block content
 					console.log("show labdetail");
 
 					var deptpos = $('option:selected', this).attr('deptpos');
-					var labpos = $('option:selected', this).attr('labpos');
+					var labpos = $('option:selected', this).attr('pos');
 					deptpos = deptpos.replace("dept","");
 					var users = JSON.parse('#{JSON.stringify(vennusers)}'.replace(/&quot;/g, '"'));
 					var users0 = users[deptpos];
