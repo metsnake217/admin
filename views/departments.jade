@@ -301,9 +301,11 @@ block content
 					var size = 100;
 					//var check = size/userslength;
 					var winwi = Math.floor(window.innerWidth/150);
-					size = size/userslength;
+					
 					if(winwi <= userslength){
 						size = (size/winwi);
+					} else {
+						size = size/userslength;
 					}
 					size = size - 2;
 					console.log("userslength: " + userslength);
