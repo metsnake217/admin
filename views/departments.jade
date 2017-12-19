@@ -306,7 +306,13 @@ block content
 					var userslength = users0.length;
 					var size = 100;
 					//var check = size/userslength;
-					var winwi = Math.floor(window.innerWidth/150);
+					var wind = $("#labdetail").width();
+					if(wind != null){
+						wind = wind;
+					} else{
+						wind = window.innerWidth;
+					}
+					var winwi = Math.floor(wind/150);
 					
 					if(winwi <= userslength){
 						size = (size/winwi);
