@@ -1107,8 +1107,9 @@ console.log("userdata: " + this.lab + " - " + users0.email + " - " + users0.name
 					depts.push(dept);
 				}
 				
-				users.push(userslabs);
-				
+				console.log("HERE depts: " + JSON.stringify(depts));
+				console.log("HERE dept: " + venndata.length);
+				console.log("HERE venndata.length : " + venndata.length);
 				if(depts.indexOf(dept) == -1 || prop == (venndata.length - 1)){
 					console.log("push dept.");
 					depts.push(dept);
@@ -1116,7 +1117,7 @@ console.log("userdata: " + this.lab + " - " + users0.email + " - " + users0.name
 					admins.push(deptlabadmins);
 					venns.push(vennlabs);
 					disabled.push(disabledlabs);
-					
+					users.push(userslabs);
 					console.log("labs: " + JSON.stringify(labs));
 					console.log("venns: " + JSON.stringify(venns));
 					deptlabs = [];
