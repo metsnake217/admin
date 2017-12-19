@@ -286,37 +286,38 @@ block content
 					var users = JSON.parse('#{JSON.stringify(vennuser)}'.replace(/&quot;/g, '"'));
 					//var users0 = users[deptpos];
 					var users0 = users[labpos];
-					console.log("labpos: " + users[labpos]);
+					//console.log("labpos: " + users[labpos]);
 					console.log("labpos: " + labpos);
 					console.log("deptpos: " + deptpos);
 					console.log("users length: " + users.length);
 					console.log("users0length: " + users0.length);
-					console.log("user: " + users0[labpos].id)
+					//console.log("user: " + users0[labpos].id)
 
 					$('#labmembers').html("");
 					$('#labdetail').show();
 
 					var usersdiv = document.getElementById("labmembers");
-					var userdiv = document.createElement("div");
-					var userpan = document.createElement("span");
-					var userpan2 = document.createElement("span");
-					var usera = document.createElement("a");
-					userdiv.setAttribute('class',"myteammember");
-					userpan.setAttribute('class',"fa fa-vcard myteamcard");
-					if(users0[labpos].admin == 1){
-						userpan.setAttribute('style',"color:#95794d");
-					} else {
-						userpan.setAttribute('style',"color:#68b3d6");
-					}
-					usera.setAttribute('href',users0[labpos].email);
-					usera.setAttribute('style',"cursor:pointer");
-					usera.innerHTML = users0[labpos].name + " " + users0[labpos].surname;
-					userpan2.setAttribute('style',"text-align: center;display: block;margin: 10px;");
-					userpan2.appendChild(usera);
-					userdiv.appendChild(userpan);
-					userdiv.appendChild(userpan2);
-					usersdiv.appendChild(userdiv);
-
+					for(var p in users0){
+						var userdiv = document.createElement("div");
+						var userpan = document.createElement("span");
+						var userpan2 = document.createElement("span");
+						var usera = document.createElement("a");
+						userdiv.setAttribute('class',"myteammember");
+						userpan.setAttribute('class',"fa fa-vcard myteamcard");
+						if(users0[p].admin == 1){
+							userpan.setAttribute('style',"color:#95794d");
+						} else {
+							userpan.setAttribute('style',"color:#68b3d6");
+						}
+						usera.setAttribute('href',users0[p].email);
+						usera.setAttribute('style',"cursor:pointer");
+						usera.innerHTML = users0[p].name + " " + users0[p].surname;
+						userpan2.setAttribute('style',"text-align: center;display: block;margin: 10px;");
+						userpan2.appendChild(usera);
+						userdiv.appendChild(userpan);
+						userdiv.appendChild(userpan2);
+						usersdiv.appendChild(userdiv);
+						}
 						
 						$(this).css('background-color', '#3d9dcb');
 						$(window).scrollTop($('#labdetail').offset().top - 100).scrollLeft($('#labdetail').offset().left); 
