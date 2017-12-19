@@ -56,8 +56,7 @@
     border:none;
 }
 .depsorph{
-    text-transform: none;
-    /* padding-right: 15px; */
+      text-transform: none;
     border-color: #3d9dcb;
     border-radius: 500px !important;
     height: 115px;
@@ -71,7 +70,9 @@
     font-size: 14pt;
     cursor: pointer;
     margin-bottom: 15px;
-      background-color: #ad9876; padding: 4%; margin-left: 20px; margin-right: 0px; float: left;
+    border:none;
+      background-color: #ad9876; 
+      /*padding: 4%; margin-left: 20px; margin-right: 0px; float: left;*/
 }
 #createSelect{
   border-color:#3d9dcb;border-radius: 500px !important;
@@ -3911,11 +3912,11 @@ margin-top:0px;
   margin-right:0px;
 }
 .deps{
-  width: 30%;
+  width: 45%;
   height: 90px;
 }
 .depsorph{
-  width: 30%;
+  width: 45%;
   height: 90px;
 }
 .deptlist{
