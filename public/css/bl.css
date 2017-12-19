@@ -3913,6 +3913,10 @@ margin-top:0px;
   width: 30%;
   height: 90px;
 }
+.depsorph{
+  width: 30%;
+  height: 90px;
+}
 .deptlist{
   float: left;text-align: center;width:100%;
 }
@@ -4470,6 +4474,9 @@ span.num.greatherthanninetynine {
 
  @media (max-width: 440px) {
 .deps{
+  font-size: 11pt;
+}
+.depsorph{
   font-size: 11pt;
 }
 .myteammember{
