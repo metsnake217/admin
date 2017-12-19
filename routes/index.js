@@ -724,7 +724,7 @@ module.exports = function(router) {
 				for(var prop in user0){
 					user0[prop].then(data=>{
 					vennusers.push(data);
-					i++;
+				
 			        //console.log("data is: " + prop + " - " +  JSON.stringify(data));
 			        
 				    }).catch(e=>{
