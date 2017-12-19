@@ -743,7 +743,8 @@ module.exports = function(router) {
 Promise.all(data).then(function(data0){
 	     		//console.log("data is: " +  JSON.parse(data));
 	     		console.log("data raw is: " +  JSON.stringify(data0));
-	     		vennusers.push(data0)
+	     		vennusers.push(data0);
+	     		return vennusers;
 	 });
 	     	    
     }).then((result) => {
