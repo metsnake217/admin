@@ -74,14 +74,14 @@ block content
 				h3(style="text-align: center;")!= 'Lab'
 				p(style="text-align: center;margin: 0px 5%;")!="Here are the <b style='color:#68b3d6'>users</b> assigned to the lab. <b style='color:#95794d'>Adminsitrators</b> are highlighted."
 				div(id="labmembers")
-					div(class="myteammember")
-						span(class="fa fa-vcard myteamcard" style="color:#68b3d6")
-						span(style="text-align: center;display: block;margin: 10px;")
-							a(href="mailto:" , style="cursor:pointer")!= "Gnagna Konate"
-					div(class="myteammember")
-						span(class="fa fa-vcard myteamcard" style="color:#95794d")
-						span(style="text-align: center;display: block;margin: 10px;")
-							a(href="mailto:" , style="cursor:pointer")!= "Gnagna Konate"
+					//div(class="myteammember")
+					//	span(class="fa fa-vcard myteamcard" style="color:#68b3d6")
+					//	span(style="text-align: center;display: block;margin: 10px;")
+					//		a(href="mailto:" , style="cursor:pointer")!= "Gnagna Konate"
+					//div(class="myteammember")
+					//	span(class="fa fa-vcard myteamcard" style="color:#95794d")
+					//	span(style="text-align: center;display: block;margin: 10px;")
+					//		a(href="mailto:" , style="cursor:pointer")!= "Gnagna Konate"
 
 			div(id="createDept", style="display:none", class="setlab")
 				h3(style="text-align: center;")!= 'Create a new Department.'
@@ -303,7 +303,7 @@ block content
 						var userpan2 = document.createElement("span");
 						var usera = document.createElement("a");
 						userdiv.setAttribute('class',"myteammember");
-						userpan.setAttribute('class',"fa fa-vcard myteamcard");
+						userpan.setAttribute('class',"fa fa-user-circle-o myteamcard");
 						if(users0[p].admin == 1){
 							userpan.setAttribute('style',"color:#95794d");
 						} else {
