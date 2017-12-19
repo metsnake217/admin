@@ -15,6 +15,9 @@
 .myteamcard{
   font-size: 80pt !important;
 }
+#labdetail{
+  text-align:center;
+}
 .myteammember{
   width:30%;
   margin-right:5px;
