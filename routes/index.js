@@ -746,14 +746,14 @@ Promise.all(data).then(function(data0){
 	     		vennusers.push(data0)
 	 });
 	     	    
-    });
-
-	 		}).catch(() => console.log('Failed'))
+    }).catch(() => console.log('Failed'))
             .then(() => {console.log('Always run this')
 	 			console.log("data vennusers is: " +  JSON.stringify(vennusers));
 res.render('departments', {vennuser:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 
         });
+
+	 		})
 			//res.render('departments', {admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
