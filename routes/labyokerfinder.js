@@ -1139,7 +1139,7 @@ console.log("userdata: " + this.lab + " - " + users0.email + " - " + users0.name
 			admins.push(deptlabadmins);
 			users.push(userslabs);
 
-			console.log("users: " + JSON.stringify(users));
+			console.log("users: " + users);
 
 			vennportion.departments = depts;
 			vennportion.labs = labs;
@@ -1149,6 +1149,7 @@ console.log("userdata: " + this.lab + " - " + users0.email + " - " + users0.name
 			vennportion.users = users;
 
 			console.log("vennportion: " + JSON.stringify(vennportion));
+			console.log("vennportion raw: " + vennportion);
 
 			resultsLogin.push(result.rows);
 			console.log("get departments: " + resultsLogin[0].length);
