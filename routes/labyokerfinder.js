@@ -1120,6 +1120,7 @@ console.log("userdata: " + this.lab + " - " + users0.email + " - " + users0.name
 					users.push(userslabs);
 					console.log("labs: " + JSON.stringify(labs));
 					console.log("venns: " + JSON.stringify(venns));
+					console.log("users: " + JSON.stringify(users));
 					deptlabs = [];
 					vennlabs = [];
 					disabledlabs = [];
