@@ -24,6 +24,13 @@ block content
 		P!="You can create a new department and lab. As well as set some useful settings for labs."
 
 		div(style="width: 100%;margin-bottom: 40px;margin-top: 40px;")
+			div(class="editstart", style="")
+				select(name="createSelect" type="text" id="createSelect" class="form-control" style="" placeholder="Create...")
+					option(value="createNone" selected=(checkedstrAll===true ? "selected" : undefined) style="font-weight:bold")="Start to ..."
+					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Create Department"
+					option(value="createLab" selected=(checkedstrLab===true ? "selected" : undefined))="Create Lab"
+					option(value="vennsettings" selected=(checkedstrVenn===true ? "selected" : undefined))="Set Lab Settings"
+					option(value="editLab" selected=(checkedstrEditLab===true ? "selected" : undefined))="Transfer Lab"
 			- if(vennsettings != undefined)
 				div
 					div(class="deptlist" style="")
@@ -66,13 +73,6 @@ block content
 			- if(section !=null && section.length>0 && section == "all")
 				- checkedstrAll = true
 			//form(action="createSelect", method="post")
-			div(class="editstart", style="")
-				select(name="createSelect" type="text" id="createSelect" class="form-control" style="" placeholder="Create...")
-					option(value="createNone" selected=(checkedstrAll===true ? "selected" : undefined) style="font-weight:bold")="Start to ..."
-					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Create Department"
-					option(value="createLab" selected=(checkedstrLab===true ? "selected" : undefined))="Create Lab"
-					option(value="vennsettings" selected=(checkedstrVenn===true ? "selected" : undefined))="Set Lab Settings"
-					option(value="editLab" selected=(checkedstrEditLab===true ? "selected" : undefined))="Transfer Lab"
 				//div(style="top: -25px; position: relative; float: right; margin-right: 10px;")
 				//	div(class="arrow-up", style="margin-bottom: 5px;")
 				//	div(class="arrow-down")
