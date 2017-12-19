@@ -17,11 +17,12 @@
 }
 .myteammember{
   width:30%;
-  margin-right:10px;
+  margin-right:5px;
   word-wrap:break-word;
   text-align:center;
   margin-top: 15px;
-  float:left;
+  /*float:left;*/
+  display: inline-block;
 }
 #createDept, #createLab, #editLab, #vennSettings, #labdetail{
   float: left; width: 100%;
