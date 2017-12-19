@@ -42,6 +42,10 @@ block content
 										option(value=labs0[prop2] pos=p department=department deptpos=prop style="font-weight:bold")!= labs0[prop2]
 										- p += 1
 
+						- for(var prop in orphandepts)
+							- var department = orphandepts[prop].departmentname
+							select(name="orphandept" type="text" id="orphandept" style="/*background-color: rgb(61, 157, 203);*/ margin-right: 15px;" class="deps")!= department
+
 
 			- var venn = vennsettings
 			- var checkedstrDept = false;

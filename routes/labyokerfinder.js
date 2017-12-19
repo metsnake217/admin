@@ -1019,10 +1019,19 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 	var resultsLogin = [];
 	var query = client.query("SELECT * from departments");
 	var labadmins = [];
+	var orphandepts = [];
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
 	query.on("end", function(result) {
+
+		var query1 = client.query("select * from departments where departmentname not in (select department from labs)");
+		query1.on("row", function(row, result1) {
+			result1.addRow(row);
+			orphandepts = result1.rows; 
+		});
+		query2.on("end", function(result2) {
+
 
 		var query2 = client.query("SELECT a.email from vm2016_users a where (a.admin = 1 or a.admin = 2) and a.email not in (select admin from labs)");
 		query2.on("row", function(row, result2) {
@@ -1172,14 +1181,17 @@ console.log("userdata: " + this.lab + " - " + users0.email + " - " + users0.name
 			resultsLogin.push(getlabs);
 			resultsLogin.push(labadmins);
 			resultsLogin.push(getadmins);
+			resultsLogin.push(orphandepts);
 			//resultsLogin.push(getadmins);
 			console.log("getadmins: " + JSON.stringify(getadmins));
 			console.log("vennportion: " + JSON.stringify(vennportion));
 			console.log("getlabs: " + JSON.stringify(getlabs));
+			console.log("orphandepts: " + JSON.stringify(orphandepts));
 			callback(null, resultsLogin);
 			});
 		});
 	});
+});
 };
 
 LabYokeLab.prototype.createlab = function(callback) {
