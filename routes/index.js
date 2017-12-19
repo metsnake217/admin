@@ -722,6 +722,7 @@ module.exports = function(router) {
 				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
 				console.log("Venn Settings users length: " + user0.length);
 				for(var prop in user0){
+					if(user0[prop] != null && !user0[prop].equals("")){
 					user0[prop].then(data=>{
 					vennusers.push(data);
 				
@@ -740,6 +741,7 @@ module.exports = function(router) {
 			    	console.log("i is: " + i);
 			    	i++;
 				    });
+				}
 				}
 			}
 
