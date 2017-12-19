@@ -3893,6 +3893,7 @@ margin-top:0px;
 }
 .deps{
   width: 30%;
+  height: 90px;
 }
 .deptlist{
   float: left;text-align: center;width:100%;
@@ -4454,8 +4455,8 @@ span.num.greatherthanninetynine {
   font-size: 11pt;
 }
 .myteammember{
-  width:50%;
-  margin-right:0px;
+    width: 32%;
+    margin-right: 5px;
 }
 .restrictcolumns{
     width: 100% !important;
