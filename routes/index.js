@@ -716,12 +716,13 @@ module.exports = function(router) {
 		labYokeGlobal.finddepartments(function(error, results) {
 			var users = results[2].users;
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
-			/*for(var prop0 in users){
+			for(var prop0 in users){
 				var user0 = users[prop0];
 				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
 				console.log("Venn Settings users length: " + user0.length);
-				for(var prop in user0){
-					user0[prop].then(data=>{
+				//for(var prop in user0){
+					Promise.all(user0).then(function(data0){
+					//user0[prop].then(data=>{
 					vennusers.push(data);
 			        //console.log("data is: " + prop + " - " +  JSON.stringify(data));
 			        if(prop == (user0.length - 1)){
@@ -732,19 +733,16 @@ module.exports = function(router) {
 				        //handle error case here when your promise fails
 				        console.log("error from promise: " +e)
 				    });
-				}
-			}*/
+				//}
+			}
+/*
 			Promise.all(users).then(function(dataArr){
-	        	//vennusers.push(data);
-	        	//console.log("vennusers is:  " +  JSON.stringify(vennusers));
 
  dataArr.forEach(function(data) {
 
 Promise.all(data).then(function(data0){
-	     		//console.log("data is: " +  JSON.parse(data));
 	     		console.log("data raw is: " +  JSON.stringify(data0));
 	     		vennusers.push(data0);
-	     		//return vennusers;
 	 });
 	     	    
     });
@@ -755,6 +753,7 @@ Promise.all(data).then(function(data0){
 res.render('departments', {vennuser:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 
         });
+*/
 	 		//.catch((err) => console.log('Failed'))
 
 			//res.render('departments', {admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
