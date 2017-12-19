@@ -715,7 +715,7 @@ module.exports = function(router) {
 		labYokeGlobal.finddepartments(function(error, results) {
 			console.log("Venn Settings:: " + results[2]);
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
-			results[2].users.then(data=>{
+			results[2].users[0].then(data=>{
 	        console.log("data is: " + JSON.stringify(data));
 	        res.render('departments', {admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 
