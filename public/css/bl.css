@@ -54,6 +54,7 @@
     cursor: pointer;
     margin-bottom: 15px;
     border:none;
+    border-radius: 50px 20px !important;
 }
 .depsorph{
   padding-right: 15px;
@@ -73,6 +74,7 @@
     margin-bottom: 15px;
     border:none;
       background-color: #ad9876; 
+      border-radius: 20px 50px !important;
       /*padding: 4%; margin-left: 20px; margin-right: 0px; float: left;*/
 }
 #createSelect{
