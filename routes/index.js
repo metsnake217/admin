@@ -716,35 +716,31 @@ module.exports = function(router) {
 		labYokeGlobal.finddepartments(function(error, results) {
 			var users = results[2].users;
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
-			console.log("Venn Settings users users.length: " + users.length);
-	
-
-
-			for(var prop0 in users){
+			/*for(var prop0 in users){
 				var user0 = users[prop0];
-				//console.log("Venn Settings users raw: " + prop0 + " - " + user0);
+				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
 				console.log("Venn Settings users length: " + user0.length);
-
 				for(var prop in user0){
-					//user0[prop].then(data=>{
-					//vennusers.push(data);
-					console.log("Venn Settings users prop0: " + prop0);
-					console.log("Venn Settings users prop: " + prop);
+					user0[prop].then(data=>{
+					vennusers.push(data);
 			        //console.log("data is: " + prop + " - " +  JSON.stringify(data));
-			        Promise.all(user0[prop]).then(function(data){
-			        	vennusers.push(data);
-			        	console.log("vennusers is: " + prop + " - " +  JSON.stringify(vennusers));
-			     		console.log("data is: " + prop + " - " +  JSON.stringify(data));
-			     		console.log("data raw is: " + prop + " - " +  data);
-			     	      	res.render('departments', {vennuser:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
-			 });
-				    //}).catch(e=>{
+			        if(prop == (user0.length - 1)){
+			        	    console.log("vennusers is: " + prop + " - " +  JSON.stringify(vennusers));
+			        	res.render('departments', {vennuser:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			    	}
+				    }).catch(e=>{
 				        //handle error case here when your promise fails
-				     //   console.log("error from promise: " +e)
-				    //});
+				        console.log("error from promise: " +e)
+				    });
 				}
-			}
-			
+			}*/
+			Promise.all(users).then(function(data){
+	        	//vennusers.push(data);
+	        	console.log("vennusers is: " + prop + " - " +  JSON.stringify(vennusers));
+	     		console.log("data is: " + prop + " - " +  JSON.stringify(data));
+	     		console.log("data raw is: " + prop + " - " +  data);
+	     	    res.render('departments', {vennuser:data, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+	 		});
 			//res.render('departments', {admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
