@@ -726,7 +726,7 @@ module.exports = function(router) {
 	        console.log("data is: " + prop + " - " +  JSON.stringify(data));
 	        if(prop == (user0.length - 1)){
 	        	    console.log("vennusers is: " + prop + " - " +  JSON.stringify(vennusers));
-	        	res.render('departments', {vennusers:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+	        	res.render('departments', {vennuser:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 	    	}
 		    }).catch(e=>{
 		        //handle error case here when your promise fails
