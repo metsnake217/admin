@@ -299,10 +299,17 @@ block content
 					var usersdiv = document.getElementById("labmembers");
 					var userslength = users0.length;
 					var size = 100;
-					var check = size/userslength;
-					if(check > 30){
-						size = check;
+					//var check = size/userslength;
+					var winwi = window.innerWidth/150;
+					if(winwin >= 2){
+						size = size/winwi;
 					}
+					
+					console.log("window width: " + winwi);
+					console.log("size: " + size);
+					//if(size > 30){
+					//	size = check;
+					//}
 					for(var p in users0){
 						var userdiv = document.createElement("div");
 						var userpan = document.createElement("span");
