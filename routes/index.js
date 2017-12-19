@@ -720,12 +720,12 @@ module.exports = function(router) {
 				var user0 = users[prop0];
 				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
 				console.log("Venn Settings users length: " + user0.length);
-				//for(var prop in user0){
-					Promise.all(user0).then(function(data0){
+				for(var prop in user0){
+					Promise.all(user0[prop]).then(function(data0){
 					//user0[prop].then(data=>{
 					vennusers.push(data0);
 			        //console.log("data is: " + prop + " - " +  JSON.stringify(data));
-			        if(prop0 == (user.length - 1)){
+			        if(prop0 == (users.length - 1)){
 			        	    console.log("vennusers is: " + prop0 + " - " +  JSON.stringify(vennusers));
 			        	res.render('departments', {vennuser:vennusers, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			    	}
@@ -733,7 +733,7 @@ module.exports = function(router) {
 				        //handle error case here when your promise fails
 				        console.log("error from promise: " +e)
 				    });
-				//}
+				}
 			}
 /*
 			Promise.all(users).then(function(dataArr){
