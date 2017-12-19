@@ -29,7 +29,6 @@ block content
 					div(class="deptlist" style="")
 						- var test = JSON.parse(JSON.stringify(vennsettings).replace(/&quot;/g, '"'))
 						- var depts0 = test.departments
-						- var p = 0
 						- for(var prop in depts0)
 							- var department = depts0[prop]
 							- var selname = "dept" + prop
@@ -39,8 +38,7 @@ block content
 								- if(index > -1)
 									- var labs0 = test.labs[index];	
 									- for(var prop2 in labs0)
-										option(value=labs0[prop2] pos=p department=department deptpos=prop style="font-weight:bold")!= labs0[prop2]
-										- p = p+1
+										option(value=labs0[prop2] pos=prop2 department=department deptpos=prop style="font-weight:bold")!= labs0[prop2]
 
 
 			- var venn = vennsettings
@@ -280,7 +278,6 @@ block content
 					console.log("show labdetail");
 
 					var deptpos = $('option:selected', this).attr('deptpos');
-					deptpos = 0;
 					var labpos = $('option:selected', this).attr('pos');
 					//deptpos = deptpos.replace("dept","");
 					//console.log(#{JSON.stringify(vennuser)});
@@ -290,6 +287,7 @@ block content
 					console.log("labpos: " + users[labpos]);
 					console.log("labpos: " + labpos);
 					console.log("deptpos: " + deptpos);
+					console.log("users length: " + users.length);
 					console.log("users0length: " + users0.length);
 					console.log("user: " + users0[labpos].id)
 
