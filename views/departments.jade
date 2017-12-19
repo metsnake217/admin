@@ -280,7 +280,7 @@ block content
 					var deptpos = $('option:selected', this).attr('deptpos');
 					var labpos = $('option:selected', this).attr('pos');
 					//deptpos = deptpos.replace("dept","");
-					console.log(#{JSON.stringify(vennuser)});
+					//console.log(#{JSON.stringify(vennuser)});
 					var users = JSON.parse('#{JSON.stringify(vennuser)}'.replace(/&quot;/g, '"'));
 					var users0 = users[deptpos];
 					console.log("labpos: " + labpos);
