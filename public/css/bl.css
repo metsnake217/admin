@@ -53,6 +53,7 @@
     font-size: 14pt;
     cursor: pointer;
     margin-bottom: 15px;
+    border:none;
 }
 .depsorph{
     text-transform: none;
