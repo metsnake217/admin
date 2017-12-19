@@ -54,6 +54,24 @@
     cursor: pointer;
     margin-bottom: 15px;
 }
+.depsorph{
+    text-transform: none;
+    /* padding-right: 15px; */
+    border-color: #3d9dcb;
+    border-radius: 500px !important;
+    height: 115px;
+    width: 46%;
+    margin: 0 auto;
+    text-align: center;
+    text-align-last: center;
+    text-align: -webkit-center;
+    background-color: #3378b7;
+    color: white;
+    font-size: 14pt;
+    cursor: pointer;
+    margin-bottom: 15px;
+      background-color: #ad9876; padding: 4%; margin-left: 20px; margin-right: 0px; float: left;
+}
 #createSelect{
   border-color:#3d9dcb;border-radius: 500px !important;
   height: 215px; width: 215px; margin: 0 auto;
