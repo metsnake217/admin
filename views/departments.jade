@@ -284,8 +284,8 @@ block content
 					//deptpos = deptpos.replace("dept","");
 					//console.log(#{JSON.stringify(vennuser)});
 					var users = JSON.parse('#{JSON.stringify(vennuser)}'.replace(/&quot;/g, '"'));
-					var users0 = users[deptpos];
-					//var users0 = users[labpos];
+					//var users0 = users[deptpos];
+					var users0 = users[labpos];
 					console.log("labpos: " + users[labpos]);
 					console.log("labpos: " + labpos);
 					console.log("deptpos: " + deptpos);
