@@ -714,10 +714,11 @@ module.exports = function(router) {
 		var labYokeGlobal = new LabYokeGlobal();
 		labYokeGlobal.finddepartments(function(error, results) {
 			var users = results[2].users;
-			console.log("Venn Settings users raw: " + users[0]);
-			console.log("Venn Settings users length: " + users.length);
+			var user0 = users[users.length - 1];
+			console.log("Venn Settings users raw: " + user0);
+			console.log("Venn Settings users length: " + user0.length);
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
-			users[users.length - 1].then(data=>{
+			user0[0].then(data=>{
 	        console.log("data is: " + JSON.stringify(data));
 	        res.render('departments', {admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 
