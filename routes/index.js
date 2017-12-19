@@ -740,9 +740,10 @@ module.exports = function(router) {
 
  dataArr.forEach(function(data) {
 
-
+Promise.all(data).then(function(data0){
 	     		//console.log("data is: " +  JSON.parse(data));
-	     		console.log("data raw is: " +  data);
+	     		console.log("data raw is: " +  data0);
+	 });
 	     	    
     });
 res.render('departments', {vennuser:data, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
