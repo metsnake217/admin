@@ -286,6 +286,8 @@ block content
 					console.log("deptpos: " + deptpos);
 					console.log("user: " + users0[labpos].id)
 
+					$('#labdetail').show();
+					
 					var usersdiv = document.getElementById("usersmembers");
 					var userdiv = document.createElement("div");
 					var userpan = document.createElement("span");
@@ -307,7 +309,7 @@ block content
 					userdiv.appendChild(userpan2);
 					usersdiv.appendChild(userdiv);
 
-						$('#labdetail').show();
+						
 						$(this).css('background-color', '#3d9dcb');
 						$(window).scrollTop($('#labdetail').offset().top - 100).scrollLeft($('#labdetail').offset().left); 
 					} else {
