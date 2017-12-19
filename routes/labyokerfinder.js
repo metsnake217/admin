@@ -1055,6 +1055,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 			var disabledlabs = [];
 			for(var prop in venndata){
 				var lab = venndata[prop].labname;
+				console.log("lab here: " + lab);
 				
 				var labyokerLab = new LabyokerLab(lab);
 
