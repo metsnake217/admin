@@ -1073,6 +1073,13 @@ var userdata = new Promise(
 		});
     }
 );
+
+var emptyuser = new Promise(
+    function (resolve, reject) {
+			resolve("");
+    }
+);
+
 console.log("userdata: " + userdata);
 
 		/*userdata = new Promise(labyokerLab.getLabUsers(function(error, users0) {
@@ -1116,7 +1123,6 @@ console.log("userdata: " + this.lab + " - " + users0.email + " - " + users0.name
 					deptlabadmins = [];
 					userslabs = [];
 				} else {
-					var emptyuser = [""];
 					users.push(emptyuser);
 				}
 				deptlabs.push(lab);
