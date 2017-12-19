@@ -1122,9 +1122,9 @@ console.log("userdata: " + this.lab + " - " + users0.email + " - " + users0.name
 					disabledlabs = [];
 					deptlabadmins = [];
 					userslabs = [];
-				} else {
-					users.push(emptyuser);
-				}
+				} //else {
+					//users.push(emptyuser);
+				//}
 				deptlabs.push(lab);
 				userslabs.push(userdata);
 				deptlabadmins.push(labadmin);
