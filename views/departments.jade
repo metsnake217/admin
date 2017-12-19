@@ -38,7 +38,7 @@ block content
 								- if(index > -1)
 									- var labs0 = test.labs[index];	
 									- for(var prop2 in labs0)
-										option(value=labs0[prop2] pos=prop2 department=department deptpos=selname style="font-weight:bold")!= labs0[prop2]
+										option(value=labs0[prop2] pos=prop2 department=department deptpos=prop style="font-weight:bold")!= labs0[prop2]
 
 
 			- var venn = vennsettings
@@ -279,7 +279,7 @@ block content
 
 					var deptpos = $('option:selected', this).attr('deptpos');
 					var labpos = $('option:selected', this).attr('pos');
-					deptpos = deptpos.replace("dept","");
+					//deptpos = deptpos.replace("dept","");
 					var users = JSON.parse('#{JSON.stringify(vennusers)}'.replace(/&quot;/g, '"'));
 					var users0 = users[deptpos];
 					console.log("labpos: " + labpos);
