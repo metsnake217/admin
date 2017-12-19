@@ -734,12 +734,19 @@ module.exports = function(router) {
 				    });
 				}
 			}*/
-			Promise.each(users).then(function(data){
+			Promise.all(users).then(function(dataArr){
 	        	//vennusers.push(data);
 	        	//console.log("vennusers is:  " +  JSON.stringify(vennusers));
-	     		console.log("data is: " +  JSON.stringify(data));
+
+ dataArr.forEach(function(data) {
+
+
+	     		console.log("data is: " +  JSON.parse(data));
 	     		console.log("data raw is: " +  data);
-	     	    res.render('departments', {vennuser:data, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+	     	    
+    });
+res.render('departments', {vennuser:data, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+
 	 		});
 			//res.render('departments', {admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
