@@ -746,7 +746,7 @@ Promise.all(data).then(function(data0){
 	     		vennusers.push(data0)
 	 });
 	     	    
-    }).catch(() => console.log('Failed'))
+    }).catch((err) => console.log('Failed'))
 
 	 		}).then(() => {
       	console.log('Always run this');
