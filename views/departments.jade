@@ -23,8 +23,8 @@ block content
 		h1= 'Labs & Departments.'
 		P!="You can create a new department and lab. As well as set some useful settings for labs."
 		- var users0 = vennusers[0]
-		- for(var prop in users0)
-			span!= users0[prop].id
+		//- for(var prop in users0)
+		span!= JSON.parse(JSON.stringify(vennusers)
 
 		div(style="width: 100%;margin-bottom: 40px;margin-top: 40px;")
 			- if(vennsettings != undefined)
