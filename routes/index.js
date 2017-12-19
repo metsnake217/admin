@@ -714,18 +714,23 @@ module.exports = function(router) {
 		var labYokeGlobal = new LabYokeGlobal();
 		labYokeGlobal.finddepartments(function(error, results) {
 			var users = results[2].users;
-			var user0 = users[users.length - 1];
-			console.log("Venn Settings users raw: " + user0);
-			console.log("Venn Settings users length: " + user0.length);
 			console.log("Venn Settings: " + JSON.stringify(results[2]));
-			user0[0].then(data=>{
-	        console.log("data is: " + JSON.stringify(data));
-	        res.render('departments', {admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
-
+		for(var prop0 in user){
+			var user0 = users[prop0];
+			console.log("Venn Settings users raw: " + prop0 + " - " + user0);
+			console.log("Venn Settings users length: " + user0.length);
+			for(var prop in user0){
+			user0[prop].then(data=>{
+	        console.log("data is: " + prop + " - " +  JSON.stringify(data));
+	        if(prop == (user0.length - 1)){
+	        	res.render('departments', {vennusers:data, admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+	    	}
 		    }).catch(e=>{
 		        //handle error case here when your promise fails
 		        console.log(e)
-		    })
+		    });
+			}
+		}
 			//res.render('departments', {admins:results[5],labadmins: results[4], labs: results[3], vennsettings: results[2], users: results[1], section:"all", depts: results[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			req.session.messages = null;
 		});
