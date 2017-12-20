@@ -12,6 +12,7 @@
 /*Start users layout*/
 table.dataTable tbody tr {
     /*background-color: #f0ece7;*/
+        background: none;
 }
 tr {
     position:relative;
