@@ -66,7 +66,7 @@ block content
                     tr(class= isadminclass + " " + isdisabled)
                       td #{ob[prop].id}
                       td(class="wrapped desktabonly" data-title="Name") #{ob[prop].name}
-                      td(class="desktabonly" data-title="Surame") #{ob[prop].surname}
+                      td(class="desktabonly" data-title="Surname") #{ob[prop].surname}
                       td(class="wrapped" data-title="Lab")
                         form(action="/transferusertolab" method="post" id="transform")
                           select(name="labnameedit" type="text" id="labnameedit" class="form-control labnameedit" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Lab")
