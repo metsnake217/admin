@@ -93,10 +93,9 @@ block content
                       td(class="tduser" data-title="Admin")
                         - if(isadmin != 2)
                             form(action="/isadmin" method="post")
-
                               div(style="" class="checkboxThree1")
-                                input(style="position:absolute;left: -9999px;" type="checkbox" id=isadmininput name="isadmin" value="isadmin" class="isadmin" checked=(checkedstradmin===true ? "checked" : undefined))
-                                label(for=isadmininput class="labelcheck1 shadow")
+                                input(style="position:absolute;left: -9999px;" type="checkbox" id="isadmin"+isadmininput name="isadmin" value="isadmin" class="isadmin" checked=(checkedstradmin===true ? "checked" : undefined))
+                                label(for="isadmin"+isadmininput class="labelcheck1 shadow")
                               input(type="hidden" name="id" value=ob[prop].id)
                               input(type="hidden" name="name" value=ob[prop].name)
                               input(type="hidden" name="surname" value=ob[prop].surname)
@@ -107,14 +106,14 @@ block content
                       td(data-title="Disable" class="tduser")
                         form(action="/disable" method="post")
                           div(style="" class="checkboxThree1")
-                            input(style="position:absolute;left: -9999px;" id=disableininput type="checkbox" name="cancel" value="cancel" class="cancel" checked=(checkedstr===true ? "checked" : undefined))
-                            label(for=disableininput class="labelcheck1 shadow")
+                            input(style="position:absolute;left: -9999px;" id="cancel"+disableinput type="checkbox" name="cancel" value="cancel" class="cancel" checked=(checkedstr===true ? "checked" : undefined))
+                            label(for="cancel"+disableinput class="labelcheck1 shadow")
                           input(type="hidden" name="id" value=ob[prop].id)
                           input(type="hidden" name="name" value=ob[prop].name)
                           input(type="hidden" name="surname" value=ob[prop].surname)
                           input(type="hidden" name="email" value=ob[prop].email)
                       - isadmininput = isadmininput + 1
-                      - disableininput = disableininput + 1
+                      - disableinput = disableininput + 1
               script.
                 $(document).ready(function() {
                   $('#rankTblload').DataTable();
