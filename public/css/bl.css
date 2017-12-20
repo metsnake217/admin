@@ -21,16 +21,16 @@ td:first-of-type{
 }  
 
  tr:before {
-    content: "\f2be";   /* this is your text. You can also use UTF-8 character codes as I do here */
+    content: "\f2be";
+    font-size: 110pt;
     font-family: FontAwesome;
-    /*left: -1px;*/
-    text-align:center;
-    position:absolute;
-    top:5px;
-    font-size:30pt;
+    text-align: center;
+    position: absolute;
+    top: -29px;
+    right: 0px;
     margin-top:0 auto;
     display:inline-block;
-    color: #3d9dcb;
+    color: #3d9dcbb5;
  }
  .tdadmin{
     background-color: #886b3c61 !important;
@@ -39,10 +39,10 @@ td:first-of-type{
     background-color: #2572b67a !important;
  }
  .tdadmin:before {
-    color: #896c3b;
+    color: #896c3bb5;
  }
  .tdsuperadmin:before {
-    color: #2473b6;
+    color: #2473b6b5;
  }
 .card-list-table {
   table-layout: fixed;
