@@ -1271,6 +1271,10 @@ margin-bottom: 50px;width:30%;float:right;
     font-size: 184pt;
     left: -70px;
   }
+  .card-list-table tbody tr {
+    margin: 25px 0 0px 0;
+    height:240px;
+  }
 /*      .card-list-table tbody tr {
         width: 98%;
         height: 100%;
@@ -1292,7 +1296,7 @@ margin-bottom: 50px;width:30%;float:right;
 }
 @media (max-width: 850px) {
     .card-list-table tbody tr {
-        width: 48%;
+        width: 100%;
     }
 
     #ordered{
