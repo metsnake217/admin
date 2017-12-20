@@ -72,6 +72,7 @@ td:first-of-type{
     height: 280px;
     border-radius: 8px;
 }
+
 .card-list-table tbody td {
   border: 0;
   display: block;
@@ -1248,6 +1249,10 @@ margin-bottom: 50px;width:30%;float:right;
 }
 
 @media (max-width: 992px) {
+      .card-list-table tbody tr {
+        width: 98%;
+        height: 100%;
+    }
     #ordered{
         width: 80%;
         font-size: 14pt;
