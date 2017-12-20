@@ -58,10 +58,11 @@ td.tduser:first-of-type{
     background-color: #2572b67a !important;
  }
  .tdadmin:before {
-    color: #d2c6b5;
+    color: #d2c6b5 !important;
  }
  .tdsuperadmin:before {
-    color: #99bcdd;;
+    color: #99bcdd !important;
+    content: "\f21b" !important;
  }
 .card-list-table {
   table-layout: fixed;
