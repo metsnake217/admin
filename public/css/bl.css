@@ -10,6 +10,9 @@
 }
 
 /*Start users layout*/
+table.dataTable tbody tr {
+    background-color: #f0ece7;
+}
 tr {
     position:relative;
 }  
@@ -28,6 +31,12 @@ td:first-of-type{
     margin-top:0 auto;
     display:inline-block;
     color: #3d9dcb;
+ }
+ .tdadmin{
+    background-color: #886b3c61 !important;
+ }
+ .tdsuperadmin{
+    background-color: #2572b67a !important;
  }
  .tdadmin:before {
     color: #896c3b;
@@ -208,8 +217,11 @@ td:first-of-type{
     padding-bottom: 10px !important;
     margin-top: 25px;
 }
-.odd{
+/*.odd{
   background-color: #d6c8b7 !important;
+}*/
+.odd {
+    background-color: rgba(222, 213, 201, 0.45);
 }
 #ios-lightdis h1 {
     padding-top: 0px;
@@ -2994,11 +3006,13 @@ table.dataTable thead .sorting_desc {
     padding-right: 20px;
 }
 table.dataTable tbody tr.odd{
-    rgba(255, 255, 255, 0.14) !important;
+    /*rgba(255, 255, 255, 0.14) !important;*/
+    background-color: rgba(222, 213, 201, 0.45) !important;
 }
 table.dataTable tbody tr.even{
     /*background-color: rgba(255, 255, 255, 0.14) !important;*/
-    background-color: rgba(222, 213, 201, 0.45) !important; /*rgb(222, 213, 201)*/
+    /*background-color: rgba(222, 213, 201, 0.45) !important;*/
+    background-color: rgba(222, 213, 201, 0.45) !important;
 }
 table.dataTable tbody tr.searchagents td{
     font-size: 12px;
