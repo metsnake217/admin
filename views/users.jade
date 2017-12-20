@@ -52,6 +52,8 @@ block content
                     - if(isadmin == 1)
                       - isadminclass = "tdadmin"
                       - checkedstradmin = true
+                    - if(isadmin == 2)
+                      - isadminclass = "tdsuperadmin"
                     tr(class= isadminclass + " " + isdisabled)
                       td #{ob[prop].id}
                       td(class="wrapped desktabonly" data-title="Name") #{ob[prop].name}

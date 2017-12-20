@@ -32,6 +32,9 @@ td:first-of-type{
  .tdadmin:before {
     color: #896c3b;
  }
+ .tdsuperadmin:before {
+    color: #2473b6;
+ }
 .card-list-table {
   table-layout: fixed;
   background: transparent;
