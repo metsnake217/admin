@@ -27,14 +27,14 @@ block content
         div(id="results", class="shadow resultsshadow", style="padding: 25px !important;")
           div(id="ctl00_Div2" class="row rank")
             div(class="table-responsive")                
-              table(id="rankTblload" class="table rankTbl")
+              table(id="rankTblload" class="table rankTbl dt-responsive")
                 thead
                   tr(class="you info-best" style="font-weight: bold")
                     td= 'id '
-                    td(class="wrapped desktabonly")!= 'Name'
-                    td(class="desktabonly")= 'Surname'
+                    td(class="wrapped /*desktabonly*/")!= 'Name'
+                    td(class="/*desktabonly*/")= 'Surname'
                     td= 'Lab'
-                    td(class="desktabonly")= 'Email'
+                    td(class="/*desktabonly*/")= 'Email'
                     td= 'Admin'
                     td= 'Disable'
                 tbody
@@ -54,8 +54,8 @@ block content
                       - checkedstradmin = true
                     tr(class= isadminclass + " " + isdisabled)
                       td #{ob[prop].id}
-                      td(class="wrapped desktabonly") #{ob[prop].name}
-                      td(class="desktabonly") #{ob[prop].surname}
+                      td(class="wrapped /*desktabonly*/") #{ob[prop].name}
+                      td(class="/*desktabonly*/") #{ob[prop].surname}
                       td(class="wrapped")
                         form(action="/transferusertolab" method="post" id="transform")
                           select(name="labnameedit" type="text" id="labnameedit" class="form-control labnameedit" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Lab")
@@ -75,7 +75,7 @@ block content
                           div(style="top: -25px;position: relative;float: right;margin-right: 10px;")
                             div(class="arrow-up", style="margin-bottom: 5px;")
                             div(class="arrow-down")
-                      td(class="desktabonly") #{ob[prop].email}
+                      td(class="/*desktabonly*/") #{ob[prop].email}
                       td
                         - if(isadmin != 2)
                             form(action="/isadmin" method="post")
