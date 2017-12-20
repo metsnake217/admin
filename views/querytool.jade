@@ -3,7 +3,10 @@ extends layout
 block content
     div(class="container login2 marginbottom margintop container2 /*moveFromLeft*/")
         div
-            h1= 'Query.'
+            h1
+              span(class="fa fa-gear yokeColor animated bounce")
+              span!= ' Query '
+              span(class="fa fa-caret-right yokeColor animated flash")
             p(style="margin-bottom: 40px;")!="Start querying the database."
             - var remove = 0
             - searchText = "Looking for reagent..."

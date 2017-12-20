@@ -11,7 +11,10 @@ block content
   div(class="shade-light" id="shade-light")
   div(class="container login2 marginbottom margintop container2 /*moveFromLeft*/")
     div
-      h1= 'Users.'
+      h1
+        span(class="fa fa-street-view yokeColor animated bounce")
+        span!= ' Users '
+        span(class="fa fa-caret-right yokeColor animated flash")
       div(style="margin-bottom: 40px;")!="You can now <span class='yokeColor'>disable</span> or <span class='labColor'>upgrade</span> or transfer users from one lab to another per request. The user will receive a notification email."
         div(style="margin-left: 10px;")
           span(class="fa fa-user" style="font-size: 15pt;color: #f0ece7;")
