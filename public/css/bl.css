@@ -11,7 +11,7 @@
 
 /*Start users layout*/
 table.dataTable tbody tr {
-    background-color: #f0ece7;
+    /*background-color: #f0ece7;*/
 }
 tr {
     position:relative;
@@ -21,7 +21,7 @@ td:first-of-type{
 }  
 
  tr:before {
-    content: "\f007";
+    /*content: "\f007";
     font-size: 40pt;
     font-family: FontAwesome;
     text-align: center;
@@ -29,14 +29,23 @@ td:first-of-type{
     right: 0px;
     top: -60px;
     left: 5px;
+    display: inline-block;*/
+    content: "\f007";
+    font-size: 297pt;
+    font-family: FontAwesome;
+    text-align: center;
+    position: absolute;
+    right: 0px;
+    top: -171px;
+    top: -93px;
     display: inline-block;
     color: #f0ece7;
  }
 
- .tdadmin{
+ .tdadmins{
     background-color: #886b3c61 !important;
  }
- .tdsuperadmin{
+ .tdsuperadmins{
     background-color: #2572b67a !important;
  }
  .tdadmin:before {
@@ -1249,6 +1258,10 @@ margin-bottom: 50px;width:30%;float:right;
 }
 
 @media (max-width: 992px) {
+  tr:before{
+    font-size: 187pt;
+    left: -47px;
+  }
       .card-list-table tbody tr {
         width: 98%;
         height: 100%;
@@ -3011,11 +3024,11 @@ table.dataTable thead .sorting_desc {
     background-image: url(/images/sort_desc.png);
     padding-right: 20px;
 }
-table.dataTable tbody tr.odd{
+table.dataTable tbody tr.odds{
     /*rgba(255, 255, 255, 0.14) !important;*/
     background-color: rgba(222, 213, 201, 0.45);
 }
-table.dataTable tbody tr.even{
+table.dataTable tbody tr.evens{
     /*background-color: rgba(255, 255, 255, 0.14) !important;*/
     /*background-color: rgba(222, 213, 201, 0.45) !important;*/
     background-color: rgba(222, 213, 201, 0.45);
@@ -3023,29 +3036,29 @@ table.dataTable tbody tr.even{
 table.dataTable tbody tr.searchagents td{
     font-size: 12px;
 }
-table.dataTable tbody tr.searchagents.odd{
+table.dataTable tbody tr.searchagents.odds{
     background-color: rgba(41, 117, 180, 0.57);
     cursor: default !important;
     box-shadow: inset 1px 1px 20px 4px rgba(61, 157, 203, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
     /*background-color: rgba(138, 109, 59, 0.57) !important;*/
     /*rgba(255, 255, 255, 0.14) !important;*/
 }
-table.dataTable tbody tr.searchagents.even{
+table.dataTable tbody tr.searchagents.evens{
     /*background-color: rgba(255, 255, 255, 0.14) !important*/;
     background-color: rgba(61, 157, 203, 0.48) !important;
     cursor: default !important;
     box-shadow: inset 1px 1px 20px 4px rgba(61, 157, 203, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
-table.dataTable tbody tr.isnew.odd{
+table.dataTable tbody tr.isnew.odds{
     background-color: #a4d2e8 !important;
 }
-table.dataTable tbody tr.isnew.even{
+table.dataTable tbody tr.isnew.evens{
     background-color: #a4d2e8 !important;
 }
-table.dataTable tbody tr.yokeBackColor.odd{
+table.dataTable tbody tr.yokeBackColor.odds{
     background-color: rgba(138, 109, 59, 0.43) !important;
 }
-table.dataTable tbody tr.yokeBackColor.even{
+table.dataTable tbody tr.yokeBackColor.evens{
     background-color: rgba(138, 109, 59, 0.43) !important;
 }
 table.dataTable thead .sorting_asc {
