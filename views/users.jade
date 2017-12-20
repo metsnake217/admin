@@ -86,7 +86,7 @@ block content
                               input(type="hidden" name="email" value=ob[prop].email)
                               input(type="hidden" name="admin" value=ob[prop].admin)
                         - else
-                            span!= &nbsp;
+                            span!= "&nbsp;"
                       td(data-title="Disable")
                         form(action="/disable" method="post")
                           input(type="checkbox" name="cancel" value="cancel" class="cancel" checked=(checkedstr===true ? "checked" : undefined))
