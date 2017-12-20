@@ -66,11 +66,11 @@ block content
                       - checkedstradmin = true
                     - if(isadmin == 2)
                       - isadminclass = "tdsuperadmin"
-                    tr(class= isadminclass + " " + isdisabled)
-                      td #{ob[prop].id}
-                      td(class="wrapped desktabonly" data-title="Name") #{ob[prop].name}
-                      td(class="desktabonly" data-title="Surname") #{ob[prop].surname}
-                      td(class="wrapped" data-title="Lab")
+                    tr(class= isadminclass + " truser " + isdisabled)
+                      td(class="tduser") #{ob[prop].id}
+                      td(class="wrapped desktabonly tduser" data-title="Name") #{ob[prop].name}
+                      td(class="desktabonly tduser" data-title="Surname") #{ob[prop].surname}
+                      td(class="wrapped tduser" data-title="Lab")
                         form(action="/transferusertolab" method="post" id="transform")
                           select(name="labnameedit" type="text" id="labnameedit" class="form-control labnameedit" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Lab")
                             option(value"selectlabnameedit")="Select a Lab"
@@ -89,8 +89,8 @@ block content
                           div(style="top: -25px;position: relative;float: right;margin-right: 10px;")
                             div(class="arrow-up", style="margin-bottom: 5px;")
                             div(class="arrow-down")
-                      td(class="desktabonly" style="overflow-wrap: break-word;" data-title="Email") #{ob[prop].email}
-                      td(data-title="Admin")
+                      td(class="desktabonly tduser" style="overflow-wrap: break-word;" data-title="Email") #{ob[prop].email}
+                      td(class="tduser" data-title="Admin")
                         - if(isadmin != 2)
                             form(action="/isadmin" method="post")
                               input(type="checkbox" name="isadmin" value="isadmin" class="isadmin" checked=(checkedstradmin===true ? "checked" : undefined))
@@ -101,7 +101,7 @@ block content
                               input(type="hidden" name="admin" value=ob[prop].admin)
                         - else
                             span!= "&nbsp;"
-                      td(data-title="Disable")
+                      td(data-title="Disable" class="tduser")
                         form(action="/disable" method="post")
                           input(type="checkbox" name="cancel" value="cancel" class="cancel" checked=(checkedstr===true ? "checked" : undefined))
                           input(type="hidden" name="id" value=ob[prop].id)

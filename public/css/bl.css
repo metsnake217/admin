@@ -17,14 +17,14 @@ table.dataTable tbody tr {
     /*background-color: #f0ece7;*/
         background: none;
 }
-tr {
+tr.truser {
     position:relative;
 }  
-td:first-of-type{
+td.tduser:first-of-type{
   font-weight:bold;
 }  
 
- tr:before {
+ tr.truser:before {
     /*content: "\f007";
     font-size: 40pt;
     font-family: FontAwesome;
