@@ -12,7 +12,13 @@ block content
   div(class="container login2 marginbottom margintop container2 /*moveFromLeft*/")
     div
       h1= 'Users.'
-      p(style="margin-bottom: 40px;")!="You can now <span class='yokeColor'>disable</span> or <span class='labColor'>upgrade</span> or transfer users from one lab to another per request. The user will receive a notification email."
+      div(style="margin-bottom: 40px;")!="You can now <span class='yokeColor'>disable</span> or <span class='labColor'>upgrade</span> or transfer users from one lab to another per request. The user will receive a notification email."
+        div(style="margin-left: 10px;")
+          span(class="fa fa-user" style="font-size: 15pt;color: #f0ece7;")!= "Regular user"
+        div(style="margin-left: 10px;")
+          span(class="fa fa-user" style="font-size: 15pt;color: #d3c6b5;")!= "Administrator user"
+        div(style="margin-left: 10px;")
+          span(class="fa fa-user" style="font-size: 15pt;color: #99bdde;")!= "Super user"
       if users
         if erroruser == "error1"
             div(class="alert alert-danger fade in alert-dismissable")!= "This user has already been assigned to a lab. Please first select a new admin for the lab and try again."
