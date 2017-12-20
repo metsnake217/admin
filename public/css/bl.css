@@ -1271,10 +1271,11 @@ margin-bottom: 50px;width:30%;float:right;
     font-size: 184pt;
     left: -70px;
   }
-      .card-list-table tbody tr {
+/*      .card-list-table tbody tr {
         width: 98%;
         height: 100%;
     }
+*/
     #ordered{
         width: 80%;
         font-size: 14pt;
