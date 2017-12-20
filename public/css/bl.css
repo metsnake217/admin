@@ -1207,6 +1207,7 @@ margin-bottom: 50px;width:30%;float:right;
 .dataTables_filter label{
     top: 2px;
     position: relative;
+    font-weight: bold;
 }
 
 .dataTables_empty{
@@ -2380,6 +2381,7 @@ label{
   z-index: 9;
   cursor: pointer;
   -webkit-transition: all 0.25s linear;
+  font-weight: bold;
 }
 
 
