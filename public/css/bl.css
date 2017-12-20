@@ -3007,7 +3007,7 @@ table.dataTable thead .sorting_desc {
 }
 table.dataTable tbody tr.odd{
     /*rgba(255, 255, 255, 0.14) !important;*/
-    background-color: rgba(222, 213, 201, 0.45) !important;
+    background-color: rgba(222, 213, 201, 0.45);
 }
 table.dataTable tbody tr.even{
     /*background-color: rgba(255, 255, 255, 0.14) !important;*/
