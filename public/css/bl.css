@@ -1296,7 +1296,7 @@ margin-bottom: 50px;width:30%;float:right;
 }
 @media (max-width: 850px) {
     .card-list-table tbody tr {
-        width: 100%;
+        width: 50%;
     }
 
     #ordered{
@@ -4561,6 +4561,10 @@ span.num.greatherthanninetynine {
 
 
 @media (max-width: 580px){
+
+    .card-list-table tbody tr {
+        width: 100%;
+    }
 #pageloader{
     /*display:flex;*/
 }
