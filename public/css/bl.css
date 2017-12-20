@@ -12,7 +12,10 @@
 /*Start users layout*/
 tr {
     position:relative;
-}    
+}  
+td:first-of-type{
+  font-weight:bold;
+}  
 
  tr:before {
     content: "\f2be";   /* this is your text. You can also use UTF-8 character codes as I do here */
@@ -53,13 +56,13 @@ tr {
     position: relative;
     float: left;
     border-top: 1px solid #dfdfdf;
-    height: 320px;
+    height: 280px;
     border-radius: 8px;
 }
 .card-list-table tbody td {
   border: 0;
   display: block;
-  padding: 14px 0px 0px 36% !important;/*10px 0px 0px 30% !important;*/
+  padding: 14px 0px 0px 28% !important;/*10px 0px 0px 30% !important;*/
   position: relative;
   border-top: 0 !important;
 }

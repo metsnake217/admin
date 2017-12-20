@@ -75,7 +75,7 @@ block content
                           div(style="top: -25px;position: relative;float: right;margin-right: 10px;")
                             div(class="arrow-up", style="margin-bottom: 5px;")
                             div(class="arrow-down")
-                      td(class="desktabonly" data-title="Email") #{ob[prop].email}
+                      td(class="desktabonly" style="overflow-wrap: break-word;" data-title="Email") #{ob[prop].email}
                       td(data-title="Admin")
                         - if(isadmin != 2)
                             form(action="/isadmin" method="post")
