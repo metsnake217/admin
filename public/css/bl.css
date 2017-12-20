@@ -9,6 +9,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.lightyokecolor{
+    color: #ad9876;
+}
+
 /*Start users layout*/
 #labnameedit {
     width: 150px;
