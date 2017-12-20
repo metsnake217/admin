@@ -21,17 +21,18 @@ td:first-of-type{
 }  
 
  tr:before {
-    content: "\f2be";
-    font-size: 110pt;
+    content: "\f007";
+    font-size: 40pt;
     font-family: FontAwesome;
     text-align: center;
     position: absolute;
-    top: -29px;
     right: 0px;
-    margin-top:0 auto;
-    display:inline-block;
-    color: #3d9dcbb5;
+    top: -60px;
+    left: 5px;
+    display: inline-block;
+    color: #f0ece7;
  }
+
  .tdadmin{
     background-color: #886b3c61 !important;
  }
@@ -39,10 +40,10 @@ td:first-of-type{
     background-color: #2572b67a !important;
  }
  .tdadmin:before {
-    color: #896c3bb5;
+    color: #d2c6b5;
  }
  .tdsuperadmin:before {
-    color: #2473b6b5;
+    color: #99bcdd;;
  }
 .card-list-table {
   table-layout: fixed;
