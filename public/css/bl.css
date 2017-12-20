@@ -9,6 +9,98 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/*Start users layout*/
+tr {
+    position:relative;
+}    
+
+ tr:before {
+    content: "\f2be";   /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    /*left: -1px;*/
+    text-align:center;
+    position:absolute;
+    top:5px;
+    font-size:30pt;
+    margin-top:0 auto;
+    display:inline-block;
+    color: #3d9dcb;
+ }
+ .tdadmin:before {
+    color: #896c3b;
+ }
+.card-list-table {
+  table-layout: fixed;
+  background: transparent;
+  margin-bottom: 0;
+  width: 100%;
+}
+.card-list-table thead {
+  display: none;
+}
+.card-list-table tbody tr {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  border-bottom: 1px solid #dfdfdf;
+  cursor: pointer;
+  display: block;
+  padding: 15px 10px;
+  margin: 0 0 10px 0;
+
+    width: 19%;
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
+    float: left;
+    border-top: 1px solid #dfdfdf;
+    height: 320px;
+    border-radius: 8px;
+}
+.card-list-table tbody td {
+  border: 0;
+  display: block;
+  padding: 14px 0px 0px 36% !important;/*10px 0px 0px 30% !important;*/
+  position: relative;
+  border-top: 0 !important;
+}
+.card-list-table tbody td:first-of-type::after {
+  visibility: hidden;
+}
+.card-list-table tbody td:after {
+  content: '';
+  width: calc(100% - 30px);
+  display: block;
+  margin: 0 auto;
+  height: 1px;
+  /*background: #dfdfdf;*/
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -6px;
+}
+.card-list-table tbody td:before {
+  color: rgba(0, 0, 0, 0.35);
+  /*text-transform: uppercase;*/
+  /*font-size: .85em;*/
+  content: attr(data-title);
+  display: table-cell;
+  font-weight: 500;
+  height: 100%;
+  left: 10px;
+  margin: auto;
+  position: absolute;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 40%;
+}
+.card-list-table thead th {
+  text-transform: uppercase;
+  font-size: .85em;
+  color: rgba(0, 0, 0, 0.35);
+  letter-spacing: .5pt;
+}
+/*End users layout*/
+
 #createSelect:hover, .deps:hover{
       background: radial-gradient(circle at 100px 100px, #3d9dcb, #3377b7);
 }

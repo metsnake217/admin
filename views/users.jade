@@ -24,10 +24,10 @@ block content
             div(class="alert alert-success fade in alert-dismissable")!= "You have successfully transferred the user <b>" + transferuser + "</b> to another lab."
         if transfermess == "nochange"
             div(class="alert alert-warning fade in alert-dismissable")!= "No change has been applied for the user <b>" + transferuser + "</b>. You have selected the same lab."
-        div(id="results", class="shadow resultsshadow", style="padding: 25px !important;")
+        div(id="results", class="shadow resultsshadow", style="padding: 25px !important;padding: 25px !important; background: none; border: none; box-shadow: none;")
           div(id="ctl00_Div2" class="row rank")
             div(class="table-responsive")                
-              table(id="rankTblload" class="table rankTbl dt-responsive")
+              table(id="rankTblload" class="table rankTbl card-list-table")
                 thead
                   tr(class="you info-best" style="font-weight: bold")
                     td= 'id '
@@ -50,13 +50,13 @@ block content
                       - checkedstr = true
                     - var isadmin = parseInt(ob[prop].admin)
                     - if(isadmin == 1)
-                      - isadminclass = "labColor"
+                      - isadminclass = "tdadmin"
                       - checkedstradmin = true
                     tr(class= isadminclass + " " + isdisabled)
                       td #{ob[prop].id}
-                      td(class="wrapped desktabonly") #{ob[prop].name}
-                      td(class="desktabonly") #{ob[prop].surname}
-                      td(class="wrapped")
+                      td(class="wrapped desktabonly" data-title="Name") #{ob[prop].name}
+                      td(class="desktabonly" data-title="Surame") #{ob[prop].surname}
+                      td(class="wrapped" data-title="Lab")
                         form(action="/transferusertolab" method="post" id="transform")
                           select(name="labnameedit" type="text" id="labnameedit" class="form-control labnameedit" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Lab")
                             option(value"selectlabnameedit")="Select a Lab"
@@ -75,8 +75,8 @@ block content
                           div(style="top: -25px;position: relative;float: right;margin-right: 10px;")
                             div(class="arrow-up", style="margin-bottom: 5px;")
                             div(class="arrow-down")
-                      td(class="desktabonly") #{ob[prop].email}
-                      td
+                      td(class="desktabonly" data-title="Email") #{ob[prop].email}
+                      td(data-title="Admin")
                         - if(isadmin != 2)
                             form(action="/isadmin" method="post")
                               input(type="checkbox" name="isadmin" value="isadmin" class="isadmin" checked=(checkedstradmin===true ? "checked" : undefined))
@@ -85,7 +85,7 @@ block content
                               input(type="hidden" name="surname" value=ob[prop].surname)
                               input(type="hidden" name="email" value=ob[prop].email)
                               input(type="hidden" name="admin" value=ob[prop].admin)
-                      td
+                      td(data-title="Disable")
                         form(action="/disable" method="post")
                           input(type="checkbox" name="cancel" value="cancel" class="cancel" checked=(checkedstr===true ? "checked" : undefined))
                           input(type="hidden" name="id" value=ob[prop].id)
