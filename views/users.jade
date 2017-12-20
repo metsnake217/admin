@@ -35,6 +35,8 @@ block content
         if transfermess == "nochange"
             div(class="alert alert-warning fade in alert-dismissable")!= "No change has been applied for the user <b>" + transferuser + "</b>. You have selected the same lab."
         div(id="results", class="shadow resultsshadow", style="padding: 25px !important;padding: 25px !important; border: none;")
+        - var isadmininput = 0
+        - var disableinput = 0
           div(id="ctl00_Div2" class="row rank")
             div(class="table-responsive")                
               table(id="rankTblload" class="table rankTbl card-list-table")
@@ -91,7 +93,10 @@ block content
                       td(class="tduser" data-title="Admin")
                         - if(isadmin != 2)
                             form(action="/isadmin" method="post")
-                              input(type="checkbox" name="isadmin" value="isadmin" class="isadmin" checked=(checkedstradmin===true ? "checked" : undefined))
+
+                              div(style="" class="checkboxThree1")
+                                input(style="position:absolute;left: -9999px;" type="checkbox" id=isadmininput name="isadmin" value="isadmin" class="isadmin" checked=(checkedstradmin===true ? "checked" : undefined))
+                                label(for=isadmininput class="labelcheck1 shadow")
                               input(type="hidden" name="id" value=ob[prop].id)
                               input(type="hidden" name="name" value=ob[prop].name)
                               input(type="hidden" name="surname" value=ob[prop].surname)
@@ -101,11 +106,15 @@ block content
                             span!= "&nbsp;"
                       td(data-title="Disable" class="tduser")
                         form(action="/disable" method="post")
-                          input(type="checkbox" name="cancel" value="cancel" class="cancel" checked=(checkedstr===true ? "checked" : undefined))
+                          div(style="" class="checkboxThree1")
+                            input(style="position:absolute;left: -9999px;" id=disableininput type="checkbox" name="cancel" value="cancel" class="cancel" checked=(checkedstr===true ? "checked" : undefined))
+                            label(for=disableininput class="labelcheck1 shadow")
                           input(type="hidden" name="id" value=ob[prop].id)
                           input(type="hidden" name="name" value=ob[prop].name)
                           input(type="hidden" name="surname" value=ob[prop].surname)
                           input(type="hidden" name="email" value=ob[prop].email)
+                      - isadmininput = isadmininput + 1
+                      - disableininput = disableininput + 1
               script.
                 $(document).ready(function() {
                   $('#rankTblload').DataTable();
