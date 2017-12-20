@@ -3012,13 +3012,13 @@ table.dataTable tbody tr.odd{
 table.dataTable tbody tr.even{
     /*background-color: rgba(255, 255, 255, 0.14) !important;*/
     /*background-color: rgba(222, 213, 201, 0.45) !important;*/
-    background-color: rgba(222, 213, 201, 0.45) !important;
+    background-color: rgba(222, 213, 201, 0.45);
 }
 table.dataTable tbody tr.searchagents td{
     font-size: 12px;
 }
 table.dataTable tbody tr.searchagents.odd{
-    background-color: rgba(41, 117, 180, 0.57) !important;
+    background-color: rgba(41, 117, 180, 0.57);
     cursor: default !important;
     box-shadow: inset 1px 1px 20px 4px rgba(61, 157, 203, 0.28), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
     /*background-color: rgba(138, 109, 59, 0.57) !important;*/
