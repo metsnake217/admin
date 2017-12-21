@@ -372,7 +372,10 @@ block content
 					
 				})
 
-				$( "#email" ).toggleClass( "fa-envelope", "fa-envelope-open" );
+				$( "#email" ).hover(function() {
+					$( this ).toggleClass( "fa-envelope", "fa-envelope-open" );
+				});
+
 				$(".setlab").change(function(){
 					console.log("here: " + $(this).val());
 					$( "#labdetail:visible" ).addClass("restrictcolumns");
