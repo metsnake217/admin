@@ -8,6 +8,15 @@
   user-select: none;*/
   -webkit-font-smoothing: antialiased;
 }
+.deptvoidtrash{
+  color: white;
+    top: 35px;
+    left: -35px;
+    z-index: 1;
+    position: relative;
+    font-size: 9pt;
+    cursor: pointer;
+}
 
 .deptvoidmsg{
   width: 70%;
@@ -4067,6 +4076,10 @@ margin-top:0px;
 }
 
 @media (max-width: 767px){
+.deptvoidtrash{
+  top: 25px;
+  left: -25px;
+}
 .deptvoidmsg{
   width: 100%;
 }
