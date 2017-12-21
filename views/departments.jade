@@ -60,9 +60,7 @@ block content
 							- var department = orphandepts[prop].departmentname
 							select(name="deptorph"+prop type="text" style="margin-right: 15px;" id="deptorph"+prop class="depsorph animated bounceInUp")
 								option(value=department selected="selected" style="font-weight:bold")!= department
-							span(class="fa fa-trash deletedept" style=" color: white; top: 35px; left: -35px; z-index: 1; position: relative; font-size: 9pt;cursor:pointer")
-								form(action="/deletedept" method="post")
-									input(type="hidden" value=department name="department")
+
 							//div(class="depsorph" style="background-color: #ad9876;")!= department
 
 
