@@ -117,19 +117,9 @@ block content
               script.
                 $(document).ready(function() {
                   //$('#rankTblload').DataTable();
-                $('#rankTblload').DataTable({order: [[ 8, "desc" ]],
+                $('#rankTblload').DataTable({
                   iDisplayLength: 8,
                   aLengthMenu: [[8, 16, 24, -1], [8, 16, 24, "All"]],
-                  'bSort': false,
-                  'aoColumns': [ 
-                        { sWidth: "10%", bSearchable: false, bSortable: false }, 
-                        { sWidth: "25%", bSearchable: false, bSortable: false }, 
-                        { sWidth: "10%", bSearchable: false, bSortable: false },
-                        { sWidth: "10%", bSearchable: false, bSortable: false }, 
-                        { sWidth: "25%", bSearchable: false, bSortable: false }, 
-                        { sWidth: "10%", bSearchable: false, bSortable: false }, 
-                        { sWidth: "10%", bSearchable: false, bSortable: false } 
-                  ],
                   language:{
                     processing: "Processing...",
                     search: "Search:",
