@@ -12,6 +12,9 @@
 .fa-location-arrow:hover{
   color: #68b4d7 !important;
 }
+.fa-trash:hover{
+  color: #3479b7 !important;
+}
 .lightyokecolor{
     color: #65acce;
 }
@@ -210,6 +213,7 @@ td.tduser:first-of-type{
     border:none;
       background-color: #ad9876; 
       border-radius: 20px 50px !important;
+          margin-right: 6px !important;
       /*padding: 4%; margin-left: 20px; margin-right: 0px; float: left;*/
 }
 #createSelect{
