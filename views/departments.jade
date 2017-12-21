@@ -27,7 +27,7 @@ block content
 		P!="You can create a new department and lab. As well as set some useful settings for labs."
 
 		div(style="width: 100%;margin-bottom: 40px;margin-top: 40px;")
-			div(class="editstart", style="")
+			div(class="editstart animated fadeIn", style="")
 				select(name="createSelect" type="text" id="createSelect" class="form-control" style="" placeholder="Create...")
 					option(value="createNone" selected=(checkedstrAll===true ? "selected" : undefined) style="font-weight:bold")="Start to ..."
 					option(value="createDept" selected=(checkedstrDept===true ? "selected" : undefined))="Create Department"
@@ -43,7 +43,7 @@ block content
 						- for(var prop in depts0)
 							- var department = depts0[prop]
 							- var selname = "dept" + prop
-							select(name=selname type="text" id=selname style="margin-right: 15px;" class="deps")
+							select(name=selname type="text" id=selname style="margin-right: 15px;" class="deps animated fadeIn")
 								option(value=department selected="selected" style="font-weight:bold")!= department
 								- var index = depts0.indexOf(department)
 								- if(index > -1)
