@@ -36,6 +36,10 @@ block content
 					option(value="editLab" selected=(checkedstrEditLab===true ? "selected" : undefined))="Transfer Lab"
 			- if(vennsettings != undefined)
 				div
+					if successmessagevoiddept != null
+						div(class="alert alert-success fade in alert-dismissable")!= successmessagevoiddept
+					if errormessagevoiddept != null
+						div(class="alert alert-danger fade in alert-dismissable")!= errormessagevoiddept
 					div(class="deptlist" style="")
 						- var test = JSON.parse(JSON.stringify(vennsettings).replace(/&quot;/g, '"'))
 						- var depts0 = test.departments

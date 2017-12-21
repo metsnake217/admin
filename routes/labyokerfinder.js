@@ -1025,7 +1025,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 	});
 	query.on("end", function(result) {
 
-		var query1 = client.query("select * from departments where departmentname not in (select department from labs)");
+		var query1 = client.query("select * from departments where departmentname not in (select department from labs) and status != 'VOID'");
 		query1.on("row", function(row, result1) {
 			result1.addRow(row);
 			orphandepts = result1.rows; 
@@ -1630,7 +1630,23 @@ LabYokeLabVenn.prototype.setdisable = function(callback) {
 	}*/
 };
 
-
+LabYokeDepartment.prototype.voiddepartment = function(callback) {
+	var results;
+	var resultsLogin = [];
+	console.log("voiddepartment: " + this.name);
+	var dept = this.name;
+	var query = client
+			.query("UPDATE departments SET status='VOID' where department='" + dept + "'");
+	query.on("row", function(row, result) {
+		result.addRow(row);
+	});
+	query.on("end", function(result) {
+		results = result.rows;
+		resultsLogin.push("success");
+		resultsLogin.push("The department <b>"+ dept + "</b> has been successfully deleted.");
+		callback(null, resultsLogin)
+	});
+};
 
 
 

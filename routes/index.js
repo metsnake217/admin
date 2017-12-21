@@ -292,6 +292,65 @@ module.exports = function(router) {
 		});
     });
 
+    router.post('/deletedept', isLoggedInSuperAdmin, function(req, res) {
+		var labYokeGlobal = new LabYokeGlobal();
+		var dept = req.body.department;
+
+		var labYokeDepartment = new LabYokeDepartment(req.body.department);
+		console.log("department is: " + req.body.department);
+		labYokeDepartment.voiddepartment(function(error, results) {
+			var status = results[0];
+			var message = results[1];
+			console.log("voiddepartment status: " + status);
+			console.log("voiddepartment message: " + message);
+		labYokeGlobal.finddepartments(function(error, departments) {
+			var errormessagevenn = null;
+			var successmessagevenn = null;
+			if(status == "success"){
+				successmessagevenn = message;
+			} else {
+				errormessagevenn = message;
+			}
+			console.log("departments: " + departments.length);
+//			res.render('departments', {admins:departments[5],labadmins: departments[4], section:"venn", labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagevenn: errormessagevenn, successmessagevenn: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			var vennusers = [];
+			var users = departments[2].users;
+			var i=0;
+			console.log("Venn Settings: " + JSON.stringify(departments[2]));
+			var limit = 0;
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("user0 length: " + user0.length);
+					limit += user0.length;
+			}
+			console.log("limit: " + limit);
+			for(var prop0 in users){
+				var user0 = users[prop0];
+				console.log("Venn Settings users raw: " + prop0 + " - " + user0);
+				console.log("Venn Settings user0 length: " + user0.length);
+				for(var prop in user0){
+					user0[prop].then(data=>{
+					vennusers.push(data);
+				    }).catch(e=>{
+				        console.log("error from promise: " +e)
+				    }).then(() => {
+
+				    	console.log("limit: " + limit);
+				    	if(i == (limit -1) ){
+							console.log("vennusers is: " +  JSON.stringify(vennusers));
+							res.render('departments', {vennuser:vennusers,admins:departments[5],labadmins: departments[4], labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagevoiddept: errormessagevenn, successmessagevoiddept: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+			    		}
+			    		console.log("i is: " + i);
+			    		i++;
+				    });
+				}
+			}
+
+			req.session.messages = null;
+		});
+		});
+    });
+
     router.post('/setvenn', isLoggedInSuperAdmin, function(req, res) {
 		var labYokeGlobal = new LabYokeGlobal();
 		var checked = req.body.addvenn;
