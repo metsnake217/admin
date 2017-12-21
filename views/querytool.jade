@@ -25,7 +25,7 @@ block content
                     if message
                         div(class="alert alert-danger")!= message
                     form(action="/querytool" method="post")
-                        textarea(name="queryText" list="agent-datalist" class="form-control" id="queryText" placeholder="Select * from ..." cols="30" rows="10" style="outline: none;overflow:auto;width: 100%; padding-left: 35px;font-size: 14pt;color: #2a74b4;")
+                        textarea(name="queryText" list="agent-datalist" class="form-control" id="queryText" placeholder="Select * from ..." cols="30" rows="10" style="outline: none;overflow:auto;width: 100%; padding-left: 35px;font-size: 14pt;color: #2a74b4;border-color: #ad9876;")
                         div(class="buttons")
                             //input(type="submit" class="button" value="Get in")
                             button(class="btn " + classButton + " btn-lg btn-block" type='submit') Submit
