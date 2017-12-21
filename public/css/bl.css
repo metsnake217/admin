@@ -9,6 +9,9 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.deptvoidmsg{
+  width: 70%;
+}
 .fa-location-arrow:hover{
   color: #68b4d7 !important;
 }
@@ -4064,8 +4067,8 @@ margin-top:0px;
 }
 
 @media (max-width: 767px){
-.myteamcard{
-  /*font-size: 50pt !important;*/
+.deptvoidmsg{
+  width: 100%;
 }
 .myteammember{
   width:30%;
