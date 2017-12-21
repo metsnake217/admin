@@ -117,10 +117,7 @@ block content
               script.
                 $(document).ready(function() {
                   //$('#rankTblload').DataTable();
-                $('#rankTblload').DataTable({order: [[ 8, "desc" ]],
-                  iDisplayLength: 8,
-                  aLengthMenu: [[8, 16, 24, -1], [8, 16, 24, "All"]]
-                  });
+                $('#rankTblload').DataTable();
 
                 $(".labnameedit").on('change', function () {
                     console.log("changing lab " + $(this).val());
