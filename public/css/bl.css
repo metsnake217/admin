@@ -10,7 +10,7 @@
 }
 
 .fa-location-arrow:hover{
-  color: #68b4d7;
+  color: #68b4d7 !important;
 }
 .lightyokecolor{
     color: #65acce;
