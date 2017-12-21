@@ -333,6 +333,7 @@ block content
 						var userdiv = document.createElement("div");
 						var userpan = document.createElement("span");
 						var userpan2 = document.createElement("span");
+						var userpan3 = document.createElement("span");
 						var usera = document.createElement("a");
 						userdiv.setAttribute('class',"myteammember");
 						userdiv.setAttribute('style',"width:" + size + "%");
@@ -342,12 +343,19 @@ block content
 						} else {
 							userpan.setAttribute('style',"color:#68b3d6");
 						}
+						userpan3.setAttribute('class',"fa fa-envelope");
+						userpan3.addEventListener("mouseover", function( event ) {   
+							event.target.className = "fa fa-envelope-open";
+							console.log("mouse over");
+						});
+						userspan3.setAttribute('style',"cursor:pointer;color: #3479b7;font-size:10pt");
 						usera.setAttribute('href',"mailto:" + users0[p].email);
 						usera.setAttribute('style',"cursor:pointer");
-						usera.innerHTML = users0[p].name + " " + users0[p].surname;
+						usera.innerHTML = " " + users0[p].name + " " + users0[p].surname;
 						userpan2.setAttribute('style',"text-align: center;display: block;margin: 10px;");
-						userpan2.appendChild(usera);
+						userpan3.appendChild(usera);
 						userdiv.appendChild(userpan);
+						userdiv.appendChild(userpan3);
 						userdiv.appendChild(userpan2);
 						usersdiv.appendChild(userdiv);
 						}
