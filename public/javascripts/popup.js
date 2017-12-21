@@ -27,7 +27,8 @@ $('.deletedept').click(function() {
   shade.style.display = "block";
 
   actionorderVenn.onclick = function(){
-  addvenn.closest('form').submit();
+    console.debug();
+  addvenn.find('form').submit();
 }
 
   actioncancelVenn.onclick = function(){
