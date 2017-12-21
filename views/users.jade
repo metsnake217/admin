@@ -120,6 +120,16 @@ block content
                 $('#rankTblload').DataTable({order: [[ 8, "desc" ]],
                   iDisplayLength: 8,
                   aLengthMenu: [[8, 16, 24, -1], [8, 16, 24, "All"]],
+                  'bSort': false,
+                  'aoColumns': [ 
+                        { sWidth: "10%", bSearchable: false, bSortable: false }, 
+                        { sWidth: "25%", bSearchable: false, bSortable: false }, 
+                        { sWidth: "10%", bSearchable: false, bSortable: false },
+                        { sWidth: "10%", bSearchable: false, bSortable: false }, 
+                        { sWidth: "25%", bSearchable: false, bSortable: false }, 
+                        { sWidth: "10%", bSearchable: false, bSortable: false }, 
+                        { sWidth: "10%", bSearchable: false, bSortable: false } 
+                  ],
                   language:{
                     processing: "Processing...",
                     search: "Search:",
