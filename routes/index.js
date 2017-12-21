@@ -102,7 +102,7 @@ module.exports = function(router) {
 				    	console.log("limit: " + limit);
 				    	if(i == (limit -1) ){
 							console.log("vennusers is: " +  JSON.stringify(vennusers));
-							res.render('departments', {vennuser:vennusers, admins:departments[5],labadmins: departments[4], section:"department", labs: departments[3], errormessagedept: errormessagedept, successmessagedept: successmessagedept, depts: departments[0], vennsettings: departments[2], users: departments[1],labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+							res.render('departments', {orphandepts:departments[6],vennuser:vennusers, admins:departments[5],labadmins: departments[4], section:"department", labs: departments[3], errormessagedept: errormessagedept, successmessagedept: successmessagedept, depts: departments[0], vennsettings: departments[2], users: departments[1],labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			    		}
 			    		console.log("i is: " + i);
 			    		i++;
@@ -161,7 +161,7 @@ module.exports = function(router) {
 				    	console.log("limit: " + limit);
 				    	if(i == (limit -1) ){
 							console.log("vennusers is: " +  JSON.stringify(vennusers));
-							res.render('departments', {vennuser:vennusers, admins:departments[5],labadmins: departments[4], section:"lab", labs: departments[3], errormessagelab: errormessagelab, successmessagelab: successmessagelab, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+							res.render('departments', {orphandepts:departments[6],vennuser:vennusers, admins:departments[5],labadmins: departments[4], section:"lab", labs: departments[3], errormessagelab: errormessagelab, successmessagelab: successmessagelab, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			    		}
 			    		console.log("i is: " + i);
 			    		i++;
@@ -220,7 +220,7 @@ module.exports = function(router) {
 				    	console.log("limit: " + limit);
 				    	if(i == (limit -1) ){
 							console.log("vennusers is: " +  JSON.stringify(vennusers));
-							res.render('departments', {vennuser:vennusers,labadmins: departments[4], section:"editlab", labs: departments[3], errormessagelabedit: errormessagelabedit, successmessagelabedit: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+							res.render('departments', {orphandepts:departments[6],vennuser:vennusers,labadmins: departments[4], section:"editlab", labs: departments[3], errormessagelabedit: errormessagelabedit, successmessagelabedit: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			    		}
 			    		console.log("i is: " + i);
 			    		i++;
@@ -280,7 +280,7 @@ module.exports = function(router) {
 				    	console.log("limit: " + limit);
 				    	if(i == (limit -1) ){
 							console.log("vennusers is: " +  JSON.stringify(vennusers));
-							res.render('departments', {vennuser:vennusers,admins:departments[5], labadmins: departments[4], section:"vennSettings", labs: departments[3], errormessageadmin: errormessagelabedit, successmessageadmin: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+							res.render('departments', {orphandepts:departments[6],vennuser:vennusers,admins:departments[5], labadmins: departments[4], section:"vennSettings", labs: departments[3], errormessageadmin: errormessagelabedit, successmessageadmin: successmessagelabedit, depts: departments[0], vennsettings: departments[2], users: departments[1], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			    		}
 			    		console.log("i is: " + i);
 			    		i++;
@@ -338,7 +338,7 @@ module.exports = function(router) {
 				    	console.log("limit: " + limit);
 				    	if(i == (limit -1) ){
 							console.log("vennusers is: " +  JSON.stringify(vennusers));
-							res.render('departments', {vennuser:vennusers,admins:departments[5],labadmins: departments[4], labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagevoiddept: errormessagevenn, successmessagevoiddept: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+							res.render('departments', {orphandepts:departments[6],vennuser:vennusers,admins:departments[5],labadmins: departments[4], labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagevoiddept: errormessagevenn, successmessagevoiddept: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			    		}
 			    		console.log("i is: " + i);
 			    		i++;
@@ -402,7 +402,7 @@ module.exports = function(router) {
 				    	console.log("limit: " + limit);
 				    	if(i == (limit -1) ){
 							console.log("vennusers is: " +  JSON.stringify(vennusers));
-							res.render('departments', {vennuser:vennusers,admins:departments[5],labadmins: departments[4], section:"venn", labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagevenn: errormessagevenn, successmessagevenn: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+							res.render('departments', {orphandepts:departments[6],vennuser:vennusers,admins:departments[5],labadmins: departments[4], section:"venn", labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagevenn: errormessagevenn, successmessagevenn: successmessagevenn, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 			    		}
 			    		console.log("i is: " + i);
 			    		i++;
@@ -465,7 +465,7 @@ module.exports = function(router) {
 				    	console.log("limit: " + limit);
 				    	if(i == (limit -1) ){
 							console.log("vennusers is: " +  JSON.stringify(vennusers));
-							res.render('departments', {vennuser:vennusers,admins:departments[5],labadmins: departments[4], section:"venn", labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagedisable: errormessagedisable, successmessagedisable: successmessagedisable, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
+							res.render('departments', {orphandepts:departments[6],vennuser:vennusers,admins:departments[5],labadmins: departments[4], section:"venn", labs: departments[3], vennsettings: departments[2], users: departments[1], errormessagedisable: errormessagedisable, successmessagedisable: successmessagedisable, depts: departments[0], labyoker : req.session.user, loggedIn : true, isLoggedInAdmin: req.session.admin, title:'Departments'});
 				    	}
 			    		console.log("i is: " + i);
 			    		i++;
