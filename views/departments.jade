@@ -345,10 +345,8 @@ block content
 							userpan.setAttribute('style',"color:#68b3d6");
 						}
 						userspan3.setAttribute('class',"fa fa-envelope");
-						userspan3.addEventListener("mouseover", function( event ) {   
-							event.target.className = "fa fa-envelope-open";
-							console.log("mouse over");
-						});
+						userspan3.setAttribute('id',"email");
+
 						userspan3.setAttribute('style',"cursor:pointer;color: #3479b7;font-size:10pt");
 						usera.setAttribute('href',"mailto:" + users0[p].email);
 						usera.setAttribute('style',"cursor:pointer");
@@ -374,6 +372,7 @@ block content
 					
 				})
 
+				$( "#email" ).toggleClass( "fa-envelope", "fa-envelope-open" );
 				$(".setlab").change(function(){
 					console.log("here: " + $(this).val());
 					$( "#labdetail:visible" ).addClass("restrictcolumns");
