@@ -1025,7 +1025,7 @@ LabYokeGlobal.prototype.finddepartments = function(callback) {
 	});
 	query.on("end", function(result) {
 
-		var query1 = client.query("select * from departments where departmentname not in (select department from labs) and status != 'VOID'");
+		var query1 = client.query("select * from departments where departmentname not in (select department from labs) and status isnull");
 		query1.on("row", function(row, result1) {
 			result1.addRow(row);
 			orphandepts = result1.rows; 
