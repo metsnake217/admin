@@ -4564,6 +4564,9 @@ span.num.greatherthanninetynine {
 
 
 @media (max-width: 580px){
+  .btn-success{
+    width: 100%;
+  }
 tr.truser:before {
     left: -31px;
 }
