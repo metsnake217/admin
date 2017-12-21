@@ -372,8 +372,9 @@ block content
 					
 				})
 
-				$( "#email" ).hover(function() {
-					$( this ).toggleClass( "fa-envelope", "fa-envelope-open" );
+				$( ".fa-envelope" ).click(function() {
+					$( this ).removeClass( "fa-envelope" );
+					$( this ).addClass( "fa-envelope-open" );
 				});
 
 				$(".setlab").change(function(){
