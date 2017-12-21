@@ -334,6 +334,7 @@ block content
 						var userpan = document.createElement("span");
 						var userpan2 = document.createElement("span");
 						var userspan3 = document.createElement("span");
+						var userspan4 = document.createElement("span");
 						var usera = document.createElement("a");
 						userdiv.setAttribute('class',"myteammember");
 						userdiv.setAttribute('style',"width:" + size + "%");
@@ -351,11 +352,12 @@ block content
 						userspan3.setAttribute('style',"cursor:pointer;color: #3479b7;font-size:10pt");
 						usera.setAttribute('href',"mailto:" + users0[p].email);
 						usera.setAttribute('style',"cursor:pointer");
-						usera.innerHTML = " " + users0[p].name + " " + users0[p].surname;
+						userspan4.innerHTML = " " + users0[p].name + " " + users0[p].surname;
 						userpan2.setAttribute('style',"text-align: center;display: block;margin: 10px;");
-						userspan3.appendChild(usera);
+						usera.appendChild(userspan3);
 						userdiv.appendChild(userpan);
-						userdiv.appendChild(userspan3);
+						userdiv.appendChild(usera);
+						userdiv.appendChild(userspan4);
 						userdiv.appendChild(userpan2);
 						usersdiv.appendChild(userdiv);
 						}
