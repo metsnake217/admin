@@ -1636,7 +1636,7 @@ LabYokeDepartment.prototype.voiddepartment = function(callback) {
 	console.log("voiddepartment: " + this.name);
 	var dept = this.name;
 	var query = client
-			.query("UPDATE departments SET status='VOID' where department='" + dept + "'");
+			.query("UPDATE departments SET status='VOID' where departmentname='" + dept + "'");
 	query.on("row", function(row, result) {
 		result.addRow(row);
 	});
