@@ -306,6 +306,7 @@ block content
 					$('#labdetail').show();
 
 					var usersdiv = document.getElementById("labmembers");
+					var sc =  document.createElement("script");
 					var userslength = users0.length;
 					var size = 100;
 					//var check = size/userslength;
@@ -360,6 +361,7 @@ block content
 						userdiv.appendChild(userpan2);
 						usersdiv.appendChild(userdiv);
 						}
+						sc.innerHTML = '$( ".fa-envelope" ).click(function() {$( this ).removeClass( "fa-envelope" );$( this ).addClass( "fa-envelope-open" )})';
 						
 						$(this).css('background-color', '#3d9dcb');
 						$(window).scrollTop($('#labdetail').offset().top - 100).scrollLeft($('#labdetail').offset().left); 
@@ -371,11 +373,6 @@ block content
 					}
 					
 				})
-
-				$( ".fa-envelope" ).click(function() {
-					$( this ).removeClass( "fa-envelope" );
-					$( this ).addClass( "fa-envelope-open" );
-				});
 
 				$(".setlab").change(function(){
 					console.log("here: " + $(this).val());
