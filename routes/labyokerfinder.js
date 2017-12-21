@@ -1017,7 +1017,7 @@ LabyokerLab.prototype.getLabUsers = function(callback) {
 
 LabYokeGlobal.prototype.finddepartments = function(callback) {
 	var resultsLogin = [];
-	var query = client.query("SELECT * from departments");
+	var query = client.query("SELECT * from departments where status isnull");
 	var labadmins = [];
 	var orphandepts = [];
 	query.on("row", function(row, result) {
