@@ -43,7 +43,7 @@ block content
 						- for(var prop in depts0)
 							- var department = depts0[prop]
 							- var selname = "dept" + prop
-							select(name=selname type="text" id=selname style="margin-right: 15px;" class="deps animated fadeIn")
+							select(name=selname type="text" id=selname style="margin-right: 15px;" class="deps animated bounceInDown")
 								option(value=department selected="selected" style="font-weight:bold")!= department
 								- var index = depts0.indexOf(department)
 								- if(index > -1)
@@ -54,7 +54,7 @@ block content
 
 						- for(var prop in orphandepts)
 							- var department = orphandepts[prop].departmentname
-							select(name="deptorph"+prop type="text" style="margin-right: 15px;" id="deptorph"+prop class="depsorph")
+							select(name="deptorph"+prop type="text" style="margin-right: 15px;" id="deptorph"+prop class="depsorph animated bounceInUp")
 								option(value=department selected="selected" style="font-weight:bold")!= department
 							//div(class="depsorph" style="background-color: #ad9876;")!= department
 
