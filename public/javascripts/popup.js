@@ -14,6 +14,28 @@ $('html').click(function() {
   }*/
 });
 
+$('.deletedept').click(function() {
+  console.log("clicked");
+  var addvenn = $(this);
+  var addVennText = document.getElementById("addVennText");
+
+  addVennText.innerHTML = "Do you wish to void this department?";
+
+  var pop = document.getElementById("ios-light");
+  pop.style.display = "block";
+  var shade = document.getElementById("shade");
+  shade.style.display = "block";
+
+  actionorderVenn.onclick = function(){
+  addvenn.closest('form').submit();
+}
+
+  actioncancelVenn.onclick = function(){
+    iosLightExit();
+}
+
+});
+
 $('.disablelab').click(function() {
   console.log("clicked");
   var disablelab = $(this);
