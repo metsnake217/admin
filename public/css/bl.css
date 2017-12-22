@@ -4675,6 +4675,9 @@ table.dataTable tbody tr {
 
 
  @media (max-width: 440px) {
+#queryText{
+  height: 150px;
+}
 .deps{
   font-size: 11pt;
 }
