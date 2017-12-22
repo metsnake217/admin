@@ -112,7 +112,7 @@ block content
                     $('#raw').remove();
                     $('#queryresults').remove();
                 } else {
-                    $(window).scrollTop($('.results').offset().top).scrollLeft($('.results').offset().left);
+                    $(window).scrollTop($('.results').offset().top + 100).scrollLeft($('.results').offset().left);
                 }
                 labyokerslink.onclick = function(){
                 $(".queryseparator").toggle();
