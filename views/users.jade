@@ -102,7 +102,7 @@ block content
                               input(type="hidden" name="email" value=ob[prop].email)
                               input(type="hidden" name="admin" value=ob[prop].admin)
                         - else
-                            span!= "&nbsp;"
+                            span!= "<b>Super Admin</b>"
                       td(data-title="Disable" class="tduser")
                         form(action="/disable" method="post")
                           div(style="" class="checkboxThree1")
