@@ -9,6 +9,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.queryraw{
+    width: 75%;
+    margin: 0 auto;
+}
 .nochangealert{
       background: none !important;
   background-color: #dff0d8 !important;
@@ -4081,6 +4085,9 @@ margin-top:0px;
 }
 
 @media (max-width: 767px){
+.queryraw{
+    width: auto;
+}
 .deptvoidtrash{
   top: 25px;
   left: -25px;

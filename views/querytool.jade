@@ -49,7 +49,7 @@ block content
                             span(style="color: #8a6d3b;")=" (" + count + ")"
               - style = ""
               - if(error != "error" && type == "select")
-                  - style = "overflow: auto; max-height: 300px; border-style: solid;"
+                  - style = "overflow: auto; max-height: 200px;border-style: solid;background:none;border-top-color:rgb(61, 157, 203);display: block;margin: 0px auto;box-shadow: none;"
             - if(error != "error" && type == "select" && searchResults != null && searchResults.length > 0)
                 div(class="results resultsshadow")
                     div(id="ctl00_Div2" class="row rank")
@@ -81,7 +81,7 @@ block content
             div(id="raw")
                 h5(style="text-align:center;padding-top:10px;margin-bottom:15px;cursor:pointer;font-weight:bold", id="labyokerslink")="Raw data "
                   span(class="fa fa-database", style="font-size: 15pt;color: #3d9dcb;")
-                #labyokers.results.resultsshadow(style="border-color: #ad9876;word-wrap:break-word; display:none;"+style)
+                #labyokers.results.resultsshadow.queryraw(style="background: none;border-color:white;word-wrap:break-word; display:none;"+style)
                     div(id="ctl00_Div2" class="row rank").match
                        - i = 
                        - var j = 1
