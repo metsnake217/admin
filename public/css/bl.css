@@ -8,6 +8,10 @@
   user-select: none;*/
   -webkit-font-smoothing: antialiased;
 }
+
+.nochangealert{
+  background-color: #dff0d8 !important;
+}
 .deptvoidtrash{
   color: white;
     top: 35px;
