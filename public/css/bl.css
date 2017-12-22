@@ -10,6 +10,7 @@
 }
 
 .nochangealert{
+      background: none !important;
   background-color: #dff0d8 !important;
 }
 .deptvoidtrash{
