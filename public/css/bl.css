@@ -42,9 +42,10 @@
     bottom: 100px;
     right: 10px;
     z-index: 10;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);*/
     overflow: hidden;
-    text-indent: 100%;
+    color:rgb(173, 152, 118);
+    /*text-indent: 100%;*/
     white-space: nowrap;
     /*background: rgb(173, 152, 118) url(/images/cd-top-arrow.svg) no-repeat center 50%;*/
     visibility: hidden;
