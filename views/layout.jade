@@ -163,9 +163,8 @@ html(lang='en')
           //$(".marginbottom").css("min-height",h);
      div(style="margin-top: 100px; background-color: #8a6d3b; position: fixed;bottom: 0;width: 100%;")
             div(style="color:white; text-align:center; font-size:11px;")="@labyoke"
-     script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js")
-     div(class="sleep")
-      a(href="#0" class="cd-top test")!= "Top"
+     a(href="#0" class="cd-top")
+      span(class="fa fa-user")!= "Top"
     script.
         $(".nav-menu-logout").click(function() {
                     $( this ).addClass( "animated hinge" );
@@ -184,13 +183,7 @@ html(lang='en')
           console.log("clicked hamburger.");
         });
         }
-        $(function(){
 
-        $('.sleep').draggable({
-        handle: ".test"
-        });
-
-        });
         jQuery(document).ready(function($){
           // browser window scroll (in pixels) after which the "back to top" link is shown
           var offset = 300,
