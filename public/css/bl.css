@@ -10,7 +10,7 @@
 }
 
 .pressedbutton{
-    box-shadow: none;
+    box-shadow: none !important;
 }
 
 /*start top of page*/
