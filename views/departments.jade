@@ -173,14 +173,14 @@ block content
 					form(action="/editlab" method="post")
 						div(class="textentry")
 						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
-						select(name="labnameedit" type="text" id="labnameedit" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Department")
+						select(name="labnameedit" type="text" id="labnameedit" class="form-control" style="border-color:#3d9dcb;margin-bottom: 10px;" placeholder="Department")
 							option(value"selectlabnameedit")="Select a Lab"
 							- if(labs != undefined)
 								- for(var prop in labs)
 									- var lab = labs[prop]
 									- var admin = admins[prop]
 									option(value=lab, admin=admin) #{lab}
-						div(style="top: -25px; position: relative; float: right; margin-right: 10px;")
+						div(style="top: -35px; position: relative; float: right; margin-right: 10px;")
 							div(class="arrow-up", style="margin-bottom: 5px;")
 							div(class="arrow-down")
 						div(id="transferdept", style="display:none;")
