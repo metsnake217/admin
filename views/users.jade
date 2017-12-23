@@ -90,19 +90,20 @@ block content
                             div(class="arrow-up", style="margin-bottom: 5px;")
                             div(class="arrow-down")
                       td(class="desktabonly tduser" style="overflow-wrap: break-word;" data-title="Email") #{ob[prop].email}
-                      td(class="tduser" data-title="Admin")
-                        - if(isadmin != 2)
-                            form(action="/isadmin" method="post")
-                              div(style="" class="checkboxThree1")
-                                input(style="position:absolute;left: -9999px;" type="checkbox" id="isadmin"+isadmininput name="isadmin" value="isadmin" class="isadmin" checked=(checkedstradmin===true ? "checked" : undefined))
-                                label(for="isadmin"+isadmininput class="labelcheck1 shadow")
-                              input(type="hidden" name="id" value=ob[prop].id)
-                              input(type="hidden" name="name" value=ob[prop].name)
-                              input(type="hidden" name="surname" value=ob[prop].surname)
-                              input(type="hidden" name="email" value=ob[prop].email)
-                              input(type="hidden" name="admin" value=ob[prop].admin)
-                        - else
-                            span!= "<b>Super Admin</b>"
+                      - if(isadmin != 2)
+                        td(class="tduser" data-title="Admin")
+                          form(action="/isadmin" method="post")
+                            div(style="" class="checkboxThree1")
+                              input(style="position:absolute;left: -9999px;" type="checkbox" id="isadmin"+isadmininput name="isadmin" value="isadmin" class="isadmin" checked=(checkedstradmin===true ? "checked" : undefined))
+                              label(for="isadmin"+isadmininput class="labelcheck1 shadow")
+                            input(type="hidden" name="id" value=ob[prop].id)
+                            input(type="hidden" name="name" value=ob[prop].name)
+                            input(type="hidden" name="surname" value=ob[prop].surname)
+                            input(type="hidden" name="email" value=ob[prop].email)
+                            input(type="hidden" name="admin" value=ob[prop].admin)
+                      - else
+                        td(class="tduser" data-title="Super Admin")
+                          span!= "&nbsp;"
                       td(data-title="Disable" class="tduser")
                         form(action="/disable" method="post")
                           div(style="" class="checkboxThree1")
