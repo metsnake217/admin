@@ -3225,6 +3225,10 @@ input{
 .yokeBackColor{
     background-color: rgba(138, 109, 59, 0.66) !important;
 }
+.yokeBackColorDis{
+    border-top-color: rgba(138, 109, 59, 0.66) !important;
+    border-top-style: solid;
+}
 .ct-perfect-fourth>svg {
 position: relative !important;
 }
