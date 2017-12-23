@@ -2619,11 +2619,13 @@ input[type=radio]:checked ~ .checkingcatalog::before{
     padding: 50px;
     width: 120px;
 }
+
 .roundaccountmob:hover, .roundaccountmob:active, .roundaccountmob:focus{
     background-color: #3d9dcb;
     cursor:pointer;
     text-decoration:none;
     color: white;
+    box-shadow: none;
 }
 .roundaccount:hover, .roundaccount:active, .roundaccount:focus{
     background-color: #3d9dcb;
