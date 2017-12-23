@@ -9,6 +9,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.pressedbutton{
+    box-shadow: none;
+}
+
 /*start top of page*/
 .cd-top.cd-is-visible {
     visibility: visible;
