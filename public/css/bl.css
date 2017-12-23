@@ -9,6 +9,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.tdadmin, .tduser, .tdsuperadmin{
+  overflow-wrap: break-word;
+}
+
 .pressedbutton{
     box-shadow: none !important;
 }
