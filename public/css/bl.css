@@ -9,6 +9,9 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.borderradius{
+  border-radius:20px 50px !important;
+}
 .tdadmin, .tduser, .tdsuperadmin{
   overflow-wrap: break-word;
 }

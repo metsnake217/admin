@@ -110,7 +110,7 @@ block content
 					div(class="alert alert-success fade in alert-dismissable")!= successmessagedept
 					script.
 						$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left);
-				div(id="ctl00_Div2" class="results resultsshadow")
+				div(id="ctl00_Div2" class="results resultsshadow borderradius")
 					form(action="/createdepartment" method="post")
 						div(class="textentry")
 							input(name="department" type="text" id="department" class="form-control placeholderColor" placeholder="Department" style="")
@@ -128,7 +128,7 @@ block content
 					div(class="alert alert-success fade in alert-dismissable")!= successmessagelab
 					script.
 						$(window).scrollTop($('#createLab').offset().top - 100).scrollLeft($('#createLab').offset().left);
-				div(id="ctl00_Div2" class="results resultsshadow")
+				div(id="ctl00_Div2" class="results resultsshadow borderradius")
 					form(action="/createlab" method="post")
 						div(class="textentry")
 						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
@@ -169,7 +169,7 @@ block content
 					div(class="alert alert-success fade in alert-dismissable")!= successmessagelabedit
 					script.
 						$(window).scrollTop($('#editLab').offset().top - 100).scrollLeft($('#editLab').offset().left);
-				div(id="ctl00_Div2" class="results resultsshadow")
+				div(id="ctl00_Div2" class="results resultsshadow borderradius")
 					form(action="/editlab" method="post")
 						div(class="textentry")
 						label(style="width: 100%;")!="<span class='labColor'> Name </span>"
@@ -235,7 +235,7 @@ block content
 						$('#editLab').hide();
 						//nochange = 1;
 						});
-				div(id="ctl00_Div2" class="results resultsshadow")
+				div(id="ctl00_Div2" class="results resultsshadow borderradius")
 					form(action="/setvenn" method="post")
 						label(style="width: 100%;margin-top: 10px;")!="<span class='labColor'>Department </span>"
 						select(name="deptlabvenn" type="text" id="deptlabvenn" class="form-control" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Department")
