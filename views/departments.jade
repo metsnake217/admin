@@ -110,6 +110,16 @@ block content
 					div(class="alert alert-success fade in alert-dismissable")!= successmessagedept
 					script.
 						$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left);
+				if errormessagedept != null || successmessagedept != null
+					script.
+						$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left);
+						$( document ).ready(function() {
+						//$("#createLab").val("vennsettings");
+						$('#vennSettings').hide();
+						$('#createDept').show();
+						$('#createLab').hide();
+						$('#editLab').hide();
+						});
 				div(id="ctl00_Div2" class="results resultsshadow borderradius")
 					form(action="/createdepartment" method="post")
 						div(class="textentry")
@@ -129,6 +139,16 @@ block content
 					div(class="alert alert-success fade in alert-dismissable")!= successmessagelab
 					script.
 						$(window).scrollTop($('#createLab').offset().top - 100).scrollLeft($('#createLab').offset().left);
+				if successmessagelab != null || errormessagelab != null
+					script.
+						$(window).scrollTop($('#createLab').offset().top - 100).scrollLeft($('#createLab').offset().left);
+						$( document ).ready(function() {
+						//$("#createLab").val("vennsettings");
+						$('#vennSettings').hide();
+						$('#createDept').hide();
+						$('#createLab').show();
+						$('#editLab').hide();
+						});
 				div(id="ctl00_Div2" class="results resultsshadow borderradius")
 					form(action="/createlab" method="post")
 						div(class="textentry")
@@ -170,6 +190,16 @@ block content
 					div(class="alert alert-success fade in alert-dismissable")!= successmessagelabedit
 					script.
 						$(window).scrollTop($('#editLab').offset().top - 100).scrollLeft($('#editLab').offset().left);
+				if errormessagelabedit != null || successmessagelabedit != null
+					script.
+						$(window).scrollTop($('#editLab').offset().top - 100).scrollLeft($('#editLab').offset().left);
+						$( document ).ready(function() {
+						//$("#createSelect").val("vennsettings");
+						$('#vennSettings').hide();
+						$('#createDept').hide();
+						$('#createLab').hide();
+						$('#editLab').show();
+						});
 				div(id="ctl00_Div2" class="results resultsshadow borderradius")
 					form(action="/editlab" method="post")
 						div(class="textentry")
@@ -936,7 +966,7 @@ block content
 			console.log("clicked");
 			});
 
-			$( document ).ready(function() {
+			/*$( document ).ready(function() {
 			console.log("checkedstrDept: " + #{checkedstrDept});
 			var checkedstrDept = "#{checkedstrDept}";
 			if(checkedstrDept == "true"){
@@ -945,4 +975,4 @@ block content
 				$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left);
 			}
 				//$( ".fa-envelope:visible" ).click(function() {$( this ).removeClass( "fa-envelope" );$( this ).addClass( "fa-envelope-open" );});
-			});
+			});*/
