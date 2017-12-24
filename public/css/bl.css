@@ -167,7 +167,7 @@ td.tduser:first-of-type{
     color: #f0ece7 !important; /*#d2c6b5*/
  }
  .tdsuperadmin:before {
-    /*color: #99bcdd !important;*/
+    color: #f0ece7 !important;
     content: "\f21b" !important;
     font-size: 210pt !important;
     top: -34px !important;
