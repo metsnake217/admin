@@ -13,7 +13,7 @@
     background-color: #2975b4;
 }
 .btn50{
-  width: 50%;
+  width: 50% !important;
 }
 #queryText:focus{
   border:1px solid #ccc !important;
