@@ -771,11 +771,12 @@ block content
 								td = document.createElement("td");
 
 								i0.onclick = function () {
-								console.log("clicked");
+								
 
 								var addvenn = $(this).find("addvenn");
-								console.debug(addvenn);
+								console.dir(addvenn);
 								var checked = addvenn.is(':checked');
+								console.log("clicked advenn - checked is: " + checked);
 								var addVennText = document.getElementById("addVennText");
 								if(checked){
 								addVennText.innerHTML = "Do you want to add this lab to the Venn Diagram?";
