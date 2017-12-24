@@ -43,10 +43,12 @@
   color: #2a74b4;
 }
 
-.cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
+.cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch {
     -webkit-transition: opacity .3s 0s, visibility 0s 0s;
     -moz-transition: opacity .3s 0s, visibility 0s 0s;
     transition: opacity .3s 0s, visibility 0s 0s;
+}
+.cd-top:hover {
     color: #2a74b4;
 }
 @media only screen and (min-width: 1024px)
