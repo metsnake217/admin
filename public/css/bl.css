@@ -39,7 +39,7 @@
     display: inline-block;
 }
 
-.labyokerslinkdb:hover{
+.labyokerslinkdb:hover, .labyokerslink:hover{
   color: #2a74b4 !important;
 }
 
