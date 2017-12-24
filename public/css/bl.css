@@ -3059,7 +3059,6 @@ input:-webkit-autofill:hover {
 .btn{
     outline: none !important;
     width: 50%;
-    margin-left: 25%;
 }
 .accountdetail{
     margin-bottom:25px;
