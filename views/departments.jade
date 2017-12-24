@@ -800,6 +800,7 @@ block content
 								addvenn.closest('form').submit();
 								}
 								actioncancelVenn.onclick = function(){
+								console.log("cancelled addvenn click: " +  checked);
 								if(checked){
 								addvenn.prop('checked', false);
 								} else {
@@ -860,6 +861,7 @@ block content
 								shade.style.display = "block";
 
 								actionorderDisable.onclick = function(){
+								console.log("cancelled disablelab click: " +  checkedis);
 								var parenttr = disablelab.closest('tr');
 								var currentbackgroundColor = parenttr.css('backgroundColor');
 
