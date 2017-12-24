@@ -778,7 +778,7 @@ block content
 								var checked = addvenn.is(':checked');
 								console.log("clicked advenn - checked is: " + checked);
 								var addVennText = document.getElementById("addVennText");
-								if(checked){
+								if(!checked){
 								addVennText.innerHTML = "Do you want to add this lab to the Venn Diagram?";
 								} else {
 								addVennText.innerHTML = "Do you want to remove this lab from the Venn Diagram?";
@@ -852,7 +852,7 @@ block content
 								var disablelab = $(this).prev("input");;
 								var checkedis = disablelab.is(':checked');
 								var disablelabText = document.getElementById("disablelabText");
-								if(checkedis){
+								if(!checkedis){
 								disablelabText.innerHTML = "Do you want to disable this lab?";
 								} else {
 								disablelabText.innerHTML = "Do you want to re-enable this lab?";
