@@ -773,8 +773,8 @@ block content
 								i0.onclick = function () {
 								
 
-								var addvenn = $(this).find("addvenn");
-								console.dir($(this));
+								var addvenn = $(this).find(".addvenn");
+								console.dir(addvenn);
 								var checked = addvenn.is(':checked');
 								console.log("clicked advenn - checked is: " + checked);
 								var addVennText = document.getElementById("addVennText");
@@ -848,7 +848,7 @@ block content
 
 								j1.onclick = function () {
 								console.log("clicked disable");
-								var disablelab = $(this).find("disablelab");;
+								var disablelab = $(this).find(".disablelab");;
 								var checkedis = disablelab.is(':checked');
 								var disablelabText = document.getElementById("disablelabText");
 								if(checkedis){
