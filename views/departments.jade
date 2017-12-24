@@ -584,7 +584,7 @@ block content
 							console.debug(labs);
 							console.debug(isvenns);
 							var vennbody = "";
-							$('#vennbody').html("")
+							$('#vennbody').html("");
 							for(prop in labs){
 								var check = isvenns[prop];
 								var checkdis = isdisabled[prop];
@@ -738,17 +738,36 @@ block content
 								var f = document.createElement("form");
 								f.setAttribute('action',"/setvenn");
 								f.setAttribute('method',"post");
-								var i = document.createElement("input"); //input element, text
+								var i = document.createElement("input");
 								i.setAttribute('type',"checkbox");
 								i.setAttribute('name',"addvenn");
 								i.setAttribute('value',"addvenn");
 								i.setAttribute('class',"addvenn");
+
+
 								if(check == 1){
 									i.setAttribute('checked',"checked");
 								}
+
+								var i0 = document.createElement("div");
+								i0.setAttribute('class',"checkboxThree1");
+								var i1 = document.createElement("input");
+								i1.setAttribute('style',"position:absolute;left: -9999px;");
+								i1.setAttribute('id',"addvenn"+prop);
+								i1.setAttribute('type',"checkbox");
+								i1.setAttribute('value',"addvenn");
+								i1.setAttribute('name',"addvenn");
+								i1.setAttribute('class',"addvenn");
+								var i2 = document.createElement("label");
+								i2.setAttribute('class',"labelcheck1 shadow");
+								i2.setAttribute('for',"addvenn"+prop);
+								i0.appendChild(i1);
+								i0.appendChild(i2);
+
+
 								td = document.createElement("td");
 
-								i.onclick = function () {
+								i0.onclick = function () {
 								console.log("clicked");
 								var addvenn = $(this);
 								var checked = addvenn.is(':checked');
@@ -785,7 +804,7 @@ block content
 								}
 
 								}
-								f.appendChild(i);
+								f.appendChild(i0);
 								
 								var fdis = document.createElement("form");
 								fdis.setAttribute('action',"/setdisabled");
