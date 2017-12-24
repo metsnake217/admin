@@ -955,13 +955,43 @@ block content
 
 					var checkedstrDept = "#{checkedstrDept}";
 					if(checkedstrDept == "true"){
-						$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left);
 						console.log("section createdept");
 						//$("#createLab").val("vennsettings");
 						$('#vennSettings').hide();
 						$('#createDept').show();
 						$('#createLab').hide();
 						$('#editLab').hide();
+						$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left);
+						}
+					var checkedstrLab = "#{checkedstrLab}";
+					if(checkedstrLab == "true"){
+						console.log("section createLab");
+						//$("#createLab").val("vennsettings");
+						$('#vennSettings').hide();
+						$('#createDept').hide();
+						$('#createLab').show();
+						$('#editLab').hide();
+						$(window).scrollTop($('#createLab').offset().top - 100).scrollLeft($('#createLab').offset().left);
+						}
+					var checkedstrEditLab = "#{checkedstrEditLab}";
+					if(checkedstrEditLab == "true"){
+						console.log("section editLab");
+						//$("#createLab").val("vennsettings");
+						$('#vennSettings').hide();
+						$('#createDept').hide();
+						$('#createLab').hide();
+						$('#editLab').show();
+						$(window).scrollTop($('#editLab').offset().top - 100).scrollLeft($('#editLab').offset().left);
+						}
+					var checkedstrVenn = "#{checkedstrVenn}";
+					if(checkedstrVenn == "true"){
+						console.log("section vennSettings");
+						//$("#createLab").val("vennsettings");
+						$('#vennSettings').show();
+						$('#createDept').hide();
+						$('#createLab').hide();
+						$('#editLab').hide();
+						$(window).scrollTop($('#vennSettings').offset().top - 100).scrollLeft($('#vennSettings').offset().left);
 						}
 			}
 			$('.addvenn').click(function() {
