@@ -110,17 +110,7 @@ block content
 					div(class="alert alert-success fade in alert-dismissable")!= successmessagedept
 					script.
 						$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left);
-				if errormessagedept != null || successmessagedept != null
-					script.
-						$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left);
-						$( document ).ready(function() {
-						console.log("section createdept");
-						//$("#createLab").val("vennsettings");
-						$('#vennSettings').hide();
-						$('#createDept').show();
-						$('#createLab').hide();
-						$('#editLab').hide();
-						});
+
 				div(id="ctl00_Div2" class="results resultsshadow borderradius")
 					form(action="/createdepartment" method="post")
 						div(class="textentry")
@@ -962,6 +952,18 @@ block content
 						}
 					}
 				}
+
+				var errormessagedept = #{errormessagedept};
+				var successmessagedept = #{successmessagedept};
+				if errormessagedept != null || successmessagedept != null{
+						$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left);
+						console.log("section createdept");
+						//$("#createLab").val("vennsettings");
+						$('#vennSettings').hide();
+						$('#createDept').show();
+						$('#createLab').hide();
+						$('#editLab').hide();
+						}
 			}
 			$('.addvenn').click(function() {
 			console.log("clicked");
