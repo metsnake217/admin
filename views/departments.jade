@@ -377,9 +377,6 @@ block content
 					}
 					
 				})
-				$( document ).ready(function() {
-					//$( ".fa-envelope:visible" ).click(function() {$( this ).removeClass( "fa-envelope" );$( this ).addClass( "fa-envelope-open" );});
-				});
 
 				$(".setlab").change(function(){
 					console.log("here: " + $(this).val());
@@ -937,4 +934,15 @@ block content
 			}
 			$('.addvenn').click(function() {
 			console.log("clicked");
+			});
+
+			$( document ).ready(function() {
+			console.log("checkedstrDept: " + #{checkedstrDept});
+			var checkedstrDept = "#{checkedstrDept}";
+			if(checkedstrDept == "true"){
+				console.log("show department");
+				$("#createDept").show();
+				$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left);
+			}
+				//$( ".fa-envelope:visible" ).click(function() {$( this ).removeClass( "fa-envelope" );$( this ).addClass( "fa-envelope-open" );});
 			});
