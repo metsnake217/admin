@@ -770,10 +770,10 @@ block content
 
 								td = document.createElement("td");
 
-								i0.onclick = function () {
+								i2.onclick = function () {
 								
 
-								var addvenn = $(this).find(".addvenn");
+								var addvenn = $(this).prev("input");
 								console.dir(addvenn);
 								var checked = addvenn.is(':checked');
 								console.log("clicked advenn - checked is: " + checked);
