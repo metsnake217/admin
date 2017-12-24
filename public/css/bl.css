@@ -9,6 +9,11 @@
   -webkit-font-smoothing: antialiased;
 }
 
+#rankTblload_length{
+      position: relative;
+    z-index: 100;
+}
+
 .btn:focus {
     background-color: #2975b4;
 }
