@@ -436,7 +436,7 @@ block content
 				};
 				
 				console.debug("selected: " + $('#createSelect').val());
-
+				var section = "${section}";
 				if(eSelect.selectedIndex === 1 || $('#createSelect').val() == 'createDept') {
 					console.log("createDept inside");
 					$('#createDept').show();
@@ -469,7 +469,7 @@ block content
 					$('#createLab').hide();
 					$('#createSelect').css('background-color', '#3d9dcb'); 
 					$(window).scrollTop($('#editLab').offset().top - 100).scrollLeft($('#editLab').offset().left); 
-				} else if(section != undefined && section == "all" && (eSelect.selectedIndex === 0 || $('#createSelect').val() == 'createNone')) {
+				} else if(section == "all" && (eSelect.selectedIndex === 0 || $('#createSelect').val() == 'createNone')) {
 					console.log("create None inside");
 					$('#createLab').hide();
 					$('#createDept').hide();
