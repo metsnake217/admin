@@ -821,11 +821,30 @@ block content
 								if(checkdis == 1){
 									idis.setAttribute('checked',"checked");
 								}
-								td = document.createElement("td");
+
+								var j0 = document.createElement("div");
+								j0.setAttribute('class',"checkboxThree1");
+								j0.setAttribute('style',"left: 10px;");
+								var j1 = document.createElement("input");
+								j1.setAttribute('style',"position:absolute;left: -9999px;");
+								j1.setAttribute('id',"disablelab"+prop);
+								j1.setAttribute('type',"checkbox");
+								j1.setAttribute('value',"disablelab");
+								j1.setAttribute('name',"disablelab");
+								j1.setAttribute('class',"disablelab");
+								if(checkdis == 1){
+									j1.setAttribute('checked',"checked");
+								}
+								var j2 = document.createElement("label");
+								j2.setAttribute('class',"labelcheck1 shadow");
+								j2.setAttribute('for',"disablelab" + prop);
+								j0.appendChild(j1);
+								j0.appendChild(j2);
+
 
 								tdis = document.createElement("td");
 
-								idis.onclick = function () {
+								j1.onclick = function () {
 								console.log("clicked disable");
 								var disablelab = $(this);
 								var checkedis = disablelab.is(':checked');
@@ -862,7 +881,7 @@ block content
 								}
 
 								}
-								fdis.appendChild(idis);
+								fdis.appendChild(j0);
 								
 
 								i = document.createElement("input");
