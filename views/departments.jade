@@ -252,12 +252,11 @@ block content
 
 						div(class="table-responsive" id="table")                
 							table(id="rankTblload" class="table rankTbl")
-								thead
-									tr(class="you info-best" style="font-weight: bold")
-										td(class="wrapped") Lab
-										td(class="wrapped") Admin
-										td(class="wrapped") Isvenn
-										td(class="wrapped") Disable
+								thead(class="you info-best" style="font-weight: bold")
+									th(class="wrapped") Lab
+									th(class="wrapped") Admin
+									th(class="wrapped") Isvenn
+									th(class="wrapped") Disable
 								tbody(id="vennbody")
 
 					div(class="buttons" style="")
@@ -751,7 +750,6 @@ block content
 
 								var i0 = document.createElement("div");
 								i0.setAttribute('class',"checkboxThree1");
-								i0.setAttribute('style',"left: 10px;");
 								var i1 = document.createElement("input");
 								i1.setAttribute('style',"position:absolute;left: -9999px;");
 								i1.setAttribute('id',"addvenn"+prop);
@@ -824,7 +822,6 @@ block content
 
 								var j0 = document.createElement("div");
 								j0.setAttribute('class',"checkboxThree1");
-								j0.setAttribute('style',"left: 10px;");
 								var j1 = document.createElement("input");
 								j1.setAttribute('style',"position:absolute;left: -9999px;");
 								j1.setAttribute('id',"disablelab"+prop);
