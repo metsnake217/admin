@@ -953,9 +953,8 @@ block content
 					}
 				}
 
-				var errormessagedept = #{errormessagedept};
-				var successmessagedept = #{successmessagedept};
-				if errormessagedept != null || successmessagedept != null{
+					var checkedstrDept = "#{checkedstrDept}";
+					if(checkedstrDept == "true"){
 						$(window).scrollTop($('#createDept').offset().top - 100).scrollLeft($('#createDept').offset().left);
 						console.log("section createdept");
 						//$("#createLab").val("vennsettings");
