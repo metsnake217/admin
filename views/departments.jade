@@ -802,11 +802,12 @@ block content
 								}
 								actioncancelVenn.onclick = function(){
 								console.log("cancelled addvenn click: " +  checked);
-								if(checked){
+								addvenn.prop('checked', checked);
+								/*if(checked){
 								addvenn.prop('checked', false);
 								} else {
 								addvenn.prop('checked', true);
-								}
+								}*/
 								iosLightExit();
 								}
 
@@ -846,9 +847,9 @@ block content
 
 								tdis = document.createElement("td");
 
-								j1.onclick = function () {
+								j2.onclick = function () {
 								console.log("clicked disable");
-								var disablelab = $(this).find(".disablelab");;
+								var disablelab = $(this).prev("input");;
 								var checkedis = disablelab.is(':checked');
 								var disablelabText = document.getElementById("disablelabText");
 								if(checkedis){
@@ -875,11 +876,12 @@ block content
 								disablelab.closest('form').submit();
 								}
 								actioncancelDisable.onclick = function(){
-								if(checkedis){
+								disablelab.prop('checked', checkedis);
+								/*if(checkedis){
 								disablelab.prop('checked', false);
 								} else {
 								disablelab.prop('checked', true);
-								}
+								}*/
 								iosLightExitDis();
 								}
 
