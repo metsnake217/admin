@@ -14,7 +14,7 @@
 }
 .btn50{
   width: 50% !important;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 #queryText:focus{
   border:1px solid #ccc !important;
