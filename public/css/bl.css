@@ -188,7 +188,7 @@ td.tduser:first-of-type{
   /*cursor: pointer;*/
   display: block;
   padding: 15px 10px;
-  margin: 25px 0 0px 0; /*50px 0 25px 0;*/
+  margin: 10px 0 0px 0; /*50px 0 25px 0;*/
 
     width: 24.2%;
     margin-left: 5px;
@@ -196,7 +196,7 @@ td.tduser:first-of-type{
     position: relative;
     float: left;
     /*border-top: 1px solid #dfdfdf;*/
-    height: 270px; /*280pt*/
+    height: 300px; /*280pt*/
     border-radius: 8px;
 }
 
