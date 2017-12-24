@@ -12,6 +12,9 @@
 .btn:focus {
     background-color: #2975b4;
 }
+.btn50{
+  width: 50%;
+}
 #queryText:focus{
   border:1px solid #ccc !important;
   -webkit-box-shadow: none;
@@ -3067,7 +3070,7 @@ input:-webkit-autofill:hover {
 }
 .btn{
     outline: none !important;
-    width: 50%;
+    width: 100%;
 }
 .accountdetail{
     margin-bottom:25px;
