@@ -9,6 +9,9 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.btn:focus {
+    background-color: #2975b4;
+}
 #queryText:focus{
   border:1px solid #ccc !important;
   -webkit-box-shadow: none;
