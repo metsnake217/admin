@@ -81,8 +81,12 @@ block content
                                 - if(lab == ob[prop].lab)
                                   - checkedstrLab = true
                                   script.
-                                    $(".selectlab"+${prop}).attr("data-search", ${lab})
-                                    console.log("selectlab" + ${prop});
+                                    var prop = "${prop}";
+                                    var lab = "${lab}";
+                                    console.log("selectlab prop: " + prop);
+                                    console.log("selectlab: " + lab);
+                                    $(".selectlab"+prop).attr("data-search", lab)
+                                    
                                     
                                 option(value=lab selected=(checkedstrLab===true ? "selected" : undefined)) #{lab}
 
