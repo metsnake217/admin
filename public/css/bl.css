@@ -1376,6 +1376,12 @@ margin-bottom: 50px;width:30%;float:right;
     background-color: rgba(41, 117, 180, 0.81); border-radius: 10px; color: white !important; padding-top: 5px; padding-bottom: 5px;
 }
 
+@media (max-width: 1331px) {
+.card-list-table tbody tr{
+      width: 24.1%;
+}
+}
+
 @media (max-width: 1200px) {
     .card-list-table tbody tr {
         width: 32.2%;
