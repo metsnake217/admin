@@ -70,7 +70,7 @@ block content
                       td(class="tduser") #{ob[prop].id}
                       td(class="wrapped desktabonly tduser" data-title="Name") #{ob[prop].name}
                       td(class="desktabonly tduser" data-title="Surname") #{ob[prop].surname}
-                      td(class="wrapped tduser" data-title="Lab")
+                      td(class="wrapped tduser selectlab"+prop data-title="Lab" data-search="")
                         form(action="/transferusertolab" method="post" id="transform")
                           select(name="labnameedit" type="text" id="labnameedit" class="form-control labnameedit" style="border-color:#3d9dcb;/*margin-bottom:10px*/" placeholder="Lab")
                             option(value"selectlabnameedit")="Select a Lab"
@@ -80,7 +80,12 @@ block content
                                 - var checkedstrLab = false;
                                 - if(lab == ob[prop].lab)
                                   - checkedstrLab = true
+                                  script.
+                                    $(".selectlab"+prop).attr("data-search", "${lab}")
+                                    console.log("selectlab" + prop);
+                                    
                                 option(value=lab selected=(checkedstrLab===true ? "selected" : undefined)) #{lab}
+
                           input(type="hidden" name="id" value=ob[prop].id)
                           input(type="hidden" name="name" value=ob[prop].name)
                           input(type="hidden" name="surname" value=ob[prop].surname)
