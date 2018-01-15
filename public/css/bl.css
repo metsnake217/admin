@@ -159,14 +159,17 @@ td.tduser:first-of-type{
     top: -78px;
     display: inline-block;
     color: #3d9dcb66; /*#f0ece7;*/
+    color:rgba(61, 157, 203, 0.4);
     /*height: 10px;*/
  }
 
  .tdadmins{
     background-color: #886b3c61 !important;
+    background-color: rgba(136, 107, 60, 0.3803921568627451) !important;
  }
  .tdsuperadmins{
     background-color: #2572b67a !important;
+    background-color: rgba(37, 114, 182, 0.47843137254901963) !important;
  }
  .tdadmin:before {
     color: #ded1bf !important; /*#d2c6b5*/
